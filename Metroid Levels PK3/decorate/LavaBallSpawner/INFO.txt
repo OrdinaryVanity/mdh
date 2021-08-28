@@ -1,0 +1,8 @@
+Type: Balls of lava
+Connections: None
+Spawn Offsets: Arguments
+Documentation: Yes
+Spawn Ceiling: No
+Variants: 1
+Summon: LavaBallSpawner
+ACS: No

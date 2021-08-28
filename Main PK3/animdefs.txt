@@ -1,0 +1,114 @@
+texture N_WFAL01
+pic 1 tics 6
+pic 2 tics 6
+pic 3 tics 6
+pic 4 tics 6
+
+//NEW HUD ANIMS
+
+texture POWRCB01//Power Missile
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+
+texture WIDECB01//Wide Shot
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+
+texture SOLRCB01//Solar Flare
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+
+texture WAVECB01//Wave Missile
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+
+texture ICEYCB01//Ice Spreader
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+
+texture NOVACB01//Nova Flash
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+
+texture CHRMCB01//Hyper Beam Ready
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+pic 5 tics 2
+pic 6 tics 2
+pic 7 tics 2
+pic 8 tics 2
+pic 9 tics 2
+pic 10 tics 2
+pic 11 tics 2
+pic 12 tics 2
+pic 13 tics 2
+pic 14 tics 2
+pic 15 tics 2
+pic 16 tics 2
+pic 17 tics 2
+pic 18 tics 2
+pic 19 tics 2
+pic 20 tics 2
+pic 21 tics 2
+pic 22 tics 2
+pic 23 tics 2
+pic 24 tics 2
+
+texture DOOMCB01//Chainsaw Beam Ready
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+pic 5 tics 2
+pic 6 tics 2
+pic 7 tics 2
+pic 8 tics 2
+pic 9 tics 2
+pic 10 tics 2
+pic 11 tics 2
+pic 12 tics 2
+
+// Charge Level Meter
+
+texture CHRBAR01 //Full Charge
+pic 2 tics 1
+pic 3 tics 1
+pic 4 tics 1
+pic 5 tics 1
+pic 6 tics 1
+pic 7 tics 1
+pic 8 tics 1
+pic 9 tics 1
+pic 10 tics 1
+
+// Vertical Charge Level Meter
+
+texture VT3CHB01 //Full Charge
+pic 2 tics 1
+pic 3 tics 1
+pic 4 tics 1
+pic 5 tics 1
+pic 6 tics 1
+pic 7 tics 1
+pic 8 tics 1
+pic 9 tics 1
+pic 10 tics 1
+
+//Camera Texture for Scan Visor
+cameratexture SCVSTEX1 256 128 //fit 80 56
+
+Warp Texture HPROCRTQ

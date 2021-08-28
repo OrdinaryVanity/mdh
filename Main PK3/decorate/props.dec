@@ -1,0 +1,303 @@
+ACTOR DeadScientistA 17831
+{
+//$Category Metroid
+    +NOINTERACTION
+    States
+    {
+    Spawn:
+        SCIE A -1
+        stop
+    }
+}
+
+ACTOR DeadScientistB 17832
+{
+//$Category Metroid
+    +NOINTERACTION
+    States
+    {
+    Spawn:
+        SCIE B -1
+        stop
+    }
+}
+
+ACTOR DeadScientistC 17833
+{
+//$Category Metroid
+    +NOINTERACTION
+    States
+    {
+    Spawn:
+        SCIE C -1
+        stop
+    }
+}
+
+ACTOR DeadScientistD 17834
+{
+//$Category Metroid
+    +NOINTERACTION
+    Scale 0.9
+    States
+    {
+    Spawn:
+        SCIE D -1
+        stop
+    }
+}
+
+actor BigFireEnviroSpawner 17835
+{
+    Height 1
+    Radius 1
+    +NOINTERACTION
+    -SOLID
+    states
+    {
+    Spawn:
+        TNT1 A 1
+        TNT1 A 1
+    Spawn1:
+        TNT1 A 0 A_JumpIfInventory("Health200",4,"Spawn2")
+        TNT1 A 2 A_SpawnItemEx("BigFireRise", Random(-200,200)/100.00, Random(-600,600)/100.00, Random(-200,400)/100.00, 0, 0, Random(0,100)/100.00, 0, 150)
+        TNT1 A 0 A_SpawnItemEx("BigFireRise5", Random(-600,600)/100.00, Random(-600,600)/100.00, Random(-200,400)/100.00, 0, 0, Random(100,200)/100.00, 0, 150)
+        TNT1 A 2 A_SpawnItemEx("BigFireRise8", Random(-400,400)/100.00, Random(-600,600)/100.00, Random(-200,400)/100.00, 0, 0, Random(100,200)/100.00, 0, 150)
+        TNT1 AA 2 A_SpawnItemEx("BigFireRise4", Random(-400,400)/100.00, Random(-400,400)/100.00, Random(0,200)/100.00, 0, 0, Random(100,200)/100.00, 0, 0)
+        TNT1 AA 0 A_SpawnItemEx("BigFireRise4", Random(-400,400)/100.00, Random(-400,400)/100.00, Random(0,200)/100.00, 0, 0, Random(100,200)/100.00, 0, 0)
+        TNT1 A 2 A_SpawnItemEx("BigFireRise2", Random(-600,600)/100.00, Random(-600,600)/100.00, Random(-200,600)/100.00, 0, 0, Random(100,200)/100.00, 0, 150)
+        TNT1 A 0 A_SpawnItemEx("BigFireRise6", Random(-600,600)/100.00, Random(-600,600)/100.00, Random(-200,600)/100.00, 0, 0, Random(100,200)/100.00, 0, 150)
+        TNT1 AA 2 A_SpawnItemEx("BigFireRise4", Random(-400,400)/100.00, Random(-400,400)/100.00, Random(0,200)/100.00, 0, 0, Random(100,200)/100.00, 0, 0)
+        TNT1 A 2 A_SpawnItemEx("BigFireRise3", Random(-600,600)/100.00, Random(-600,600)/100.00, Random(-200,600)/100.00, 0, 0, Random(100,200)/100.00, 0, 150)
+        TNT1 A 0 A_SpawnItemEx("BigFireRise7", Random(-200,200)/100.00, Random(-600,600)/100.00, Random(-200,600)/100.00, 0, 0, Random(100,200)/100.00, 0, 150)
+        TNT1 A 2 A_SpawnItemEx("BigFireRise9", Random(-600,600)/100.00, Random(-600,600)/100.00, Random(-200,600)/100.00, 0, 0, Random(100,200)/100.00, 0, 150)
+        TNT1 AA 0 A_SpawnItemEx("BigFireRise4", Random(-400,400)/100.00, Random(-400,400)/100.00, Random(0,200)/100.00, 0, 0, Random(100,200)/100.00, 0, 0)
+        TNT1 AA 2 A_SpawnItemEx("BigFireRise4", Random(-400,400)/100.00, Random(-400,400)/100.00, Random(0,200)/100.00, 0, 0, Random(100,200)/100.00, 0, 0)
+        //TNT1 A 0 A_Jump(16,"Spawn2")
+        TNT1 A 0 A_GiveInventory("Health200",1)
+        loop
+    Spawn2:
+        TNT1 A 0 
+        TNT1 A 0 A_TakeInventory("Health200",200)//A_SpawnItemEx("BigFireSpawner",0,0,0,random(-100,100)/100.00,random(-100,100)/100.00,0,random(-180,180),48)//A_CustomMissile("BigFireSpawner",0,0,random(-180,180),7,0)
+        goto Spawn
+    }
+}
+
+actor ExplosionProp : MissileExplosionSmall
+{
+    Radius 1
+    Height 1
+    +NOINTERACTION
+    Alpha 0.95
+    Scale 0.85
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        TNT1 A 0 Radius_Quake(1,15,0,8,0)
+        TNT1 A 0 A_PlayWeaponSound("missile/hit")
+        TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5","Spawn6","Spawn7")
+        TNT1 A 1
+        stop
+    }
+}
+
+actor ExplosionProp2 : MissileExplosionSmall
+{
+    Radius 1
+    Height 1
+    +NOINTERACTION
+    Alpha 0.95
+    Scale 0.85
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        TNT1 A 0 Radius_Quake(1,15,0,8,0)
+        TNT1 A 0 A_PlayWeaponSound("supermissile/hit")
+        TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5","Spawn6","Spawn7")
+        TNT1 A 1
+        stop
+    }
+}
+
+Actor ChozoStatue1 18664
+{
+//$Category Metroid
++SOLID
+Height 64
+Radius 50
+
+Tag "Chozo Statue"
+
+States {
+	Spawn:
+		CHO1 A -1
+		stop
+		}
+}
+
+ACTOR AbstractCrate {
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+SLIDESONWALLS
+	+TELESTOMP
+	+NOICEDEATH
+}
+
+ACTOR Crate_GF : AbstractCrate 3881 
+{
+//$Category Metroid
+	Health 25
+	Speed 0
+	Height 64
+	Radius 32
+	
+	Tag "Galactic Federation Crate"
+	
+	States {
+		Spawn:
+			CRT1 A -1
+			loop
+		Death:
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionSmall",0,0,0,0,0,0,0,160)
+			TNT1 A 0 A_SpawnItemEx("MissileExplosionLarge",0,0,0,0,0,0,0,160)
+			TNT1 A 0 A_SpawnItemEx("EnemyDropSpawner",0,0,0,0,0,0,0,160)
+			stop
+	}
+}
+
+Actor Crate1 : AbstractCrate 13004 
+{
+//$Category Metroid
+	Health 25
+	Height 53
+	Radius 32
+	States {
+		Spawn:
+			CRT1 A -1
+			loop
+		Death:
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionSmall",0,0,0,0,0,0,0,160)
+			TNT1 A 0 A_SpawnItemEx("MissileExplosionLarge",0,0,0,0,0,0,0,160)
+			TNT1 A 0 A_SpawnItemEx("EnemyDropSpawner",0,0,0,0,0,0,0,160)
+			stop
+	}
+}
+
+Actor Crate1_big : Crate1 13006 {
+//$Category Metroid
+	Health 40
+	Height 53
+	Radius 32
+}
+
+Actor Crate1_small : Crate1 13007 {
+//$Category Metroid
+	Health 15
+	Height 27
+	Radius 16
+}
+
+Actor Crate2 : AbstractCrate 13005 {
+//$Category Metroid
+	Health 25
+	Height 53
+	Radius 32
+	States {
+		Spawn:
+			CRT2 A -1
+			loop
+		Death:
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionSmall",0,0,0,0,0,0,0,160)
+			TNT1 A 0 A_SpawnItemEx("MissileExplosionLarge",0,0,0,0,0,0,0,160)
+			TNT1 A 0 A_SpawnItemEx("EnemyDropSpawner",0,0,0,0,0,0,0,160)
+			stop
+	}
+}
+
+Actor Crate2_big : Crate2 13008 {
+//$Category Metroid
+	Health 40
+	Height 64
+	Radius 32
+}
+
+Actor Crate2_small : Crate2 13009 {
+//$Category Metroid
+	Health 15
+	Height 32
+	Radius 16
+}
+
+ACTOR SpacePirateDead 13010
+{
+//$Category Metroid
+    +FLOORCLIP
+    Scale 0.9
+	
+	Tag "Dead Space Pirate"
+	
+    States
+    {
+    Spawn:
+        PIRT K -1
+        stop
+    }
+}
+
+Actor Platform1 13012
+{
+//$Category Metroid
+	+SOLID
+	+NOGRAVITY
+	+FLOAT
+	Radius 80
+	States 
+	{
+		Spawn:
+			TNT1 A 0
+			PFM1 A -1
+			stop
+	}
+}
+
+Actor IcePlatform 13013
+{
+//$Category Metroid
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+	Radius 130
+	Height 120
+	States 
+	{
+		Spawn:
+			TNT1 A 0
+			IPF1 A -1
+			stop
+	}
+}
+
+Actor SecCam1 13014
+{
+//$Category Metroid
+	+SOLID
+	+NOGRAVITY
+	Radius 8
+	Height 10
+	
+	Tag "Security Camera"
+	
+	States 
+	{
+		Spawn:
+			TNT1 A 0
+			SCM1 A -1
+			stop
+	}
+}
+	
+	
+	

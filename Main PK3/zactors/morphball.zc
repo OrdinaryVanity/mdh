@@ -1,0 +1,481 @@
+Class MorphBallPlayer : PlayerPawn
+{
+	
+	Default
+	{
+		Radius 8;
+		Height 12;
+		Gravity 0.5;
+		XScale 0.25;
+		YScale 0.22;
+		Player.JumpZ 0.01;
+		MaxStepHeight 12;
+		Player.Viewheight 21;
+		Player.ForwardMove .4, .4;
+		Player.SideMove 0.2, 0.2;
+		DamageFactor "NoDamage", 0.0;
+		DamageFactor "Drowning", 0.0;
+		DamageFactor "Normal", 0.75;
+		DamageFactor "Lava", 1;
+		RadiusDamageFactor 0.95;
+		Player.StartItem "BombCount", 3;
+		Player.SoundClass "MoBall";
+		Player.DisplayName "MorphBall";
+		Player.MorphWeapon "Bombs";
+		//Player.ColorRange 16,47;
+		+PICKUP;
+		+NOSKIN;
+		+DOOMBOUNCE;
+		+NOBLOOD;
+		-THRUSPECIES;
+		-FORCEXYBILLBOARD;
+	
+		Species "Player";
+	}
+	
+	//Player overrides for water
+	
+	int oldwaterlevel;
+	bool GravitySuitAcquired;
+	bool IsMorphBall;
+	
+	Override void PostBeginPlay()
+	{
+		oldwaterlevel = 0;
+		GravitySuitAcquired = false;
+		IsMorphBall = false;
+		Super.PostBeginPlay();
+	}
+	
+	Override void MovePlayer ()
+	{
+      let player = self.player;
+      UserCmd cmd = player.cmd;
+      // [RH] 180-degree turn overrides all other yaws
+      if (player.turnticks)
+      {
+         player.turnticks--;
+         Angle += (180. / TURN180_TICKS);
+      }
+      else
+      {
+         Angle += cmd.yaw * (360./65536.);
+      }
+
+      player.onground = (pos.z <= floorz) || bOnMobj || bMBFBouncer || (player.cheats & CF_NOCLIP2);
+
+	  if (!oldwaterlevel)
+	  {
+		oldwaterlevel = 0;
+	  }
+	  
+      else if ((!GravitySuitAcquired && waterlevel>1) & !player.onground & (player.jumptics <= -18 || player.jumptics == 0))
+      {
+		 Vel.Z-=Gravity/2*Speed;
+      }
+	  
+	  else if ((GravitySuitAcquired && waterlevel>1) & !player.onground & (player.jumptics <= -16 || player.jumptics == 0))
+      {
+		 Vel.Z-=Speed;
+		 //Vel.Z -= Speed * Gravity / .85;
+      } 
+	  
+      if (waterlevel<=2 && oldwaterlevel==3)
+	  {
+         A_PlaySound("player/surface",CHAN_BODY);
+	  }
+	  
+      if (waterlevel>=1 && oldwaterlevel==0)
+	  {
+         A_PlaySound("player/splash",CHAN_BODY);
+	  }
+		 
+      oldwaterlevel = waterlevel;
+     
+      // killough 10/98:
+      //
+      // We must apply thrust to the player and bobbing separately, to avoid
+      // anomalies. The thrust applied to bobbing is always the same strength on
+      // ice, because the player still "works just as hard" to move, while the
+      // thrust applied to the movement varies with 'movefactor'.
+
+      if (cmd.forwardmove | cmd.sidemove)
+      {
+         double forwardmove, sidemove;
+         double bobfactor;
+         double friction, movefactor;
+         double fm, sm;
+
+         [friction, movefactor] = GetFriction();
+         bobfactor = friction < ORIG_FRICTION ? movefactor : ORIG_FRICTION_FACTOR;
+         if (!player.onground && !bNoGravity && !waterlevel)
+         {
+			   //[R4L] This keeps movement normal when jumping above water.
+			   movefactor *= level.aircontrol;
+               bobfactor*= level.aircontrol;
+         }
+		 
+		 else if ((waterlevel>2 && !GravitySuitAcquired) & !IsMorphBall || IsMorphBall)
+         {
+			   // [RH] allow very limited movement if not on ground or in water.
+			   // [R4L] double the power. water is slow in metroid.
+               movefactor *= level.aircontrol * 2;
+               bobfactor*= level.aircontrol * 2;
+         }
+		 
+		 else if ((waterlevel>2 && GravitySuitAcquired) & !IsMorphBall || IsMorphBall)
+         {
+			   // [R4L] Default back to normal without water friction.
+			   // Need to get original friction! This works for now.
+			   level.aircontrol *= 1;
+		 	   movefactor *= 1;
+               bobfactor *= 1;
+         }
+
+         fm = cmd.forwardmove;
+         sm = cmd.sidemove;
+         [fm, sm] = TweakSpeeds (fm, sm);
+         fm *= Speed / 256;
+         sm *= Speed / 256;
+
+         // When crouching, speed and bobbing have to be reduced
+         if (CanCrouch() && player.crouchfactor != 1)
+         {
+            fm *= player.crouchfactor;
+            sm *= player.crouchfactor;
+            bobfactor *= player.crouchfactor;
+         }
+		 
+		 else if (waterlevel>2 && GravitySuitAcquired)
+         {
+			   // [RH] allow very limited movement if not on ground or in water.
+			   // [R4L] double the power. water is slow in metroid.
+            fm *= 2;
+            sm *= 2;
+            bobfactor *= 2;
+         }
+
+         forwardmove = fm * movefactor * (35 / TICRATE);
+         sidemove = sm * movefactor * (35 / TICRATE);
+
+         if (forwardmove)
+         {
+            Bob(Angle, cmd.forwardmove * bobfactor / 256., true);
+            ForwardThrust(forwardmove, Angle);
+         }
+         if (sidemove)
+         {
+            let a = Angle - 90;
+            Bob(a, cmd.sidemove * bobfactor / 256., false);
+            Thrust(sidemove, a);
+         }
+
+         if (!(player.cheats & CF_PREDICTING) && (forwardmove != 0 || sidemove != 0))
+         {
+            PlayRunning ();
+         }
+
+         if (player.cheats & CF_REVERTPLEASE)
+         {
+            player.cheats &= ~CF_REVERTPLEASE;
+            player.camera = player.mo;
+         }
+      }
+   }   
+	
+	Override void CheckJump()
+	{
+		let player = self.player;
+		
+		if (player.cmd.buttons & BT_JUMP)
+		{
+			if (player.crouchoffset != 0)
+			{
+				// Un-crouch if player tries to jump
+				player.crouching = 1;
+			}
+			
+			else if ((!GravitySuitAcquired && waterlevel > 1) || bFly || (player.cheats & CF_NOCLIP2))
+			{
+				//[R4L] Make jumps slower.
+				Vel.Z -= JumpZ/4;
+				player.jumpTics = 0;
+			}
+			
+			else if (bNoGravity)
+			{
+				//set player's Z velocity to smaller value
+				Vel.Z = 3.0;
+			}
+			else if (level.IsJumpingAllowed() && player.onground && player.jumpTics == 0)
+			{
+				double jumpvelz = JumpZ * 35 / TICRATE;
+				double jumpfac = 0;		
+				
+				if (GravitySuitAcquired && waterlevel > 1)
+				{
+					if (CheckInventory("HiJumpAcquired", 1))
+					{
+						//JumpZ = JumpZ*1.5;
+						//Vel.Z += JumpZ;
+						//player.jumpTics = -1;
+					}
+				 
+				  //JumpZ = JumpZ;
+				  Vel.Z += JumpZ;
+				}
+				
+				//[BC] If the player has the high jump power, double his jump velocity.
+				//(actually, pick the best factors from all active items.)
+				for (let p = Inv; p != null; p = p.Inv)
+				{
+					let pp = PowerHighJump(p);
+					if (pp)
+					{
+						double f = pp.Strength;
+						if (f > jumpfac) 
+						{
+							jumpfac = f;
+						}
+					}
+				}
+				
+				if (jumpfac > 0 || GravitySuitAcquired)
+				{
+					jumpvelz *= jumpfac;
+					Vel.Z += jumpvelz;
+					bOnMobj = false;
+					player.jumpTics = -1;
+				}
+				
+				if (!(player.cheats & CF_PREDICTING)) 
+				{
+					A_PlaySound("*jump", CHAN_BODY);
+				}
+			}
+			
+		}
+	}
+	
+	Override void CheckMoveUpDown()
+	{
+		let player = self.player;
+		UserCmd cmd = player.cmd;
+
+		if (cmd.upmove < -32768) // == -32768
+		{ // Only land if in the air
+			if (bNoGravity) //&& waterlevel < 2
+			{
+				bNoGravity = false;
+			}
+		}
+		else if (cmd.upmove != 0)
+		{
+			// Clamp the speed to some reasonable maximum.
+			cmd.upmove = clamp(cmd.upmove, -0x300, 0x300);
+			if (bFly || (player.cheats & CF_NOCLIP2)) //waterlevel >= 2 ||
+			{
+				//Vel.Z = Speed * cmd.upmove / 128.;
+				if (!bNoGravity) //waterlevel < 2 &&
+				{
+					bFly = true;
+					bNoGravity = true;
+					if ((Vel.Z <= -39) && !(player.cheats & CF_PREDICTING))
+					{ // Stop falling scream
+						A_StopSound(CHAN_VOICE);
+					}
+				}
+			}
+			else if (cmd.upmove > 0 && !(player.cheats & CF_PREDICTING))
+			{
+				let fly = FindInventory("ArtiFly");
+				if (fly != NULL)
+				{
+					UseInventory(fly);
+				}
+			}
+		}
+	}
+	
+	 void ForwardThrust (double move, double angle)
+   {
+      //Remove all references to waterlevel
+      if ((bNoGravity) && Pitch != 0 && !player.GetClassicFlight())
+      {
+         double zpush = move * sin(Pitch);
+         Vel.Z -= zpush;
+         move *= cos(Pitch);
+      }
+      Thrust(move, angle);
+   }
+   
+    Override void tick() {
+	  
+	  if (CheckInventory("GravitySuitAcquired", 1))
+	  {
+		GravitySuitAcquired = true;
+	  }
+	  
+	  else
+	  {
+		GravitySuitAcquired = false;
+	  }
+	  
+	 // if (GetClassName() == "MorphBallPlayer" || GetClassName() == "MorphBallPlayerDM")
+	  //{
+	//	IsMorphBall = true;
+	 // }
+	  
+	 // else
+	 // {
+	//	IsMorphBall = false;
+	 // }
+	  
+	  JumpZ = JumpZ;
+      //if (waterlevel >=2 && !player.onground)
+         //if (Vel.Z >-6)
+           // Vel.Z-=Gravity/2;
+      Super.tick();
+   }
+	
+    States
+    {
+      Spawn:
+        TNT1 A 0 A_TakeInventory("BoostBallWeakness",1);
+        MARU A 1 A_TakeInventory("BallBoosting",1);
+        loop;
+        
+      See:
+        TNT1 A 0 A_TakeInventory("BoostBallWeakness",1);
+		TNT1 A 0 {
+			if (self.player.cmd.forwardmove > 0)
+			{
+				return ResolveState("See2");
+			}
+			
+			else
+			{
+				return ResolveState(null);
+			}
+		}
+		MARU FFEEDDCCBBAA 1 A_TakeInventory("BallBoosting",1);
+        Loop;
+		
+	  See2:
+		TNT1 A 0 A_TakeInventory("BoostBallWeakness",1);
+		MARU BBCCDDEEFFAA 1 A_TakeInventory("BallBoosting",1);
+		Goto See;
+        
+      Pain:
+        TNT1 A 0;
+        TNT1 A 0 A_GiveToTarget("MetroidHitIndicator",1);
+        TNT1 A 0 A_Stop;
+        TNT1 A 0 A_PlaySound("moball/hurt",CHAN_VOICE);//A_Pain - Not sure why A_Pain doesn't work, but.
+        MARU A 2 A_Recoil(2);
+        MARU A 2 A_Recoil(2);
+        goto See;
+        
+      Pain.IceCombo:
+        TNT1 A 0;
+        TNT1 A 0 A_GiveToTarget("MetroidHitIndicator",1);
+        TNT1 A 0 A_PlaySoundEx("ibeam/chill","soundslot7");
+        TNT1 A 0 A_SetBlend("89D5FF",0.5,175);
+        TNT1 A 0 ACS_ExecuteAlways(594,0,1,0,0);
+        Goto See;
+        
+      Death:
+        TNT1 A 0;
+        TNT1 A 0 A_GiveToTarget("MetroidHitIndicator",1);
+        MARU A 1 A_PlayerScream;
+        TNT1 A 0 A_SpawnItemEx("EnemyDropSpawner",0,0,10,0,0,0,0,32);
+        TNT1 A 0 A_SpawnItemEx("BombExplode",0,0,0,0,0,0,0,160);
+        TNT1 A 0 A_SpawnItemEx("BombExplodeSmaller",0,0,0,0,0,0,0,160);
+        TNT1 AA 0 A_SpawnItemEx("MissileExplosionSmall",0,0,0,0,0,0,0,160);
+        TNT1 AAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("MorphBallGas",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-300,300)/100.00,random(-300,300)/100.00,random(100,600)/100.00,random(-180,180),32);
+        TNT1 AAAA 0 A_SpawnItemEx("MorphBallPart1",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAA 0 A_SpawnItemEx("MorphBallPart2",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAAA 0 A_SpawnItemEx("MorphBallPart3",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAA 0 A_SpawnItemEx("MorphBallPart4",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAAA 0 A_SpawnItemEx("MorphBallPart5",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAA 0 A_SpawnItemEx("MorphBallPart6",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAAA 0 A_SpawnItemEx("MorphBallPart7",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAA 0 A_SpawnItemEx("MorphBallPart8",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        MARU A 1 A_NoBlocking;
+        NOPE A -1;
+        Stop;
+        
+      BoostBall:
+        TNT1 A 0;
+        TNT1 A 0 A_GiveInventory("BallBoosting",1);
+        TNT1 A 0 A_SpawnItemEx("BoostBallDamage",64,0,0,0,0,0,0,48);
+        MARU A 1 BRIGHT A_SpawnItemEx("BoostBallTrail",0,0,0,0,0,0,0,161);
+        TNT1 A 0 A_SpawnItemEx("BoostBallDamage",64,0,0,0,0,0,0,48);
+        MARU C 1 BRIGHT A_SpawnItemEx("BoostBallTrail",0,0,0,0,0,0,0,161);
+        TNT1 A 0 A_SpawnItemEx("BoostBallDamage",64,0,0,0,0,0,0,48);
+        MARU E 1 BRIGHT A_SpawnItemEx("BoostBallTrail",0,0,0,0,0,0,0,161);
+        //TNT1 AA 0 A_SpawnItemEx("RainbowTrail",0,random(-12,12),random(5,46),0,0,0,0,SXF_CLIENTSIDE)
+        TNT1 A 0 A_CheckFloor("Spawn");
+        TNT1 A 0 A_JumpIf(vel.x == 0, "Spawn");
+        TNT1 A 0 A_JumpIf(vel.y == 0, "Spawn");
+        TNT1 A 0 A_JumpIf(vel.z == 0, "Spawn");
+        goto BoostBall;
+        
+      CoOpModeOn:
+        TNT1 A 0;
+        TNT1 A 0 { bTHRUSPECIES = true; }//A_ChangeFlag("THRUSPECIES",1);
+        MARU A 1;
+        goto Spawn;
+
+    Ice:
+    Death.Ice:
+    Death.IceBeam:
+    Death.IceCharged:
+    Death.IceBeamExplode:
+    Death.IceChargedExplode:
+    Death.IceCombo:
+        MARU A 1;
+        TNT1 A 0 A_NoBlocking;
+        TNT1 A 0 A_PlaySound("misc/freeze");
+        TNT1 A 0 A_StartSound("ibeam/freeze",CHAN_BODY,0,1.0,ATTN_NORM,0.0,0.0);
+        TNT1 A 0 A_SpawnItemEx("EnemyDropSpawner",0,0,10,0,0,0,0,32);
+        TNT1 A 0 A_SpawnItemEx("MorphBallFrozen",0,0,0,0,0,0,0,32);
+        NOPE A 1;
+        NOPE A -1;
+        Stop;
+    }
+}
+
+Class MorphBallPlayerDM : MorphBallPlayer
+{
+	Default
+	{
+		Radius 10;
+		Height 12;
+		ProjectilePassHeight 18;
+		DamageFactor "Normal", 0.85;
+		DamageFactor "PowerBeam", 0.9;
+		DamageFactor "PowerCharged", 1.1;
+		DamageFactor "SpazerBeam", 0.9;
+		DamageFactor "SpazerBeamCharged", 1.1;
+		DamageFactor "PlasmaBeam", 0.9;
+		DamageFactor "PlasmaCharged", 1.1;
+		DamageFactor "WaveBeam", 0.9;
+		DamageFactor "WaveCharged", 1.1;
+		DamageFactor "IceBeam", 0.9;
+		DamageFactor "IceCharged", 1.1;
+		DamageFactor "IceBeamExplode", 0.75;
+		DamageFactor "IceChargedExplode", 1.15;
+		DamageFactor "IceCombo", 2.00;
+		DamageFactor "LongBeam", 3.00;
+		DamageFactor "LongCharged", 3.50;
+		DamageFactor "DoomCannon", 1.1;
+		DamageFactor "DoomCombo", 1.1;
+		DamageFactor "Missile", 1.5;
+		DamageFactor "SuperMissile", 0.75;
+		DamageFactor "BoostBall", 1.1;
+		DamageFactor "Bomb", 0.9;
+		DamageFactor "PowerBomb", 0.55;
+		DamageFactor "SpeedBooster", 0.25;
+		RadiusDamageFactor 1.1;
+	}
+}

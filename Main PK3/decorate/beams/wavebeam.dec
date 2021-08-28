@@ -1,0 +1,1296 @@
+ACTOR "WaveBeam" : Weapon// replaces Chaingun
+{
+    Weapon.SelectionOrder 2000
+    Inventory.PickupMessage "Got the Wave Beam!"
+    Obituary "%k made %o ride the wave."
+
+    Weapon.AmmoType     "MissileAmmo"
+    Weapon.AmmoType2    "SuperMissileAmmo"
+    Weapon.AmmoUse1     0
+    Weapon.AmmoUse2     0
+
+    Weapon.SlotNumber 4
+
+    +NOALERT
+    +NOAUTOAIM
+    +NOAUTOFIRE
+    +NO_AUTO_SWITCH
+    +UNDROPPABLE
+ 
+	Weapon.BobRangeX 0.4
+	Weapon.BobRangeY 0.4
+	Weapon.BobSpeed 2.8
+	
+	Weapon.BobStyle "Inverse"
+ 
+    Inventory.Icon "WEAPWVBM"
+
+    States
+    {
+      Spawn:
+        SOUL A -1
+        Stop
+
+	  Ready:
+        WBEM A 0 ACS_ExecuteWithResult(476, 1)
+		TNT1 A 0 A_SetCrosshair(12)
+        goto Ready2
+		
+      Ready2:
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID A 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID A 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID B 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID B 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID D 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID D 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID C 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID C 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID B 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID B 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID D 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID D 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID A 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID A 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID D 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID D 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID A 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID A 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID D 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID D 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID C 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID C 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID D 1 A_WeaponReady
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 0), "Missile")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(METROID_DECORATE, 28, 1), "SuperMissile")
+			WBID D 1 A_WeaponReady
+			TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineBright")
+			TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive", 1,"D_RUNNIN")
+			Goto Ready
+
+	  Select:
+        TNT1 AAAAAAAAAAAAAAAAAAAA 0 A_Raise
+        WBEM A 1 A_Raise
+        loop
+
+	  Deselect:
+        WBEM A 0 ACS_ExecuteWithResult(476, 0)
+        TNT1 A 0 A_PlaySoundEx("beam/deselect","soundslot5")
+      Deselect2:
+        WBEM RSTUVW 1 A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH)
+        TNT1 A 0 A_JumpIfHealthLower(1, "DeadLower")
+        XBEM A 5 A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH)
+        TNT1 AAAAAAAAAAAAAAAAAAAA 0 A_Lower
+        XBEM A 0 A_Lower
+        loop
+
+      DeadLower:
+		XBEM A 1 A_Lower
+        loop
+
+	  Fire:
+        WBEM A 0 ACS_ExecuteWithResult(476, 0)
+        TNT1 A 0 A_JumpIfInventory("IceBeamChilled",1,"FireChilled")
+        TNT1 A 0 A_PlayWeaponSound("wbeam/fire")
+        TNT1 A 0 A_Recoil(0.05)
+        TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"FireCoop")
+        TNT1 A 0 A_FireCustomMissile("WaveBolt",random(-200,200)/100.00,0,12,-2,0,random(-50,50)/100.00)
+        goto FireFinish
+
+	  PreHold:
+		TNT1 A 0
+		TNT1 A 0 A_Refire
+		Goto Ready
+		
+	  FireCoop:
+        TNT1 A 0 A_FireCustomMissile("WaveBoltCoop",random(-200,200)/100.00,0,12,-2,0,random(-50,50)/100.00)
+      FireFinish:
+        TNT1 A 0 A_AlertMonsters
+        TNT1 A 0 A_Light2
+        WBEM B 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light1
+        WBEM C 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light0
+        WBEM D 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        WBEM E 1 A_WeaponReady(WRF_NOSWITCH)
+        WBEM EFFFEEGHA 1 A_WeaponReady(WRF_NOSWITCH)
+        WBEM A 6 A_WeaponReady(WRF_NOSWITCH)
+		TNT1 A 0 A_JumpIfInventory("ChargeBeamAcquired", 1, "PreHold")
+        //TNT1 A 0 A_Refire
+        Goto Ready
+
+	   FireChilled:
+        TNT1 A 0 A_PlayWeaponSound("wbeam/fire")
+        TNT1 A 0 A_Recoil(0.05)
+        TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ChilledCoop")
+        TNT1 A 0 A_FireCustomMissile("WaveBolt",random(-200,200)/100.00,0,12,-2,0,random(-50,50)/100.00)
+        goto ChilledFinish
+
+	  ChilledCoop:
+        TNT1 A 0 A_FireCustomMissile("WaveBoltCoop",random(-200,200)/100.00,0,12,-2,0,random(-50,50)/100.00)
+      ChilledFinish:
+        TNT1 A 0 A_AlertMonsters
+        TNT1 A 0 A_Light2
+        WBEM B 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light1
+        WBEM C 2 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light0
+        WBEM D 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        WBEM EEFFFEEGHA 2 A_WeaponReady(WRF_NOSWITCH)
+        WBEM A 6 A_WeaponReady(WRF_NOSWITCH)
+        TNT1 A 0 A_Refire
+        Goto Ready
+
+	  Hold:
+        TNT1 A 0 A_JumpIfInventory("PowerBeamCharged",1,"HoldFinal2")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",26,"Hold7")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",21,"Hold6")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",16,"Hold5")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",11,"Hold4")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",6,"Hold3")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",1,"Hold2")
+        TNT1 A 0 A_PlaySoundEx("pbeam/charge","soundslot5")
+      Hold2:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold2")
+        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold2")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM KK 1 BRIGHT A_SpawnItemEx("WaveBeamCharging1",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32)//A_FireCustomMissile("WaveBeamChargingSpawner1",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+      HoldFire:
+        TNT1 A 0
+		TNT1 A 0 A_JumpIfInventory("PowerBeamHalfCharged",1,"HalfShotHoldFinish")
+        TNT1 A 0 A_PlaySoundEx("silence","soundslot5")
+        TNT1 A 0 A_PlayWeaponSound("wbeam/fire")
+        TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25)
+        TNT1 A 0 A_ClearRefire
+        TNT1 A 0 A_Recoil(0.05)
+        TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"UnholdCoop")
+        TNT1 A 0 A_FireCustomMissile("WaveBolt",random(-200,200)/100.00,0,12,-2,0,random(-50,50)/100.00)
+        goto UnholdFinish
+
+      UnholdCoop:
+        TNT1 A 0 A_FireCustomMissile("WaveBoltCoop",random(-200,200)/100.00,0,12,-2,0,random(-50,50)/100.00)
+      UnholdFinish:
+		//TNT1 A 0 A_AlertMonsters
+        //TNT1 A 0 A_Light2
+        //ARMZ A 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        //TNT1 A 0 A_Light1
+        //ARMZ B 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        //TNT1 A 0 A_Light0
+        //ARMZ C 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        //ARMZ DDEEF 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        //ARMZ F 1 A_WeaponReady(WRF_NOSWITCH)
+        //ARMZ A 6 A_WeaponReady(WRF_NOSWITCH)
+		
+        TNT1 A 0 A_AlertMonsters
+        TNT1 A 0 A_Light2
+        ARMW A 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light1
+        ARMW B 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light0
+        ARMW C 1 BRIGHT A_WeaponReady(WRF_NOSWITCH)
+        ARMW DDEEF 1 A_WeaponReady(WRF_NOSWITCH)
+		ARMZ F 1 A_WeaponReady(WRF_NOSWITCH)
+        ARMW A 6 A_WeaponReady(WRF_NOSWITCH)
+        Goto Ready
+		
+	  UnholdCoop:
+        TNT1 A 0 A_FireCustomMissile("WaveBoltCoop",random(-200,200)/100.00,0,12,-2,0,random(-50,50)/100.00)
+      UnholdFinish:
+        TNT1 A 0 A_AlertMonsters
+        TNT1 A 0 A_Light2
+        WBEM A 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light1
+        WBEM A 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light0
+        WBEM B 1 BRIGHT A_WeaponReady(WRF_NOSWITCH)
+		WBEM BBCC 1 BRIGHT A_WeaponReady(WRF_NOSWITCH)
+        WBEM DDEEFF 1 A_WeaponReady(WRF_NOSWITCH)
+        WBEM A 6 A_WeaponReady(WRF_NOSWITCH)
+        Goto Ready
+
+	  Hold3:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold3")
+        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold3")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM LL 1 BRIGHT A_SpawnItemEx("WaveBeamCharging2",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32)//A_FireCustomMissile("WaveBeamChargingSpawner2",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  Hold4:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold4")
+        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold4")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+		TNT1 A 0 A_GiveInventory("PowerBeamHalfCharged",1)
+        WBEM MM 1 BRIGHT A_SpawnItemEx("WaveBeamCharging3",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32)//A_FireCustomMissile("WaveBeamChargingSpawner3",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  Hold5:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold5")
+        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold5")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM NN 1 BRIGHT A_SpawnItemEx("WaveBeamCharging4",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32)//A_FireCustomMissile("WaveBeamChargingSpawner4",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  Hold6:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold6")
+        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold6")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM OO 1 BRIGHT A_SpawnItemEx("WaveBeamCharging5",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32)//A_FireCustomMissile("WaveBeamChargingSpawner5",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  Hold7:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold7")
+        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold7")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM PP 1 BRIGHT A_SpawnItemEx("WaveBeamCharging6",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32)//A_FireCustomMissile("WaveBeamChargingSpawner6",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  CrouchHold2:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM KK 1 BRIGHT A_SpawnItemEx("WaveBeamCharging1",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  CrouchHold3:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM LL 1 BRIGHT A_SpawnItemEx("WaveBeamCharging2",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  CrouchHold4:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+		TNT1 A 0 A_GiveInventory("PowerBeamHalfCharged",1)
+        WBEM MM 1 BRIGHT A_SpawnItemEx("WaveBeamCharging3",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  CrouchHold5:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM NN 1 BRIGHT A_SpawnItemEx("WaveBeamCharging4",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  CrouchHold6:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM OO 1 BRIGHT A_SpawnItemEx("WaveBeamCharging5",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  CrouchHold7:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM PP 1 BRIGHT A_SpawnItemEx("WaveBeamCharging6",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	  CrouchHoldFinal2:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"D_RUNNIN")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamIdle",26,"HoldFinal3")
+        TNT1 A 0 A_GiveInventory("PowerBeamIdle",1)
+        WBEM QQ 1 BRIGHT A_SpawnItemEx("WaveBeamCharging7",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32)
+        TNT1 A 0 A_JumpIfInventory("WMSynthFireRight",1,"ChargeCombo")
+        TNT1 A 0 A_Refire
+        goto HoldFinish
+
+	OldHold2:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM KK 1 BRIGHT A_FireCustomMissile("WaveBeamChargingSpawner1",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	OldHold3:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM LL 1 BRIGHT A_FireCustomMissile("WaveBeamChargingSpawner2",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	OldHold4:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+		TNT1 A 0 A_GiveInventory("PowerBeamHalfCharged",1)
+        WBEM MM 1 BRIGHT A_FireCustomMissile("WaveBeamChargingSpawner3",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	OldHold5:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM NN 1 BRIGHT A_FireCustomMissile("WaveBeamChargingSpawner4",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	OldHold6:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM OO 1 BRIGHT A_FireCustomMissile("WaveBeamChargingSpawner5",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	OldHold7:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal")
+        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1)
+        WBEM PP 1 BRIGHT A_FireCustomMissile("WaveBeamChargingSpawner6",0,0,0,0,0,0)
+        TNT1 A 0 A_Refire
+        goto HoldFire
+
+	OldHoldFinal2:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"D_RUNNIN")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamIdle",26,"HoldFinal3")
+        TNT1 A 0 A_GiveInventory("PowerBeamIdle",1)
+        WBEM QQ 1 BRIGHT A_FireCustomMissile("WaveBeamChargingSpawner7",0,0,0,0,0,0)
+        TNT1 A 0 A_JumpIfInventory("WMSynthFireRight",1,"ChargeCombo")
+        TNT1 A 0 A_Refire
+        goto HoldFinish
+
+	  HoldFinal:
+        TNT1 A 0
+        TNT1 A 0 A_GiveInventory("PowerBeamCharged",1)
+        TNT1 A 0 A_PlaySoundEx("pbeam/idle","soundslot7")
+      HoldFinal2:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHoldFinal2")
+        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHoldFinal2")
+        TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"D_RUNNIN")
+        TNT1 A 0 A_JumpIfInventory("PowerBeamIdle",26,"HoldFinal3")
+        TNT1 A 0 A_GiveInventory("PowerBeamIdle",1)
+        WBEM QQ 1 BRIGHT A_SpawnItemEx("WaveBeamCharging7",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32)//A_FireCustomMissile("WaveBeamChargingSpawner7",0,0,0,0,0,0)
+        TNT1 A 0 A_JumpIfInventory("WMSynthFireRight",1,"ChargeCombo")
+        TNT1 A 0 A_Refire
+      HoldFinish:
+        TNT1 A 0 A_PlaySoundEx("silence","soundslot7")//A_StopSoundEx("soundslot7")
+        TNT1 A 0 A_PlayWeaponSound("wbeam/chfire")
+        TNT1 A 0 A_TakeInventory("PowerBeamCharged",1)
+        TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25)
+        TNT1 A 0 A_TakeInventory("PowerBeamIdle",34)
+		TNT1 A 0 A_TakeInventory("PowerBeamHalfCharged",1)
+        TNT1 A 0 A_ClearRefire
+        TNT1 A 0 A_Recoil(2)
+        TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT)
+        TNT1 A 0 Radius_Quake(4,8,0,1,0)
+        TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ChargedCoop")
+        TNT1 A 0 A_FireCustomMissile("WaveBoltCharged",0,0,12,-2,0,0)
+        TNT1 A 0 A_FireCustomMissile("WaveBoltCharged2",0,0,12,-2,0,0)
+        TNT1 A 0 A_FireCustomMissile("WaveBoltCharged3",0,0,12,-2,0,0)
+        goto ChargedFinish
+		
+	  HalfShotHoldFinish:
+        TNT1 A 0 A_StopSoundEx("soundslot5")
+        TNT1 A 0 A_PlayWeaponSound("wbeam/fire")
+        TNT1 A 0 A_TakeInventory("PowerBeamCharged",1)
+        TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25)
+        TNT1 A 0 A_TakeInventory("PowerBeamIdle",34)
+		TNT1 A 0 A_TakeInventory("PowerBeamHalfCharged",1)
+        TNT1 A 0 A_ClearRefire
+        TNT1 A 0 A_Recoil(2)
+        TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT)
+        TNT1 A 0 Radius_Quake(1,8,0,1,0)
+		TNT1 A 0 A_FireCustomMissile("WaveBoltHalfCharged",1,0,12,-2,0,0)
+        TNT1 A 0 A_FireCustomMissile("WaveBoltHalfCharged2",0,0,12,-2,0,0)
+        goto ChargedFinish
+
+	  ChargedCoop:
+        TNT1 A 0 A_FireCustomMissile("WaveBoltChargedCoop",0,0,12,-2,0,0)
+        TNT1 A 0 A_FireCustomMissile("WaveBoltCharged2Coop",0,0,12,-2,0,0)
+        TNT1 A 0 A_FireCustomMissile("WaveBoltCharged3Coop",0,0,12,-2,0,0)
+      ChargedFinish:
+        TNT1 A 0 A_AlertMonsters
+        TNT1 A 0 A_Light2
+        WBEM B 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light1
+        TNT1 A 0 A_ZoomFactor(0.975,ZOOM_INSTANT)
+        WBEM C 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light0
+        TNT1 A 0 A_ZoomFactor(1.00,ZOOM_INSTANT)
+        WBEM D 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        WBEM EEFFFEEGHA 1 A_WeaponReady(WRF_NOSWITCH)
+        WBEM A 6 A_WeaponReady(WRF_NOSWITCH)
+        Goto Ready
+
+	  HoldFinal3:
+        TNT1 A 0
+        TNT1 A 0 A_TakeInventory("PowerBeamIdle",99)
+        TNT1 A 0 A_PlaySoundEx("pbeam/idle","soundslot7")
+        goto HoldFinal2
+
+      Missile:
+        TNT1 A 0 ACS_ExecuteWithResult(476, 0)
+        TNT1 A 0 ACS_ExecuteWithResult(METROID_DECORATE, 29, 0, 1)
+        TNT1 A 0 A_PlayWeaponSound("missile/fire")
+        TNT1 A 0 A_AlertMonsters
+
+        TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT)
+
+        TNT1 A 0 A_Recoil(2)
+        TNT1 A 0 Radius_Quake(1,8,0,1,0)
+
+        TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"Missile_Coop")
+        goto Missile_DM
+
+      Missile_DM:
+        TNT1 A 0 A_FireCustomMissile("PowerMissile",0,1,12,-2,0,0)
+        goto MissileAnim
+
+      Missile_Coop:
+        TNT1 A 0 A_FireCustomMissile("PowerMissileCoop",0,1,12,-2,0,0)
+        goto MissileAnim
+
+	  MissileAnim:
+        WBEM A 0 A_JumpIfInventory("IceBeamChilled", 1, "MissileAnim_Chilled")
+        WBEM A 0 A_Light2
+        WBEM I 1 BRIGHT A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+        WBEM A 0 A_Light1
+        WBEM A 0 A_ZoomFactor(0.975,ZOOM_INSTANT)
+        WBEM J 1 BRIGHT A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+        WBEM A 0 A_Light0
+        WBEM A 0 A_ZoomFactor(1.00,ZOOM_INSTANT)
+        WBEM E 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+        WBEM EEFFFEEGGHH 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+        WBEM A 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH)
+        goto Ready
+
+	  MissileAnim_Chilled:
+        TNT1 A 0 A_Light2
+        WBEM I 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light1
+        TNT1 A 0 A_ZoomFactor(0.975,ZOOM_INSTANT)
+        WBEM J 2 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light0
+        TNT1 A 0 A_ZoomFactor(1.00,ZOOM_INSTANT)
+        WBEM E 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        WBEM EEEFFFFEEEGGGHHHAAA 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        WBEM A 2 A_WeaponReady(WRF_NOSECONDARY|WRF_NOSWITCH)
+        Goto Ready
+
+      SuperMissile:
+        TNT1 A 0 ACS_ExecuteWithResult(476, 0)
+        TNT1 A 0 ACS_ExecuteWithResult(METROID_DECORATE, 29, 1, 1)
+        TNT1 A 0 A_PlayWeaponSound("supermissile/fire")
+        TNT1 A 0 A_AlertMonsters
+
+        TNT1 A 0 A_ZoomFactor(0.925,ZOOM_INSTANT)
+
+        TNT1 A 0 A_Recoil(5)
+        TNT1 A 0 Radius_Quake(2,8,0,1,0)
+
+        TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"SuperCoop")
+        goto SuperDM
+
+      SuperDM:
+        TNT1 A 0 A_FireCustomMissile("SuperMissile",0,0,12,-2,0,0)
+        goto SuperAnim
+
+      SuperCoop:
+        TNT1 A 0 A_FireCustomMissile("SuperMissileCoop",0,0,12,-2,0,0)
+        goto SuperAnim
+
+	  SuperAnim:
+        TNT1 A 0 A_SetAngle(angle+(random(-200,200)/100.00))
+        TNT1 A 0 A_SetPitch(pitch-(random(300,500)/100.00))
+        TNT1 A 0 A_AlertMonsters
+        TNT1 A 0 A_Light2
+        WBEM I 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light1
+        TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT)
+        WBEM J 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light0
+        TNT1 A 0 A_ZoomFactor(1.00,ZOOM_INSTANT)
+        WBEM E 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        WBEM EEFFFEEGGHHAA 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        WBEM A 8 A_WeaponReady(WRF_NOSECONDARY|WRF_NOSWITCH)
+        Goto Ready
+
+	  ChargeCombo:
+		TNT1 A 0 A_JumpIfInventory("WaveMissileAcquired",1,1)
+        TNT1 A 0 A_JumpIfInventory("MissileAmmo",10,1)
+        goto HoldFinal2
+        TNT1 A 0
+        WBEM R 20 BRIGHT A_PlaySoundEx("combo/ready","soundslot7")
+        TNT1 A 0 A_PlayWeaponSound("combo/wave")
+        TNT1 A 0 A_TakeInventory("PowerBeamCharged",1)
+        TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25)
+        TNT1 A 0 A_TakeInventory("PowerBeamIdle",34)
+        TNT1 A 0 A_ClearRefire
+        TNT1 A 0 A_Recoil(10)
+        TNT1 A 0 A_ZoomFactor(0.9,ZOOM_INSTANT)
+        TNT1 A 0 Radius_Quake(2,8,0,1,0)
+        TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ComboCoop")
+        TNT1 A 0 A_FireCustomMissile("WaveComboMissile",0,0,12,-2,0,0)
+        TNT1 A 0 A_FireCustomMissile("WaveComboMissile2",0,0,12,-2,0,0)
+        TNT1 A 0 A_FireCustomMissile("WaveComboMissile3",0,0,12,-2,0,0)
+        goto ComboFinish
+
+	  ComboCoop:
+        TNT1 A 0 A_FireCustomMissile("WaveComboMissileCoop",0,0,12,-2,0,0)
+        TNT1 A 0 A_FireCustomMissile("WaveComboMissile2Coop",0,0,12,-2,0,0)
+        TNT1 A 0 A_FireCustomMissile("WaveComboMissile3Coop",0,0,12,-2,0,0)
+      ComboFinish:
+        TNT1 A 0 A_TakeInventory("MissileAmmo",10)
+        TNT1 A 0 A_SetAngle(angle+(random(-200,200)/100.00))
+        TNT1 A 0 A_SetPitch(pitch-(random(300,500)/100.00))
+        TNT1 A 0 A_AlertMonsters
+        TNT1 A 0 A_Light2
+        WBEM I 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light1
+        TNT1 A 0 A_ZoomFactor(0.975,ZOOM_INSTANT)
+        WBEM J 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        TNT1 A 0 A_Light0
+        TNT1 A 0 A_ZoomFactor(1.00,ZOOM_INSTANT)
+        WBEM E 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        WBEM EEFFFEEGGHHAA 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH)
+        WBEM A 8 A_WeaponReady(WRF_NOSECONDARY|WRF_NOSWITCH)
+        Goto Ready
+
+	  D_RUNNIN:
+        WBEM A 0 ACS_ExecuteWithResult(476, 0)
+        TNT1 A 0 A_TakeInventory("PowerBeamCharged",1)
+        TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25)
+        TNT1 A 0 A_TakeInventory("PowerBeamIdle",34)
+        TNT1 A 0 A_TakeInventory("MissileCharged",1)
+        TNT1 A 0 A_TakeInventory("MissileChargeLevel",34)
+        TNT1 A 0 A_ClearRefire
+        TNT1 A 0 Offset(0,32)
+        WBEM A 1 Offset(0,40)
+        WBEM A 1 Offset(0,50)
+        WBEM A 1 Offset(0,60)
+        WBEM A 1 Offset(0,70)
+        WBEM A 1 Offset(0,80)
+        WBEM A 1 Offset(0,90)
+        WBEM A 1 Offset(0,100)
+        WBEM A 1 Offset(0,110)
+        WBEM A 1 Offset(0,120)
+        WBEM A 1 Offset(0,130)
+        WBEM A 1 Offset(0,140)
+      IdleLoop:
+        TNT1 A 1
+		TNT1 A 0 A_JumpIfInventory("ShinesparkCharge",1,"PreShine")
+        TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"IdleLoop")
+        goto BackToNormal
+		
+	  PreShine:
+		TNT1 A 1
+		TNT1 A 0 A_JumpIfInventory("ShinesparkCharge",1,"PreShine")
+		Goto Ready
+		
+	  ShineBright:
+		TNT1 A 0 Offset(0,32)
+        WBEM A 1 Offset(0,40)
+        WBEM A 1 Offset(0,50)
+        WBEM A 1 Offset(0,60)
+        WBEM A 1 Offset(0,70)
+        WBEM A 1 Offset(0,80)
+        WBEM A 1 Offset(0,90)
+        WBEM A 1 Offset(0,100)
+        WBEM A 1 Offset(0,110)
+        WBEM A 1 Offset(0,120)
+        WBEM A 1 Offset(0,130)
+        WBEM A 1 Offset(0,140)
+	  ShineLoop:
+        TNT1 A 1
+		TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineLoop")
+		Goto BackToNormal
+
+      BackToNormal:
+        WBEM A 1 Offset(0,140)
+        WBEM A 1 Offset(0,130)
+        WBEM A 1 Offset(0,120)
+        WBEM A 1 Offset(0,110)
+        WBEM A 1 Offset(0,100)
+        WBEM A 1 Offset(0,90)
+        WBEM A 1 Offset(0,80)
+        WBEM A 1 Offset(0,70)
+        WBEM A 1 Offset(0,60)
+        WBEM A 1 Offset(0,50)
+        WBEM A 1 Offset(0,40)
+        TNT1 A 0 Offset(0,32)
+        Goto Ready
+		
+    }
+}
+
+// == THIS IS WHAT ACTUALLY COMES OUT! ==
+actor WaveBolt //: FastProjectile
+{
+    Radius 6
+    Height 4
+    Projectile
+    ReactionTime 20 // 13
+    +NOGRAVITY
+    +HEXENBOUNCE
+	+FORCEXYBILLBOARD
+    BounceFactor 0.9
+    WallBounceFactor 0.9
+    Speed 40
+    Damage (18)
+    Scale 0.5
+    RenderStyle Add
+    Alpha 0.75
+    DeathSound "wbeam/hit"
+    Damagetype "WaveBeam"
+    Decal DoomImpScorch
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5","Spawn6")
+
+      Spawn1:
+        TNT1 A 1
+        WSHT B 3 BRIGHT A_ChangeVelocity(0,-14,0,CVF_RELATIVE)
+
+      Spawn1B:
+        TNT1 A 0
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,30,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,-30,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,30,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,-30,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        loop
+
+      Spawn2:
+        TNT1 A 1
+        WSHT B 3 BRIGHT A_ChangeVelocity(0,14,0,CVF_RELATIVE)
+
+      Spawn2B:
+        TNT1 A 0
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,-30,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,30,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,-30,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,30,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        loop
+
+      Spawn3:
+        TNT1 A 1
+        WSHT B 3 BRIGHT A_ChangeVelocity(0,-7,0,CVF_RELATIVE)
+
+      Spawn3B:
+        TNT1 A 0
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,15,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,-15,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,15,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,-15,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        loop
+
+      Spawn4:
+        TNT1 A 1
+        WSHT B 3 BRIGHT A_ChangeVelocity(0,7,0,CVF_RELATIVE)
+
+      Spawn4B:
+        TNT1 A 0
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,-15,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,15,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,-15,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,15,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        loop
+
+      Spawn5:
+        TNT1 A 1
+        WSHT B 3 BRIGHT A_ChangeVelocity(0,-10,0,CVF_RELATIVE)
+
+      Spawn5B:
+        TNT1 A 0
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,22,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,-22,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,22,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,-22,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        loop
+
+      Spawn6:
+        TNT1 A 1
+        WSHT B 3 BRIGHT A_ChangeVelocity(0,10,0,CVF_RELATIVE)
+
+      Spawn6B:
+        TNT1 A 0
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,-22,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,22,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_ChangeVelocity(0,-22,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_Countdown
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_ChangeVelocity(0,22,0,CVF_RELATIVE)
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_Countdown
+        loop
+
+      Death:
+        TNT1 A 0
+        WTRL A 2 BRIGHT A_Scream
+        WTRL BCD 2 BRIGHT
+        stop
+    }
+}
+
+// == FRIENDLY FIRE! ==
+actor WaveBoltCoop : WaveBolt { Damage (10) Species "Player" +THRUSPECIES +FORCEXYBILLBOARD}
+
+actor WaveTrail
+{
+    Alpha 0.4
+    Scale 0.4
+    +NOINTERACTION
+    +CLIENTSIDEONLY
+	+FORCEXYBILLBOARD
+    RenderStyle Add
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,0,0,0) == 1,"Nope")
+        WTRL AABB 1 BRIGHT A_CustomMissile("WaveSpark",0,0,Random(-180,180),2,Random(-100,100))
+        WTRL CCDD 1 BRIGHT //A_CustomMissile("WaveSpark",0,0,Random(-180,180),2,Random(-100,100))
+        stop
+
+      Nope:
+        TNT1 A 1
+        stop
+    }
+}
+
+actor WaveSpark
+{
+    Scale 0.1
+    Gravity 0.01
+    Speed 1
+    Renderstyle Add
+    PROJECTILE
+    +NOTELEPORT
+    +EXPLODEONWATER
+    -CANBOUNCEWATER
+    +DONTSPLASH
+    -SOLID
+    -NOGRAVITY
+    +NOINTERACTION
+    +CLIENTSIDEONLY
+	+FORCEXYBILLBOARD
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,0,0,0) == 1,"Nope")
+        WSPR ABCDE 1 BRIGHT A_FadeOut(0.03)
+        loop
+
+      Nope:
+        TNT1 A 1
+        stop
+    }
+}
+
+actor WaveBeamChargingSpawner1
+{
+    -SOLID
+    +NOINTERACTION
+    +CLIENTSIDEONLY
+    +NOTIMEFREEZE
+    Radius 0
+    Height 0
+    Speed 24
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 1
+        TNT1 A 0 A_SpawnItemEx("WaveBeamCharging1",-14,0,-3,0,0,0,-270,32)
+        stop
+    }
+}
+
+actor WaveBeamChargingSpawner2 : WaveBeamChargingSpawner1
+{
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 1
+        TNT1 A 0 A_SpawnItemEx("WaveBeamCharging2",-14,0,-3,0,0,0,-270,32)
+        stop
+    }
+}
+
+actor WaveBeamChargingSpawner3 : WaveBeamChargingSpawner1
+{
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 1
+        TNT1 A 0 A_SpawnItemEx("WaveBeamCharging3",-14,0,-3,0,0,0,-270,32)
+        stop
+    }
+}
+
+actor WaveBeamChargingSpawner4 : WaveBeamChargingSpawner1
+{
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 1
+        TNT1 A 0 A_SpawnItemEx("WaveBeamCharging4",-14,0,-3,0,0,0,-270,32)
+        stop
+    }
+}
+
+actor WaveBeamChargingSpawner5 : WaveBeamChargingSpawner1
+{
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 1
+        TNT1 A 0 A_SpawnItemEx("WaveBeamCharging5",-14,0,-3,0,0,0,-270,32)
+        stop
+    }
+}
+
+actor WaveBeamChargingSpawner6 : WaveBeamChargingSpawner1
+{
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 1
+        TNT1 A 0 A_SpawnItemEx("WaveBeamCharging6",-14,0,-3,0,0,0,-270,32)
+        stop
+    }
+}
+
+actor WaveBeamChargingSpawner7 : WaveBeamChargingSpawner1
+{
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 1
+        TNT1 A 0 A_SpawnItemEx("WaveBeamCharging7",-14,0,-3,0,0,0,-270,32)
+        stop
+    }
+}
+
+actor WaveBeamCharging1
+{
+    RenderStyle Add
+    Alpha 0.75
+    Scale 0.07
+    +CLIENTSIDEONLY
+    +NOINTERACTION
+    +NOTIMEFREEZE
+	+FORCEXYBILLBOARD
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,0,0,0) == 1,"Simple")
+        TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4")
+        TNT1 A 1
+        loop
+
+      Spawn1:
+        WBCH ABCDA 1 bright A_FadeOut(0.15)
+        stop
+
+      Spawn2:
+        WBCH BCDAB 1 bright A_FadeOut(0.15)
+        stop
+
+      Spawn3:
+        WBCH CDABC 1 bright A_FadeOut(0.15)
+        stop
+
+      Spawn4:
+        WBCH DABCD 1 bright A_FadeOut(0.15)
+        stop
+
+      Simple:
+        TNT1 A 0
+        TNT1 A 0 A_Jump(256,"Spawn1B","Spawn2B","Spawn3B","Spawn4B")
+        TNT1 A 1
+        loop
+
+      Spawn1B:
+        WBCH A 2 bright
+        stop
+
+      Spawn2B:
+        WBCH B 2 bright
+        stop
+
+      Spawn3B:
+        WBCH C 2 bright
+        stop
+
+      Spawn4B:
+        WBCH D 2 bright
+        stop
+    }
+}
+
+actor WaveBeamCharging2 : WaveBeamCharging1 { scale 0.08 +FORCEXYBILLBOARD }
+actor WaveBeamCharging3 : WaveBeamCharging1 { scale 0.09 +FORCEXYBILLBOARD }
+actor WaveBeamCharging4 : WaveBeamCharging1 { scale 0.105 +FORCEXYBILLBOARD }
+actor WaveBeamCharging5 : WaveBeamCharging1 { scale 0.12 +FORCEXYBILLBOARD }
+actor WaveBeamCharging6 : WaveBeamCharging1 { scale 0.135 +FORCEXYBILLBOARD }
+actor WaveBeamCharging7 : WaveBeamCharging1 { scale 0.15 +FORCEXYBILLBOARD }
+
+ACTOR WaveBoltCharged
+{
+    Radius 12
+    Height 8
+    Projectile
+    +NOGRAVITY
+    +HEXENBOUNCE
+	+FORCEXYBILLBOARD
+    BounceFactor 0.75
+    WallBounceFactor 0.75
+    BounceCount 3
+    Speed 30
+    Damage (55)
+    Scale 0.65
+    RenderStyle Add
+    Alpha 0.75
+    DeathSound "wbeam/chhit"
+    Damagetype "WaveCharged"
+    Decal DoomImpScorch
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        goto Spawn1
+
+      Spawn1:
+        TNT1 A 0
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_BishopMissileWeave
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT A 1 BRIGHT A_BishopMissileWeave
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_BishopMissileWeave
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        WSHT B 1 BRIGHT A_BishopMissileWeave
+        loop
+
+      Death:
+        TNT1 A 0
+        TNT1 AAAAAA 0 A_CustomMissile("WaveSplatterShot",0,0,random(-180,180),6,random(-45,45)) //originally 12 frames
+        WTRL A 2 BRIGHT A_Scream
+        WTRL BCD 2 BRIGHT
+        stop
+    }
+}
+
+ACTOR WaveBoltCharged2 : WaveBoltCharged
+{
++FORCEXYBILLBOARD
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 AAAAAAAAAAA 0 A_BishopMissileWeave
+        goto Spawn1
+    }
+}
+
+ACTOR WaveBoltCharged3 : WaveBoltCharged
+{
++FORCEXYBILLBOARD
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 AAAAAAAAAAAA 0 A_BishopMissileWeave
+        TNT1 AAAAAAAAAA 0 A_BishopMissileWeave
+        goto Spawn1
+    }
+}
+
+actor WaveBoltChargedCoop : WaveBoltCharged
+{
+    Damage (55)
+    Species "Player"
+    +THRUSPECIES
+	+FORCEXYBILLBOARD
+    States
+    {
+      Death:
+        TNT1 A 0
+        TNT1 AAAAAAA 0 A_CustomMissile("WaveSplatterShot",0,0,random(-180,180),6,random(-45,45)) //originally 15 frames
+        WTRL A 2 BRIGHT A_Scream
+        WTRL BCD 2 BRIGHT
+        stop
+    }
+}
+
+actor WaveBoltCharged2Coop : WaveBoltCharged2
+{
+    Damage (55)
+    Species "Player"
+    +THRUSPECIES
+	+FORCEXYBILLBOARD
+    States
+    {
+      Death:
+        TNT1 A 0
+        TNT1 AAAAAAA 0 A_CustomMissile("WaveSplatterShot",0,0,random(-180,180),6,random(-45,45)) //originally 15 frames
+        WTRL A 2 BRIGHT A_Scream
+        WTRL BCD 2 BRIGHT
+        stop
+    }
+}
+
+actor WaveBoltCharged3Coop : WaveBoltCharged3
+{
+    Damage (55)
+    Species "Player"
+    +THRUSPECIES
+	+FORCEXYBILLBOARD
+    States
+    {
+      Death:
+        TNT1 A 0
+        TNT1 AAAAAAA 0 A_CustomMissile("WaveSplatterShot",0,0,random(-180,180),6,random(-45,45)) //originally 15 frames
+        WTRL A 2 BRIGHT A_Scream
+        WTRL BCD 2 BRIGHT
+        stop
+    }
+}
+
+actor WaveSplatterShot
+{
+    Radius 8
+    Height 6
+    Damage (15)
+    Speed 20
+    Scale 0.2
+    Renderstyle Add
+    BounceCount 4
+    //SeeSound "wbeam/splatter"
+    DamageType "WaveCharged"
+    PROJECTILE
+    +HEXENBOUNCE
+    +THRUACTORS
+	+FORCEXYBILLBOARD
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        TNT1 A 0 A_CStaffMissileSlither
+        WSHT A 1 BRIGHT A_SpawnItem("WaveSplatterTrail")
+        TNT1 A 0 A_CStaffMissileSlither
+        WSHT A 1 BRIGHT A_SpawnItem("WaveSplatterTrail")
+        TNT1 A 0 A_CStaffMissileSlither
+        WSHT A 1 BRIGHT A_SpawnItem("WaveSplatterTrail")
+        TNT1 A 0 A_CustomMissile("WaveTrail",0,0,0)
+        TNT1 A 0 A_CStaffMissileSlither
+        WSHT A 1 BRIGHT A_SpawnItem("WaveSplatterTrail")
+        TNT1 A 0 A_CStaffMissileSlither
+        WSHT A 1 BRIGHT A_SpawnItem("WaveSplatterTrail")
+        TNT1 A 0 A_CStaffMissileSlither
+        WSHT A 1 BRIGHT A_SpawnItem("WaveSplatterTrail")
+        WSHT A 0 A_ChangeFlag("THRUACTORS", 0)
+        loop
+
+      Death:
+        WSHT A 1 BRIGHT A_FadeOut(0.1)
+        loop
+    }
+}
+
+actor WaveSplatterTrail
+{
+    Renderstyle Add
+    Scale 0.15
+    Alpha 0.95
+    +NOBLOCKMAP
+    +NOGRAVITY
+    +CLIENTSIDEONLY
+    +NOINTERACTION
+	+FORCEXYBILLBOARD
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,0,0,0) == 1,"Nope")
+        WSHT A 1 BRIGHT A_FadeOut(0.1)
+        loop
+
+      Nope:
+        TNT1 A 1
+        stop
+    }
+}
+
+//Half Shot Actors
+
+ACTOR WaveBoltHalfCharged : WaveBoltCharged
+{
+    Radius 10
+    Height 6
+    Speed 30
+    Damage (32)
+    Scale 0.35
+	+FORCEXYBILLBOARD
+}
+
+ACTOR WaveBoltHalfCharged2 : WaveBoltHalfCharged
+{
++FORCEXYBILLBOARD
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 AAAAAA 0 A_BishopMissileWeave
+        goto Spawn1
+    }
+}
+
+//End of Half Shot Actors

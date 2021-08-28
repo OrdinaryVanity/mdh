@@ -1,0 +1,9 @@
+Actor ItemCapsulePartA //17855
+{	
+	States
+	{
+		Spawn:
+		ICPA A -1
+		Stop
+	}
+}

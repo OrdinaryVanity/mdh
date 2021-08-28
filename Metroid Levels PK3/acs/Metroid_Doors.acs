@@ -1,0 +1,182 @@
+#library "METROID_DOORS"
+#include "zcommon.acs"
+
+//Metroid Doors by CrazyWazy
+
+function int abs (int x)
+{
+    if (x < 0)
+        return -x;
+
+    return x;
+}
+
+script "METROID_DOOR" (int DoorLine, int color)
+{
+	int i, dx, dy;
+	str name;
+	str colorTag;
+	bool last;
+	
+	// Classify the bullet
+	str bulletType = GetActorClass(0);
+	
+	// If it's a monster (A monster fired the projectile) terminate
+	if(ClassifyActor(ActivatorTID()) & ACTOR_MONSTER) terminate;
+	
+	// Get the bullet coords
+	int x = GetActorX(ActivatorTID());
+	int y = GetActorY(ActivatorTID());
+	int z = GetActorZ(ActivatorTID());
+	
+	// Create a Thing to play sounds from
+	int tid = DoorLine+3000;
+	
+	int count = ThingCount(T_NONE, tid);
+
+	// If this script is already running, terminate
+	if(count > 0) terminate;
+	
+	// Get the player that shot the bullet
+	SetActivator(ActivatorTID(), AAPTR_TARGET);
+	
+	// Make sure it's a player, otherwise terminate
+	if(!(ClassifyActor(ActivatorTID()) & ACTOR_PLAYER)) terminate;
+	
+	// Find the correct light
+	switch(color)
+	{
+		case 4:
+		{
+			colorTag = "L";
+			
+			// White doors need to be opened with the Long beam
+			if(StrCmp(bulletType, "LongBeamFakeMissile") != 0) terminate;
+			
+			break;
+		}
+		
+		case 3:
+		{
+			colorTag = "B";
+			
+			// Light Blue doors need to be opened with the Ice beam
+			if(StrCmp(bulletType, "IceBoltCoop") != 0 &&
+			   StrCmp(bulletType, "IceBoltChargedCoop") != 0) terminate;
+			
+			break;
+		}
+	
+		case 2:
+		{
+			colorTag = "W";
+			
+			// Purple doors need to be opened with the wave beam
+			if(StrCmp(bulletType, "WaveBoltCoop") != 0 &&
+			   StrCmp(bulletType, "WaveBoltChargedCoop") != 0) terminate;
+			
+			break;
+		}
+	
+		case 1:
+		{
+			colorTag = "P";
+			
+			// Red doors need to be opened with the plasma beam
+			if(StrCmp(bulletType, "PlasmaBoltCoop") != 0 &&
+			   StrCmp(bulletType, "PlasmaBoltChargedCoop") != 0) terminate;
+			
+			break;
+		}
+	
+		case 0:
+		default:
+		{
+			colorTag = "Y";
+			break;
+		}
+	}
+	
+	// Make a spot for the sound
+	//SpawnForced("MapSpot", x, y, z, tid);
+	SpawnForced("MapSpot", x, y, z, tid);
+	
+	// Fade the colored light
+	for(i=11;i>0;i--)//
+	{
+		name = StrParam(s:"MDDA", s:colorTag, i:i);
+		SetLineTexture(DoorLine, SIDE_FRONT, TEXTURE_MIDDLE, name);
+		SetLineTexture(DoorLine, SIDE_BACK, TEXTURE_MIDDLE, name);
+		delay(1);
+	}
+	
+	i = 1;
+	
+	// Close it
+	// Slide the door texture
+	while(true)
+	{
+		dx = x-GetActorX(ActivatorTID());
+		dy = y-GetActorY(ActivatorTID());
+		if(Abs(dx)+Abs(dy) < 500<<16)//500
+		{
+			if(i < 16)
+			{
+				i++;
+				if(last) ThingSound(tid, "MPDO", 127);
+			}
+			last = false;
+		}
+		else
+		{
+			if(Abs(dx)+Abs(dy) > 1000<<16) //1000
+			{
+				break;
+			}
+			else
+			{
+				if(i > 1) i--;
+				if(!last) ThingSound(tid, "MPDC", 127);
+			}
+			last = true;
+		}
+			
+		name = StrParam(s:"MDDB", i:i);
+		SetLineTexture(DoorLine, SIDE_FRONT, TEXTURE_MIDDLE, name);
+		SetLineTexture(DoorLine, SIDE_BACK, TEXTURE_MIDDLE, name);
+		
+		if(i > 5) // 5
+			SetLineBlocking(DoorLine, BLOCK_NOTHING);
+		else
+			SetLineBlocking(DoorLine, BLOCK_EVERYTHING);
+			
+		delay(1);
+	}
+	
+	// Breathe the door texture
+	str closedTex = StrParam(s:"MDDA", s:colorTag, s:"0");
+	SetLineTexture(DoorLine, SIDE_FRONT, TEXTURE_MIDDLE, closedTex);
+	SetLineTexture(DoorLine, SIDE_BACK, TEXTURE_MIDDLE, closedTex);
+	
+	// Change the TID so that it doesn't show up anymore
+	int act = 2000+DoorLine;
+	Thing_ChangeTID(tid, act);
+	
+	tid = act;
+	
+	// Play the release sound
+	ThingSound(tid, "MPDR", 196);
+	
+	// Wait a second
+	delay(45);
+	
+	// Kill the sound thing
+	Thing_Destroy(tid, 0);
+}
+
+//Torch effects
+
+script "METTORCH" (int tid)
+{
+	Thing_Activate(tid);
+}

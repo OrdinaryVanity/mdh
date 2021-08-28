@@ -1,0 +1,4 @@
+Decorate: Ghastly_dragon
+Sounds: Raven Software
+Sprites: Espi, Eriance
+Idea Base: Quake 1's lava balls

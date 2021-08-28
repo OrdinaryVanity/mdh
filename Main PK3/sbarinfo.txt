@@ -1,0 +1,444 @@
+resolution 640, 400;
+statusbar normal, forcescaled
+{
+InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away from the player to remove the HUD for cutscenes.
+{
+	InInventory MetroidHitOpponent, 1 { drawimage "ENEMYHIT", 0, 0; } //[R4L] Supposed to be for hit indicators, but not working.
+	InInventory not BorphMallAcquired, 1 //[R4L] Check to see if we are not in Morph Ball. If not, draw normal HUD.
+	{
+		//[R4L] Draw appropriate visors when selected.
+		IsSelected not "ScanVisorWeapon" //[R4L] Draw Combat Visor.
+		{
+			DrawImage "NEWSMVS2", 0, 0;
+			DrawImage "NEWSMVS1", 0, 0;
+			DrawImage "CBATVSB0", 628, 317; 
+			
+			//[R4L] Checks for Doom health bar CVAR.
+			InInventory not DoomHealthCounter, 1
+			{
+				DrawNumber 2, METHUDF, Combat, PlayerTotalHealth, fillzeros, 237, 41; 
+			}
+		
+			InInventory DoomHealthCounter, 1 
+			{ 
+				DrawNumber 4, METHUDF, Combat, Health, 236, 40; 
+			}
+		}
+		
+		IsSelected not "ThermalVisorWeapon" //[R4L] Draw Combat Visor.
+		{
+			//DrawImage "NEWSMVS2", 0, 0;
+			//DrawImage "NEWSMVS1", 0, 0;
+			//DrawImage "CBATVSB0", 628, 317; 
+			
+			//[R4L] Checks for Doom health bar CVAR.
+			InInventory not DoomHealthCounter, 1
+			{
+				DrawNumber 2, METHUDF, Combat, PlayerTotalHealth, fillzeros, 237, 41; 
+			}
+		
+			InInventory DoomHealthCounter, 1 
+			{ 
+				DrawNumber 4, METHUDF, Combat, Health, 236, 40; 
+			}
+		}
+	
+    GameMode Teamplay, TeamGame, OneFlagCTF, CTF, Skulltag, TeamLMS, TeamPossession
+    {
+    InInventory IsOnTeam0, 1 { drawimage "samviso0", 0, 0; }
+    InInventory IsOnTeam1, 1 { drawimage "samviso1", 0, 0; }
+    InInventory IsOnTeam2, 1 { drawimage "samviso2", 0, 0; }
+    InInventory IsOnTeam3, 1 { drawimage "samviso3", 0, 0; }
+    }
+	
+    InInventory ChargeBeamAcquired, 1 
+	{ drawbar "VRTCHBMF", "VRTCHBME", PowerBeamChargeLevel, vertical, interpolate(10), -102, 96;
+	  drawbar "VRTCHBMF", "VRTCHBME", PowerBeamChargeLevel, vertical, interpolate(10), 738, 96;
+	  drawbar "NEWCRGFL", "NEWCRGEM", PowerBeamChargeLevel, horizontal, interpolate(20), 284, 391;
+	InInventory PowerBeamChargeLevel, 13
+	{ drawbar "VT2CHBMF", "VRTCHBME", PowerBeamChargeLevel, vertical, interpolate(10), -102, 96;
+	  drawbar "VT2CHBMF", "VRTCHBME", PowerBeamChargeLevel, vertical, interpolate(10), 738, 96;
+	  drawbar "NEWCRGF2", "NEWCRGEM", PowerBeamChargeLevel, horizontal, interpolate(20), 284, 391;
+	InInventory PowerBeamChargeLevel, 25
+	{ drawimage "VT3CHB01", -102, 96;
+	  drawimage "VT3CHB01", 738, 96;
+	  drawimage "CHRBAR01", 284, 391;} 
+	}
+	}
+	
+    InInventory SpeedBoosterAcquired, 1 { drawimage "SHSPKEMP", 161, 1; }
+    InInventory ShinesparkChargeToken, 1 { drawimage "SHSPKFUL", 161, 1; }
+    InInventory EnergyTankAcquired, 1 { drawimage "ETNKEMPT", 243, 31; }
+    InInventory EnergyTankAcquired, 2 { drawimage "ETNKEMPT", 251, 31; }
+    InInventory EnergyTankAcquired, 3 { drawimage "ETNKEMPT", 259, 31; }
+    InInventory EnergyTankAcquired, 4 { drawimage "ETNKEMPT", 267, 31; }
+    InInventory EnergyTankAcquired, 5 { drawimage "ETNKEMPT", 275, 31; }
+    InInventory EnergyTankAcquired, 6 { drawimage "ETNKEMPT", 283, 31; }
+    InInventory EnergyTankAcquired, 7 { drawimage "ETNKEMPT", 291, 31; }
+    InInventory EnergyTankAcquired, 8 { drawimage "ETNKEMPT", 299, 31; }
+    InInventory EnergyTankAcquired, 9 { drawimage "ETNKEMPT", 307, 31; }
+    InInventory EnergyTankAcquired, 10 { drawimage "ETNKEMPT", 315, 31; }
+	InInventory EnergyTankAcquired, 11 { drawimage "ETNKEMPT", 323, 31; }
+	InInventory EnergyTankAcquired, 12 { drawimage "ETNKEMPT", 331, 31; }
+	InInventory EnergyTankAcquired, 13 { drawimage "ETNKEMPT", 339, 31; }
+	InInventory EnergyTankAcquired, 14 { drawimage "ETNKEMPT", 347, 31; }
+	InInventory EnergyTankAcquired, 15 { drawimage "ETNKEMPT", 355, 31; }
+	InInventory EnergyTankAcquired, 16 { drawimage "ETNKEMPT", 363, 31; }
+	InInventory EnergyTankAcquired, 17 { drawimage "ETNKEMPT", 371, 31; }
+	InInventory EnergyTankAcquired, 18 { drawimage "ETNKEMPT", 379, 31; }
+	InInventory EnergyTankAcquired, 19 { drawimage "ETNKEMPT", 387, 31; }
+	InInventory EnergyTankAcquired, 20 { drawimage "ETNKEMPT", 395, 31; }
+	
+    InInventory HealthOver100, 1 
+	{ 
+		DrawImage "FBAREMPT", 243, 40; 
+	}
+	
+    InInventory HealthOver100, 1 
+	{ 
+		DrawImage "CTNKFULL", 243, 31; 
+	}
+	
+    InInventory HealthOver100, 1 
+	{
+		DrawBar "CBARFUL1", "FBAREMP1", Health Health200, horizontal, interpolate(5), 87, 40, 1; 
+	}
+	
+    InInventory HealthOver200, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver200, 1 { drawimage "CTNKFULL", 251, 31; }
+    InInventory HealthOver200, 1 { drawbar "CBARFUL2", "FBAREMP2", Health Health300, horizontal, interpolate(5), -69, 40, 1; }
+    InInventory HealthOver300, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver300, 1 { drawimage "CTNKFULL", 259, 31; }
+    InInventory HealthOver300, 1 { drawbar "CBARFUL3", "FBAREMP3", Health Health400, horizontal, interpolate(5), -225, 40, 1; }
+    InInventory HealthOver400, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver400, 1 { drawimage "CTNKFULL", 267, 31; }
+    InInventory HealthOver400, 1 { drawbar "CBARFUL4", "FBAREMP4", Health Health500, horizontal, interpolate(5), -381, 40, 1; }
+    InInventory HealthOver500, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver500, 1 { drawimage "CTNKFULL", 275, 31; }
+    InInventory HealthOver500, 1 { drawbar "CBARFUL5", "FBAREMP5", Health Health600, horizontal, interpolate(5), -537, 40, 1; }
+    InInventory HealthOver600, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver600, 1 { drawimage "CTNKFULL", 283, 31; }
+    InInventory HealthOver600, 1 { drawbar "CBARFUL6", "FBAREMP6", Health Health700, horizontal, interpolate(5), -693, 40, 1; }
+    InInventory HealthOver700, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver700, 1 { drawimage "CTNKFULL", 291, 31; }
+    InInventory HealthOver700, 1 { drawbar "CBARFUL7", "FBAREMP7", Health Health800, horizontal, interpolate(5), -849, 40, 1; }
+    InInventory HealthOver800, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver800, 1 { drawimage "CTNKFULL", 299, 31; }
+    InInventory HealthOver800, 1 { drawbar "CBARFUL8", "FBAREMP8", Health Health900, horizontal, interpolate(5), -1005, 40, 1; }
+    InInventory HealthOver900, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver900, 1 { drawimage "CTNKFULL", 307, 31; }
+    InInventory HealthOver900, 1 { drawbar "CBARFUL9", "FBAREMP9", Health Health1000, horizontal,interpolate(5), -1161, 40, 1; }
+    InInventory HealthOver1000, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver1000, 1 { drawimage "CTNKFULL", 315, 31; }
+    InInventory HealthOver1000, 1 { drawbar "CBARFUL0", "FBAREMP0", Health Health1100, horizontal, interpolate(5), -1317, 40, 1; }
+	InInventory HealthOver1100, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver1100, 1 { drawimage "CTNKFULL", 323, 31; }
+    InInventory HealthOver1100, 1 { drawbar "CBARFUL1", "FBAREMP1", Health Health1200, horizontal, interpolate(5), 87, 40, 1; }
+	InInventory HealthOver1200, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver1200, 1 { drawimage "CTNKFULL", 331, 31; }
+    InInventory HealthOver1200, 1 { drawbar "CBARFUL2", "FBAREMP2", Health Health1300, horizontal, interpolate(5), -69, 40, 1; }
+    InInventory HealthOver1300, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver1300, 1 { drawimage "CTNKFULL", 339, 31; }
+    InInventory HealthOver1300, 1 { drawbar "CBARFUL3", "FBAREMP3", Health Health1400, horizontal, interpolate(5), -225, 40, 1; }
+    InInventory HealthOver1400, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver1400, 1 { drawimage "CTNKFULL", 347, 31; }
+    InInventory HealthOver1400, 1 { drawbar "CBARFUL4", "FBAREMP4", Health Health1500, horizontal, interpolate(5), -381, 40, 1; }
+    InInventory HealthOver1500, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver1500, 1 { drawimage "CTNKFULL", 355, 31; }
+    InInventory HealthOver1500, 1 { drawbar "CBARFUL5", "FBAREMP5", Health Health1600, horizontal, interpolate(5), -537, 40, 1; }
+    InInventory HealthOver1600, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver1600, 1 { drawimage "CTNKFULL", 363, 31; }
+    InInventory HealthOver1600, 1 { drawbar "CBARFUL6", "FBAREMP6", Health Health1700, horizontal, interpolate(5), -693, 40, 1; }
+    InInventory HealthOver1700, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver1700, 1 { drawimage "CTNKFULL", 371, 31; }
+    InInventory HealthOver1700, 1 { drawbar "CBARFUL7", "FBAREMP7", Health Health1800, horizontal, interpolate(5), -849, 40, 1; }
+    InInventory HealthOver1800, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver1800, 1 { drawimage "CTNKFULL", 379, 31; }
+    InInventory HealthOver1800, 1 { drawbar "CBARFUL8", "FBAREMP8", Health Health1900, horizontal, interpolate(5), -1005, 40, 1; }
+    InInventory HealthOver1900, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver1900, 1 { drawimage "CTNKFULL", 387, 31; }
+    InInventory HealthOver1900, 1 { drawbar "CBARFUL9", "FBAREMP9", Health Health2000, horizontal,interpolate(5), -1161, 40, 1; }
+    InInventory HealthOver2000, 1 { drawimage "FBAREMPT", 243, 40; }
+    InInventory HealthOver2000, 1 { drawimage "CTNKFULL", 395, 31; }
+    InInventory HealthOver2000, 1 { drawbar "CBARFUL0", "FBAREMP0", Health Health2100, horizontal, interpolate(5), -1317, 40, 1; }
+    //InInventory MissileTankAcquired, 1 { drawbar "NEWBARFL", "NEWBAREM", MissileAmmo, vertical, interpolate(5), 558, 325, 1; }
+    InInventory MissileTankAcquired, 1 { drawnumber 3, METHUDF, Untranslated, MissileAmmo, fillzeros, 251, 384; }
+    
+	InInventory PowerBeamAcquired, 1 { drawimage "PWICONA0", -100, 248; }
+    IsSelected "PowerBeam" { drawimage "PWICONB0", -100, 248;
+	InInventory PowerMissileAcquired, 1 
+	{ //drawimage "POWRCMBO", 181, 229; 
+	InInventory MissileAmmo, 5
+	{ drawimage "POWRCB01", 183, 340; }
+	} 
+	}
+	
+    InInventory SpazerBeamAcquired, 1 { drawimage "SBICONA0", -80, 256; }
+    IsSelected "SpazerBeam" { drawimage "SBICONB0", -80, 256; 
+	InInventory WideShotAcquired, 1 
+	{ //drawimage "SPZRCMA0", 0, 0; 
+	InInventory MissileAmmo, 10
+	{ drawimage "WIDECB01", 183, 340;  }
+	} 
+	}
+	
+    InInventory PlasmaBeamAcquired, 1 { drawimage "PBICONA0", -60, 264; }
+    IsSelected "PlasmaBeam" { drawimage "PBICONB0", -60, 264; 
+	InInventory SolarFlareAcquired, 1 
+	{ //drawimage "PSMACMA0", 0, 0; 
+	InInventory MissileAmmo, 10
+	{ drawimage "SOLRCB01", 183, 340; }
+	} 
+	}
+	
+    InInventory WaveBeamAcquired, 1 { drawimage "WBICONA0", -40, 272; }
+    IsSelected "WaveBeam" { drawimage "WBICONB0", -40, 272; 
+	InInventory WaveMissileAcquired, 1 
+	{ //drawimage "WAVECMA0", 0, 0; 
+	InInventory MissileAmmo, 10
+	{ drawimage "WAVECB01", 183, 340; }
+	} 
+	}
+	
+    InInventory IceBeamAcquired, 1 { drawimage "IBICONA0", -62, 300; }
+    IsSelected "IceBeam" { drawimage "IBICONB0", -62, 300; 
+	InInventory IceSpreaderAcquired, 1 
+	{ //drawimage "ICEYCMA0", 0, 0; 
+	InInventory MissileAmmo, 10
+	{ drawimage "ICEYCB01", 183, 340; }
+	}
+	}
+	
+    InInventory LongBeamAcquired, 1 { drawimage "LBICONA0", -42, 308; }
+    IsSelected "LongBeam" { drawimage "LBICONB0", -42, 308; 
+	InInventory NovaFlashAcquired, 1 
+	{ //drawimage "LONGCMA0", 0, 0;
+	InInventory MissileAmmo, 10
+	{ drawimage "NOVACB01", 183, 340; }
+	}
+	}
+	
+    InInventory DoomCannonAcquired, 1 { drawimage "DCICONA0", -2, 323; }
+    IsSelected "DoomCannon" { drawimage "DCICONB0", -2, 323; 
+	InInventory ChainsawBeamAcquired, 1 
+	{ //drawimage "DOOMCB01", 183, 340; 
+	InInventory MissileAmmo, 10
+	{ drawimage "DOOMCB01", 183, 340;  }
+	InInventory TheReturnOfSamusReturns, 1
+	{ drawimage "CHSWCB01", 183, 340; }
+	} 
+	}
+	
+    InInventory ChromaStormAcquired, 1 { drawimage "CSICONA0", -22, 316; }
+    IsSelected "ChromaBeam" { drawimage "CSICONB0", -22, 316; 
+	InInventory HyperBeamAcquired, 1 
+	{ //drawimage "CHRMCB01", 183, 183;
+	InInventory MissileAmmo, 2
+	{ drawimage "CHRMCB01", 183, 340; }
+	InInventory DakkaBeamInChargeCombo, 1
+	{ drawimage "HYPECB01", 183, 340; } 
+	}
+	}
+	
+	InInventory ScanVisorAcquired, 1 { drawimage "SCANEQA0", 655, 309; }
+	IsSelected "ScanVisorWeapon" 
+	{
+		drawimage "SCNVISA0", 0, 0; 
+		drawimage "NEWSMVS4", 0, 0; 
+		drawimage "NEWSMVS3", 0, 0; 
+		drawimage "SCANEQB0", 655, 309; 
+		drawimage "CBATVSA0", 628, 317; 
+		drawimage "SCVSTEX1", 196, 128; 
+		drawimage "SCVSCSHR", 212, 112; 
+		drawimage "SCANBRDR", 196, 128;
+		
+		InInventory not DoomHealthCounter, 1
+			{
+				DrawNumber 2, METHUDF, Scan, PlayerTotalHealth, fillzeros, 237, 41; 
+			}
+		
+			InInventory DoomHealthCounter, 1 
+			{ 
+				DrawNumber 4, METHUDF, Scan, Health, 236, 40; 
+			}
+	}	
+	
+	DrawBar "CBARFULL", "FBAREMPT", Health Health100, horizontal, interpolate(5), 243, 40, 1;
+	
+    drawbar "FSHBFULL", "FSHBEMPT", Armor, horizontal, interpolate(5), 243, 40;
+    InInventory SuperMissileAcquired, 1 { drawnumber 3, METHUDF, Untranslated, SuperMissileAmmo, fillzeros, 414, 384; } //drawimage "SMISSGET", 545, 32;
+    //InInventory PowerBombAcquired, 1 { drawimage "PBOMBGET", 81, 32; drawnumber 3, METHUDF, Untranslated, PowerBombAmmo, fillzeros, 81, 28; }
+    //InInventory VariaSuitAcquired, 1 { drawimage "VARSICON", 260, 6; }
+
+    gamemode cooperative, singleplayer
+    {
+    InInventory RedCard, 1 { drawimage "RKEYICON", 305, 376; }
+    InInventory BlueCard, 1 { drawimage "BKEYICON", 315, 376; }
+    InInventory YellowCard, 1 { drawimage "YKEYICON", 325, 376; }
+    InInventory RedSkull, 1 { drawimage "RSKUICON", 305, 387; }
+    InInventory BlueSkull, 1 { drawimage "BSKUICON", 315, 387; }
+    InInventory YellowSkull, 1 { drawimage "YSKUICON", 325, 387; }
+    }
+    }
+InInventory BorphMallAcquired, 1
+    {
+    InInventory not DoomHealthCounter, 1 { drawimage "NWSCRBAR", -8, 0; }
+    InInventory DoomHealthCounter, 1 { drawimage "NWSCRBAR", -8, 0; }
+    GameMode Teamplay, TeamGame, OneFlagCTF, CTF, Skulltag, TeamLMS, TeamPossession { drawimage translatable "NWSCRBA4", -8, 0; }
+    drawbar "NWBARFUL", "NWBAREMP", Health Health100, horizontal, interpolate(5), 48, 32, 1;
+    InInventory not DoomHealthCounter, 1 { drawnumber 2, METHUDF, Untranslated, PlayerTotalHealth, fillzeros, 132,10; }
+    InInventory DoomHealthCounter, 1 { drawnumber 4, METHUDF, Untranslated, Health, 132, 10; }
+    InInventory EnergyTankAcquired, 1 { drawimage "FTNKEMPT", 51, 24; }
+    InInventory EnergyTankAcquired, 2 { drawimage "FTNKEMPT", 67, 24; }
+    InInventory EnergyTankAcquired, 3 { drawimage "FTNKEMPT", 82, 24; }
+    InInventory EnergyTankAcquired, 4 { drawimage "FTNKEMPT", 99, 24; }
+    InInventory EnergyTankAcquired, 5 { drawimage "FTNKEMPT", 115, 24; }
+    InInventory EnergyTankAcquired, 6 { drawimage "FTNKEMPT", 131, 24; }
+    InInventory EnergyTankAcquired, 7 { drawimage "FTNKEMPT", 147, 24; }
+    InInventory EnergyTankAcquired, 8 { drawimage "FTNKEMPT", 163, 24; }
+    InInventory EnergyTankAcquired, 9 { drawimage "FTNKEMPT", 179, 24; }
+    InInventory EnergyTankAcquired, 10 { drawimage "FTNKEMPT", 195, 24; }
+    InInventory HealthOver100, 1 { drawimage "FBARFUL1", -108, 32; }
+    InInventory HealthOver100, 1 { drawimage "FTNKFULL", 51, 24; }
+    InInventory HealthOver100, 1 { drawbar "FBARFUL1", "FBAREMP1", Health Health200, horizontal, interpolate(5), -108, 32, 1; }
+    InInventory HealthOver200, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver200, 1 { drawimage "FTNKFULL", 67, 24; }
+    InInventory HealthOver200, 1 { drawbar "FBARFUL2", "FBAREMP2", Health Health300, horizontal, interpolate(5), -264, 32, 1; }
+    InInventory HealthOver300, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver300, 1 { drawimage "FTNKFULL", 83, 24; }
+    InInventory HealthOver300, 1 { drawbar "FBARFUL3", "FBAREMP3", Health Health400, horizontal, interpolate(5), -420, 32, 1; }
+    InInventory HealthOver400, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver400, 1 { drawimage "FTNKFULL", 99, 24; }
+    InInventory HealthOver400, 1 { drawbar "FBARFUL4", "FBAREMP4", Health Health500, horizontal, interpolate(5), -576, 32, 1; }
+    InInventory HealthOver500, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver500, 1 { drawimage "FTNKFULL", 115, 24; }
+    InInventory HealthOver500, 1 { drawbar "FBARFUL5", "FBAREMP5", Health Health600, horizontal, interpolate(5), -732, 32, 1; }
+    InInventory HealthOver600, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver600, 1 { drawimage "FTNKFULL", 131, 24; }
+    InInventory HealthOver600, 1 { drawbar "FBARFUL6", "FBAREMP6", Health Health700, horizontal, interpolate(5), -888, 32, 1; }
+    InInventory HealthOver700, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver700, 1 { drawimage "FTNKFULL", 147, 24; }
+    InInventory HealthOver700, 1 { drawbar "FBARFUL7", "FBAREMP7", Health Health800, horizontal, interpolate(5), -1044, 32, 1; }
+    InInventory HealthOver800, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver800, 1 { drawimage "FTNKFULL", 163, 24; }
+    InInventory HealthOver800, 1 { drawbar "FBARFUL8", "FBAREMP8", Health Health900, horizontal, interpolate(5), -1200, 32, 1; }
+    InInventory HealthOver900, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver900, 1 { drawimage "FTNKFULL", 179, 24; }
+    InInventory HealthOver900, 1 { drawbar "FBARFUL9", "FBAREMP9", Health Health1000, horizontal, interpolate(5), -1356, 32, 1; }
+    InInventory HealthOver1000, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver1000, 1 { drawimage "FTNKFULL", 195, 24; }
+    InInventory HealthOver1000, 1 { drawbar "FBARFUL0", "FBAREMP0", Health Health1100, horizontal, interpolate(5), -1512, 32, 1; }
+    InInventory MissileTankAcquired, 1 {
+    drawimage "NWMSICON", 235, 12;
+    drawnumber 3, METHUDF, Untranslated, MissileAmmo, fillzeros, 268, 42;}
+    InInventory SuperMissileAcquired, 1 {
+    drawimage "NWSMICON", 282, 12;
+    drawnumber 3, METHUDF, Untranslated, SuperMissileAmmo, fillzeros, 315, 42; }
+    InInventory PowerBombAcquired, 1 {
+    drawimage "NWPBICON", 329, 12;
+    drawnumber 3, METHUDF, Untranslated, PowerBombAmmo, fillzeros, 362, 42; }
+	InInventory BombsAcquired, 1 {
+    IsSelected "Bombs" { InInventory BombCount, 1 { drawimage "BOMBICON", 495, 6; }
+                         InInventory BombCount, 2 { drawimage "BOMBICON", 519, 6; }
+                         InInventory BombCount, 3 { drawimage "BOMBICON", 543, 6; }}
+	}
+    InInventory GotArmor, 1 { drawbar "FSHBFULL", "FSHBEMPT", Armor, horizontal, interpolate(5), 48, 32; }
+gamemode cooperative, singleplayer
+{
+InInventory RedCard, 1 { drawimage "RKEYICON", 575, 14; }
+InInventory BlueCard, 1 { drawimage "BKEYICON", 585, 14; }
+InInventory YellowCard, 1 { drawimage "YKEYICON", 595, 14; }
+InInventory RedSkull, 1 { drawimage "RSKUICON", 570, 24; }
+InInventory BlueSkull, 1 { drawimage "BSKUICON", 580, 24; }
+InInventory YellowSkull, 1 { drawimage "YSKUICON", 590, 24; }
+}
+}
+}}
+
+statusbar fullscreen, forcescaled
+{
+InInventory InGame, 1
+{
+    InInventory not DoomHealthCounter, 1 { drawimage "NWSCRBAR", -8, 0; }
+    InInventory DoomHealthCounter, 1 { drawimage "NWSCRBAR", -8, 0; }
+    GameMode TeamGame { drawimage translatable "NWSCRBA4", -8, 0; }
+    drawbar "FBARFULL", "FBAREMPT", Health Health100, horizontal, interpolate(5), 48, 32, 1;
+    InInventory not DoomHealthCounter, 1 { drawnumber 2, METHUDF, Untranslated, PlayerTotalHealth, fillzeros, 132,10; }
+    InInventory DoomHealthCounter, 1 { drawnumber 4, METHUDF, Untranslated, Health, 132, 10; }
+    InInventory EnergyTankAcquired, 1 { drawimage "FTNKEMPT", 51, 24; }
+    InInventory EnergyTankAcquired, 2 { drawimage "FTNKEMPT", 67, 24; }
+    InInventory EnergyTankAcquired, 3 { drawimage "FTNKEMPT", 82, 24; }
+    InInventory EnergyTankAcquired, 4 { drawimage "FTNKEMPT", 99, 24; }
+    InInventory EnergyTankAcquired, 5 { drawimage "FTNKEMPT", 115, 24; }
+    InInventory EnergyTankAcquired, 6 { drawimage "FTNKEMPT", 131, 24; }
+    InInventory EnergyTankAcquired, 7 { drawimage "FTNKEMPT", 147, 24; }
+    InInventory EnergyTankAcquired, 8 { drawimage "FTNKEMPT", 163, 24; }
+    InInventory EnergyTankAcquired, 9 { drawimage "FTNKEMPT", 179, 24; }
+    InInventory EnergyTankAcquired, 10 { drawimage "FTNKEMPT", 195, 24; }
+    InInventory HealthOver100, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver100, 1 { drawimage "FTNKFULL", 51, 24; }
+    InInventory HealthOver100, 1 { drawbar "FBARFUL1", "FBAREMP1", Health Health200, horizontal, interpolate(5), -108, 32, 1; }
+    InInventory HealthOver200, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver200, 1 { drawimage "FTNKFULL", 67, 24; }
+    InInventory HealthOver200, 1 { drawbar "FBARFUL2", "FBAREMP2", Health Health300, horizontal, interpolate(5), -264, 32, 1; }
+    InInventory HealthOver300, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver300, 1 { drawimage "FTNKFULL", 83, 24; }
+    InInventory HealthOver300, 1 { drawbar "FBARFUL3", "FBAREMP3", Health Health400, horizontal, interpolate(5), -420, 32, 1; }
+    InInventory HealthOver400, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver400, 1 { drawimage "FTNKFULL", 99, 24; }
+    InInventory HealthOver400, 1 { drawbar "FBARFUL4", "FBAREMP4", Health Health500, horizontal, interpolate(5), -576, 32, 1; }
+    InInventory HealthOver500, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver500, 1 { drawimage "FTNKFULL", 115, 24; }
+    InInventory HealthOver500, 1 { drawbar "FBARFUL5", "FBAREMP5", Health Health600, horizontal, interpolate(5), -732, 32, 1; }
+    InInventory HealthOver600, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver600, 1 { drawimage "FTNKFULL", 131, 24; }
+    InInventory HealthOver600, 1 { drawbar "FBARFUL6", "FBAREMP6", Health Health700, horizontal, interpolate(5), -888, 32, 1; }
+    InInventory HealthOver700, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver700, 1 { drawimage "FTNKFULL", 147, 24; }
+    InInventory HealthOver700, 1 { drawbar "FBARFUL7", "FBAREMP7", Health Health800, horizontal, interpolate(5), -1044, 32, 1; }
+    InInventory HealthOver800, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver800, 1 { drawimage "FTNKFULL", 163, 24; }
+    InInventory HealthOver800, 1 { drawbar "FBARFUL8", "FBAREMP8", Health Health900, horizontal, interpolate(5), -1200, 32, 1; }
+    InInventory HealthOver900, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver900, 1 { drawimage "FTNKFULL", 179, 24; }
+    InInventory HealthOver900, 1 { drawbar "FBARFUL9", "FBAREMP9", Health Health1000, horizontal, interpolate(5), -1356, 32, 1; }
+    InInventory HealthOver1000, 1 { drawimage "FBAREMPT", 48, 32; }
+    InInventory HealthOver1000, 1 { drawimage "FTNKFULL", 195, 24; }
+    InInventory HealthOver1000, 1 { drawbar "FBARFUL0", "FBAREMP0", Health Health1100, horizontal, interpolate(5), -1512, 32, 1; }
+    InInventory MissileTankAcquired, 1 {
+    drawimage "NWMSICON", 235, 12;
+    drawnumber 3, METHUDF, Untranslated, MissileAmmo, fillzeros, 268, 42; }
+    InInventory SuperMissileAcquired, 1 {
+    drawimage "NWSMICON", 282, 12;
+    drawnumber 3, METHUDF, Untranslated, SuperMissileAmmo, fillzeros, 315, 42; }
+    InInventory PowerBombAcquired, 1 {
+    drawimage "NWPBICON", 329, 12;
+    drawnumber 3, METHUDF, Untranslated, PowerBombAmmo, fillzeros, 362, 42; }
+    IsSelected "PowerBeam" { drawimage "WPFSPWBM", 510, 10; }
+    IsSelected "SpazerBeam" { drawimage "WPFSSPBM", 510, 10; }
+    IsSelected "WaveBeam" { drawimage "WPFSWVBM", 510, 10; }
+    IsSelected "PlasmaBeam" { drawimage "WPFSPLBM", 510, 10; }
+    IsSelected "IceBeam" { drawimage "WPFSICBM", 510, 10; }
+    IsSelected "LongBeam" { drawimage "WPFSLNBM", 510, 10; }
+    IsSelected "DoomCannon" { drawimage "WPFSDMCN", 510, 10; }
+    IsSelected "ChromaBeam" { drawimage "WPFSCSTR", 510, 10; }
+    IsSelected "Bombs" { InInventory BombCount, 1 { drawimage "BOMBICON", 495, 6; }
+                         InInventory BombCount, 2 { drawimage "BOMBICON", 519, 6; }
+                         InInventory BombCount, 3 { drawimage "BOMBICON", 543, 6; }}
+	InInventory GotArmor, 1 { drawbar "FSHBFULL", "FSHBEMPT", Armor, horizontal, interpolate(5), 48, 32; }
+gamemode cooperative, singleplayer
+{
+InInventory RedCard, 1 { drawimage "RKEYICON", 575, 14; }
+InInventory BlueCard, 1 { drawimage "BKEYICON", 585, 14; }
+InInventory YellowCard, 1 { drawimage "YKEYICON", 595, 14; }
+InInventory RedSkull, 1 { drawimage "RSKUICON", 570, 24; }
+InInventory BlueSkull, 1 { drawimage "BSKUICON", 580, 24; }
+InInventory YellowSkull, 1 { drawimage "YSKUICON", 590, 24; }
+}
+}
+}
+
+statusbar automap, forcescaled
+{
+    DrawImage "SAMHEMPX", 151, 4;
+}

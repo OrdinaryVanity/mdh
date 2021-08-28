@@ -1,0 +1,273 @@
+// Weapon/item spawners for Skulltag-specific maps. Wahey!
+
+actor MaxArmorBonus: BlankPuff 5091
+{
+    Game Doom
+    SpawnID 167
+}
+
+actor MaxHealthBonus: BlankPuff 5090
+{
+    Game Doom
+    SpawnID 166
+}
+
+actor Minigun : CustomInventory 5014
+{
+    Game Doom
+    SpawnID 214
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,19,0,0) == 1,"SpawnChromaStorm")
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,19,0,0) == 2,"SpawnWaveBeam")
+        TNT1 A 1
+        stop
+    SpawnChromaStorm:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("ChromaStormSpawner",0,0,0,0,0,0,0,32)
+        TNT1 A 1
+        stop
+    SpawnWaveBeam:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("WaveBeamSpawner",0,0,0,0,0,0,0,32)
+        TNT1 A 1
+        stop
+    }
+}
+
+ACTOR ChromaStormSpawner : RandomSpawner // Hack.
+{
+    DropItem "ChromaStormPickup", 255
+}
+
+ACTOR WaveBeamSpawner : RandomSpawner // Hack, hack.
+{
+    DropItem "WaveBeamPickup", 255
+}
+
+actor GrenadeLauncher : CustomInventory 5011
+{
+    Game Doom
+    SpawnID 163
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,19,0,0) == 1,"SpawnGrenadeLauncherReplacementNotInYet")
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,19,0,0) == 2,"SpawnIceBeam")
+        TNT1 A 1
+        stop
+    SpawnGrenadeLauncherReplacementNotInYet:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("IceBeamSpawner",0,0,0,0,0,0,0,32)
+        TNT1 A 1
+        stop
+    SpawnIceBeam:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("IceBeamSpawner",0,0,0,0,0,0,0,32)
+        TNT1 A 1
+        stop
+    }
+}
+
+ACTOR IceBeamSpawner : RandomSpawner // Hack, hack, hack.
+{
+    DropItem "IceBeamPickup", 255
+}
+
+actor Railgun : CustomInventory 5012
+{
+    Game Doom
+    SpawnID 164
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,19,0,0) == 1,"SpawnRailgunReplacementNotInYet")
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,19,0,0) == 2,"SpawnLongBeam")
+        TNT1 A 1
+        stop
+    SpawnRailgunReplacementNotInYet:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("LongBeamSpawner",0,0,0,0,0,0,0,32)
+        TNT1 A 1
+        stop
+    SpawnLongBeam:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("LongBeamSpawner",0,0,0,0,0,0,0,32)
+        TNT1 A 1
+        stop
+    }
+}
+
+ACTOR LongBeamSpawner : RandomSpawner // Hack, hack, hack, hack.
+{
+    DropItem "LongBeamPickup", 255
+}
+
+actor BFG10k : CustomInventory 5013
+{
+    Game Doom
+    SpawnID 165
+    States
+    {
+    Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,19,0,0) == 1,"SpawnBFG10kReplacementNotInYet")
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,19,0,0) == 2,"SpawnChargeCombo")
+        TNT1 A 1
+        stop
+    SpawnBFG10kReplacementNotInYet:
+        TNT1 A 0
+        //TNT1 A 0 A_SpawnItemEx("ChargeComboSpawner",0,0,0,0,0,0,0,32)
+        TNT1 A 1
+        stop
+    SpawnChargeCombo:
+        TNT1 A 0
+        //TNT1 A 0 A_SpawnItemEx("ChargeComboSpawner",0,0,0,0,0,0,0,32)
+        TNT1 A 1
+        stop
+    }
+}
+
+ACTOR ChromaStormPickup : WeaponPickup replaces BFG9000 17540
+{
+//$Category Metroid
+    Inventory.PickupMessage ""
+    +AUTOACTIVATE
+	Scale 0.25
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+        goto Spawn2
+
+	  RandomSpawn:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawner1",0,0,0,0,0,0,0,32)
+        stop
+		
+    // NO CODING TECHNIQUES CAN SAVE YOU FROM THE EVIL OF DECORATE
+      Spawn2:
+		//TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,52,0,0) == 1, "RandomSpawn")
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,52,0,0) == 1, "HyperBeamTime")
+        /*CBPK A 0 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 53)
+        CBPK A 1 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 52)
+        CBPK A 0 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 51)
+        CBPK A 1 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 50)
+        CBPK A 0 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 49)
+        CBPK A 1 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 48)
+        CBPK A 0 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 47)
+        CBPK A 1 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 46)
+        CBPK A 0 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 45)
+        CBPK A 1 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 44)
+        CBPK A 0 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 43)
+        CBPK A 1 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 42)
+        CBPK A 0 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 41)
+        CBPK A 1 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 40)
+        CBPK A 0 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 39)
+        CBPK A 1 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 38)
+        CBPK A 0 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 37)
+        CBPK A 1 bright A_SpawnItemEx("Chroma_LightPoint", 0, 0, 36)
+        CBPK B 4 bright A_SpawnItemEx("Chroma_RedCloud",    0, 0, 28)
+        CBPK C 4 bright A_SpawnItemEx("Chroma_OrangeCloud", 0, 0, 24) 
+        CBPK D 4 bright A_SpawnItemEx("Chroma_YellowCloud", 0, 0, 20) 
+        CBPK E 4 bright A_SpawnItemEx("Chroma_GreenCloud",  0, 0, 16) 
+        CBPK F 4 bright A_SpawnItemEx("Chroma_CyanCloud",   0, 0, 12) 
+        CBPK G 4 bright A_SpawnItemEx("Chroma_BlueCloud",   0, 0, 8)
+		*/
+		CSPK AAABBBCCCDDD 1 bright
+		CSPK EEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPP 1
+        loop
+
+      Pickup:
+        TNT1 A 0 A_JumpIfInventory("ChromaBeam",1,"PickupFail")
+        TNT1 A 0 ACS_ExecuteWithResult(594, 20, 14)
+        TNT1 A 0 A_GiveInventory("ChromaBeam")
+		TNT1 A 0 A_GiveInventory("ChromaStormAcquired", 1)
+        TNT1 A 1 A_SetBlend("Yellow", 0.25, 8)
+        goto CheckStay
+    }
+}
+
+actor Chroma_LightPoint
+{
+    +CLIENTSIDEONLY
+    +NOINTERACTION
+    
+    RenderStyle Add
+    XScale 0.5
+    YScale 0.4
+
+    Alpha 0.7
+
+    States
+    {
+      Spawn:
+        CCLD Z 1 bright A_FadeOut(0.1)
+        loop
+    }
+}
+
+actor Chroma_Cloud
+{
+    +CLIENTSIDEONLY
+    +NOINTERACTION
+
+    RenderStyle Add
+    Alpha 0.45
+
+    States
+    {
+      Spawn:
+        CCLD ABCDEFG 2 bright A_FadeOut(0.05)
+        loop
+    }
+}
+
+actor Chroma_RedCloud: Chroma_Cloud
+{
+    Translation "80:111=[255,0,0]:[64,0,0]", "3:3=[89,0,0]:[255,255,255]", "5:8=[64,0,0]:[0,0,0]", "4:4=[255,0,0]:[255,0,0]"
+
+    XScale 0.1
+    YScale 0.05
+}
+
+actor Chroma_OrangeCloud: Chroma_Cloud
+{
+    Translation "80:111=[255,128,0]:[64,32,0]", "3:3=[89,45,0]:[89,45,0]", "5:8=[64,32,0]:[0,0,0]", "4:4=[255,128,0]:[255,128,0]"
+
+    XScale 0.2
+    YScale 0.075
+}
+
+actor Chroma_YellowCloud: Chroma_Cloud
+{
+    Translation "80:111=[255,255,0]:[64,64,0]", "3:3=[89,89,0]:[89,89,0]", "5:8=[64,64,0]:[0,0,0]", "4:4=[255,255,0]:[255,255,0]"
+    XScale 0.3
+    YScale 0.1
+}
+
+actor Chroma_GreenCloud: Chroma_Cloud
+{
+    Translation "80:111=[0,255,0]:[0,64,0]", "3:3=[0,89,0]:[0,89,0]", "5:8=[0,64,0]:[0,0,0]", "4:4=[0,255,0]:[0,255,0]"
+    XScale 0.4
+    YScale 0.125
+}
+
+actor Chroma_CyanCloud: Chroma_Cloud
+{
+    Translation "80:111=[0,255,255]:[0,64,64]", "3:3=[0,89,89]:[0,89,89]", "5:8=[0,64,64]:[0,0,0]", "4:4=[0,255,255]:[0,255,255]"
+    XScale 0.5
+    YScale 0.15
+}
+
+actor Chroma_BlueCloud: Chroma_Cloud
+{
+    Translation "80:111=[0,0,255]:[0,0,64]", "3:3=[0,0,89]:[0,0,89]", "5:8=[0,0,64]:[0,0,0]", "4:4=[0,0,255]:[0,0,255]"
+    XScale 0.6
+    YScale 0.175
+}

@@ -1,0 +1,104 @@
+//Credits to HAL9000 for these!
+Actor GreenCrystal 17851
+{
+//$Category Metroid
+	Radius 20
+	Height 20
+	Alpha 0.90
+    Health 15
+    +SOLID
+    +SHOOTABLE
+    +NOBLOOD
+    +DONTTHRUST
+	
+	States
+	{
+		Spawn:
+		GCRS A -1 BRIGHT
+		Stop
+		
+		Death:
+        GCRS ABCDEFGHIJKLMNOPQRSTUVWX 1
+        GCRS Y 500
+		TNT1 A -1
+        Stop
+	}
+}
+
+Actor LimeGreenCrystal 17852
+{
+//$Category Metroid
+	Radius 20
+	Height 20
+	Alpha 0.90
+    Health 15
+    +SOLID
+    +SHOOTABLE
+    +NOBLOOD
+    +DONTTHRUST
+	
+	States
+	{
+		Spawn:
+		LGCR A -1 BRIGHT
+		Stop
+		
+		Death:
+        LGCR ABCDEFGHIJKLMNOPQRSTUVWX 1
+		LGCR Y 500
+		TNT1 A -1
+        Stop
+	}
+}
+
+Actor OrangeCrystal 17853
+{
+//$Category Metroid
+	Radius 20
+	Height 20
+	Alpha 0.90
+    Health 15
+    +SOLID
+    +SHOOTABLE
+    +NOBLOOD
+    +DONTTHRUST
+	
+	States
+	{
+		Spawn:
+		OCRS A -1 BRIGHT
+		Stop
+		
+		Death:
+        OCRS ABCDEFGHIJKLMNOPQRSTUVWX 1
+		OCRS Y 500
+		TNT1 A -1
+        Stop
+	}
+}
+
+Actor BlueCrystal 17854
+{
+//$Category Metroid
+	Radius 20
+	Height 20
+	Alpha 0.90
+    Health 15
+    +SOLID
+    +SHOOTABLE
+    +NOBLOOD
+    +DONTTHRUST
+	
+	States
+	{
+		Spawn:
+		BCRS A -1 BRIGHT
+		Stop
+		
+		Death:
+        BCRS ABCDEFGHIJKLMNOPQRSTUVWX 1
+		BCRS Y 500
+		TNT1 A -1
+        Stop
+	}
+}

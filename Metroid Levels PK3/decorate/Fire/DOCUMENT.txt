@@ -1,0 +1,4 @@
+Place on map and use the first argument to control the size of the fire. 0 is small,
+1 is medium, 2 and above is large.
+
+The second argument prevents it from playing sounds. 0 will play the sounds, 1 will not.

@@ -1,0 +1,332 @@
+silence                 QUIET
+system/healthsiren      WARNSRN
+system/samusappear      JNGLARIV
+system/samusvisor		VISRLOAD
+system/samusitem        NWITMGET
+system/samusitembig     JNGLITE2
+system/samusitemunk     JNGLITE3
+system/samusitemskl     JNGLITE4
+system/puzzle			M_PUZZLE
+system/hitindicator     ENEMYHIT // Taken from Metroid: Zero Mission
+system/savelaser		sounds/system/SaveLaser.ogg
+system/saveconfirm		sounds/system/SaveConfirm.ogg
+
+$pitchshift system/samusappear 0
+$pitchshift system/samusvisor 0
+$pitchshift system/samusitem 0
+$pitchshift system/samusitembig 0
+$pitchshift system/samusitemunk 0
+$pitchshift system/samusitemskl 0
+
+menu/activate        MENUUP // Bring up the main menu. - Taken from Metroid Prime 3
+menu/clear           MENUDOWN // Close main menu. - Taken from Metroid Prime 3
+menu/choose          MENUYES // Choose an item on the menu. - Taken from Metroid Prime
+menu/backup          MENUNO // Go back to previous menu. - Taken from Metroid Prime
+menu/cursor          MENUSCRL // Move cursor up/down. - Taken from Metroid Prime
+menu/change          MENUCHNG // Changing options around. - Taken from Metroid Prime
+menu/prompt          MENUQUIT // Are you sure you want to quit? - Taken from Metroid Prime
+menu/dismiss         MENUDSMS // Dismiss a prompt. - Taken from Metroid Prime 3
+menu/invalid         MENUFAIL // Menu not available. - Taken from Metroid Prime
+
+// Samus Aran
+$playersound      Hunter   male    *death          SAMDEATH // Taken from Metroid Prime 2
+$playersounddup   Hunter   male    *xdeath         *death
+$playersounddup   Hunter   male    *burndeath      *death
+$playersounddup   Hunter   male    *crazydeath     *death
+$playersounddup   Hunter   male    *wimpydeath     *death
+$playersounddup   Hunter   male    *gibbed         *death
+$playeralias      Hunter   male    *pain100        samus/hurt
+$playersounddup   Hunter   male    *pain75         *pain100
+$playersounddup   Hunter   male    *pain50         *pain100
+$playersounddup   Hunter   male    *pain25         *pain100
+$playersound      Hunter   male    *grunt          QUIET
+$playeralias      Hunter   male    *land           samus/land
+$playersound      Hunter   male    *usefail        SAMNOPE // Taken from Smash Bros. Brawl
+$playersound      Hunter   male    *taunt          SAMTAUNT // Taken from Smash Bros. Brawl
+$playersound      Hunter   male    *jump           QUIET
+
+$playersound      MoBall   male    *death          SAMDEATH
+$playersounddup   MoBall   male    *xdeath         *death
+$playersounddup   MoBall   male    *burndeath      *death
+$playersounddup   MoBall   male    *crazydeath     *death
+$playersounddup   MoBall   male    *wimpydeath     *death
+$playersounddup   MoBall   male    *gibbed         *death
+$playeralias      MoBall   male    *pain100        samus/hurt
+$playersounddup   MoBall   male    *pain75         *pain100
+$playersounddup   MoBall   male    *pain50         *pain100
+$playersounddup   MoBall   male    *pain25         *pain100
+$playersound      MoBall   male    *grunt          QUIET
+$playeralias      MoBall   male    *land           samus/land
+$playersound      MoBall   male    *usefail        BALNOPE // Taken from Smash Bros. Brawl
+$playersound      MoBall   male    *taunt          BALTAUNT // Taken from Smash Bros. Brawl
+$playersound      MoBall   male    *jump           QUIET
+
+player/surface WTRLEAVE
+player/splash  WTRENTER
+
+moball/hurt             BALPAIN
+
+$random samus/hurt { sam/hurt1 sam/hurt2 sam/hurt3 sam/hurt4 } // Taken from Smash Bros. Brawl
+sam/hurt1               SAMHURT1
+sam/hurt2               SAMHURT2
+sam/hurt3               SAMHURT3
+sam/hurt4               SAMHURT4
+
+$random samus/land { sam/land1 sam/land2 sam/land3 } // Taken from Smash Bros. Brawl
+sam/land1               SAMLAND1
+sam/land2               SAMLAND2
+sam/land3               SAMLAND3
+
+$random samus/step { sam/step1 sam/step2 sam/step3 sam/step4 } // Taken from Unreal Championship 2
+sam/step1               SAMSTEP1
+sam/step2               SAMSTEP2
+sam/step3               SAMSTEP3
+sam/step4               SAMSTEP4
+
+$volume sam/step1 0.35
+$volume sam/step2 0.35
+$volume sam/step3 0.35
+$volume sam/step4 0.35
+
+metroid/spacejump       SAMSDJMP // Taken from Smash Bros. Brawl
+metroid/walljump        SAMSWJMP
+metroid/wajumpup        SAMSWJMU
+
+// Morph Ball
+morphball/morph         BALMORPH // Taken from Metroid Prime
+morphball/unmorph       BALUNMRF // Taken from Metroid Prime
+morphball/denied        BALDENID // Taken from Metroid Prime
+morphball/bombdrop      BALBOMDR // Taken from Smash Bros. Melee
+morphball/bombboom      BALBOMXP
+morphball/bombboom2     BALBOMXP
+morphball/pbomwub       PBOMWUB
+morphball/pbomdrop      PBOMLAY
+morphball/pbomread      PBOMREAD // Taken from Smash Bros. Brawl
+morphball/pbomexplod    PBOMBOOM
+
+$limit morphball/pbomwub 0
+$limit morphball/bombboom 0
+$rolloff morphball/pbomexplod    400 1800
+
+boostball/start         BOOSTSTR // Taken from Metroid Prime
+boostball/launch        BOOSTGO
+boostball/humstart      BOOSHUMS
+boostball/hum           BOOSHUM
+boostball/fizzle        sounds/morphball/boost_fizzle.ogg   // UT2k4 lightning gun impact sound
+$volume boostball/fizzle 0.4
+
+// Speed Booster
+
+speedboost/start        SPDBSTST // Made by Repo Man
+/*$random speedboost/loop { speedloop1 speedloop2 }
+speedloop1              SPDBSTL1
+speedloop2              SPDBSTL2*/
+speedboost/loop         SPDBSTL1 // Made by Repo Man
+speedboost/loop1        SPDBSTL2 // Made by R4L
+
+$limit speedloop1 0
+$limit speedloop2 0
+
+// Beams
+
+beam/deselect           WPNDSLCT
+beam/transin        	BEAMTRIN
+beam/transout			BEAMTROT
+
+// Power Beam
+pbeam/fire              PBEAMFIR
+pbeam/hit               PBEAMHIT
+pbeam/charge            PBEAMCHR // Taken from Metroid Prime
+pbeam/idle              PBEAMIDL // Taken from Metroid Prime
+pbeam/chfire            PBEAMFI2
+pbeam/chhit             PBEAMCHT
+
+$rolloff pbeam/chhit    400 1800
+
+cbeam/fana				FANBLDE1
+
+// Missile Launcher
+missile/fire            MISSFIRE
+missile/disengage		MISSTRAN
+supermissile/fire       SMISFIRE
+supermissile/ready      SMISREAD
+
+$random missile/hit { miss/hit1 miss/hit2 miss/hit3 }
+miss/hit1               MISSEXP1
+miss/hit2               MISSEXP2
+miss/hit3               MISSEXP3
+
+$limit missile/hit 0
+
+$random supermissile/hit { smiss/hit1 smiss/hit2 smiss/hit3 }
+smiss/hit1              SMISEXP1
+smiss/hit2              SMISEXP2
+smiss/hit3              SMISEXP3
+
+$rolloff smiss/hit1     400 1800
+$rolloff smiss/hit2     400 1800
+$rolloff smiss/hit3     400 1800
+
+// Wave Beam
+wbeam/fire              WBEAMFIR
+wbeam/hit               WBEAMHIT
+wbeam/chfire            WBEAMFI2
+wbeam/chhit             WBEAMCHT
+
+// Spazer Beam
+sbeam/fire              SBEAMFIR
+sbeam/hit               SBEAMHIT
+sbeam/chfire            SBEAMFI2
+
+// Long Beam
+lbeam/fire              LBEAMFIR
+lbeam/hit               LBEAMHIT // Taken from Unreal Tournament
+lbeam/chfire            LBEAMFI2
+
+// Plasma Beam
+plbeam/fire             MBEAMFIR
+plbeam/hit              MBEAMHIT // Taken from Doom 3
+plbeam/chfire           MBEAMFI2
+plbeam/chit             MBEAMCHT // Taken from Doom 3
+
+// Ice Beam
+ibeam/fire              IBEAMFIR
+ibeam/hit               IBEAMHIT // Taken from Painkiller
+ibeam/chfire            IBEAMFI2
+ibeam/chit              IBEAMCHT // Taken from Devil May Cry 3
+ibeam/chill             IBEAMCHL
+ibeam/chill2            IBEAMCH2
+$random ibeam/freeze { ifreeze1 ifreeze2 ifreeze3 } // Taken from Painkiller
+ifreeze1                IBEAMFR1
+ifreeze2                IBEAMFR2
+ifreeze3                IBEAMFR3
+ibeam/break             IBEAMBRK
+
+dcann/fire              DCANNFIR
+dcann/chfire            DCANNFI2
+dcann/cock              DCANNCK1
+dcann/cock2             DCANNCK2
+dcann/cock3             DCANNCK3
+dcann/hbeat             DCANNBET // Taken from Heretic
+dcann/up                DCANNUP // Taken from Painkiller
+
+dchain/raise            CHNRAISE
+dchain/idle             CHNIDLE
+dchain/use              CHNROAR
+dchain/swing            CHNSWING
+dchain/hit              CHNSAWD
+dchain/deselect         CHNDOWN
+
+$random bullet/puff    { bullet/puff1 bullet/puff2 bullet/puff3 bullet/puff4 bullet/puff5 bullet/puff6 } // Not sure where these are from. If you know, please let me know!
+bullet/puff1            blrich1
+bullet/puff2            blrich2
+bullet/puff3            blrich3
+bullet/puff4            blrich4
+bullet/puff5            blrich5
+bullet/puff6            blrich6
+
+$limit metroid/dakkabeamfire 0
+metroid/dakkabeamfire       sounds/beams/dakkabeam_fire.ogg
+metroid/dakkalaser_start    sounds/beams/dakkabeam_laserstart.ogg
+metroid/dakkalaser_hold     sounds/beams/dakkabeam_laserhold.ogg
+metroid/dakkalaser_down     sounds/beams/dakkabeam_laserdown.ogg
+
+// Charge Combos
+combo/ready             CHCMBCLK // Taken from Smash Bros. Melee
+combo/spazer            CMBSPAZR
+combo/long              CMBLONG
+combo/plasma            CMBPLASM
+combo/wave              CMBWAVE
+combo/ice               CMBICE
+combo/power             CMBPOWER
+combo/plasmafire        CCMBFIRE // Taken from Aenima's Mercenaries
+combo/icefreeze         CCMBFREZ // Taken from Fatal/Fake
+
+$limit combo/plasmafire 0
+$volume combo/plasmafire 0.5
+
+// Items
+item/get                ITEMGET // Taken from Doom 64
+health/10               HEALF10
+health/25               HEALF25
+health/50               HEALF50
+health/100              HEALF100
+weapon/get              WEAPGET // Taken from Metroid Prime
+nrgtank/get             ENRGTANK // Taken from Metroid Prime 3
+movement/get            MOVEGET
+charge/get              CHARGGET
+arsenal/get             ARSEGET
+cannon/get              DCANNGET
+chroma/get              CSTRMGET
+rawenergy/idle          RAWENIDL // Taken from Zero Tolerance
+rawenergy/get           RAWENPKU // Taken from...MechWarrior, I think?
+rawenergy/shieldhit     SHLDHIT // Taken from Smash Bros. Brawl
+
+
+
+// Gunship
+gunship/fire            GNSHFIRE
+gunship/thrust			GNSHJETS
+$limit GNSHJETS 0
+
+
+
+// Enemies
+
+// Space Pirate
+pirate/shot             PIRTSHOT
+pirate/hit              PIRTHIT
+pirate/land             PIRTLAND // Taken from Painkiller
+pirate/see              PIRTSEE // Taken from Painkiller
+pirate/pain             PIRTPAIN // Taken from Painkiller
+pirate/death            PIRTDETH // Taken from Painkiller
+pirate/idle             PIRTIDLE // Taken from Painkiller
+
+// Red Prince
+$random prince/active { inqv1 inqv2 inqv3 inqv4 inqv5 inqv6 inqv7 inqv8 inqv9 inqv10 } // Taken from the Dark Inquisitor on Realm667
+inqv1 redact1
+inqv2 redact2
+inqv3 redact3
+inqv4 redact4
+inqv5 redact5
+inqv6 redact6
+inqv7 redact7
+inqv8 redact8
+inqv9 redact9
+inqv10 redact10
+
+prince/sight            REDSIGHT
+prince/pain             REDPAIN
+prince/death            REDDEATH
+prince/cloak            REDCLOAK
+prince/teleport         REDTELE
+prince/fire             REDFIRE1
+prince/blasterfire      REDFIRE2
+prince/megafire         REDFIRE3
+prince/grenadefire      REDFIRE4
+prince/blasterhit       REDHIT2
+prince/megahit          REDHIT3
+
+$random prince/step { prstep1 prstep2 }
+prstep1		            REDSTEP1
+prstep2		            REDSTEP2
+
+select/nobeam           sounds/system/select_nobeam.ogg
+select/choose           sounds/system/select_choose.ogg
+select/badchoose        sounds/system/select_badchoose.ogg
+
+
+// Titlemap
+$random ambient/thunder { thunder1 thunder2 thunder3 thunder4 thunder5 thunder6 thunder7 }
+thunder1                AMBTHUN1 // Taken from The Ultimate Torment n' Torture
+thunder2                AMBTHUN2 // Taken from The Ultimate Torment n' Torture
+thunder3                AMBTHUN3 // Taken from Hexen
+thunder4                AMBTHUN4 // Taken from The General Series 6000
+thunder5                AMBTHUN5 // Taken from The General Series 6000
+thunder6                AMBTHUN6 // Taken from The General Series 6000
+thunder7                AMBTHUN7 // Taken from The General Series 6000
+
+// Grappling Hook
+gbeam/gbeamon GBEAMON
+gbeam/gbeamcn GBEAMCN
+gbeam/gbeamoff QUIET

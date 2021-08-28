@@ -1,0 +1,628 @@
+actor WeaponPickup: CustomInventory
+{
+    Inventory.MaxAmount 0
+    +AUTOACTIVATE
+    +DONTGIB
+	+NOGRAVITY
+    +QUIET
+    States
+    {
+	
+      CheckStay:
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,3,0,0) == 1, "PickupFail")
+        stop
+        
+      CheckStaySuper:
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,18,0,0) == 1, "PickupFail")
+        stop
+        
+      PickupFail:
+        TNT1 A 0
+        fail
+        
+      NoPickup:
+        TNT1 A 0
+        stop
+
+      MissileTankTime:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("MissileTankPickup",0,0,0,0,0,0,0,32)
+        stop
+
+      SuperMissileTankTime:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("SuperMissileTankPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  PowerBombTankTime:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("PowerBombTankPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  SpazerBeamTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("SpazerBeamPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  UpgradeSpawnerTime:
+        TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawner1",0,0,0,0,0,0,0,32)
+        stop
+		
+	  PlasmaBeamTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("PlasmaBeamPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  WaveBeamTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("WaveBeamPickup",0,0,0,0,0,0,0,32)
+        stop
+	  
+	  IceBeamTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("IceBeamPickup",0,0,0,0,0,0,0,32)
+        stop
+	  
+	  LongBeamTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("LongBeamPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  ChromaStormTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("ChromaStormPickup",0,0,0,0,0,0,0,32)
+        stop
+	  
+	  DoomCannonTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("DoomCannonPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  WideShotTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("WideShotPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  SolarFlareTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("SolarFlarePickup",0,0,0,0,0,0,0,32)
+        stop
+	  
+	  WaveMissileTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("WaveMissilePickup",0,0,0,0,0,0,0,32)
+        stop
+	  
+	  IceSpreaderTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("IceSpreaderPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  NovaFlashTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("NovaFlashPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  HyperBeamTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("HyperBeamPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  ChainsawBeamTime:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("ChainsawBeamPickup",0,0,0,0,0,0,0,32)
+        stop
+    }
+}
+
+ACTOR SpazerBeamPickup : WeaponPickup replaces Shotgun 17533
+{
+//$Category Metroid
+    Scale 0.25
+	
+	Tag "Spazer Beam"
+	
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+		SBPK A 1
+
+      Spawn2:
+        SBPK A 1 BRIGHT
+        SBPK A 1 BRIGHT
+		SBPK A 1 BRIGHT
+		SBPK B 1 BRIGHT
+		SBPK B 1 BRIGHT
+		SBPK B 1 BRIGHT
+		SBPK C 1 BRIGHT
+		SBPK C 1 BRIGHT
+		SBPK C 1 BRIGHT
+		SBPK D 1 BRIGHT
+		SBPK DDEEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPP 1
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,21,0,0) == 1, "WideShotTime")
+        loop
+
+      Pickup:
+        TNT1 A 0 A_JumpIfInventory("SpazerBeam",1,"PickupFail")
+        TNT1 A 0 A_GiveInventory("SpazerBeam")
+        TNT1 A 0 ACS_ExecuteWithResult(594, 20, 7)
+        TNT1 A 0 A_SetBlend("70 F4 2B", 0.25, 8)
+        goto CheckStay
+    }
+}
+
+ACTOR PlasmaBeamPickup : WeaponPickup replaces SuperShotgun 17534
+{
+//$Category Metroid
+    Scale 0.25
+	
+	Tag "Plasma Beam"
+	
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+		PBPK A 1
+
+      Spawn2:
+        PBPK A 1 BRIGHT
+		PBPK A 1 BRIGHT
+		PBPK A 1 BRIGHT
+		PBPK B 1 BRIGHT
+		PBPK B 1 BRIGHT
+		PBPK B 1 BRIGHT
+		PBPK C 1 BRIGHT
+		PBPK C 1 BRIGHT
+		PBPK C 1 BRIGHT
+		PBPK D 1 BRIGHT
+		PBPK DDEEEFFFGGGHHHIIIJJJKKKLLLMMMNNOOPPP 1
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,22,0,0) == 1, "SolarFlareTime")
+        loop
+
+      Pickup:
+        TNT1 A 0 A_JumpIfInventory("PlasmaBeam",1,"PickupFail")
+        TNT1 A 0 A_GiveInventory("PlasmaBeam")
+        TNT1 A 0 ACS_ExecuteWithResult(594, 20, 8)
+        TNT1 A 0 A_SetBlend("FF 1F 1F", 0.25, 8)
+        goto CheckStay
+    }
+}
+
+ACTOR WaveBeamPickup : WeaponPickup replaces Chaingun 17535
+{
+//$Category Metroid
+    Scale 0.25
+	
+	Tag "Wave Beam"
+	
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+		WBPK A 1
+
+      Spawn2:
+        WBPK A 1 BRIGHT
+		WBPK A 1 BRIGHT
+		WBPK A 1 BRIGHT
+		WBPK B 1 BRIGHT
+		WBPK B 1 BRIGHT
+		WBPK B 1 BRIGHT
+		WBPK C 1 BRIGHT
+		WBPK C 1 BRIGHT
+		WBPK C 1 BRIGHT
+		WBPK D 1 BRIGHT
+		WBPK DDEEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPP 1
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,23,0,0) == 1, "WaveMissileTime")
+        loop
+
+      Pickup:
+        TNT1 A 0 A_JumpIfInventory("WaveBeam",1,"PickupFail")
+        TNT1 A 0 A_GiveInventory("WaveBeam")
+        TNT1 A 0 ACS_ExecuteWithResult(594, 20, 9)
+        TNT1 A 0 A_SetBlend("FF 1F FF", 0.25, 8)
+        goto CheckStay
+		
+    }
+}
+
+ACTOR IceBeamPickup : WeaponPickup replaces RocketLauncher 17536
+{
+//$Category Metroid
+    Scale 0.25
+	
+	Tag "Ice Beam"
+	
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+		IBPK A 1
+
+      Spawn2:
+        IBPK A 1 //BRIGHT
+		IBPK A 1 //BRIGHT
+		IBPK A 1 //BRIGHT
+		IBPK B 1 //BRIGHT
+		IBPK B 1 //BRIGHT
+		IBPK B 1 //BRIGHT
+		IBPK C 1 //BRIGHT
+		IBPK C 1 //BRIGHT
+		IBPK C 1 //BRIGHT
+		IBPK D 1 //BRIGHT
+		IBPK DDEEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPP 1
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,24,0,0) == 1, "IceSpreaderTime")
+        loop
+
+      Pickup:
+        TNT1 A 0 A_JumpIfInventory("IceBeam",1,"PickupFail")
+        TNT1 A 0 A_GiveInventory("IceBeam")
+        TNT1 A 0 ACS_ExecuteWithResult(594, 20, 10)
+        TNT1 A 0 A_SetBlend("3F BB FF", 0.25, 8)
+        goto CheckStay
+    }
+}
+
+ACTOR LongBeamPickup : WeaponPickup replaces PlasmaRifle 17537
+{
+//$Category Metroid
+    Scale 0.25
+	
+	Tag "Long Beam"
+	
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+		LBPK A 1
+
+      Spawn2:
+        LBPK A 1 BRIGHT
+		LBPK A 1 BRIGHT
+		LBPK A 1 BRIGHT
+		LBPK B 1 BRIGHT
+		LBPK B 1 BRIGHT
+		LBPK B 1 BRIGHT
+		LBPK C 1 BRIGHT
+		LBPK C 1 BRIGHT
+		LBPK C 1 BRIGHT
+		LBPK D 1 BRIGHT
+		LBPK DDEEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPP 1
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,25,0,0) == 1, "NovaFlashTime")
+        loop
+
+      Pickup:
+        TNT1 A 0 A_JumpIfInventory("LongBeam",1,"PickupFail")
+        TNT1 A 0 A_GiveInventory("LongBeam")
+        TNT1 A 0 ACS_ExecuteWithResult(594, 20, 11)
+        TNT1 A 0 A_SetBlend("FA FA FA", 0.25, 8)
+        goto CheckStay
+    }
+}
+
+ACTOR DoomCannonPickup : WeaponPickup replaces Chainsaw 17538
+{
+//$Category Metroid
+	Scale 0.25
+	
+	Tag "Doom Cannon"
+	
+    States
+    {
+      Spawn:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,13,0,0) == 0, "NoPickup")
+		DCPK A 1
+
+      Spawn2:
+        DCPK AAABBBCCCDDD 1 bright
+        DCPK EEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPP 1
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,26,0,0) == 1, "ChainsawBeamTime")
+        loop
+
+      Pickup:
+        TNT1 A 0 A_JumpIfInventory("DoomCannon",1,"PickupFail")
+        TNT1 A 0 A_GiveInventory("DoomCannon")
+        TNT1 A 0 ACS_ExecuteWithResult(594, 20, 13)
+        TNT1 A 0 A_SetBlend("00 00 00", 0.75, 35)
+        goto CheckStay
+    }
+}
+
+ACTOR DoomCannonAlwaysPickup : WeaponPickup 17541
+{
+//$Category Metroid
+	Scale 0.25
+	
+	Tag "Doom Cannon Eternal"
+	
+    States
+    {
+      Spawn:
+        TNT1 A 0
+		DCPK A 1
+
+      Spawn2:
+        DCPK AAABBBCCCDDD 1 bright
+        DCPK EEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPP 1
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,26,0,0) == 1, "ChainsawBeamTime")
+        loop
+
+      Pickup:
+        TNT1 A 0 A_JumpIfInventory("DoomCannon",1,"PickupFail")
+        TNT1 A 0 A_GiveInventory("DoomCannon")
+        TNT1 A 0 ACS_ExecuteWithResult(594, 20, 13)
+        TNT1 A 0 A_SetBlend("00 00 00", 0.75, 35)
+        goto CheckStay
+    }
+}
+
+ACTOR PowerMissilePickup : WeaponPickup 18665
+{
+//$Category Metroid
+	+NOGRAVITY
+    Inventory.RespawnTics 4200
+	Scale 0.50
+	
+	Tag "Power Missile"
+	
+    States
+    {
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+			PWMC A 1
+			
+		Spawn2:
+			PWMC A 10 BRIGHT
+			PWMC A 5
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,41,0,0) == 1, "UpgradeSpawnerTime")
+			loop
+
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("PowerMissileAcquired",1,"PickupFail")
+			TNT1 A 0 ACS_ExecuteWithResult(594, 20, 17)
+			TNT1 A 0 A_SetBlend("Yellow", 0.5, 16)
+			goto CheckStaySuper
+	}
+}
+
+ACTOR WaveMissilePickup : WeaponPickup 18666 //THE NUMBER OF THE BEEEEAAASTTT
+{
+//$Category Metroid
+	+NOGRAVITY
+    Inventory.RespawnTics 4200
+	Scale 0.50
+	
+	Tag "Wave Missile"
+	
+    States
+    {
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+			WAMC A 1
+			
+		Spawn2:
+			WAMC A 10 BRIGHT
+			WAMC A 5
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,42,0,0) == 1, "UpgradeSpawnerTime")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,23,0,0) != 1, "WaveBeamTime")
+			loop
+
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("WaveMissileAcquired",1,"PickupFail")
+			TNT1 A 0 ACS_ExecuteWithResult(594, 20, 18)
+			TNT1 A 0 A_SetBlend("FF 1F FF", 0.75, 35)
+			goto CheckStaySuper
+	}
+}
+
+ACTOR SolarFlarePickup : WeaponPickup 18667
+{
+//$Category Metroid
+	+NOGRAVITY
+    Inventory.RespawnTics 4200
+	Scale 0.50
+	
+	Tag "Solar Flare"
+	
+    States
+    {
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+			SFMC A 1
+			
+		Spawn2:
+			SFMC A 10 BRIGHT
+			SFMC A 5 
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,43,0,0) == 1, "UpgradeSpawnerTime")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,22,0,0) != 1, "PlasmaBeamTime")
+			loop
+			
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("SolarFlareAcquired",1,"PickupFail")
+			TNT1 A 0 ACS_ExecuteWithResult(594, 20, 19)
+			TNT1 A 0 A_SetBlend("FF 1F 1F", 0.75, 35)
+			goto CheckStaySuper
+	}
+}
+
+ACTOR IceSpreaderPickup : WeaponPickup 18668
+{
+//$Category Metroid
+	+NOGRAVITY
+    Inventory.RespawnTics 4200
+	Scale 0.50
+	
+	Tag "Ice Spreader"
+	
+    States
+    {
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+			ISMC A 1
+			
+		Spawn2:
+			ISMC A 10 BRIGHT
+			ISMC A 5
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,44,0,0) == 1, "UpgradeSpawnerTime")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,24,0,0) != 1, "IceBeamTime")
+			loop
+
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("IceSpreaderAcquired",1,"PickupFail")
+			TNT1 A 0 ACS_ExecuteWithResult(594, 20, 20)
+			TNT1 A 0 A_SetBlend("3F BB FF", 0.75, 35)
+			goto CheckStaySuper
+	}
+}
+
+ACTOR NovaFlashPickup : WeaponPickup 18669
+{
+//$Category Metroid
+	+NOGRAVITY
+    Inventory.RespawnTics 4200
+	Scale 0.50
+	
+	Tag "Nova Flash"
+	
+    States
+    {
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+			NFMC A 1
+			
+		Spawn2:
+			NFMC A 10 BRIGHT
+			NFMC A 5
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,45,0,0) == 1, "UpgradeSpawnerTime")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,25,0,0) != 1, "LongBeamTime")
+			loop
+			
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("NovaFlashAcquired",1,"PickupFail")
+			TNT1 A 0 ACS_ExecuteWithResult(594, 20, 21)
+			TNT1 A 0 A_SetBlend("FF FF FF", 0.75, 35)
+			goto CheckStaySuper
+	}
+}
+
+ACTOR WideShotPickup : WeaponPickup 18670
+{
+//$Category Metroid
+	+NOGRAVITY
+    Inventory.RespawnTics 4200
+	Scale 0.50
+	
+	Tag "Wide Shot"
+	
+    States
+    {
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+			WSMC A 1
+			
+		Spawn2:
+			WSMC A 10 BRIGHT
+			WSMC A 5
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,46,0,0) == 1, "UpgradeSpawnerTime")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,21,0,0) != 1, "SpazerBeamTime")
+			loop
+			
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("WideShotAcquired",1,"PickupFail")
+			TNT1 A 0 ACS_ExecuteWithResult(594, 20, 22)
+			TNT1 A 0 A_SetBlend("70 F4 2B", 0.75, 35)
+			goto CheckStaySuper
+	}
+}
+
+ACTOR HyperBeamPickup : WeaponPickup 18671
+{
+//$Category Metroid
+	+NOGRAVITY
+    Inventory.RespawnTics 4200
+	Scale 0.50
+	
+	Tag "Hyper Beam"
+	
+    States
+    {
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+			PWMC A 1
+			
+		Spawn2:
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,47,0,0) == 1, "UpgradeSpawnerTime")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,52,0,0) != 1, "ChromaStormTime")
+			PWMC A 4
+			PWMC B 4
+			PWMC C 4 
+			WSMC A 4
+			WSMC B 4
+			WSMC C 4 BRIGHT
+			SFMC A 4
+			SFMC B 4
+			SFMC C 4 
+			WAMC A 4
+			WAMC B 4
+			WAMC C 4 
+			ISMC A 4
+			ISMC B 4
+			ISMC C 4 BRIGHT
+			NFMC A 4
+			NFMC B 4
+			NFMC C 4 
+			loop
+			
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("HyperBeamAcquired",1,"PickupFail")
+			TNT1 A 0 ACS_ExecuteWithResult(594, 20, 23)
+			TNT1 A 0 A_SetBlend("FF FF FF", 0.75, 35)
+			goto CheckStaySuper
+	}
+}
+
+ACTOR ChainsawBeamPickup : WeaponPickup 18672
+{
+//$Category Metroid
+	+NOGRAVITY
+    Inventory.RespawnTics 4200
+	Scale 0.50
+	
+	Tag "Chainsaw Beam"
+	
+    States
+    {
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
+			DCMC A 1
+			
+		Spawn2:
+			DCMC A 10 BRIGHT
+			DCMC A 5
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,48,0,0) == 1, "UpgradeSpawnerTime")
+			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,26,0,0) != 1, "DoomCannonTime")
+			loop
+			
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("ChainsawBeamAcquired",1,"PickupFail")
+			TNT1 A 0 ACS_ExecuteWithResult(594, 20, 24)
+			TNT1 A 0 A_SetBlend("00 00 00", 0.75, 35)
+			goto CheckStaySuper
+	}
+}

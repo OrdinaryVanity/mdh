@@ -1,0 +1,83 @@
+DoomEdNums
+{
+	7806 = "GravitySuitPickup"
+}
+
+gameinfo
+{
+	infopage = "METRTIP0", "CREDIT"
+	AddEventHandlers = "GHookHandler"
+}
+
+
+
+map TITLEMAP "Title Map"
+{
+    next = "TITLEMAP"
+    SKY1 = "HEXSKY1A", 1.5
+    SKY2 = "HEXSKY1B", 1.5
+    Lightning
+    SmoothLighting
+}
+
+skill baby // Heh.
+{
+    ACSReturn = 0
+    EasyBossBrain
+    SpawnFilter = Baby // Hehhhh.
+    DamageFactor = 0.75
+    AmmoFactor = 2
+    Name = "Hatchling"
+    MustConfirm = "$CONFIRM_BABY"
+}
+
+skill easy
+{
+    ACSReturn = 1
+    EasyBossBrain
+    SpawnFilter = Easy
+    Name = "Space Cadet"
+    MustConfirm = "$CONFIRM_EASY"
+}
+
+skill normal
+{
+    ACSReturn = 2
+    SpawnFilter = Normal
+    Name = "Bounty Hunter"
+    MustConfirm = "$CONFIRM_NORMAL"
+}
+
+skill hard
+{
+    ACSReturn = 3
+    SpawnFilter = Hard
+    Name = "Chozo Warrior"
+    MustConfirm = "$CONFIRM_HARD"
+}
+
+skill nightmare
+{
+    ACSReturn = 4
+    FastMonsters
+    DamageFactor = 1.25
+    SpawnFilter = Nightmare
+    Name = "Galactic Protector"
+    MustConfirm = "$CONFIRM_NIGHTMARE"
+}
+
+//skill ohgodhelpme
+//{
+//    ACSReturn = 5
+//   FastMonsters
+//    DisableCheats
+//    RespawnTime = 30
+//    RespawnLimit = 3
+//    DamageFactor = 1.5
+    //MonsterHealth = 1.25
+//    Aggressiveness = 1.0
+//    SpawnFilter = Nightmare
+//    Name = "   "
+//    //ReplaceActor = "Medikit", "Stimpack"
+//    MustConfirm = "$CONFIRM_OHGODHELPME"
+//}

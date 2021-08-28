@@ -1,0 +1,5 @@
+Type: Bubbles
+Summon: Bubble, BubbleSpawner
+
+Decorate: Captain Toenail
+Sprites: CroTeam

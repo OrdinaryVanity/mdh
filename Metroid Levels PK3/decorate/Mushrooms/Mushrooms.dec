@@ -1,0 +1,63 @@
+Actor Mushrooms 17836
+{
+//$Category Metroid
+	+NOINTERACTION
+	-SOLID
+	
+	Tag "Grey Mushroom Cluster"
+	
+	States
+	{
+		Spawn:
+		MSH1 A -1
+		Stop
+	}
+}
+
+Actor Mushroom 17837
+{
+//$Category Metroid
+	+NOINTERACTION
+	-SOLID
+	
+	Tag "Grey Mushroom"
+	
+	States
+	{
+		Spawn:
+		MSH2 A -1
+		Stop
+	}
+}
+
+Actor GreenMushrooms 17838
+{
+//$Category Metroid
+	+NOINTERACTION
+	-SOLID
+	
+	Tag "Green Mushroom Cluster"
+	
+	States
+	{
+		Spawn:
+		MSH3 A -1
+		Stop
+	}
+}
+
+Actor GreenMushroom 17839
+{
+//$Category Metroid
+	+NOINTERACTION
+	-SOLID
+	
+	Tag "Green Mushroom"
+	
+	States
+	{
+		Spawn:
+		MSH4 A -1
+		Stop
+	}
+}

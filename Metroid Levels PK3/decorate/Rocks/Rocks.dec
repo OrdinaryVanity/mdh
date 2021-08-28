@@ -1,0 +1,17 @@
+Actor BrownRocks1 17869
+{
+//$Category Metroid
+	Radius 16
+	Height 16
+	+NOINTERACTION
+	+SOLID
+	
+	Tag "Brown Rocks"
+	
+	States
+	{
+		Spawn:
+		BRK1 A -1
+		Stop
+	}
+}

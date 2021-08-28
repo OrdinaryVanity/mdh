@@ -1,0 +1,9 @@
+version "4.2.4"
+
+#include "zscript/RadiusDebug/RadiusDebug.zc"
+#include "zscript/GrapplingHook/GHook.txt"
+#include "zactors/Items/Suits.zsc"
+#include "zactors/Items/Keys.zsc"
+#include "zactors/samusplayer.zc"
+#include "zactors/morphball.zc"
+#include "zactors/scanvisor.zc"

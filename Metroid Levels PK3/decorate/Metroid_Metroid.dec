@@ -1,0 +1,23 @@
+// Sprites by CandyMan
+
+ACTOR Metroid_Metroid 15330
+{
+//$Category Metroid
+  Radius 20
+  Height 56
+  +NOINTERACTION
+  +FLOATBOB
+  +NOGRAVITY
+  +DONTFALL
+  
+  Tag "Metroid (Prop)"
+  
+  States
+  {
+  Spawn:  
+	TNT1 A 0
+	TNT1 A 0
+    MTRR DEFE 3
+	Loop   
+  }
+}

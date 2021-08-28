@@ -1,0 +1,131 @@
+Class KeyStoneRed : Inventory
+{
+	Default
+	{
+	//$Category Metroid
+		Inventory.PickupMessage "Picked up a Red stone artifact. Is this a key?";
+		Inventory.PickupSound "item/get";
+		Inventory.MaxAmount 1;
+		Tag "KeyStoneRed";
+		Radius 8;
+		Height 20;
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0;
+			KST1 A 1;
+			Loop;
+		Pickup:
+			TNT1 A 1;
+			Stop;
+	}
+}
+
+Class KeyStoneRedPlaced : Actor
+{
+	Default
+	{
+		Tag "KeyStoneRedPlaced";
+		Radius 8;
+		Height 20;
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay A_PlaySound("SFX/stone", CHAN_BODY, 1.0, false, ATTN_NORM);
+			KSRS ABCDEFGHIJKLMNOPQRSTUVWX 1;
+		Idle:
+			KSRS Y -1;
+			Goto Idle;
+	}
+}
+
+Class KeyStonePurple : Inventory
+{
+	Default
+	{
+	//$Category Metroid
+		Inventory.PickupMessage "Picked up a Purple stone artifact. Is this a key?";
+		Inventory.PickupSound "item/get";
+		Inventory.MaxAmount 1;
+		Tag "KeyStonePurple";
+		Radius 8;
+		Height 20;
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0;
+			KST2 A 1;
+			Loop;
+		Pickup:
+			TNT1 A 1;
+			Stop;
+	}
+}
+
+Class KeyStonePurplePlaced : Actor
+{
+	Default
+	{
+		Tag "KeyStonePurplePlaced";
+		Radius 8;
+		Height 20;
+		+Solid;
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay A_PlaySound("SFX/stone", CHAN_BODY, 1.0, false, ATTN_NORM);
+			KSPS ABCDEFGHIJKLMNOPQRSTUVWX 1;
+		Idle:
+			KSPS Y -1;
+			Goto Idle;
+	}
+}
+
+Class KeyStoneYellow : Inventory
+{
+	Default
+	{
+	//$Category Metroid
+		Inventory.PickupMessage "Picked up a Yellow stone artifact. Is this a key?";
+		Inventory.PickupSound "item/get";
+		Inventory.MaxAmount 1;
+		Tag "KeyStoneYellow";
+		Radius 8;
+		Height 20;
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0;
+			KST3 A 1;
+			Loop;
+		Pickup:
+			TNT1 A 1;
+			Stop;
+	}
+}
+
+Class KeyStoneYellowPlaced : Actor
+{
+	Default
+	{
+		Tag "KeyStoneYellowPlaced";
+		Radius 8;
+		Height 20;
+		+Solid;
+		
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay A_PlaySound("SFX/stone", CHAN_BODY, 1.0, false, ATTN_NORM);
+			KSYS ABCDEFGHIJKLMNOPQRSTUVWX 1;
+		Idle:
+			KSYS Y -1;
+			Goto Idle;
+	}
+}

@@ -1,0 +1,24 @@
+ACTOR MetTorch : SwitchableDecoration 17874
+{
+//$Category Metroid
+	Radius 16
+	Height 8
+	Scale 0.5
+	+NOGRAVITY
+	
+	Tag "Hexhi Torch"
+	
+	States
+	{
+	
+	Spawn:
+	Active:
+		MTCH LMNOP 3
+		MTCH ABCDEFGHIJKLMNOP 2
+		Goto Active+5
+	
+	Inactive:
+		MTCH Q 1
+		Loop
+	}
+}

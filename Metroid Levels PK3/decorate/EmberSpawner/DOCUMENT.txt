@@ -1,0 +1,9 @@
+Place on map and use the first two arguments to control the intensity and area of the 
+spawner.
+
+First argument controls the size of the area. 32, for example, spawns in a 64x64 square (or
+64 diameter circle. See second argument).
+
+Second argument controls the type of area it spawns in. 0 is square, 1 is circle.
+
+Third argument controls it's frequency. The lower the number, the heavier the ember count.

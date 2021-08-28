@@ -1,0 +1,35 @@
+Actor VineCluster 17866
+{
+//$Category Metroid
+	Radius 2
+	Height 2
+	Scale 1
+	+NOINTERACTION
+	+SPAWNCEILING
+	
+	Tag "Vine Cluster"
+	
+	States
+	{
+		Spawn:
+		VNCL A -1
+		Stop
+	}
+}
+
+Actor Vine1 17867
+{
+//$Category Metroid
+	Radius 2
+	Height 2
+	Scale 1
+	+NOINTERACTION
+	+SPAWNCEILING
+	
+	States
+	{
+		Spawn:
+		VINE A -1
+		Stop
+	}
+}

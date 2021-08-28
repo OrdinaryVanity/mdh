@@ -1,0 +1,152 @@
+texture MDDAB0, 132, 104 { patch MDDD9, 0, 0 patch MDDBB0, 0, 0 { style add } }
+texture MDDAB1, 132, 104 { patch MDDD9, 0, 0 patch MDDBB1, 0, 0 { style add } }
+texture MDDAB2, 132, 104 { patch MDDD9, 0, 0 patch MDDBB2, 0, 0 { style add } }
+texture MDDAB3, 132, 104 { patch MDDD9, 0, 0 patch MDDBB3, 0, 0 { style add } }
+texture MDDAB4, 132, 104 { patch MDDD9, 0, 0 patch MDDBB4, 0, 0 { style add } }
+texture MDDAB5, 132, 104 { patch MDDD9, 0, 0 patch MDDBB5, 0, 0 { style add } }
+texture MDDAB6, 132, 104 { patch MDDD9, 0, 0 patch MDDBB6, 0, 0 { style add } }
+texture MDDAB7, 132, 104 { patch MDDD9, 0, 0 patch MDDBB7, 0, 0 { style add } }
+texture MDDAB8, 132, 104 { patch MDDD9, 0, 0 patch MDDBB8, 0, 0 { style add } }
+texture MDDAB9, 132, 104 { patch MDDD9, 0, 0 patch MDDBB9, 0, 0 { style add } }
+texture MDDAB10, 132, 104 { patch MDDD9, 0, 0 patch MDDBB10, 0, 0 { style add } }
+texture MDDAB11, 132, 104 { patch MDDD9, 0, 0 patch MDDBB11, 0, 0 { style add } }
+texture MDDAB12, 132, 104 { patch MDDD9, 0, 0 patch MDDBB12, 0, 0 { style add } }
+texture MDDAB13, 132, 104 { patch MDDD9, 0, 0 patch MDDBB13, 0, 0 { style add } }
+texture MDDAB14, 132, 104 { patch MDDD9, 0, 0 patch MDDBB14, 0, 0 { style add } }
+texture MDDAB15, 132, 104 { patch MDDD9, 0, 0 patch MDDBB15, 0, 0 { style add } }
+texture MDDAB16, 132, 104 { patch MDDD9, 0, 0 patch MDDBB16, 0, 0 { style add } }
+texture MDDAB17, 132, 104 { patch MDDD9, 0, 0 patch MDDBB17, 0, 0 { style add } }
+texture MDDAI0, 132, 104 { patch MDDD9, 0, 0 patch MDDBI0, 0, 0 { style add } }
+texture MDDAI1, 132, 104 { patch MDDD9, 0, 0 patch MDDBI1, 0, 0 { style add } }
+texture MDDAI2, 132, 104 { patch MDDD9, 0, 0 patch MDDBI2, 0, 0 { style add } }
+texture MDDAI3, 132, 104 { patch MDDD9, 0, 0 patch MDDBI3, 0, 0 { style add } }
+texture MDDAI4, 132, 104 { patch MDDD9, 0, 0 patch MDDBI4, 0, 0 { style add } }
+texture MDDAI5, 132, 104 { patch MDDD9, 0, 0 patch MDDBI5, 0, 0 { style add } }
+texture MDDAI6, 132, 104 { patch MDDD9, 0, 0 patch MDDBI6, 0, 0 { style add } }
+texture MDDAI7, 132, 104 { patch MDDD9, 0, 0 patch MDDBI7, 0, 0 { style add } }
+texture MDDAI8, 132, 104 { patch MDDD9, 0, 0 patch MDDBI8, 0, 0 { style add } }
+texture MDDAI9, 132, 104 { patch MDDD9, 0, 0 patch MDDBI9, 0, 0 { style add } }
+texture MDDAI10, 132, 104 { patch MDDD9, 0, 0 patch MDDBI10, 0, 0 { style add } }
+texture MDDAI11, 132, 104 { patch MDDD9, 0, 0 patch MDDBI11, 0, 0 { style add } }
+texture MDDAI12, 132, 104 { patch MDDD9, 0, 0 patch MDDBI12, 0, 0 { style add } }
+texture MDDAI13, 132, 104 { patch MDDD9, 0, 0 patch MDDBI13, 0, 0 { style add } }
+texture MDDAI14, 132, 104 { patch MDDD9, 0, 0 patch MDDBI14, 0, 0 { style add } }
+texture MDDAI15, 132, 104 { patch MDDD9, 0, 0 patch MDDBI15, 0, 0 { style add } }
+texture MDDAI16, 132, 104 { patch MDDD9, 0, 0 patch MDDBI16, 0, 0 { style add } }
+texture MDDAI17, 132, 104 { patch MDDD9, 0, 0 patch MDDBI17, 0, 0 { style add } }
+texture MDDAL0, 132, 104 { patch MDDD9, 0, 0 patch MDDBL0, 0, 0 { style add } }
+texture MDDAL1, 132, 104 { patch MDDD9, 0, 0 patch MDDBL1, 0, 0 { style add } }
+texture MDDAL2, 132, 104 { patch MDDD9, 0, 0 patch MDDBL2, 0, 0 { style add } }
+texture MDDAL3, 132, 104 { patch MDDD9, 0, 0 patch MDDBL3, 0, 0 { style add } }
+texture MDDAL4, 132, 104 { patch MDDD9, 0, 0 patch MDDBL4, 0, 0 { style add } }
+texture MDDAL5, 132, 104 { patch MDDD9, 0, 0 patch MDDBL5, 0, 0 { style add } }
+texture MDDAL6, 132, 104 { patch MDDD9, 0, 0 patch MDDBL6, 0, 0 { style add } }
+texture MDDAL7, 132, 104 { patch MDDD9, 0, 0 patch MDDBL7, 0, 0 { style add } }
+texture MDDAL8, 132, 104 { patch MDDD9, 0, 0 patch MDDBL8, 0, 0 { style add } }
+texture MDDAL9, 132, 104 { patch MDDD9, 0, 0 patch MDDBL9, 0, 0 { style add } }
+texture MDDAL10, 132, 104 { patch MDDD9, 0, 0 patch MDDBL10, 0, 0 { style add } }
+texture MDDAL11, 132, 104 { patch MDDD9, 0, 0 patch MDDBL11, 0, 0 { style add } }
+texture MDDAL12, 132, 104 { patch MDDD9, 0, 0 patch MDDBL12, 0, 0 { style add } }
+texture MDDAL13, 132, 104 { patch MDDD9, 0, 0 patch MDDBL13, 0, 0 { style add } }
+texture MDDAL14, 132, 104 { patch MDDD9, 0, 0 patch MDDBL14, 0, 0 { style add } }
+texture MDDAL15, 132, 104 { patch MDDD9, 0, 0 patch MDDBL15, 0, 0 { style add } }
+texture MDDAL16, 132, 104 { patch MDDD9, 0, 0 patch MDDBL16, 0, 0 { style add } }
+texture MDDAL17, 132, 104 { patch MDDD9, 0, 0 patch MDDBL17, 0, 0 { style add } }
+texture MDDAP0, 132, 104 { patch MDDD9, 0, 0 patch MDDBP0, 0, 0 { style add } }
+texture MDDAP1, 132, 104 { patch MDDD9, 0, 0 patch MDDBP1, 0, 0 { style add } }
+texture MDDAP2, 132, 104 { patch MDDD9, 0, 0 patch MDDBP2, 0, 0 { style add } }
+texture MDDAP3, 132, 104 { patch MDDD9, 0, 0 patch MDDBP3, 0, 0 { style add } }
+texture MDDAP4, 132, 104 { patch MDDD9, 0, 0 patch MDDBP4, 0, 0 { style add } }
+texture MDDAP5, 132, 104 { patch MDDD9, 0, 0 patch MDDBP5, 0, 0 { style add } }
+texture MDDAP6, 132, 104 { patch MDDD9, 0, 0 patch MDDBP6, 0, 0 { style add } }
+texture MDDAP7, 132, 104 { patch MDDD9, 0, 0 patch MDDBP7, 0, 0 { style add } }
+texture MDDAP8, 132, 104 { patch MDDD9, 0, 0 patch MDDBP8, 0, 0 { style add } }
+texture MDDAP9, 132, 104 { patch MDDD9, 0, 0 patch MDDBP9, 0, 0 { style add } }
+texture MDDAP10, 132, 104 { patch MDDD9, 0, 0 patch MDDBP10, 0, 0 { style add } }
+texture MDDAP11, 132, 104 { patch MDDD9, 0, 0 patch MDDBP11, 0, 0 { style add } }
+texture MDDAP12, 132, 104 { patch MDDD9, 0, 0 patch MDDBP12, 0, 0 { style add } }
+texture MDDAP13, 132, 104 { patch MDDD9, 0, 0 patch MDDBP13, 0, 0 { style add } }
+texture MDDAP14, 132, 104 { patch MDDD9, 0, 0 patch MDDBP14, 0, 0 { style add } }
+texture MDDAP15, 132, 104 { patch MDDD9, 0, 0 patch MDDBP15, 0, 0 { style add } }
+texture MDDAP16, 132, 104 { patch MDDD9, 0, 0 patch MDDBP16, 0, 0 { style add } }
+texture MDDAP17, 132, 104 { patch MDDD9, 0, 0 patch MDDBP17, 0, 0 { style add } }
+texture MDDAS0, 132, 104 { patch MDDD9, 0, 0 patch MDDBS0, 0, 0 { style add } }
+texture MDDAS1, 132, 104 { patch MDDD9, 0, 0 patch MDDBS1, 0, 0 { style add } }
+texture MDDAS2, 132, 104 { patch MDDD9, 0, 0 patch MDDBS2, 0, 0 { style add } }
+texture MDDAS3, 132, 104 { patch MDDD9, 0, 0 patch MDDBS3, 0, 0 { style add } }
+texture MDDAS4, 132, 104 { patch MDDD9, 0, 0 patch MDDBS4, 0, 0 { style add } }
+texture MDDAS5, 132, 104 { patch MDDD9, 0, 0 patch MDDBS5, 0, 0 { style add } }
+texture MDDAS6, 132, 104 { patch MDDD9, 0, 0 patch MDDBS6, 0, 0 { style add } }
+texture MDDAS7, 132, 104 { patch MDDD9, 0, 0 patch MDDBS7, 0, 0 { style add } }
+texture MDDAS8, 132, 104 { patch MDDD9, 0, 0 patch MDDBS8, 0, 0 { style add } }
+texture MDDAS9, 132, 104 { patch MDDD9, 0, 0 patch MDDBS9, 0, 0 { style add } }
+texture MDDAS10, 132, 104 { patch MDDD9, 0, 0 patch MDDBS10, 0, 0 { style add } }
+texture MDDAS11, 132, 104 { patch MDDD9, 0, 0 patch MDDBS11, 0, 0 { style add } }
+texture MDDAS12, 132, 104 { patch MDDD9, 0, 0 patch MDDBS12, 0, 0 { style add } }
+texture MDDAS13, 132, 104 { patch MDDD9, 0, 0 patch MDDBS13, 0, 0 { style add } }
+texture MDDAS14, 132, 104 { patch MDDD9, 0, 0 patch MDDBS14, 0, 0 { style add } }
+texture MDDAS15, 132, 104 { patch MDDD9, 0, 0 patch MDDBS15, 0, 0 { style add } }
+texture MDDAS16, 132, 104 { patch MDDD9, 0, 0 patch MDDBS16, 0, 0 { style add } }
+texture MDDAS17, 132, 104 { patch MDDD9, 0, 0 patch MDDBS17, 0, 0 { style add } }
+texture MDDAW0, 132, 104 { patch MDDD9, 0, 0 patch MDDBW0, 0, 0 { style add } }
+texture MDDAW1, 132, 104 { patch MDDD9, 0, 0 patch MDDBW1, 0, 0 { style add } }
+texture MDDAW2, 132, 104 { patch MDDD9, 0, 0 patch MDDBW2, 0, 0 { style add } }
+texture MDDAW3, 132, 104 { patch MDDD9, 0, 0 patch MDDBW3, 0, 0 { style add } }
+texture MDDAW4, 132, 104 { patch MDDD9, 0, 0 patch MDDBW4, 0, 0 { style add } }
+texture MDDAW5, 132, 104 { patch MDDD9, 0, 0 patch MDDBW5, 0, 0 { style add } }
+texture MDDAW6, 132, 104 { patch MDDD9, 0, 0 patch MDDBW6, 0, 0 { style add } }
+texture MDDAW7, 132, 104 { patch MDDD9, 0, 0 patch MDDBW7, 0, 0 { style add } }
+texture MDDAW8, 132, 104 { patch MDDD9, 0, 0 patch MDDBW8, 0, 0 { style add } }
+texture MDDAW9, 132, 104 { patch MDDD9, 0, 0 patch MDDBW9, 0, 0 { style add } }
+texture MDDAW10, 132, 104 { patch MDDD9, 0, 0 patch MDDBW10, 0, 0 { style add } }
+texture MDDAW11, 132, 104 { patch MDDD9, 0, 0 patch MDDBW11, 0, 0 { style add } }
+texture MDDAW12, 132, 104 { patch MDDD9, 0, 0 patch MDDBW12, 0, 0 { style add } }
+texture MDDAW13, 132, 104 { patch MDDD9, 0, 0 patch MDDBW13, 0, 0 { style add } }
+texture MDDAW14, 132, 104 { patch MDDD9, 0, 0 patch MDDBW14, 0, 0 { style add } }
+texture MDDAW15, 132, 104 { patch MDDD9, 0, 0 patch MDDBW15, 0, 0 { style add } }
+texture MDDAW16, 132, 104 { patch MDDD9, 0, 0 patch MDDBW16, 0, 0 { style add } }
+texture MDDAW17, 132, 104 { patch MDDD9, 0, 0 patch MDDBW17, 0, 0 { style add } }
+texture MDDAY0, 132, 104 { patch MDDD9, 0, 0 patch MDDBY0, 0, 0 { style add } }
+texture MDDAY1, 132, 104 { patch MDDD9, 0, 0 patch MDDBY1, 0, 0 { style add } }
+texture MDDAY2, 132, 104 { patch MDDD9, 0, 0 patch MDDBY2, 0, 0 { style add } }
+texture MDDAY3, 132, 104 { patch MDDD9, 0, 0 patch MDDBY3, 0, 0 { style add } }
+texture MDDAY4, 132, 104 { patch MDDD9, 0, 0 patch MDDBY4, 0, 0 { style add } }
+texture MDDAY5, 132, 104 { patch MDDD9, 0, 0 patch MDDBY5, 0, 0 { style add } }
+texture MDDAY6, 132, 104 { patch MDDD9, 0, 0 patch MDDBY6, 0, 0 { style add } }
+texture MDDAY7, 132, 104 { patch MDDD9, 0, 0 patch MDDBY7, 0, 0 { style add } }
+texture MDDAY8, 132, 104 { patch MDDD9, 0, 0 patch MDDBY8, 0, 0 { style add } }
+texture MDDAY9, 132, 104 { patch MDDD9, 0, 0 patch MDDBY9, 0, 0 { style add } }
+texture MDDAY10, 132, 104 { patch MDDD9, 0, 0 patch MDDBY10, 0, 0 { style add } }
+texture MDDAY11, 132, 104 { patch MDDD9, 0, 0 patch MDDBY11, 0, 0 { style add } }
+texture MDDAY12, 132, 104 { patch MDDD9, 0, 0 patch MDDBY12, 0, 0 { style add } }
+texture MDDAY13, 132, 104 { patch MDDD9, 0, 0 patch MDDBY13, 0, 0 { style add } }
+texture MDDAY14, 132, 104 { patch MDDD9, 0, 0 patch MDDBY14, 0, 0 { style add } }
+texture MDDAY15, 132, 104 { patch MDDD9, 0, 0 patch MDDBY15, 0, 0 { style add } }
+texture MDDAY16, 132, 104 { patch MDDD9, 0, 0 patch MDDBY16, 0, 0 { style add } }
+texture MDDAY17, 132, 104 { patch MDDD9, 0, 0 patch MDDBY17, 0, 0 { style add } }
+
+sprite MSH1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Mushrooms
+sprite MSH2A0, 1, 1 { Patch TNT1A0, 0, 0 } //Mushroom
+sprite MSH3A0, 1, 1 { Patch TNT1A0, 0, 0 } //Green Mushrooms
+sprite MSH4A0, 1, 1 { Patch TNT1A0, 0, 0 } //Green Mushroom
+sprite GCRSA0, 1, 1 { Patch TNT1A0, 0, 0 } //Green Crystal
+sprite LGCRA0, 1, 1 { Patch TNT1A0, 0, 0 } //Lime Green Crystal
+sprite OCRSA0, 1, 1 { Patch TNT1A0, 0, 0 } //Orange Crystal
+sprite BCRSA0, 1, 1 { Patch TNT1A0, 0, 0 } //Blue Crystal
+sprite BRL2A0, 1, 1 { Patch TNT1A0, 0, 0 } //Explosive Barrel
+sprite ITCRA0, 1, 1 { Patch TNT1A0, 0, 0 } //Item Crate
+sprite ICPAA0, 1, 1 { Patch TNT1A0, 0, 0 } //Item Capsule Part A
+sprite YLLAA0, 1, 1 { Patch TNT1A0, 0, 0 } //Ylla Symbol
+sprite GPL1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Grapple Point Vertical
+sprite GPL2A0, 1, 1 { Patch TNT1A0, 0, 0 } //Grapple Point Horizontal
+sprite MBDRA0, 1, 1 { Patch TNT1A0, 0, 0 } //Missile Blast Door
+sprite SMDRA0, 1, 1 { Patch TNT1A0, 0, 0 } //Super Missile Blast Door
+sprite PBDRA0, 1, 1 { Patch TNT1A0, 0, 0 } //Power Bomb Blast Door
+sprite YLDRA0, 1, 1 { Patch TNT1A0, 0, 0 } //Ylla Door
+sprite DRE1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Dead Tree
+sprite BRK1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Brown Rocks
+sprite KST1A0, 1, 1 { Patch TNT1A0, 0, 0 } //KeyStone Red
+sprite KST2A0, 1, 1 { Patch TNT1A0, 0, 0 } //KeyStone Purple
+sprite KST3A0, 1, 1 { Patch TNT1A0, 0, 0 } //KeyStone Yelloww
+sprite FISHA0, 1, 1 { Patch TNT1A0, 0, 0 } //Fish
+sprite GSB1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Grey Stone Breakable Block

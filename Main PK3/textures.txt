@@ -1,0 +1,100 @@
+graphic metrtip0, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_1fctf, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_coop, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_ctf, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_dm, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_duel, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_inv, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_lms, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_poss, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_scp, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_st, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_tdm, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_term, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_tlms, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+graphic f1_tposs, 800, 600
+{
+    patch metroif1, 0, 0
+}
+
+//Nash Radius Debug
+//sprite 0000A0, 1, 1 { patch TNT1A0, 0, 0 {} }
+
+sprite MBMDA0, 1, 1 { Patch TNT1A0, 0, 0 } //Morph Ball model
+sprite GUNSA0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite BRL1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Crate 1 model
+sprite CRT1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Crate 1 model
+sprite CRT2A0, 1, 1 { Patch TNT1A0, 0, 0 } //Crate 2 model
+sprite CHO1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Chozo Statue
+sprite PFM1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Platform 1
+sprite IPF1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Ice Platform
+sprite SCM1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Sec Cam 1
+sprite VSUTA0, 1, 1 { Patch TNT1A0, 0, 0 } //Varia Suit Pickup
+sprite GSUTA0, 1, 1 { Patch TNT1A0, 0, 0 } //Gravity Suit Pickup
+sprite CBEMA0, 1, 1 { Patch TNT1A0, 0, 0 } //Charge Beam Pickup
+sprite SJUMA0, 1, 1 { Patch TNT1A0, 0, 0 } //Space Jump
+
+//Keys
+
+sprite 3BSKA0, 1, 1 { Patch TNT1A0, 0, 0 } //Blue Skull Key
+sprite 3RSKA0, 1, 1 { Patch TNT1A0, 0, 0 } //Red Skull Key
+sprite 3YSKA0, 1, 1 { Patch TNT1A0, 0, 0 } //Yellow Skull Key
+sprite 3BCKA0, 1, 1 { Patch TNT1A0, 0, 0 } //Blue KeyCard
+sprite 3RCKA0, 1, 1 { Patch TNT1A0, 0, 0 } //Red KeyCard
+sprite 3YCKA0, 1, 1 { Patch TNT1A0, 0, 0 } //Yeller KeyCard

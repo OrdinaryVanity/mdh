@@ -1,0 +1,10 @@
+White crystals - explodey, give energy randomly.
+				- Fill entryway with them, force player to break so they know.
+
+Ceiling based crystals, and ground based - for  a e s t h e t i c
+										- non-destroyable
+										- attach dynamic light
+										- scannable?
+										- drop energy, same color.
+											
+											

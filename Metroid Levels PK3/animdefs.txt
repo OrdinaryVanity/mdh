@@ -1,0 +1,90 @@
+texture N_WFAL01
+pic 1 tics 6
+pic 2 tics 6
+pic 3 tics 6
+pic 4 tics 6
+
+texture LASER1
+pic  1  tics  5
+pic  2  tics  5
+
+texture HLASER1
+pic  1  tics  5
+pic  2  tics  5
+
+texture WATER01
+pic 1  tics 10
+pic 2  tics 10
+pic 3  tics 10
+pic 4  tics 10
+pic 5  tics 10
+pic 6  tics 10
+pic 7  tics 10
+pic 8  tics 10
+pic 9  tics 10
+pic 10 tics 10
+pic 11 tics 10
+pic 12 tics 10
+pic 13 tics 10
+pic 14 tics 10
+
+texture OD4_00_0
+pic 1  tics 2
+pic 2  tics 2
+pic 3  tics 2
+pic 4  tics 2
+pic 5  tics 2
+pic 6  tics 2
+pic 7  tics 2
+pic 8  tics 2
+
+texture OD5_00_0
+pic 1  tics 2
+pic 2  tics 2
+pic 3  tics 2
+pic 4  tics 2
+pic 5  tics 2
+pic 6  tics 2
+pic 7  tics 2
+pic 8  tics 2
+
+texture ONUKEA01
+pic 1  tics 3
+pic 2  tics 3
+pic 3  tics 3
+pic 4  tics 3
+pic 5  tics 3
+pic 6  tics 3
+pic 7  tics 3
+pic 8  tics 3
+
+texture OSLUDG01
+pic 1  tics 3
+pic 2  tics 3
+pic 3  tics 3
+pic 4  tics 3
+pic 5  tics 3
+pic 6  tics 3
+pic 7  tics 3
+pic 8  tics 3
+
+Warp Texture LAVA01
+warp2 texture sbuba0
+
+// Doors by CrazyWazy
+texture MDDAB0 range MDDAB17 tics 1 oscillate
+texture MDDAI0 range MDDAI17 tics 1 oscillate
+texture MDDAL0 range MDDAL17 tics 1 oscillate
+texture MDDAP0 range MDDAP17 tics 1 oscillate
+texture MDDAS0 range MDDAS17 tics 1 oscillate
+texture MDDAW0 range MDDAW17 tics 1 oscillate
+texture MDDAY0 range MDDAY17 tics 1 oscillate
+
+//BombHole texture by R4L
+texture BOMBH01
+pic 1 tics 2
+pic 2 tics 2
+pic 3 tics 2
+pic 4 tics 2
+pic 5 tics 2
+pic 6 tics 2

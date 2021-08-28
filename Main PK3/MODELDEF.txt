@@ -1,0 +1,80 @@
+Model Crate1 {
+	Path "Models/Crate1"
+	Model 0 "Crate1.md3"
+	scale 1.0 1.0 1.0
+	AngleOffset 90
+	frameindex CRT1 A 0 0
+}
+//Model Crate1_big {
+	//Path "Models/Crate1"
+	//Model 0 "Crate1.md3"
+	//scale 2.0 2.0 2.0
+	//AngleOffset 90
+	//frameindex CRT1 A 0 0
+
+Model Crate1_big {
+	Path "Models/Crate1"
+	Model 0 "Crate1.md3"
+	scale 1.0 1.0 1.0
+	AngleOffset 90
+	frameindex CRT1 A 0 0
+	
+}
+Model Crate1_small {
+	Path "Models/Crate1"
+	Model 0 "Crate1.md3"
+	scale 0.5 0.5 0.5
+	AngleOffset 90
+	frameindex CRT1 A 0 0
+}
+Model Crate2 {
+	Path "Models/Crate2"
+	Model 0 "Crate2.md3"
+	scale 1.0 1.0 1.0
+	AngleOffset 90
+	frameindex CRT2 A 0 0
+}
+Model Crate2_big {
+	Path "Models/Crate2"
+	Model 0 "Crate2.md3"
+	scale 1.0 1.0 1.0
+	AngleOffset 90
+	frameindex CRT2 A 0 0
+}
+Model Crate2_small {
+	Path "Models/Crate2"
+	Model 0 "Crate2.md3"
+	scale 0.5 0.5 0.5
+	AngleOffset 90
+	frameindex CRT2 A 0 0
+}
+
+Model ChozoStatue1{
+	Path "Models/Chozo1"
+	Model 0 "Chozo1.md3"
+	SurfaceSkin 0 10 "Skins/Chozo8.png"
+	SurfaceSkin 0 9 "Skins/Chozo1.png"
+	SurfaceSkin 0 8 "Skins/Chozo2.png"
+	SurfaceSkin 0 7 "Skins/Chozo3.png"
+	SurfaceSkin 0 6 "Skins/Chozo4.png"
+	SurfaceSkin 0 5 "Skins/Chozo5.png"
+	SurfaceSkin 0 4 "Skins/Chozo6.png"
+	SurfaceSkin 0 3 "Skins/Chozo7.png"
+	SurfaceSkin 0 2 "Skins/Chozo8.png"
+	SurfaceSkin 0 1 "Skins/Chozo8.png"
+	SurfaceSkin 0 0 "Skins/Chozo1.png"
+	Scale 1 1 1
+	AngleOffset 90
+	frameindex CHO1 A 0 0
+}
+
+Model Platform1 {
+	Path "Models/Platform1"
+	Model 0 "Platform1.md3"
+	//SurfaceSkin 0 0 "Skins/Top.png"
+	//SurfaceSkin 0 1 "Skins/Sides.png"
+	//SurfaceSkin 0 2 "Skins/Bottom.png"
+	Scale 8.6 8.6 8.6
+	Offset 0 0 -4
+	FrameIndex PFM1 A 0 0
+}

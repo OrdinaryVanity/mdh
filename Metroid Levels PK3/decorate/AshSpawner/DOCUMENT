@@ -1,0 +1,11 @@
+This spawner uses all five arguments. The first controls the x and y dimensions
+of the spawner (times two). The second controls the z dimension (the bottom is
+the z-level the spawner is on). The third is the minimum speed the ash particles
+can have, and the fourth is the maximum, randomized between the two. The fifth
+controls the freqency of the spawner; 0 is always, 255 is never.
+
+64,128,3,6,128 will spawn ash at 50% frequency in a 128x128x128 cube, at 3-6 map
+units per-tic.
+
+It will launch the ash particles in the direction the spawner is facing. You can
+also deactivate and reactivate it through ACS.

@@ -1,0 +1,179 @@
+//Thanks to Josh771 for letting me modify and use this.
+
+Class GH_Anchor : Actor
+{
+	Actor GHR1, GHR2, player;
+	
+	default
+	{
+		+NOINTERACTION
+	}
+			
+	override void Tick()
+	{
+		if (GHR1 && GHR2 && player)
+		{
+			Vector3 dist = Vec3To(player) + (0.0,9.0,6); // -3.0, 9.0, 32.0
+			//dist.XY = Actor.RotateVector(dist.XY, player.Angle-90);
+			dist.Z += player.Height / 2;
+			GHR1.pitch = -VectorAngle(dist.xy.length(),dist.z);
+			GHR1.angle = VectorAngle(dist.x,dist.y);
+			GHR2.roll = GHR1.pitch - 90;
+			GHR2.angle = GHR1.angle + 90;
+			GHR1.scale.y = dist.length(); //-86; //86
+			GHR2.scale.y = GHR1.scale.y; //-86; //86
+			player.A_PlaySound("gbeam/gbeamcn",0,1.0,true);
+		}
+		super.Tick();
+	}
+	
+	override void OnDestroy()
+	{
+		if (GHR1)
+			GHR1.Destroy();
+			player.A_StopSound(0);
+		if (GHR2)
+			GHR2.Destroy();
+	}
+}
+
+class GH_Rope : Actor
+{
+	default
+	{
+		+NOINTERACTION
+		+INTERPOLATEANGLES
+		+FLATSPRITE
+	    RenderStyle "Add";
+		Alpha 0.75;
+		XScale 0.10;//.10
+	}
+	states
+	{
+	spawn:
+		GRAP ABCDEFGHIJIHGFEDCB 1 BRIGHT;
+		Loop;
+	}
+}		
+
+class GHookHandler : EventHandler
+{
+	
+	Vector3 springVector(Vector3 pos, Vector3 home, Vector3 vel, double strength, double damping)
+	{
+		return -(damping * vel) - (strength * (pos - home));
+	}
+
+	double springDouble(double pos, double home, double vel, double strength, double damping)
+	{
+		return -(damping * vel) - (strength * (pos - home));
+	}
+
+	bool[MAXPLAYERS] swinging;
+	double[MAXPLAYERS] slack;
+	GH_Anchor[MAXPLAYERS] anchor;
+	
+	override void WorldLoaded(WorldEvent e)
+	{
+		level.aircontrol = 0.166667;
+	}
+
+	override void WorldTick()
+	{
+		
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			if (!playeringame[i]) continue;
+			
+			PlayerInfo pi = players[i];
+			PlayerPawn player = pi.mo;
+			
+			let input = pi.cmd.buttons;
+			let oldinput = pi.oldbuttons;
+			
+			bool canSwing = (!pi.onGround || swinging[i]);
+			
+			if (canSwing && (input & BT_USE) && !(oldinput & BT_USE) ||
+				swinging[i] && (input & BT_JUMP) && !(oldinput & BT_JUMP))
+			{
+				GH_Toggle(player, i);
+				if (input & BT_JUMP)
+				{
+					//player.vel += (0,0,7.0); //7.0
+				}
+			}
+			
+			if (swinging[i]) GH_Swing(player, anchor[i], slack[i]);
+		}
+	}
+	
+	void GH_Toggle(Actor player, int index)
+	{
+		if (player.CountInv("GrappleBeamAcquired") > 0)
+		{
+		
+		if (!swinging[index])
+		{
+			FLineTraceData data;
+			player.LineTrace(player.angle, 576, player.pitch, TRF_NOSKY, //576
+							 player.height*0.5 ,0, 3.0, data: data); //player.height*0.5
+			
+			//if (data.HitType == TRACE_HitCeiling ||
+			//	data.HitType == TRACE_HitWall)
+			  //if (data.HitType == TRACE_HitActor)
+			  if ((data.HitActor is "GrapplePoint2") || (data.HitActor is "GrapplePoint1"))
+			{
+				anchor[index] = GH_Anchor(player.Spawn('GH_Anchor', data.HitLocation));
+				anchor[index].player = player;
+				anchor[index].GHR1 = player.Spawn('GH_Rope', anchor[index].pos - (-3, 0, 0));
+				anchor[index].GHR2 = player.Spawn('GH_Rope', anchor[index].pos - (-3, 0, 0));
+				anchor[index].GHR2.pitch = 90;
+				swinging[index] = true;
+				slack[index] = data.distance;
+				player.A_PlaySound("gbeam/gbeamon",0,0.8);
+				
+			}
+			
+		}
+		else
+		{
+			anchor[index].Destroy();
+			swinging[index] = false;
+			player.A_PlaySound("gbeam/gbeamoff",0);
+		}
+		}
+	}
+	
+	void GH_Swing(Actor player, Actor hook, out double length)
+	{
+		Vector3 nextPos = (player.pos + player.vel);
+		Vector3 nextIntersect = hook.pos + (nextPos - hook.pos).unit() * length;
+		player.vel = player.vel * 0.503 + (nextIntersect - player.pos).unit() * player.vel.length() * 0.503; //.51 .49
+		double difference = (hook.pos - player.pos).length() - length;
+		if (difference > 0)
+		{
+			Vector3 intersection = hook.pos + (player.pos - hook.pos).unit() * length;
+			player.vel += springVector(player.pos, intersection, player.vel, 0.05, 0.00); //0.05
+		}
+		length += (256 - length) * 0.2; //256
+		/*
+		Vector3 particlePos = hook.pos;
+		Vector3 stepVector = (hook.Vec3To(player) + (0,0,32.0)).unit();
+		double sx = stepVector.x * 11;
+		double sy = stepVector.y * 11;
+		double sz = stepVector.z * 11;
+		Vector3 cordPos = player.pos + (0,0,32.0);
+		while ((cordPos - particlePos).length() > 32.0)
+		{
+			Actor ghr = player.Spawn('GH_Rope', particlePos);
+			Actor ghr2 = player.Spawn('GH_Rope', particlePos);
+			Vector3 dist = ghr.Vec3To(player) + (0,0,32.0);
+			ghr.pitch = -VectorAngle(dist.xy.length(),dist.z);
+			ghr.angle = VectorAngle(dist.x,dist.y);
+			ghr2.roll = ghr.pitch - 90;
+			ghr2.pitch = 90;
+			ghr2.angle = ghr.angle + 90;
+			particlePos += (sx, sy, sz);
+		}*/
+	}
+}

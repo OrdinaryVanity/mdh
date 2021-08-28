@@ -1,0 +1,586 @@
+Class SamusPlayer : PlayerPawn
+{
+	
+	Default {
+		Gravity 0.65;
+		YScale 0.85;
+		Player.ViewBob 0.4;
+		Player.JumpZ 9.0;
+		MaxStepHeight 24.0;
+		Player.ForwardMove 0.65, 0.65;
+		Player.SideMove 0.65, 0.65;
+		Player.SoundClass "Hunter";
+		Player.DisplayName "Hunter";
+		Player.StartItem "PowerBeam";
+		Player.StartItem "ScanVisor";
+		Player.StartItem "MissileStateCounter", 100;
+		Player.StartItem "ChargeDummy", 1;
+		Player.StartItem "ChargeDummy2", 1;
+		Player.StartItem "PowerBeamAcquired", 1;
+		Player.StartItem "ChargeBeamAcquired", 0;
+		Player.StartItem "MissileTankAcquired", -1;
+		Player.StartItem "PlayerTotalMissiles", 0;
+		Player.StartItem "PlayerTotalSuperMissiles", 0;
+		Player.StartItem "PlayerTotalPowerBombs", 0;
+		Player.StartItem "PowerBombAcquired", -1;
+		Player.StartItem "PowerBombAmmo", 0;
+		Player.StartItem "MissileAmmo", 0;
+		Player.StartItem "CombatVisorAcquired", 1;
+		Player.StartItem "BombCount", 3;
+		Player.StartItem "Health100", 100;
+		Player.StartItem "Health200", 200;
+		Player.StartItem "Health300", 300;
+		Player.StartItem "Health400", 400;
+		Player.StartItem "Health500", 500;
+		Player.StartItem "Health600", 600;
+		Player.StartItem "Health700", 700;
+		Player.StartItem "Health800", 800;
+		Player.StartItem "Health900", 900;
+		Player.StartItem "Health1000", 1000;
+		Player.StartItem "Health1100", 1100;
+		Player.StartItem "Health1200", 1200;
+		Player.StartItem "Health1300", 1300;
+		Player.StartItem "Health1400", 1400;
+		Player.StartItem "Health1500", 1500;
+		Player.StartItem "Health1600", 1600;
+		Player.StartItem "Health1700", 1700;
+		Player.StartItem "Health1800", 1800;
+		Player.StartItem "Health1900", 1900;
+		Player.StartItem "Health2000", 2000;
+		Player.StartItem "Health2100", 2100;
+		DamageFactor "NoDamage", 0.0;
+		DamageFactor "Drowning", 0.0;
+		DamageFactor "Slime", 1;
+		DamageFactor "Lava", 1;
+		DamageFactor "Fire", 1;
+		DamageFactor "Normal", 0.75;
+		
+		// Technically all this is covered by DamageFactor Normal, but I like having all the damagetypes listed in one place.
+		DamageFactor "PowerBeam", 0.45;
+		DamageFactor "PowerCharged", 0.65;
+		DamageFactor "PowerCombo", 0.65;
+		DamageFactor "SpazerBeam", 0.45;
+		DamageFactor "SpazerBeamCharged", 0.5;
+		DamageFactor "SpazerCombo", 0.5;
+		DamageFactor "PlasmaBeam", 0.45;
+		DamageFactor "PlasmaCharged", 0.65;
+		DamageFactor "PlasmaCombo", 0.75;
+		DamageFactor "WaveBeam", 0.45;
+		DamageFactor "WaveCharged", 0.65;
+		DamageFactor "WaveCombo", 0.65;
+		DamageFactor "IceBeam", 0.45;
+		DamageFactor "IceCharged", 0.65;
+		DamageFactor "IceCombo", 2.00;
+		DamageFactor "IceBeamExplode", 0.75;
+		DamageFactor "IceChargedExplode", 0.75;
+		DamageFactor "LongBeam", 0.45;
+		DamageFactor "LongCharged", 0.65;
+		DamageFactor "LongCombo", 0.65;
+		DamageFactor "DoomCannon", 0.65;
+		DamageFactor "DoomCombo", 0.65;
+		DamageFactor "Missile", 0.45;
+		DamageFactor "SuperMissile", 0.45;
+		DamageFactor "BoostBall", 0.65;
+		DamageFactor "Bomb", 0.75;
+		DamageFactor "PowerBomb", 0.45;
+		DamageFactor "LittleMacUppercut", 3.0;
+		DamageFactor "SpeedBooster", 0.6;
+		RadiusDamageFactor 0.75;
+		//Player.ColorRange 16,43; // Oh man, Tumblr's going to have me by the balls for this.
+		+NOSKIN
+		+NOBLOOD
+		+SLIDESONWALLS
+		-THRUSPECIES
+		
+		Species "Player";
+	}
+	
+//Player overrides for water
+	
+	int oldwaterlevel;
+	bool GravitySuitAcquired;
+	bool IsMorphBall;
+	
+	Override void PostBeginPlay()
+	{
+		oldwaterlevel = 0;
+		GravitySuitAcquired = false;
+		IsMorphBall = false;
+		Super.PostBeginPlay();
+	}
+	
+	Override void MovePlayer ()
+	{
+      let player = self.player;
+      UserCmd cmd = player.cmd;
+      // [RH] 180-degree turn overrides all other yaws
+      if (player.turnticks)
+      {
+         player.turnticks--;
+         Angle += (180. / TURN180_TICKS);
+      }
+      else
+      {
+         Angle += cmd.yaw * (360./65536.);
+      }
+
+      player.onground = (pos.z <= floorz) || bOnMobj || bMBFBouncer || (player.cheats & CF_NOCLIP2);
+
+	  if (!oldwaterlevel)
+	  {
+		oldwaterlevel = 0;
+	  }
+	  
+      else if ((!GravitySuitAcquired && waterlevel>0) & !player.onground & (player.jumptics <= -18 || player.jumptics == 0))
+      {
+		 Vel.Z-=Gravity/2*Speed;
+      }
+	  
+	  else if ((GravitySuitAcquired && waterlevel>0) & !player.onground & (player.jumptics <= -24 || player.jumptics == 0))
+      {
+		 Vel.Z-=Speed;
+      } 
+	  
+      if (waterlevel<=2 && oldwaterlevel==3)
+	  {
+         A_PlaySound("player/surface",CHAN_AUTO);
+	  }
+	  
+      if (waterlevel>=1 && oldwaterlevel==0)
+	  {
+         A_PlaySound("player/splash",CHAN_AUTO);
+	  }
+		 
+      oldwaterlevel = waterlevel;
+     
+      // killough 10/98:
+      //
+      // We must apply thrust to the player and bobbing separately, to avoid
+      // anomalies. The thrust applied to bobbing is always the same strength on
+      // ice, because the player still "works just as hard" to move, while the
+      // thrust applied to the movement varies with 'movefactor'.
+
+      if (cmd.forwardmove | cmd.sidemove)
+      {
+         double forwardmove, sidemove;
+         double bobfactor;
+         double friction, movefactor;
+         double fm, sm;
+
+         [friction, movefactor] = GetFriction();
+         bobfactor = friction < ORIG_FRICTION ? movefactor : ORIG_FRICTION_FACTOR;
+         if (!player.onground && !bNoGravity && !waterlevel)
+         {
+			   //[R4L] This keeps movement normal when jumping above water.
+			   movefactor *= level.aircontrol;
+               bobfactor*= level.aircontrol;
+         }
+		 
+		 else if ((waterlevel>2 && !GravitySuitAcquired) & !IsMorphBall || IsMorphBall)
+         {
+			   // [RH] allow very limited movement if not on ground or in water.
+			   // [R4L] double the power. water is slow in metroid.
+               movefactor *= level.aircontrol * 2;
+               bobfactor*= level.aircontrol * 2;
+         }
+		 
+		 else if ((waterlevel>2 && GravitySuitAcquired) & !IsMorphBall || IsMorphBall)
+         {
+			   // [R4L] Default back to normal without water friction.
+			   // Need to get original friction! This works for now.
+			   level.aircontrol *= 1;
+		 	   movefactor *= 1;
+               bobfactor *= 1;
+         }
+
+         fm = cmd.forwardmove;
+         sm = cmd.sidemove;
+         [fm, sm] = TweakSpeeds (fm, sm);
+         fm *= Speed / 256;
+         sm *= Speed / 256;
+
+         // When crouching, speed and bobbing have to be reduced
+         if (CanCrouch() && player.crouchfactor != 1)
+         {
+            fm *= player.crouchfactor;
+            sm *= player.crouchfactor;
+            bobfactor *= player.crouchfactor;
+         }
+		 
+		 else if (waterlevel>2 && GravitySuitAcquired)
+         {
+			   // [RH] allow very limited movement if not on ground or in water.
+			   // [R4L] double the power. water is slow in metroid.
+            fm *= 2;
+            sm *= 2;
+            bobfactor *= 2;
+         }
+
+         forwardmove = fm * movefactor * (35 / TICRATE);
+         sidemove = sm * movefactor * (35 / TICRATE);
+
+         if (forwardmove)
+         {
+            Bob(Angle, cmd.forwardmove * bobfactor / 256., true);
+            ForwardThrust(forwardmove, Angle);
+         }
+         if (sidemove)
+         {
+            let a = Angle - 90;
+            Bob(a, cmd.sidemove * bobfactor / 256., false);
+            Thrust(sidemove, a);
+         }
+
+         if (!(player.cheats & CF_PREDICTING) && (forwardmove != 0 || sidemove != 0))
+         {
+            PlayRunning ();
+         }
+
+         if (player.cheats & CF_REVERTPLEASE)
+         {
+            player.cheats &= ~CF_REVERTPLEASE;
+            player.camera = player.mo;
+         }
+      }
+   }   
+	
+	Override void CheckJump()
+	{
+		let player = self.player;
+		
+		if (player.cmd.buttons & BT_JUMP)
+		{
+			if (player.crouchoffset != 0)
+			{
+				// Un-crouch if player tries to jump
+				player.crouching = 1;
+			}
+			
+			else if ((!GravitySuitAcquired && waterlevel > 1) || bFly || (player.cheats & CF_NOCLIP2))
+			{
+				//[R4L] Make jumps slower.
+				Vel.Z -= JumpZ/4;
+				player.jumpTics = 0;
+			}
+			
+			else if (bNoGravity)
+			{
+				//set player's Z velocity to smaller value
+				Vel.Z = 3.0;
+			}
+			else if (level.IsJumpingAllowed() && player.onground && player.jumpTics == 0)
+			{
+				double jumpvelz = JumpZ * 35 / TICRATE;
+				double jumpfac = 0;		
+				
+				if (GravitySuitAcquired && waterlevel > 1)
+				{
+					if (CheckInventory("HiJumpAcquired", 1))
+					{
+						JumpZ = JumpZ*1.5;
+						Vel.Z += JumpZ;
+						//player.jumpTics = -1;
+					}
+				 
+				  JumpZ = JumpZ;
+				  Vel.Z += JumpZ;
+				}
+				
+				//[BC] If the player has the high jump power, double his jump velocity.
+				//(actually, pick the best factors from all active items.)
+				for (let p = Inv; p != null; p = p.Inv)
+				{
+					let pp = PowerHighJump(p);
+					if (pp)
+					{
+						double f = pp.Strength;
+						if (f > jumpfac) 
+						{
+							jumpfac = f;
+						}
+					}
+				}
+				
+				if (jumpfac > 0 || GravitySuitAcquired)
+				{
+					jumpvelz *= jumpfac;
+					Vel.Z += jumpvelz;
+					bOnMobj = false;
+					player.jumpTics = -1;
+				}
+				
+				if (!(player.cheats & CF_PREDICTING)) 
+				{
+					A_PlaySound("*jump", CHAN_BODY);
+				}
+			}
+			
+		}
+	}
+	
+	Override void CheckMoveUpDown()
+	{
+		let player = self.player;
+		UserCmd cmd = player.cmd;
+
+		if (cmd.upmove < -32768) // == -32768
+		{ // Only land if in the air
+			if (bNoGravity) // && waterlevel < 2
+			{
+				bNoGravity = false;
+			}
+		}
+		else if (cmd.upmove != 0)
+		{
+			// Clamp the speed to some reasonable maximum.
+			cmd.upmove = clamp(cmd.upmove, -0x300, 0x300);
+			if (bFly || (player.cheats & CF_NOCLIP2)) //waterlevel >= 2 ||
+			{
+				//Vel.Z = Speed * cmd.upmove / 128.;
+				if (!bNoGravity) //waterlevel < 2 &&
+				{
+					bFly = true;
+					bNoGravity = true;
+					if ((Vel.Z <= -39) && !(player.cheats & CF_PREDICTING))
+					{ // Stop falling scream
+						A_StopSound(CHAN_VOICE);
+					}
+				}
+			}
+			else if (cmd.upmove > 0 && !(player.cheats & CF_PREDICTING))
+			{
+				let fly = FindInventory("ArtiFly");
+				if (fly != NULL)
+				{
+					UseInventory(fly);
+				}
+			}
+		}
+	}
+	
+	 void ForwardThrust (double move, double angle)
+   {
+      //Remove all references to waterlevel
+      if ((bNoGravity) && Pitch != 0 && !player.GetClassicFlight())
+      {
+         double zpush = move * sin(Pitch);
+         Vel.Z -= zpush;
+         move *= cos(Pitch);
+      }
+      Thrust(move, angle);
+   }
+   
+    Override void tick() {
+	  
+	  if (CheckInventory("GravitySuitAcquired", 1))
+	  {
+		GravitySuitAcquired = true;
+	  }
+	  
+	  else
+	  {
+		GravitySuitAcquired = false;
+	  }
+	  
+	 // if (GetClassName() == "MorphBallPlayer" || GetClassName() == "MorphBallPlayerDM")
+	  //{
+	//	IsMorphBall = true;
+	 // }
+	  
+	 // else
+	 // {
+	//	IsMorphBall = false;
+	 // }
+	  
+	  JumpZ = JumpZ;
+      //if (waterlevel >=2 && !player.onground)
+         //if (Vel.Z >-6)
+           // Vel.Z-=Gravity/2;
+      Super.tick();
+   }
+	
+    States 
+	{
+	
+    Spawn:
+        SAMS A -1;
+        Loop;
+
+    See:
+		TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineSee");
+        TNT1 A 0 A_JumpIfInventory("SpeedWalker",1,"SpeedSee");
+        TNT1 A 0 A_JumpIfInventory("SpeedBooster",1,"SpeedSee");
+        SAMS E 1;
+        PLAY A 0 A_CheckFloor("WalkSound");
+        SAMS E 2;
+        goto ContinueOn;
+
+    WalkSound:
+        SAMS E 2 A_StartSound("samus/step",6);
+        goto ContinueOn;
+
+    ContinueOn:
+		TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineContinueOn");
+        TNT1 A 0 A_JumpIfInventory("SpeedWalker",1,"SpeedContinueOn");
+        TNT1 A 0 A_JumpIfInventory("SpeedBooster",1,"SpeedContinueOn");
+        SAMS EFF 3;
+        SAMS G 1;
+        PLAY A 0 A_CheckFloor("WalkSound2");
+        SAMS G 2;
+        goto ContinueOn2;
+		
+	ShineContinueOn:
+		TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineContinueOn");
+        TNT1 A 0 A_JumpIfInventory("SpeedWalker",1,"SpeedContinueOn");
+        TNT1 A 0 A_JumpIfInventory("SpeedBooster",1,"SpeedContinueOn");
+        SAMS EFF 3;
+        SAMS G 1;
+        PLAY A 0 A_CheckFloor("WalkSound2");
+        SAMS G 2;
+        goto ShineContinueOn2;
+
+    WalkSound2:
+        SAMS G 2 A_StartSound("samus/step",6);
+        goto ContinueOn2;
+
+    ContinueOn2:
+		TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineContinueOn2");
+        TNT1 A 0 A_JumpIfInventory("SpeedWalker",1,"SpeedContinueOn2");
+        TNT1 A 0 A_JumpIfInventory("SpeedBooster",1,"SpeedContinueOn2");
+        SAMS GHH 3;
+        TNT1 A 0 A_JumpIf((vel.x*vel.x) + (vel.y*vel.y) >= 16,"See");
+        SAMS H 1;
+        goto Spawn;
+
+    Missile:
+        SAMS B 12;
+        Goto Spawn;
+
+    Melee:
+        SAMS B 6 BRIGHT;
+        Goto Missile;
+
+    Pain:
+        TNT1 A 0;
+        TNT1 A 0 A_GiveToTarget("MetroidHitIndicator",1);
+        SAMS D 2 A_Recoil(2);
+        SAMS D 2 A_Recoil(2);
+        SAMS C 4 A_Pain;
+        SAMS D 4;
+        Goto Spawn;
+
+    Pain.IceBeam:
+    Pain.IceBeamExplode:
+    Pain.IceChargedExplode:
+    Pain.IceCombo:
+        TNT1 A 0;
+        TNT1 A 0 A_GiveToTarget("MetroidHitIndicator",1);
+        TNT1 A 0 A_StartSound("ibeam/chill",7);
+        TNT1 A 0 A_SetBlend("89D5FF",0.5,175);
+        TNT1 A 0 ACS_ExecuteAlways(594,0,1,0,0);
+        Goto Pain;
+
+    Pain.IceCharged:
+        TNT1 A 0;
+        TNT1 A 0 A_GiveToTarget("MetroidHitIndicator",1);
+        TNT1 A 0 A_StartSound("ibeam/chill2",7);
+        TNT1 A 0 A_SetBlend("White",0.5,35);
+        TNT1 A 0 A_SetBlend("89D5FF",0.5,210);
+        TNT1 A 0 ACS_ExecuteAlways(594,0,2,0,0);
+        Goto Pain;
+
+    Death:
+        TNT1 A 0;
+        TNT1 A 0 A_GiveToTarget("MetroidHitIndicator",1);
+        TNT1 A 0 A_SpawnItemEx("EnemyDropSpawner",0,0,10,0,0,0,0,32);
+        SAMS DCDC 4;
+        SAMS I 1 A_PlayerScream;
+        SAMS I 3 A_NoBlocking;
+        SAMS J 4;
+        TNT1 AAAA 0 A_SpawnItemEx("MorphBallPart1",random(-100,100)/100.00,random(-100,100)/100.00,random(400,5100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAA 0 A_SpawnItemEx("MorphBallPart2",random(-100,100)/100.00,random(-100,100)/100.00,random(400,5100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAAA 0 A_SpawnItemEx("MorphBallPart3",random(-100,100)/100.00,random(-100,100)/100.00,random(400,5100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAA 0 A_SpawnItemEx("MorphBallPart4",random(-100,100)/100.00,random(-100,100)/100.00,random(400,5100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAAA 0 A_SpawnItemEx("MorphBallPart5",random(-100,100)/100.00,random(-100,100)/100.00,random(400,5100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAA 0 A_SpawnItemEx("MorphBallPart6",random(-100,100)/100.00,random(-100,100)/100.00,random(400,5100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAAA 0 A_SpawnItemEx("MorphBallPart7",random(-100,100)/100.00,random(-100,100)/100.00,random(400,5100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        TNT1 AAA 0 A_SpawnItemEx("MorphBallPart8",random(-100,100)/100.00,random(-100,100)/100.00,random(400,5100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(500,1000)/100.00,random(-180,180),33,64);
+        SAMS KLM 4;
+        SAMS X 2;
+        SAMS X -1;
+        Stop;
+
+    Ice:
+    Death.Ice:
+    Death.IceBeam:
+    Death.IceCharged:
+    Death.IceBeamExplode:
+    Death.IceChargedExplode:
+    Death.IceCombo:
+        SAMS C 2;
+        TNT1 A 0 A_NoBlocking;
+        TNT1 A 0 A_PlaySound("misc/freeze");
+        TNT1 A 0 A_StartSound("ibeam/freeze",6);
+        TNT1 A 0 A_SpawnItemEx("EnemyDropSpawner",0,0,10,0,0,0,0,32);
+        TNT1 A 0 A_SpawnItemEx("SamusFrozen",0,0,0,0,0,0,0,32);
+        SAMS X 2;
+        SAMS X -1;
+        Stop;
+
+    CoOpModeOn:
+        TNT1 A 0;
+		TNT1 A 0 { bTHRUSPECIES = true; }//A_ChangeFlag("THRUSPECIES",1);
+        SAMS A 1;
+        goto Spawn;
+
+	ShineSee:
+		SAMS E 1 BRIGHT A_GiveInventory("ShinesparkFlashing",1);
+        SAMS E 1 BRIGHT A_SpawnItemEx("ShinesparkDamage",64,0,0,0,0,0,0,48);
+        SAMS E 1 BRIGHT;
+        goto ShineContinueOn;
+
+
+    SpeedSee:
+        SAMS E 1 BRIGHT A_SpawnItemEx("SpeedBoosterDamage",64,0,0,0,0,0,0,48);
+        PLAY A 0 A_CheckFloor("SpeedWalkSound");
+        SAMS E 1 BRIGHT;
+        goto SpeedContinueOn;
+
+    SpeedWalkSound:
+        SAMS E 1 BRIGHT A_StartSound("samus/step",6);
+        goto SpeedContinueOn;
+
+	ShineContinueOn:
+		SAMS E 1 BRIGHT A_GiveInventory("ShinesparkFlashing",1);
+        SAMS EFF 2 BRIGHT A_SpawnItemEx("ShinesparkDamage",64,0,0,0,0,0,0,48);
+        SAMS G 1 BRIGHT A_SpawnItemEx("ShinesparkDamage",64,0,0,0,0,0,0,48);
+        SAMS G 1 BRIGHT;
+        goto ShineContinueOn2;
+
+    SpeedContinueOn:
+        SAMS EFF 2 BRIGHT A_SpawnItemEx("ShinesparkDamage",64,0,0,0,0,0,0,48);
+        SAMS G 1 BRIGHT A_SpawnItemEx("ShinesparkDamage",64,0,0,0,0,0,0,48);
+        TNT1 A 0 A_CheckFloor("SpeedWalkSound2");
+        SAMS G 1 BRIGHT;
+        goto SpeedContinueOn2;
+
+    SpeedWalkSound2:
+        SAMS G 1 BRIGHT A_StartSound("samus/step",6);
+        goto SpeedContinueOn2;
+
+	ShineContinueOn2:
+		SAMS E 1 BRIGHT A_GiveInventory("ShinesparkFlashing",1);
+        SAMS GHH 2 BRIGHT A_SpawnItemEx("ShinesparkDamage",64,0,0,0,0,0,0,48);
+        TNT1 A 0 A_JumpIfInventory("ShinesparkChargeToken",1,"ShineSee");
+        TNT1 A 0 A_JumpIf((vel.x*vel.x) + (vel.y*vel.y) >= 16,"See");
+        SAMS H 1;
+        goto Spawn;
+
+    SpeedContinueOn2:
+        SAMS GHH 2 BRIGHT A_SpawnItemEx("SpeedBoosterDamage",64,0,0,0,0,0,0,48);
+        TNT1 A 0 A_JumpIfInventory("SpeedBooster",1,"SpeedSee");
+        TNT1 A 0 A_JumpIf((vel.x*vel.x) + (vel.y*vel.y) >= 16,"See");
+        SAMS H 1;
+        goto Spawn;
+    }
+}

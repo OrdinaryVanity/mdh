@@ -1,0 +1,17 @@
+Actor Seaweed1 17865
+{
+//$Category Metroid
+	Radius 2
+	Height 2
+	Scale 1
+	+NOINTERACTION
+	
+	Tag "Seaweed Prop"
+	
+	States
+	{
+		Spawn:
+		SWED ABCDEFGHIJKLMNOPQRST 2
+		Loop
+	}
+}

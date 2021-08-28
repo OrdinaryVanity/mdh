@@ -1,0 +1,46 @@
+// Technically not needed, since Z& doesn't support it and this won't work in
+// ZDoom, but it's nice to have all the cvars in one place for reference.
+
+server noarchive int met_usescvarinfo = 819849666;
+server int met_runbefore = 0;
+
+// Server cvars
+server int met_noaircontrol = 0;
+server int met_spacejump = 0;
+server int met_loaded = 0;
+server int met_startingtanks = 0;
+server int met_nolevellimiter = 1;
+server int met_jumpcount = 2;
+server int met_nomorph = 0;
+server int met_noenemydrops = 0;
+server int met_permabfg = 0;
+server int met_soultanks = 0;
+server int met_nobfg = 0;
+server int met_doomcannon = 1;
+server int met_dropstay = 1;
+server int met_skulltagweapons = 0;
+server int met_dropgravity = 0;
+server int met_missilemax = 1;
+server int met_supermissilemax = 1;
+server int met_powerbombmax = 1;
+server int met_noshinesparkdrain = 0;
+server int met_nohijump = 0;
+server int met_shinevel = 25;
+server int met_boostvel = 30;
+
+// Clientside cvars
+//  Still marked server for CVARINFO, since these are accessed from not-player scripts.
+//  No one plays this multiplayer in ZDoom, I hope.
+
+user int met_cl_runbefore = 0;
+
+user int met_cl_noeffects = 0;
+user int met_cl_nosiren = 0;
+user int met_cl_nomorphcamera = 0;
+user int met_cl_doomhealth = 0;
+user int met_cl_nometroidpickups = 0;
+user int met_cl_hitindicator = 0;
+user int met_cl_chromabeamdensity = 8;
+user int met_cl_custommissilecharge = 0;
+user int met_cl_pickupmusic = 0;
+user int met_cl_showallbeams = 0;

@@ -1,0 +1,93 @@
+DoomEdNums {
+	30100 = "WaterfallFogSpawner"
+	17871 = "KeyStoneRed"
+	17872 = "KeyStonePurple"
+	17873 = "KeyStoneYellow"
+}
+
+episode ARRIVAL
+{
+	name = "Demon Hunter"
+}
+
+episode METTEST
+{
+    name = "Freeroam Training"
+}
+
+map METTEST "Journey of a Thousand Miles, Etc, Etc" // By TerminusEst13
+{
+    next = "METTEST"
+    music = "M_CHOZO1" // ChipCat.CAL - Waiting or Progressing
+    SKY1 = "HEXSKY1A", 1.5
+    SKY2 = "HEXSKY1B", 1.5
+    Lightning
+	MissilesActivateImpactLines
+	
+}
+
+map METINTRO "Carcosa Biomedical Research"
+{
+    next = "TITLEMAP"
+    SKY1 = "HEXSKY1A", 1.5
+    SKY2 = "HEXSKY1B", 1.5
+    Lightning
+    SmoothLighting
+}
+
+map METDM01 "Treading on Ancient Ground" // By TerminusEst13
+{
+    next = "METDM02"
+    music = "M_HUNTRS" // Kenji Yamamoto - Hunters
+    SKY1 = "METSKY1"
+    SmoothLighting
+}
+
+map METDM02 "The Hunt Continues" // By Runsaber
+{
+    next = "METDM03"
+    music = "M_CBTHAL" // Lawrence Schwedler & James Phillipsen - Alinos
+ 
+	SmoothLighting
+}
+
+map R4LDM2 "Dystopian Chozodian" // By R4L
+{
+    next = "METDM01"
+    music = "EMPEROR" // Kenji Yamamoto - Emperor Ing Battle (Phase 1)
+	SKY1 = "CHSKY"
+	SmoothLighting
+}
+
+map METDM03 "Gettin' Hot, Stayin' Cool" // By TerminusEst13
+{
+    next = "R4LDM02"
+    music = "M_RDLAIR" // Kuniaki Haishima - VS Ridley
+    SmoothLighting
+}
+
+map TEST "Test" // By R4L
+{
+    next = "METTEST"
+	music = "M_TEST"
+	SKY1 = "HEXSKY1A", 0.01
+	MissilesActivateImpactLines
+}
+
+map ARRIVAL "Hexhi Wilds - Arrival" // By R4L
+{
+    next = "METTEST"
+	music = "HWLDSDAY"
+	SKY1 = "HEXSKY02", -0.03
+	SKY2 = "HEXSKY01", 0.01
+	SmoothLighting
+	DoubleSky
+	MissilesActivateImpactLines
+}
+
+/*map METDM04 "TUUUUUUBES" // By Unholypimpin
+{
+    next = "METDM01"
+    music = "M_PIRAT" // Kenji Yamamoto - VS Dark Samus
+    SmoothLighting
+}*/

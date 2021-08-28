@@ -1,0 +1,7 @@
+Submitted: DavidRaven
+Decorate: DavidRaven
+GLDefs: none
+Sounds: Raven Software, DavidRaven
+Sprites: Raven Software, Tormentor667, DavidRaven
+Sprite Edit: DavidRaven
+Idea Base: DavidRaven

@@ -1,0 +1,85 @@
+    
+
+    OptionMenu "OptionsMenu"
+    {
+            Title "OPTIONS"
+            Submenu "Customize Controls",                   "CustomizeControls"
+            Submenu "Mouse options",                        "MouseOptions"
+            Submenu "Joystick options",                     "JoystickOptions"
+            StaticText " "
+            Submenu "Dreadnought Options",                  "MetroodOptions"
+            StaticText " "
+            Submenu "Player Setup",                         "PlayerMenu"
+            Submenu "Gameplay Options",                     "GameplayOptions"
+            Submenu "Compatibility Options",                "CompatibilityOptions"
+            Submenu "Automap Options",                      "AutomapOptions"
+            Submenu "HUD Options",                          "HUDOptions"
+            Submenu "Miscellaneous Options",                "MiscOptions"
+            Submenu "Sound Options",                        "SoundOptions"
+            Submenu "Display Options",                      "VideoOptions"
+            Submenu "Set video mode",                       "VideoModeMenu"
+            StaticText " "
+            SafeCommand "Reset to defaults",                "reset2defaults"
+            SafeCommand "Reset to last saved",              "reset2saved"
+            Command "Go to console",                        "menuconsole"
+    }
+     
+    OptionMenu "MetroodOptions"
+    {
+    Title "METROID: DREADNOUGHT - OPTIONS"
+            StaticText      ""
+            StaticText      "General Options", 1
+            Option "Doom-style Health Counter",      "met_cl_doomhealth", "OnOff"
+            Option "Doom-style Pickup System",       "met_cl_nometroidpickups", "OnOff"
+            Option "Projectile-based Beam Charging", "met_cl_custommissilecharge", "OnOff"
+            Option "Soulsphere Energy Tanks",        "met_soultanks", "OnOff"
+            Option "Enemy Item Drops Stay",          "met_dropstay", "OnOff"
+            Option "Enemy Item Drops Gravity",       "met_dropgravity", "OnOff"
+            StaticText      ""
+            StaticText      "Removal Options", 1
+            Option "No Particle Effects",            "met_cl_noeffects", "OnOff"
+            Option "No Warning Siren",               "met_cl_nosiren", "OnOff"
+            Option "No Morph Camera",                "met_cl_nomorphcamera", "OnOff"
+            Option "No Air Control",                 "met_noaircontrol", "OnOff"
+            Option "No BFG",                         "met_nobfg", "OnOff"
+            Option "No Morph Ball",                  "met_nomorph", "OnOff"
+            Option "No Enemy Item Drops",            "met_noenemydrops", "OnOff"
+			Option "Disable Shinespark Energy Drain","met_noshinesparkdrain", "OnOff"
+			Option "Disable Hi Jump",				 "met_nohijump", "OnOff"
+			Option "Cap Max Missiles At 255",		 "met_missilemax", "OnOff"
+			Option "Cap Max Super Missiles At 50",	 "met_supermissilemax", "OnOff"
+			Option "Cap Max Power Bombs At 10",	 	 "met_powerbombmax", "OnOff"
+            StaticText      ""
+            StaticText      "Cheat Options", 1
+            Option "Start With Space Jump",          "met_spacejump", "OnOff"
+            Option "Start With Weapons",             "met_loaded", "LoadedOptions"
+            Slider "Start With Energy Tanks",        "met_startingtanks", 0, 20, 1
+            Slider "How Many Jumps",                 "met_jumpcount", 2, 40, 2
+			Slider "Boostball Velocity",			 "met_boostvel", 1, 500, 5
+			StaticText      "30 is default."
+			StaticText      ""
+			Slider "Shinespark Velocity",			 "met_shinevel", 1, 500, 5
+			StaticText      "25 is default."
+            StaticText      ""
+            StaticText      "Misc Options", 1
+            Option "Skulltag Weapons",               "met_skulltagweapons", "SkulltagOptions"
+            Option "Spawn Doom Cannon",              "met_doomcannon", "OnOff"
+    }
+     
+    OptionValue LoadedOptions
+    {
+            0, "Nothing"
+            1, "All Weapons"
+            2, "10 Missiles"
+            3, "20 Missiles"
+            4, "Weapons, Missiles"
+            5, "Weapons, Missiles, Basic Upgrades"
+            6, "Everything"
+    }
+     
+    OptionValue SkulltagOptions
+    {
+            0, "Nothing Spawns"
+            1, "New Weapons"
+            2, "Equivalent Weapons"
+    }

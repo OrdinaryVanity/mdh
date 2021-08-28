@@ -1,0 +1,666 @@
+//Skybox for Hexhi Wilds
+skybox "HEXHI" fliptop
+{
+HEXHI_N
+HEXHI_E
+HEXHI_S
+HEXHI_W
+HEXHI_T
+HEXHI_B
+}
+
+Glow
+{
+	Flats
+	{
+        LAVA01
+	}
+}
+
+Pointlight RailBotAttack1
+{
+	Color 1.0 0.8 0.5
+	Size 20
+}
+
+Pointlight RailBotAttack2
+{
+	Color 1.0 0.8 0.5
+	Size 25
+}
+
+Object RailBot
+{
+	Frame AGUNB { Light RailBotAttack1 }
+	Frame AGUNC { Light RailBotAttack2 }
+}
+
+flickerlight BOTBOOM_X1
+{
+    color 1.0 0.7 0.0
+    size 48
+    secondarySize 54
+    chance 0.3
+}
+
+flickerlight BOTBOOM_X2
+{
+    color 0.5 0.1 0.0
+    size 60
+    secondarySize 66
+    chance 0.3
+}
+
+flickerlight BOTBOOM_X3
+{
+    color 0.3 0.0 0.0
+    size 72
+    secondarySize 78
+    chance 0.3
+}
+
+object RailBotBoom
+{
+    Frame MISLB { Light BOTBOOM_X1 }
+    Frame MISLC { Light BOTBOOM_X2 }
+    Frame MISLD { Light BOTBOOM_X3 }
+}
+
+// Candle
+flickerlight MetCandle
+{
+    color 1.0 1.0 0.3
+    size 24
+    secondarySize 32
+    chance 0.25
+	attenuate 1
+}
+
+
+object MetCandle
+{
+    frame CNDL { light MetCandle }
+}
+
+Flickerlight FireSpawnerSmall
+{
+Color 1.0 0.6 0.0
+Size 128  //32
+SecondarySize 128  //48
+Chance 0.6
+}
+
+Flickerlight FireSpawnerMedium
+{
+Color 1.0 0.6 0.0
+Size 56
+SecondarySize 72
+Chance 0.6
+}
+
+Flickerlight FireSpawnerLarge
+{
+Color 1.0 0.6 0.0
+Size 80
+SecondarySize 128
+Chance 0.6
+}
+
+Object SmallFlame { Frame TNT1 { Light FireSpawnerSmall } }
+Object MediumFlame { Frame TNT1 { Light FireSpawnerMedium } }
+Object LargeFlame { Frame TNT1 { Light FireSpawnerLarge } }
+
+brightmap texture MDDAB0 { map MDDBB0 }
+brightmap texture MDDAB1 { map MDDBB1 }
+brightmap texture MDDAB2 { map MDDBB2 }
+brightmap texture MDDAB3 { map MDDBB3 }
+brightmap texture MDDAB4 { map MDDBB4 }
+brightmap texture MDDAB5 { map MDDBB5 }
+brightmap texture MDDAB6 { map MDDBB6 }
+brightmap texture MDDAB7 { map MDDBB7 }
+brightmap texture MDDAB8 { map MDDBB8 }
+brightmap texture MDDAB9 { map MDDBB9 }
+brightmap texture MDDAB10 { map MDDBB10 }
+brightmap texture MDDAB11 { map MDDBB11 }
+brightmap texture MDDAB12 { map MDDBB12 }
+brightmap texture MDDAB13 { map MDDBB13 }
+brightmap texture MDDAB14 { map MDDBB14 }
+brightmap texture MDDAB15 { map MDDBB15 }
+brightmap texture MDDAB16 { map MDDBB16 }
+brightmap texture MDDAB17 { map MDDBB17 }
+brightmap texture MDDAI0 { map MDDBI0 }
+brightmap texture MDDAI1 { map MDDBI1 }
+brightmap texture MDDAI2 { map MDDBI2 }
+brightmap texture MDDAI3 { map MDDBI3 }
+brightmap texture MDDAI4 { map MDDBI4 }
+brightmap texture MDDAI5 { map MDDBI5 }
+brightmap texture MDDAI6 { map MDDBI6 }
+brightmap texture MDDAI7 { map MDDBI7 }
+brightmap texture MDDAI8 { map MDDBI8 }
+brightmap texture MDDAI9 { map MDDBI9 }
+brightmap texture MDDAI10 { map MDDBI10 }
+brightmap texture MDDAI11 { map MDDBI11 }
+brightmap texture MDDAI12 { map MDDBI12 }
+brightmap texture MDDAI13 { map MDDBI13 }
+brightmap texture MDDAI14 { map MDDBI14 }
+brightmap texture MDDAI15 { map MDDBI15 }
+brightmap texture MDDAI16 { map MDDBI16 }
+brightmap texture MDDAI17 { map MDDBI17 }
+brightmap texture MDDAL0 { map MDDBL0 }
+brightmap texture MDDAL1 { map MDDBL1 }
+brightmap texture MDDAL2 { map MDDBL2 }
+brightmap texture MDDAL3 { map MDDBL3 }
+brightmap texture MDDAL4 { map MDDBL4 }
+brightmap texture MDDAL5 { map MDDBL5 }
+brightmap texture MDDAL6 { map MDDBL6 }
+brightmap texture MDDAL7 { map MDDBL7 }
+brightmap texture MDDAL8 { map MDDBL8 }
+brightmap texture MDDAL9 { map MDDBL9 }
+brightmap texture MDDAL10 { map MDDBL10 }
+brightmap texture MDDAL11 { map MDDBL11 }
+brightmap texture MDDAL12 { map MDDBL12 }
+brightmap texture MDDAL13 { map MDDBL13 }
+brightmap texture MDDAL14 { map MDDBL14 }
+brightmap texture MDDAL15 { map MDDBL15 }
+brightmap texture MDDAL16 { map MDDBL16 }
+brightmap texture MDDAL17 { map MDDBL17 }
+brightmap texture MDDAP0 { map MDDBP0 }
+brightmap texture MDDAP1 { map MDDBP1 }
+brightmap texture MDDAP2 { map MDDBP2 }
+brightmap texture MDDAP3 { map MDDBP3 }
+brightmap texture MDDAP4 { map MDDBP4 }
+brightmap texture MDDAP5 { map MDDBP5 }
+brightmap texture MDDAP6 { map MDDBP6 }
+brightmap texture MDDAP7 { map MDDBP7 }
+brightmap texture MDDAP8 { map MDDBP8 }
+brightmap texture MDDAP9 { map MDDBP9 }
+brightmap texture MDDAP10 { map MDDBP10 }
+brightmap texture MDDAP11 { map MDDBP11 }
+brightmap texture MDDAP12 { map MDDBP12 }
+brightmap texture MDDAP13 { map MDDBP13 }
+brightmap texture MDDAP14 { map MDDBP14 }
+brightmap texture MDDAP15 { map MDDBP15 }
+brightmap texture MDDAP16 { map MDDBP16 }
+brightmap texture MDDAP17 { map MDDBP17 }
+brightmap texture MDDAS0 { map MDDBS0 }
+brightmap texture MDDAS1 { map MDDBS1 }
+brightmap texture MDDAS2 { map MDDBS2 }
+brightmap texture MDDAS3 { map MDDBS3 }
+brightmap texture MDDAS4 { map MDDBS4 }
+brightmap texture MDDAS5 { map MDDBS5 }
+brightmap texture MDDAS6 { map MDDBS6 }
+brightmap texture MDDAS7 { map MDDBS7 }
+brightmap texture MDDAS8 { map MDDBS8 }
+brightmap texture MDDAS9 { map MDDBS9 }
+brightmap texture MDDAS10 { map MDDBS10 }
+brightmap texture MDDAS11 { map MDDBS11 }
+brightmap texture MDDAS12 { map MDDBS12 }
+brightmap texture MDDAS13 { map MDDBS13 }
+brightmap texture MDDAS14 { map MDDBS14 }
+brightmap texture MDDAS15 { map MDDBS15 }
+brightmap texture MDDAS16 { map MDDBS16 }
+brightmap texture MDDAS17 { map MDDBS17 }
+brightmap texture MDDAW0 { map MDDBW0 }
+brightmap texture MDDAW1 { map MDDBW1 }
+brightmap texture MDDAW2 { map MDDBW2 }
+brightmap texture MDDAW3 { map MDDBW3 }
+brightmap texture MDDAW4 { map MDDBW4 }
+brightmap texture MDDAW5 { map MDDBW5 }
+brightmap texture MDDAW6 { map MDDBW6 }
+brightmap texture MDDAW7 { map MDDBW7 }
+brightmap texture MDDAW8 { map MDDBW8 }
+brightmap texture MDDAW9 { map MDDBW9 }
+brightmap texture MDDAW10 { map MDDBW10 }
+brightmap texture MDDAW11 { map MDDBW11 }
+brightmap texture MDDAW12 { map MDDBW12 }
+brightmap texture MDDAW13 { map MDDBW13 }
+brightmap texture MDDAW14 { map MDDBW14 }
+brightmap texture MDDAW15 { map MDDBW15 }
+brightmap texture MDDAW16 { map MDDBW16 }
+brightmap texture MDDAW17 { map MDDBW17 }
+brightmap texture MDDAY0 { map MDDBY0 }
+brightmap texture MDDAY1 { map MDDBY1 }
+brightmap texture MDDAY2 { map MDDBY2 }
+brightmap texture MDDAY3 { map MDDBY3 }
+brightmap texture MDDAY4 { map MDDBY4 }
+brightmap texture MDDAY5 { map MDDBY5 }
+brightmap texture MDDAY6 { map MDDBY6 }
+brightmap texture MDDAY7 { map MDDBY7 }
+brightmap texture MDDAY8 { map MDDBY8 }
+brightmap texture MDDAY9 { map MDDBY9 }
+brightmap texture MDDAY10 { map MDDBY10 }
+brightmap texture MDDAY11 { map MDDBY11 }
+brightmap texture MDDAY12 { map MDDBY12 }
+brightmap texture MDDAY13 { map MDDBY13 }
+brightmap texture MDDAY14 { map MDDBY14 }
+brightmap texture MDDAY15 { map MDDBY15 }
+brightmap texture MDDAY16 { map MDDBY16 }
+brightmap texture MDDAY17 { map MDDBY17 }
+
+
+//Hunters Textures
+brightmap texture CHTNNL3 { map CHTNNL3B }
+brightmap texture CHTNNL4 { map CHTNNL4B }
+
+brightmap texture METMETL8 { map "textures/prime/BRTMETL8.png" }
+
+//Mushroom brightmap
+brightmap texture Models/GreenMushroom/Skins/GreenMushroom.png 
+{
+	map "Models/GreenMushrooms/Skins/GreenMushroomBright.png"
+	disablefullbright
+}
+
+//Mushrooms brightmap
+brightmap texture Models/GreenMushrooms/Skins/GreenMushroom.png 
+{
+	map "Models/GreenMushrooms/Skins/GreenMushroomBright.png"
+	disablefullbright
+}
+
+//Fish brightmap
+brightmap texture Models/Fish/Skins/Fish.png 
+{
+	map "Models/Fish/Skins/FishBrightmap.png"
+	disablefullbright
+}
+
+//Fish
+material texture "Models/Fish/Skins/Fish.png"
+{
+	normal "textures/Fish_normal.png"
+	specular "textures/Fish_spec.png"
+	specularlevel 5
+	glossiness 5
+}
+
+//Green Crystal
+material texture "Models/GreenCrystal/Skins/Green.png"
+{
+	normal "textures/Green_Norm.png"
+	specular "textures/Green_Spec.png"
+	specularlevel 100
+	glossiness 100
+	disablefullbright
+	thiswad
+}
+
+//Lime Green Crystal
+material texture "Models/LimeGreenCrystal/Skins/LimeGreen.png"
+{
+	normal "textures/Green_Norm.png"
+	specular "textures/Green_Spec.png"
+	specularlevel 100
+	glossiness 100
+	disablefullbright
+	thiswad
+}
+
+//Orange Crystal
+material texture "Models/OrangeCrystal/Skins/Orange.png"
+{
+	normal "textures/Green_Norm.png"
+	specular "textures/Green_Spec.png"
+	specularlevel 100
+	glossiness 100
+	disablefullbright
+	thiswad
+}
+
+//Blue Crystal
+material texture "Models/BlueCrystal/Skins/Blue.png"
+{
+	normal "textures/Green_Norm.png"
+	specular "textures/Green_Spec.png"
+	specularlevel 100
+	glossiness 100
+	disablefullbright
+	thiswad
+}
+
+
+brightmap texture "Models/ItemCapsule/Skins/The_First_Capsule.png" { map "Models/ItemCapsule/Skins/The_First_Capsule_Brightmap.png" }
+
+material texture "Models/ItemCapsule/Skins/The_First_Capsule.png"
+{
+	normal "textures/The_First_Capsule_normal.png"
+	specular "textures/The_First_Capsule_spec.png"
+	specularlevel 50
+	glossiness 50
+}
+
+brightmap texture "Models/ItemCrate/Skins/The_Crate.png" { map "Models/ItemCrate/Skins/The_Crate_Brightmap.png" }
+
+material texture "Models/ItemCrate/Skins/The_Crate.png"
+{
+	normal "textures/The_Crate_normal.png"
+	specular "textures/The_Crate_spec.png"
+	specularlevel 25
+	glossiness 25
+}
+
+brightmap texture "Models/ExplosiveBarrel/Skins/The_Barrel.png" { map "Models/ExplosiveBarrel/Skins/The_Barrel_Brightmap.png" }
+
+material texture "Models/ExplosiveBarrel/Skins/The_Barrel.png"
+{
+	normal "textures/The_Barrel_normal.png"
+	specular "textures/The_Barrel_spec.png"
+	specularlevel 25
+	glossiness 25
+}
+
+brightmap texture "Models/MissileDoorCover/Skins/missiledoor.png" { map "Models/MissileDoorCover/Skins/blastdoor_brightmap.png" }
+
+material texture "Models/MissileDoorCover/Skins/missiledoor.png"
+{
+	specular "textures/missiledoor_spec.png"
+	specularlevel 25
+	glossiness 25
+}
+
+brightmap texture "Models/MissileDoorCover/Skins/supermissiledoor.png" { map "Models/MissileDoorCover/Skins/blastdoor_brightmap.png" }
+
+material texture "Models/MissileDoorCover/Skins/supermissiledoor.png"
+{
+	specular "textures/missiledoor_spec.png"
+	specularlevel 25
+	glossiness 25
+}
+
+brightmap texture "Models/MissileDoorCover/Skins/powerbombdoor.png" { map "Models/MissileDoorCover/Skins/blastdoor_brightmap.png" }
+
+material texture "Models/MissileDoorCover/Skins/powerbombdoor.png"
+{
+	specular "textures/missiledoor_spec.png"
+	specularlevel 25
+	glossiness 25
+}
+
+brightmap texture "Models/Ylla/Skins/Ylla Door.png" { map "Models/Ylla/Skins/YllaDoorbrightmap.png" }
+
+material texture "Models/Ylla/Skins/Ylla Door.png"
+{
+	//normal "textures/YllaDoor_normal.png"
+	specular "textures/YllaDoor_spec.png"
+	specularlevel 25
+	glossiness 25
+}
+
+brightmap texture "Models/GrapplePoint/Skins/grapplepoint.png" { map "Models/GrapplePoint/Skins/grapplepoint_brightmap.png" }
+
+material texture "Models/GrapplePoint/Skins/grapplepoint.png"
+{
+	normal "textures/grapplepoint_normal.png"
+	specular "textures/grapplepoint_spec.png"
+	specularlevel 25
+	glossiness 25
+}
+
+HardwareShader Texture "Models/GreenCrystal/Skins/Green.png"
+{
+	Shader "shaders/Fakereflections.fp"
+}
+
+HardwareShader Texture "Models/LimeGreenCrystal/Skins/LimeGreen.png"
+{
+	Shader "shaders/Fakereflections.fp"
+}
+
+HardwareShader Texture "Models/OrangeCrystal/Skins/Orange.png"
+{
+	Shader "shaders/Fakereflections.fp"
+}
+
+HardwareShader Texture "Models/BlueCrystal/Skins/Blue.png"
+{
+	Shader "shaders/Fakereflections.fp"
+}
+
+pulselight GreenCrystalLight
+{
+    color 0.0 1.0 0.0
+    offset 0.0 10.0 0.0
+    size 100
+    secondarySize 90
+    interval 1
+    attenuate 1
+    dontlightself 0
+    }
+    
+object GreenCrystal
+{
+	frame GCRSA  { light GreenCrystalLight }
+	frame GCRSB  { light GreenCrystalLight }
+	frame GCRSC  { light GreenCrystalLight }
+	frame GCRSD  { light GreenCrystalLight }
+	frame GCRSE  { light GreenCrystalLight }
+	frame GCRSF  { light GreenCrystalLight }
+	frame GCRSG  { light GreenCrystalLight }
+	frame GCRSH  { light GreenCrystalLight }
+	frame GCRSI  { light GreenCrystalLight }
+	frame GCRSJ  { light GreenCrystalLight }
+	frame GCRSK  { light GreenCrystalLight }
+	frame GCRSL  { light GreenCrystalLight }
+	frame GCRSM  { light GreenCrystalLight }
+	frame GCRSN  { light GreenCrystalLight }
+	frame GCRSO  { light GreenCrystalLight }
+	frame GCRSP  { light GreenCrystalLight }
+	frame GCRSQ  { light GreenCrystalLight }
+	frame GCRSR  { light GreenCrystalLight }
+	frame GCRSS  { light GreenCrystalLight }
+	frame GCRST  { light GreenCrystalLight }
+	frame GCRSU  { light GreenCrystalLight }
+	frame GCRSV  { light GreenCrystalLight }
+	frame GCRSW  { light GreenCrystalLight }
+	frame GCRSX  { light GreenCrystalLight }
+	frame GCRSY  { light GreenCrystalLight }
+    }
+	
+pulselight LimeGreenCrystalLight
+{
+    color 0.25 1.0 0.0
+    offset 0.0 10.0 0.0
+    size 100
+    secondarySize 90
+    interval 1
+    attenuate 1
+    dontlightself 0
+    }
+    
+object LimeGreenCrystal
+{
+	frame LGCRA  { light LimeGreenCrystalLight }
+	frame LGCRB  { light LimeGreenCrystalLight }
+	frame LGCRC  { light LimeGreenCrystalLight }
+	frame LGCRD  { light LimeGreenCrystalLight }
+	frame LGCRE  { light LimeGreenCrystalLight }
+	frame LGCRF  { light LimeGreenCrystalLight }
+	frame LGCRG  { light LimeGreenCrystalLight }
+	frame LGCRH  { light LimeGreenCrystalLight }
+	frame LGCRI  { light LimeGreenCrystalLight }
+	frame LGCRJ  { light LimeGreenCrystalLight }
+	frame LGCRK  { light LimeGreenCrystalLight }
+	frame LGCRL  { light LimeGreenCrystalLight }
+	frame LGCRM  { light LimeGreenCrystalLight }
+	frame LGCRN  { light LimeGreenCrystalLight }
+	frame LGCRO  { light LimeGreenCrystalLight }
+	frame LGCRP  { light LimeGreenCrystalLight }
+	frame LGCRQ  { light LimeGreenCrystalLight }
+	frame LGCRR  { light LimeGreenCrystalLight }
+	frame LGCRS  { light LimeGreenCrystalLight }
+	frame LGCRT  { light LimeGreenCrystalLight }
+	frame LGCRU  { light LimeGreenCrystalLight }
+	frame LGCRV  { light LimeGreenCrystalLight }
+	frame LGCRW  { light LimeGreenCrystalLight }
+	frame LGCRX  { light LimeGreenCrystalLight }
+	frame LGCRY  { light LimeGreenCrystalLight }
+    }
+	
+pulselight OrangeCrystalLight
+{
+    color 1.0 0.5 0.0
+    offset 0.0 10.0 0.0
+    size 100
+    secondarySize 90
+    interval 1
+    attenuate 1
+    dontlightself 0
+    }
+    
+object OrangeCrystal
+{
+	frame OCRSA  { light OrangeCrystalLight }
+	frame OCRSB  { light OrangeCrystalLight }
+	frame OCRSC  { light OrangeCrystalLight }
+	frame OCRSD  { light OrangeCrystalLight }
+	frame OCRSE  { light OrangeCrystalLight }
+	frame OCRSF  { light OrangeCrystalLight }
+	frame OCRSG  { light OrangeCrystalLight }
+	frame OCRSH  { light OrangeCrystalLight }
+	frame OCRSI  { light OrangeCrystalLight }
+	frame OCRSJ  { light OrangeCrystalLight }
+	frame OCRSK  { light OrangeCrystalLight }
+	frame OCRSL  { light OrangeCrystalLight }
+	frame OCRSM  { light OrangeCrystalLight }
+	frame OCRSN  { light OrangeCrystalLight }
+	frame OCRSO  { light OrangeCrystalLight }
+	frame OCRSP  { light OrangeCrystalLight }
+	frame OCRSQ  { light OrangeCrystalLight }
+	frame OCRSR  { light OrangeCrystalLight }
+	frame OCRSS  { light OrangeCrystalLight }
+	frame OCRST  { light OrangeCrystalLight }
+	frame OCRSU  { light OrangeCrystalLight }
+	frame OCRSV  { light OrangeCrystalLight }
+	frame OCRSW  { light OrangeCrystalLight }
+	frame OCRSX  { light OrangeCrystalLight }
+	frame OCRSY  { light OrangeCrystalLight }
+    }
+	
+pulselight BlueCrystalLight
+{
+    color 0.0 1.0 1.0
+    offset 0.0 10.0 0.0
+    size 100
+    secondarySize 90
+    interval 1
+    attenuate 1
+    dontlightself 0
+    }
+    
+object BlueCrystal
+{
+	frame BCRSA  { light BlueCrystalLight }
+	frame BCRSB  { light BlueCrystalLight }
+	frame BCRSC  { light BlueCrystalLight }
+	frame BCRSD  { light BlueCrystalLight }
+	frame BCRSE  { light BlueCrystalLight }
+	frame BCRSF  { light BlueCrystalLight }
+	frame BCRSG  { light BlueCrystalLight }
+	frame BCRSH  { light BlueCrystalLight }
+	frame BCRSI  { light BlueCrystalLight }
+	frame BCRSJ  { light BlueCrystalLight }
+	frame BCRSK  { light BlueCrystalLight }
+	frame BCRSL  { light BlueCrystalLight }
+	frame BCRSM  { light BlueCrystalLight }
+	frame BCRSN  { light BlueCrystalLight }
+	frame BCRSO  { light BlueCrystalLight }
+	frame BCRSP  { light BlueCrystalLight }
+	frame BCRSQ  { light BlueCrystalLight }
+	frame BCRSR  { light BlueCrystalLight }
+	frame BCRSS  { light BlueCrystalLight }
+	frame BCRST  { light BlueCrystalLight }
+	frame BCRSU  { light BlueCrystalLight }
+	frame BCRSV  { light BlueCrystalLight }
+	frame BCRSW  { light BlueCrystalLight }
+	frame BCRSX  { light BlueCrystalLight }
+	frame BCRSY  { light BlueCrystalLight }
+    }
+	
+/*PointLight TorchGlow
+{
+    Color 1.0 0.75 0.0
+    Size 100
+    Offset 0 2 2
+	Attenuate 1
+    DontLightSelf 1
+}
+*/
+
+FlickerLight TorchGlow
+{
+    color 1.0 0.75 0.0
+    size 55
+    secondarySize 64
+    chance 0.6
+}
+
+Object MetTorch 
+{ 
+	Frame MTCHA { Light TorchGlow }
+	Frame MTCHB { Light TorchGlow }
+	Frame MTCHC { Light TorchGlow }
+	Frame MTCHD { Light TorchGlow }
+	Frame MTCHE { Light TorchGlow }
+	Frame MTCHF { Light TorchGlow }
+	Frame MTCHG { Light TorchGlow }
+	Frame MTCHH { Light TorchGlow }
+	Frame MTCHI { Light TorchGlow }
+	Frame MTCHJ { Light TorchGlow }
+	Frame MTCHK { Light TorchGlow }
+	Frame MTCHL { Light TorchGlow }
+	Frame MTCHM { Light TorchGlow }
+	Frame MTCHN { Light TorchGlow }
+	Frame MTCHO { Light TorchGlow }
+	Frame MTCHP { Light TorchGlow }
+}
+
+//BLUE
+pointlight BLUESTROBE
+{
+    color 0.0 0.0 0.4
+    size 48
+}
+
+object StrobeRayBlue
+{
+    frame BAL1C { light BLUESTROBE }
+}
+
+
+//GREEN
+pointlight GREENSTROBE
+{
+    color 0.0 0.4 0.0
+    size 48
+}
+
+object StrobeRayGreen
+{
+    frame BAL1C { light GREENSTROBE }
+}
+
+
+//RED
+pointlight REDSTROBE
+{
+    color 0.4 0.0 0.0
+    size 48
+}
+
+object StrobeRayRed
+{
+    frame TNT1A { light REDSTROBE }
+}
+
+
+//YELLOW
+pointlight YELLOWSTROBE
+{
+    color 0.4 0.2 0.0
+    size 48
+}
+
+object StrobeRayYellow
+{
+    frame BAL1C { light YELLOWSTROBE }
+}

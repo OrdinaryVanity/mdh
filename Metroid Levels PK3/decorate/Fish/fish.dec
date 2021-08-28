@@ -1,0 +1,40 @@
+Actor Fish 17870
+{
+//$Category Metroid
+	Radius 12
+	Height 24
+	Speed 8
+	MaxStepHeight 0
+	+NOGRAVITY
+	-SOLID
+	-SHOOTABLE
+	
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_ChangeFlag("FRIGHTENED", FALSE)
+		FISH A 1 A_Look
+		FISH ABCDEFGHIJKLMNOPQ 2 A_Wander
+		Loop
+		FISH A 1 ThrustThingZ(0, 20, 1, 1)
+		Goto Spawn
+		
+		See:
+		TNT1 A 0
+		TNT1 A 0 A_CheckProximity("Scare", "SamusPlayer", 128)
+		FISH ABCDEFGHIJKLMNOPQ 2 A_Wander
+		Loop
+		FISH A 1 ThrustThingZ(0, 20, 1, 1)
+		Goto Spawn
+		
+		Scare:
+		TNT1 A 0 A_ChangeFlag("FRIGHTENED", TRUE)
+		RunAway:
+		FISH ABCDEFGHIJKLMNOPQ 1 A_Wander
+		FISH A 0 A_CheckRange(256, "See", FALSE)
+		Loop
+		FISH A 1 ThrustThingZ(0, 20, 1, 1)
+		Goto Spawn
+	}
+}

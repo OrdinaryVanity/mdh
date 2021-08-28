@@ -1,0 +1,548 @@
+Model Mushrooms 
+{
+	Path "Models/Mushrooms"
+	Model 0 "Mushrooms.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+	FrameIndex MSH1 A 0 0
+}
+
+Model Mushroom
+{
+	Path "Models/Mushroom"
+	Model 0 "Mushroom.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+	FrameIndex MSH2 A 0 0
+}
+
+Model GreenMushrooms 
+{
+	Path "Models/GreenMushrooms"
+	Model 0 "GreenMushrooms.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+	FrameIndex MSH3 A 0 0
+}
+
+Model GreenMushroom
+{
+	Path "Models/GreenMushroom"
+	Model 0 "GreenMushroom.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+	FrameIndex MSH4 A 0 0
+}
+
+Model GreenCrystal
+{
+	Path "Models/GreenCrystal"
+	Model 0 "GreenCrystal.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+	FrameIndex GCRS A 0 0
+}
+
+Model GreenCrystal
+{
+	Path "Models/GreenCrystal"
+	Model 0 "GreenCrystalDestroyed.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+
+	FrameIndex GCRS B 0 1
+	FrameIndex GCRS C 0 2
+	FrameIndex GCRS D 0 3
+	FrameIndex GCRS E 0 4
+	FrameIndex GCRS F 0 5
+	FrameIndex GCRS G 0 6
+	FrameIndex GCRS H 0 7
+	FrameIndex GCRS I 0 8
+	FrameIndex GCRS J 0 9
+	FrameIndex GCRS K 0 10
+	FrameIndex GCRS L 0 11
+	FrameIndex GCRS M 0 12
+	FrameIndex GCRS N 0 13
+	FrameIndex GCRS O 0 14
+	FrameIndex GCRS P 0 15
+	FrameIndex GCRS Q 0 16
+	FrameIndex GCRS R 0 17
+	FrameIndex GCRS S 0 18
+	FrameIndex GCRS T 0 19
+	FrameIndex GCRS U 0 20
+	FrameIndex GCRS V 0 21
+	FrameIndex GCRS W 0 22
+	FrameIndex GCRS X 0 23
+	FrameIndex GCRS Y 0 24
+}
+
+Model LimeGreenCrystal
+{
+	Path "Models/LimeGreenCrystal"
+	Model 0 "LimeGreenCrystal.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+	FrameIndex LGCR A 0 0
+}
+
+Model LimeGreenCrystal
+{
+	Path "Models/LimeGreenCrystal"
+	Model 0 "LimeGreenCrystalDestroyed.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+
+	FrameIndex LGCR B 0 1
+	FrameIndex LGCR C 0 2
+	FrameIndex LGCR D 0 3
+	FrameIndex LGCR E 0 4
+	FrameIndex LGCR F 0 5
+	FrameIndex LGCR G 0 6
+	FrameIndex LGCR H 0 7
+	FrameIndex LGCR I 0 8
+	FrameIndex LGCR J 0 9
+	FrameIndex LGCR K 0 10
+	FrameIndex LGCR L 0 11
+	FrameIndex LGCR M 0 12
+	FrameIndex LGCR N 0 13
+	FrameIndex LGCR O 0 14
+	FrameIndex LGCR P 0 15
+	FrameIndex LGCR Q 0 16
+	FrameIndex LGCR R 0 17
+	FrameIndex LGCR S 0 18
+	FrameIndex LGCR T 0 19
+	FrameIndex LGCR U 0 20
+	FrameIndex LGCR V 0 21
+	FrameIndex LGCR W 0 22
+	FrameIndex LGCR X 0 23
+	FrameIndex LGCR Y 0 24
+}
+
+Model OrangeCrystal
+{
+	Path "Models/OrangeCrystal"
+	Model 0 "OrangeCrystalDestroyed.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+
+	FrameIndex OCRS B 0 1
+	FrameIndex OCRS C 0 2
+	FrameIndex OCRS D 0 3
+	FrameIndex OCRS E 0 4
+	FrameIndex OCRS F 0 5
+	FrameIndex OCRS G 0 6
+	FrameIndex OCRS H 0 7
+	FrameIndex OCRS I 0 8
+	FrameIndex OCRS J 0 9
+	FrameIndex OCRS K 0 10
+	FrameIndex OCRS L 0 11
+	FrameIndex OCRS M 0 12
+	FrameIndex OCRS N 0 13
+	FrameIndex OCRS O 0 14
+	FrameIndex OCRS P 0 15
+	FrameIndex OCRS Q 0 16
+	FrameIndex OCRS R 0 17
+	FrameIndex OCRS S 0 18
+	FrameIndex OCRS T 0 19
+	FrameIndex OCRS U 0 20
+	FrameIndex OCRS V 0 21
+	FrameIndex OCRS W 0 22
+	FrameIndex OCRS X 0 23
+	FrameIndex OCRS Y 0 24
+}
+
+Model OrangeCrystal
+{
+	Path "Models/OrangeCrystal"
+	Model 0 "OrangeCrystal.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+	FrameIndex OCRS A 0 0
+}
+
+Model BlueCrystal
+{
+	Path "Models/BlueCrystal"
+	Model 0 "BlueCrystalDestroyed.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+
+	FrameIndex BCRS B 0 1
+	FrameIndex BCRS C 0 2
+	FrameIndex BCRS D 0 3
+	FrameIndex BCRS E 0 4
+	FrameIndex BCRS F 0 5
+	FrameIndex BCRS G 0 6
+	FrameIndex BCRS H 0 7
+	FrameIndex BCRS I 0 8
+	FrameIndex BCRS J 0 9
+	FrameIndex BCRS K 0 10
+	FrameIndex BCRS L 0 11
+	FrameIndex BCRS M 0 12
+	FrameIndex BCRS N 0 13
+	FrameIndex BCRS O 0 14
+	FrameIndex BCRS P 0 15
+	FrameIndex BCRS Q 0 16
+	FrameIndex BCRS R 0 17
+	FrameIndex BCRS S 0 18
+	FrameIndex BCRS T 0 19
+	FrameIndex BCRS U 0 20
+	FrameIndex BCRS V 0 21
+	FrameIndex BCRS W 0 22
+	FrameIndex BCRS X 0 23
+	FrameIndex BCRS Y 0 24
+}
+
+Model BlueCrystal
+{
+	Path "Models/BlueCrystal"
+	Model 0 "BlueCrystal.md3"
+	Scale 1.0 1.0 1.0
+	AngleOffset 90
+	FrameIndex BCRS A 0 0
+}
+
+Model ItemCapsulePartA
+{
+	ROTATING
+	Path "Models/ItemCapsule"
+	Model 0 "ItemCapsule.md3"
+	Scale 8.0 8.0 8.0
+	Offset 0 0 16
+	AngleOffset 90
+	FrameIndex ICPA A 0 0
+}
+
+Model ItemCrate
+{
+	Path "Models/ItemCrate"
+	Model 0 "ItemCrate.md3"
+	Scale 16.0 16.0 16.0
+	Offset 0 0 0
+	AngleOffset 90
+	FrameIndex ITCR A 0 0
+}
+
+Model MetroidExplosiveBarrel
+{
+	Path "Models/ExplosiveBarrel"
+	Model 0 "ExplosiveBarrel.md3"
+	Scale 16.0 16.0 14.0
+	Offset 0 0 0
+	AngleOffset 90
+	FrameIndex BRL2 A 0 0
+}
+
+Model YllaSymbol
+{
+	Path "Models/Ylla"
+	Model 0 "Ylla.md3"
+	Scale 10.0 10.0 10.0
+	Offset 0 0 0
+	AngleOffset 90
+	FrameIndex YLLA A 0 0
+}
+
+Model GrapplePoint1
+{
+	Path "Models/GrapplePoint"
+	Model 0 "GrapplePointVertical.md3"
+	Scale 1.0 1.0 1.0
+	SurfaceSkin 0 0 "Skins/grapplepoint.png"
+	Offset 0 0 130
+	AngleOffset 90
+	FrameIndex GPL1 A 0 0
+}
+
+Model GrapplePoint2
+{
+	Path "Models/GrapplePoint"
+	Model 0 "GrapplePointHorizontal.md3"
+	Scale 1.0 1.0 1.0
+	SurfaceSkin 0 0 "Skins/grapplepoint.png"
+	Offset 0 0 0
+	AngleOffset 90
+	FrameIndex GPL2 A 0 0
+}
+
+Model MissileBlastDoor
+{
+	Path "Models/MissileDoorCover"
+	Model 0 "Missile.md3"
+	Scale 1.0 1.0 1.0
+	Offset 100 0 0
+	AngleOffset 90
+	FrameIndex MBDR A 0 0
+}
+
+Model SuperMissileBlastDoor
+{
+	Path "Models/MissileDoorCover"
+	Model 0 "Super.md3"
+	Scale 1.0 1.0 1.0
+	Offset 100 0 0
+	AngleOffset 90
+	FrameIndex SMDR A 0 0
+}
+
+Model PowerBombBlastDoor
+{
+	Path "Models/MissileDoorCover"
+	Model 0 "PowerBomb.md3"
+	Scale 1.0 1.0 1.0
+	Offset 100 0 0
+	AngleOffset 90
+	FrameIndex PBDR A 0 0
+}
+/*
+Model YllaDoor
+{
+	Path "Models/Ylla"
+	Model 0 "YllaDoor.md3"
+	SurfaceSkin 0 0 "Skins/Ylla Door.png"
+	SurfaceSkin 0 1 "Skins/Ylla Door.png"
+	SurfaceSkin 0 2 "Skins/Ylla Door.png"
+	SurfaceSkin 0 3 "Skins/Ylla Door.png"
+	SurfaceSkin 0 4 "Skins/Ylla Door.png"
+	SurfaceSkin 0 5 "Skins/Ylla Door.png"
+	SurfaceSkin 0 6 "Skins/Ylla Door.png"
+	SurfaceSkin 0 7 "Skins/Ylla Door.png"
+	Scale 65.0 65.0 65.0
+	Offset 0 0 0
+	AngleOffset 90
+	FrameIndex YLDR A 0 0
+	FrameIndex YLDR B 0 1
+	FrameIndex YLDR C 0 2
+	FrameIndex YLDR D 0 3
+	FrameIndex YLDR E 0 4
+	FrameIndex YLDR F 0 5
+	FrameIndex YLDR G 0 6
+	FrameIndex YLDR H 0 7
+	FrameIndex YLDR I 0 8
+	FrameIndex YLDR J 0 9
+	FrameIndex YLDR K 0 10
+	FrameIndex YLDR L 0 11
+	FrameIndex YLDR M 0 12
+	FrameIndex YLDR N 0 13
+	FrameIndex YLDR O 0 14
+	FrameIndex YLDR P 0 15
+	FrameIndex YLDR Q 0 16
+	FrameIndex YLDR R 0 17
+	FrameIndex YLDR S 0 18
+	FrameIndex YLDR T 0 19
+	FrameIndex YLDR U 0 20
+	FrameIndex YLDR V 0 21
+	FrameIndex YLDR W 0 22
+	FrameIndex YLDR X 0 23
+}
+*/
+
+//Breakable blocks
+Model GreyStoneBlock1
+{
+	Path "Models/Blocks/Stone"
+	Model 0 "GreyStone.md3"
+	Skin 0 "Skins/GreyStone.png"
+	Scale 1 1 1
+	FrameIndex GSB1 A 0 0
+}
+
+Model BrownRocks1
+{
+	Path "Models/Rocks"
+	Model 0 "BrownRocks1.md3"
+	SurfaceSkin 0 0 "textures/heretic2/HT2T0143.png"
+	SurfaceSkin 0 1 "textures/heretic2/HT2T0143.png"
+	Scale 8 8 8
+	Offset 0 -4 0
+	AngleOffset 90
+	FrameIndex BRK1 A 0 0
+}
+
+Model KeyStoneRed
+{
+	Path "Models/KeyStone"
+	Model 0 "StoneOpen.md3"
+	SurfaceSkin 0 0 "Skins/KeyStoneRed.png"
+	SurfaceSkin 0 1 "Skins/KeyStoneRed.png"
+	SurfaceSkin 0 2 "Skins/KeyStoneRed.png"
+	SurfaceSkin 0 3 "Skins/KeyStoneRed.png"
+	SurfaceSkin 0 4 "Skins/KeyStoneRed.png"
+	Scale 8	8 6
+	Offset 0 0 0
+	FrameIndex KST1 A 0 0
+}
+
+Model KeyStoneRedPlaced
+{
+	Path "Models/KeyStone"
+	Model 0 "StoneOpen.md3"
+	SurfaceSkin 0 0 "Skins/KeyStoneRed.png"
+	SurfaceSkin 0 1 "Skins/KeyStoneRed.png"
+	SurfaceSkin 0 2 "Skins/KeyStoneRed.png"
+	SurfaceSkin 0 3 "Skins/KeyStoneRed.png"
+	SurfaceSkin 0 4 "Skins/KeyStoneRed.png"
+	Scale 8	8 6
+	Offset 0 0 0
+	FrameIndex KSRS A 0 0
+	FrameIndex KSRS B 0 1
+	FrameIndex KSRS C 0 2
+	FrameIndex KSRS D 0 3
+	FrameIndex KSRS E 0 4
+	FrameIndex KSRS F 0 5
+	FrameIndex KSRS G 0 6
+	FrameIndex KSRS H 0 7
+	FrameIndex KSRS I 0 8
+	FrameIndex KSRS J 0 9
+	FrameIndex KSRS K 0 10
+	FrameIndex KSRS L 0 11
+	FrameIndex KSRS M 0 12
+	FrameIndex KSRS N 0 13
+	FrameIndex KSRS O 0 14
+	FrameIndex KSRS P 0 15
+	FrameIndex KSRS Q 0 16
+	FrameIndex KSRS R 0 17
+	FrameIndex KSRS S 0 18
+	FrameIndex KSRS T 0 19
+	FrameIndex KSRS U 0 20
+	FrameIndex KSRS V 0 21
+	FrameIndex KSRS W 0 22
+	FrameIndex KSRS X 0 23
+	FrameIndex KSRS Y 0 24
+}
+
+Model KeyStonePurple
+{
+	Path "Models/KeyStone"
+	Model 0 "StoneOpen.md3"
+	SurfaceSkin 0 0 "Skins/KeyStonePurple.png"
+	SurfaceSkin 0 1 "Skins/KeyStonePurple.png"
+	SurfaceSkin 0 2 "Skins/KeyStonePurple.png"
+	SurfaceSkin 0 3 "Skins/KeyStonePurple.png"
+	SurfaceSkin 0 4 "Skins/KeyStonePurple.png"
+	Scale 8	8 6
+	Offset 0 0 0
+	FrameIndex KST2 A 0 0
+}
+
+Model KeyStonePurplePlaced
+{
+	Path "Models/KeyStone"
+	Model 0 "StoneOpen.md3"
+	SurfaceSkin 0 0 "Skins/KeyStonePurple.png"
+	SurfaceSkin 0 1 "Skins/KeyStonePurple.png"
+	SurfaceSkin 0 2 "Skins/KeyStonePurple.png"
+	SurfaceSkin 0 3 "Skins/KeyStonePurple.png"
+	SurfaceSkin 0 4 "Skins/KeyStonePurple.png"
+	Scale 8	8 6
+	Offset 0 0 0
+	FrameIndex KSPS A 0 0
+	FrameIndex KSPS B 0 1
+	FrameIndex KSPS C 0 2
+	FrameIndex KSPS D 0 3
+	FrameIndex KSPS E 0 4
+	FrameIndex KSPS F 0 5
+	FrameIndex KSPS G 0 6
+	FrameIndex KSPS H 0 7
+	FrameIndex KSPS I 0 8
+	FrameIndex KSPS J 0 9
+	FrameIndex KSPS K 0 10
+	FrameIndex KSPS L 0 11
+	FrameIndex KSPS M 0 12
+	FrameIndex KSPS N 0 13
+	FrameIndex KSPS O 0 14
+	FrameIndex KSPS P 0 15
+	FrameIndex KSPS Q 0 16
+	FrameIndex KSPS R 0 17
+	FrameIndex KSPS S 0 18
+	FrameIndex KSPS T 0 19
+	FrameIndex KSPS U 0 20
+	FrameIndex KSPS V 0 21
+	FrameIndex KSPS W 0 22
+	FrameIndex KSPS X 0 23
+	FrameIndex KSPS Y 0 24
+}
+
+Model KeyStoneYellow
+{
+	Path "Models/KeyStone"
+	Model 0 "StoneOpen.md3"
+	SurfaceSkin 0 0 "Skins/KeyStoneYellow.png"
+	SurfaceSkin 0 1 "Skins/KeyStoneYellow.png"
+	SurfaceSkin 0 2 "Skins/KeyStoneYellow.png"
+	SurfaceSkin 0 3 "Skins/KeyStoneYellow.png"
+	SurfaceSkin 0 4 "Skins/KeyStoneYellow.png"
+	Scale 8	8 6
+	Offset 0 0 0
+	FrameIndex KST3 A 0 0
+}
+
+Model KeyStoneYellowPlaced
+{
+	Path "Models/KeyStone"
+	Model 0 "StoneOpen.md3"
+	SurfaceSkin 0 0 "Skins/KeyStoneYellow.png"
+	SurfaceSkin 0 1 "Skins/KeyStoneYellow.png"
+	SurfaceSkin 0 2 "Skins/KeyStoneYellow.png"
+	SurfaceSkin 0 3 "Skins/KeyStoneYellow.png"
+	SurfaceSkin 0 4 "Skins/KeyStoneYellow.png"
+	Scale 8	8 6
+	Offset 0 0 0
+	FrameIndex KSYS A 0 0
+	FrameIndex KSYS B 0 1
+	FrameIndex KSYS C 0 2
+	FrameIndex KSYS D 0 3
+	FrameIndex KSYS E 0 4
+	FrameIndex KSYS F 0 5
+	FrameIndex KSYS G 0 6
+	FrameIndex KSYS H 0 7
+	FrameIndex KSYS I 0 8
+	FrameIndex KSYS J 0 9
+	FrameIndex KSYS K 0 10
+	FrameIndex KSYS L 0 11
+	FrameIndex KSYS M 0 12
+	FrameIndex KSYS N 0 13
+	FrameIndex KSYS O 0 14
+	FrameIndex KSYS P 0 15
+	FrameIndex KSYS Q 0 16
+	FrameIndex KSYS R 0 17
+	FrameIndex KSYS S 0 18
+	FrameIndex KSYS T 0 19
+	FrameIndex KSYS U 0 20
+	FrameIndex KSYS V 0 21
+	FrameIndex KSYS W 0 22
+	FrameIndex KSYS X 0 23
+	FrameIndex KSYS Y 0 24
+}
+
+Model Fish
+{
+	INTERPOLATEDOUBLEDFRAMES
+	USEACTORPITCH
+	USEACTORROLL
+	Path "Models/Fish"
+	Model 0 "Fish.md3"
+	SurfaceSkin 0 0 "Skins/Fish.png"
+	SurfaceSkin 0 1 "Skins/Fish.png"
+	SurfaceSkin 0 2 "Skins/Fish.png"
+	Scale 6.0 6.0 6.0
+	Offset 0 0 12
+	AngleOffset -90
+	FrameIndex FISH A 0 0
+	FrameIndex FISH B 0 1
+	FrameIndex FISH C 0 2
+	FrameIndex FISH D 0 3
+	FrameIndex FISH E 0 4
+	FrameIndex FISH F 0 5
+	FrameIndex FISH G 0 6
+	FrameIndex FISH H 0 7
+	FrameIndex FISH I 0 8
+	FrameIndex FISH J 0 9
+	FrameIndex FISH K 0 10
+	FrameIndex FISH L 0 11
+	FrameIndex FISH M 0 12
+	FrameIndex FISH N 0 13
+	FrameIndex FISH O 0 14
+	FrameIndex FISH P 0 15
+	FrameIndex FISH Q 0 16
+}

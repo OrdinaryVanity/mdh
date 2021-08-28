@@ -1,0 +1,40 @@
+clearplayerclasses
+addplayerclass SamusPlayer
+
+addslotdefault 1 "PowerBeam"
+addslotdefault 2 "SpazerBeam"
+addslotdefault 3 "PlasmaBeam"
+addslotdefault 4 "WaveBeam"
+addslotdefault 5 "IceBeam"
+addslotdefault 6 "LongBeam"
+addslotdefault 7 "ChromaBeam"
+addslotdefault 8 "DoomCannon"
+//addslotdefault 8 "Grenade Launcher Replacement Not In Yet"
+//addslotdefault 9 "Railgun Replacement Not In Yet"
+
+
+
+addkeysection Metroid Dreadnought
+
+alias morph "puke -588 0"
+//alias scan "puke -604 0"
+alias scan "pukename WeaponSwitch"
+alias shine "puke -601"
+alias changelog "puke -583 1"
+//alias +beamswitch   "puke -552 0"
+//alias -beamswitch   "puke -552 1"
+
+//addmenukey "Beam Selection HUD" +beamswitch
+//defaultbind q +beamswitch
+
+addmenukey "Morph Ball" morph
+defaultbind z morph
+
+addmenukey "Scan Visor" scan
+defaultbind f scan
+
+addmenukey "Shinespark" shine
+defaultbind x shine
+
+//addmenukey "Change Log" changelog
+//defaultbind u changelog

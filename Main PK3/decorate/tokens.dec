@@ -1,0 +1,161 @@
+// Counters
+actor GoingForwardCounter : Counter { Inventory.MaxAmount 70 }
+actor GoingBackwardCounter : Counter { Inventory.MaxAmount 70 }
+actor LookLeftCounter : Counter { Inventory.MaxAmount 70 }
+actor LookRightCounter : Counter { Inventory.MaxAmount 70 }
+actor LookUpCounter : Counter { Inventory.MaxAmount 70 }
+actor LookDownCounter : Counter { Inventory.MaxAmount 70 }
+
+actor BombCount : Counter { Inventory.MaxAmount 3 }
+actor BoostBallCount : Counter { Inventory.MaxAmount 17 }
+actor SpeedBoostCounter : Counter { Inventory.MaxAmount 11 }
+
+actor Health100 : Counter { Inventory.MaxAmount 100 }
+actor Health200 : Counter { Inventory.MaxAmount 200 }
+actor Health300 : Counter { Inventory.MaxAmount 300 }
+actor Health400 : Counter { Inventory.MaxAmount 400 }
+actor Health500 : Counter { Inventory.MaxAmount 500 }
+actor Health600 : Counter { Inventory.MaxAmount 600 }
+actor Health700 : Counter { Inventory.MaxAmount 700 }
+actor Health800 : Counter { Inventory.MaxAmount 800 }
+actor Health900 : Counter { Inventory.MaxAmount 900 }
+actor Health1000 : Counter { Inventory.MaxAmount 1000 }
+actor Health1100 : Counter { Inventory.MaxAmount 1100 }
+actor Health1200 : Counter { Inventory.MaxAmount 1200 }
+actor Health1300 : Counter { Inventory.MaxAmount 1300 }
+actor Health1400 : Counter { Inventory.MaxAmount 1400 }
+actor Health1500 : Counter { Inventory.MaxAmount 1500 }
+actor Health1600 : Counter { Inventory.MaxAmount 1600 }
+actor Health1700 : Counter { Inventory.MaxAmount 1700 }
+actor Health1800 : Counter { Inventory.MaxAmount 1800 }
+actor Health1900 : Counter { Inventory.MaxAmount 1900 }
+actor Health2000 : Counter { Inventory.MaxAmount 2000 }
+actor Health2100 : Counter { Inventory.MaxAmount 2100 }
+
+actor EnergyTankAcquired : Counter { Inventory.MaxAmount 20 }
+actor ReserveTankAcquired : Counter { Inventory.MaxAmount 4 }
+actor PlayerTotalHealth : Counter { Inventory.MaxAmount 99 }
+actor PlayerTotalMissiles : Counter { Inventory.MaxAmount 999 }
+actor PlayerTotalSuperMissiles : Counter { Inventory.MaxAmount 999 }
+actor PlayerTotalPowerBombs : Counter { Inventory.MaxAmount 999 }
+
+actor MissileChargeLevel : Counter { Inventory.MaxAmount 31 }
+actor PowerBeamChargeLevel : Counter { Inventory.MaxAmount 25 }
+actor PowerBeamIdle : Counter { Inventory.MaxAmount 26 }
+
+actor LongBeamZoomed : Counter { Inventory.MaxAmount 2 }
+actor MissileStateCounter : Counter { Inventory.MaxAmount 100 }
+
+
+// Booleans
+actor IsASpacePirate : Boolean {}
+actor IsAFuckingSpaceshipBoyeeee : Boolean {}
+actor InGame : Boolean {}
+actor AlwaysRunIsOn : Boolean {}
+actor DoomHealthCounter : Boolean {}
+actor NoMetroidPickupSystem : Boolean {}
+Actor MetroidHitIndicatorActive : Boolean {}
+Actor MetroidHitOpponent : Boolean {}
+actor WhyCantMetroidCrawl : Boolean {}
+actor CustomMissileCharge : Boolean {}
+actor IsOnTeam0 : Boolean {}
+actor IsOnTeam1 : Boolean {}
+actor IsOnTeam2 : Boolean {}
+actor IsOnTeam3 : Boolean {}
+
+actor HealthOver100 : Boolean {}
+actor HealthOver200 : Boolean {}
+actor HealthOver300 : Boolean {}
+actor HealthOver400 : Boolean {}
+actor HealthOver500 : Boolean {}
+actor HealthOver600 : Boolean {}
+actor HealthOver700 : Boolean {}
+actor HealthOver800 : Boolean {}
+actor HealthOver900 : Boolean {}
+actor HealthOver1000 : Boolean {}
+actor HealthOver1100 : Boolean {}
+actor HealthOver1200 : Boolean {}
+actor HealthOver1300 : Boolean {}
+actor HealthOver1400 : Boolean {}
+actor HealthOver1500 : Boolean {}
+actor HealthOver1600 : Boolean {}
+actor HealthOver1700 : Boolean {}
+actor HealthOver1800 : Boolean {}
+actor HealthOver1900 : Boolean {}
+actor HealthOver2000 : Boolean {}
+actor HealthOver2100 : Boolean {}
+actor GotArmor : Boolean {}
+
+actor IceBeamChilled : Boolean {}
+actor CoopModeOn : Boolean {}
+actor ETNotInThisLevel : Boolean {}
+actor SMNotInThisLevel : Boolean {}
+actor PBNotInThisLevel : Boolean {}
+actor PlayerMorphCamera : Boolean {}
+actor DisableMorph : Boolean {}
+
+actor BallBoosting : Boolean {}
+actor MissileCharged : Boolean {}
+actor PowerBeamCharged : Boolean {}
+actor PowerBeamHalfCharged : Boolean {}
+actor SynthFireLeft : Boolean {}
+actor SynthFireRight : Boolean {}
+actor PMSynthFireRight : Boolean {}
+actor WSSynthFireRight : Boolean {}
+actor SFSynthFireRight : Boolean {}
+actor WMSynthFireRight : Boolean {}
+actor ISSynthFireRight : Boolean {}
+actor NFSynthFireRight : Boolean {}
+actor CBSynthFireRight : Boolean {}
+actor HBSynthFireRight : Boolean {}
+actor SpeedBoosterActive : Boolean {}
+actor LaserSequence : Boolean {}
+actor TheReturnOfSamusReturns : Boolean {}
+
+actor BorphMallAcquired : Boolean {}
+actor MissileTankAcquired : Boolean {}
+actor SuperMissileAcquired : Boolean {}
+actor SpaceJumpAcquired : Boolean {}
+actor MorphBallAcquired : Boolean {}
+actor CanSpaceJump : Boolean {}
+actor CanBeamStack: Boolean {}
+actor PowerBombAcquired : Boolean {}
+actor ChargeComboAcquired : Boolean {}
+actor SpeedBoosterAcquired : Boolean {}
+actor VariaSuitAcquired : Boolean {}
+actor GravitySuitAcquired : Boolean {}
+actor GrappleBeamAcquired : Boolean {}
+
+actor EnemyFlyingDeath : Boolean {}
+
+actor PowerBeamAcquired : Boolean {}
+actor SpazerBeamAcquired : Boolean {}
+actor PlasmaBeamAcquired : Boolean {}
+actor WaveBeamAcquired : Boolean {}
+actor IceBeamAcquired : Boolean {}
+actor LongBeamAcquired : Boolean {}
+actor DoomCannonAcquired : Boolean {}
+actor ChromaStormAcquired : Boolean {}
+actor ChargeBeamAcquired : Boolean {}
+actor PowerMissileAcquired : Boolean {}
+actor WaveMissileAcquired : Boolean {}
+actor SolarFlareAcquired : Boolean {}
+actor IceSpreaderAcquired : Boolean {}
+actor NovaFlashAcquired : Boolean {}
+actor WideShotAcquired : Boolean {}
+actor HyperBeamAcquired : Boolean {}
+actor ChainsawBeamAcquired : Boolean {}
+actor BombsAcquired : Boolean {}
+actor BoostBallAcquired : Boolean {}
+actor HiJumpAcquired : Boolean {}
+
+actor CombatVisorAcquired : Boolean {}
+actor ScanVisorAcquired : Boolean {}
+
+actor CannotCombo : Boolean {}
+actor CanCombo : Boolean {}
+actor CanHyper : Boolean {}
+
+actor KStoneYellowAcquired : Boolean {}
+actor KStoneRedAcquired : Boolean {}
+actor KStonePurpleAcquired : Boolean {}

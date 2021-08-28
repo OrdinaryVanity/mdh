@@ -1,0 +1,189 @@
+Actor GreenTree1 17840
+{
+//$Category Metroid
+	Radius 12
+	Height 125
+	
+	+SOLID
+	
+	States
+	{
+		Spawn:
+		GTR1 A 0
+		GTR1 A 9
+		GTR1 A 1 A_Jump(15, "Anim")
+		Loop
+		
+		Anim:
+		GTR1 ABCDEFGHIJKLMNOPQRST 5
+		Goto Spawn
+	}
+}
+
+Actor GreenTree2 17841
+{
+//$Category Metroid
+	Radius 12
+	Height 150
+	
+	+SOLID
+	
+	States
+	{
+		Spawn:
+		GTR2 A 0
+		GTR2 A 9
+		GTR2 A 1 A_Jump(15, "Anim")
+		Loop
+		
+		Anim:
+		GTR2 ABCDEFGHIJKLMNOPQRSTUVWX 5
+		Goto Spawn
+	}
+}
+
+Actor GreenTree3 17842
+{
+//$Category Metroid
+	Radius 12
+	Height 150
+	
+	+SOLID
+	
+	States
+	{
+		Spawn:
+		GTR3 A -1
+		Stop
+	}
+}
+
+Actor GreenTree4 17843
+{
+//$Category Metroid
+	Radius 12
+	Height 150
+	
+	+SOLID
+	
+	States
+	{
+		Spawn:
+		GTR4 A 0
+		GTR4 A 9
+		GTR4 A 1 A_Jump(15, "Anim")
+		Loop
+		
+		Anim:
+		GTR4 ABCDEFGHIJKLMNOPQRSTUVWX 3
+		Goto Spawn
+	}
+}
+
+Actor WinterTree1 17844
+{
+//$Category Metroid
+	Radius 25
+	Height 100
+	
+	+SOLID
+	
+	States
+	{
+		Spawn:
+		WTR1 A -1
+		Stop
+	}
+}
+
+Actor WinterTree2 17845
+{
+//$Category Metroid
+	Radius 25
+	Height 100
+	
+	+SOLID
+	
+	States
+	{
+		Spawn:
+		WTR2 A -1
+		Stop
+	}
+}
+
+Actor OrangeTree1 17846
+{
+//$Category Metroid
+	Radius 12
+	Height 125
+	
+	+SOLID
+	
+	States
+	{
+		Spawn:
+		OTR1 A -1
+		Stop
+	}
+}
+
+Actor OrangeTree2 17847
+{
+//$Category Metroid
+	Radius 12
+	Height 150
+	
+	+SOLID
+	
+	States
+	{
+		Spawn:
+		OTR2 A 0
+		OTR2 A 9
+		OTR2 A 1 A_Jump(15, "Anim")
+		Loop
+		
+		Anim:
+		OTR2 ABCDEFGHIJKLMNOPQRSTUVWX 6
+		Goto Spawn
+	}
+}
+
+Actor OrangeTree3 17848
+{
+//$Category Metroid
+	Radius 12
+	Height 150
+	
+	+SOLID
+	
+	States
+	{
+		Spawn:
+		OTR3 A 0
+		OTR3 A 9
+		OTR3 A 1 A_Jump(15, "Anim")
+		Loop
+		
+		Anim:
+		OTR3 ABCDEFGHIJKLMNOPQRST 5
+		Goto Spawn
+	}
+}
+
+Actor OrangeTree4 17849
+{
+//$Category Metroid
+	Radius 12
+	Height 150
+	
+	+SOLID
+	
+	States
+	{
+		Spawn:
+		OTR4 A -1
+		Stop
+	}
+}

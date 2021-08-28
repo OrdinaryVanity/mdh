@@ -1,0 +1,2 @@
+The first argument sets the radius of the circle the clouds spawn in.
+If ARGS[0] is left as 0, the spawner defaults to a 96 radius circle.

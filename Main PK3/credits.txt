@@ -1,0 +1,108 @@
+Metroid Dreadnought Overhaul - A fork by R4L with Terminus' permission.
+
+Thanks to Spore Spawn (ThatOneRandomDude) for pretty much everything:
+
+- New 3D models for the arm cannons, props like crates and barrels, door barriers, and for the item pickups.
+- Some new textures.
+- New 2D sprites for the arm cannons and item pickups.
+- New 2D graphics, including a brand new HUD, crosshairs and animations.
+- Helping design the campaign and storyline.
+- For being a huge support system and being a good friend. I cannot thank you enough dude!
+
+Thanks to CrazyWazy for the following:
+
+- Metroid style doors.
+- Hexhi Wilds music.
+- For being a good friend and helping with code and the campaign.
+
+Various:
+
+- The ZDoom Wiki and Discord. I literally would not have been able to do anything without either.
+- Freesound.org for lots of great sounds. Individual authors are credited in their .ogg files.
+- Wivicer for 2D brightmaps on the arm cannons.
+- Maky for the Wii Prime Trilogy crosshair.
+- Realm667 for various props used.
+- Josh771 for the grappling hook minimod and for letting me use it for the grapple beam.
+- HAL2000 for the fake reflection shader for the gorgeous crystals.
+- Boondorl for various coding help with 3D platforms, Gravity Suit physics, and for Universal Weapon Sway (which I recommend with this mod!)
+- Nash Muhandes for RadiusDebug, his PDA mod, and for constructive criticism with mapping.
+- My awesome Discord members for testing and offering help:
+	- Shine: Suggestions and promotions. Good work on Metroid: Vanguard!
+	- Nick Makura: for doing the Scan Visor texts.
+	- Zyifer: Playtesting, suggestions and keeping it real lol.
+	- SnekTheKek: Suggestions, promotion on Twitch and playing Deathmatch.
+	- Za Warudo: Playtesting, suggestions and nagging me when I get lazy.
+	- Samusoidal: Suggestions and promotion on Twitter.
+	- RedDragonCats: Suggestions, promotion online.
+- Models-Resource:
+	- Various Metroid Prime 3D rips.
+- Cadnav.com:
+	- Portal style security camera 3D model.
+
+Terminus' original credits from Dreadnought:
+
+SPECIAL THANKS TO:
+=========
+- Nintendo (For creating the Metroid series in the first place)
+- id Software (For creating Doom and the idtech1 engine)
+- Graf Zahl, Randy Heit (For the ZDoom/GZDoom engine)
+- Torr Samaho and the Zandronum team (For picking up where Skulltag left off)
+- /vr/ (For their help, guidance, and enthusiasm for both Doom and Metroid)
+- ijon tichy (As usual, an incredible code guru. Responsible for:
+ ^- : The Space Jump code (taken from Parkmore)
+ ^- : The Long Beam code (taken from Lelweps)
+ ^- : The Power Bomb's explosion (taken from Redeemer)
+ ^- : The Chroma Storm
+ ^- : Reworking the Metroid pickup system
+ ^- : The gunship system
+ ^- : Redoing the chasecam system
+ ^- : Making this compatible with ZDoom
+ ^- : A whole lot, really...
+
+GRAPHICS:
+=========
+- Zrrion the Insect (Drew the base arm cannon sprite)
+- Scripten (Drew the Space Pirate sprites)
+- MofoOfSpades (Drew the graphics for the Power Beam's blasts)
+- Rogue Entertainment (The base of the Missile's sprites, from Strife)
+- Ijon Tichy (For the smoke trails for the Missile, the numbers and some punctuation of the smallfont)
+- Aeons of Death (For the Missile explosion graphics)
+- FixedSys/Terminal/JACKIE (Spliced and pieced together to form the Smallfont)
+- SF Square Head (A modified version for the BigFont)
+- Blue Shadow (Converting the BigFont to a lump file)
+- Cyberkill (Spanish Enye, slade, and tilde for smallfont)
+- Enterbrain (Plasma Beam/Ice Beam particles)
+- Bearborg/Mike12 (Ripping and polishing the Metroid Prime HUD)
+- Rundas45 (The basis of the fullscreen HUD, the health pickups)
+- Eriance (Spazer Beam particles)
+- Id Software (Bomb explode animation, from Doom 3)
+- PillowBlaster (Space Pirate shots, Power Bomb explosion sprites)
+- People Can Fly (The Flamebolter's fire effect used for the Super Missile explosion)
+- Yoshio Sakamoto (His likeness used for the Icon of Sin)
+- VincentPrice (Making the model the Morph Ball was based off)
+- TheMisterCat (The lingering fire for the Plasma Beam Charge Combo)
+- PresidentPeople (The dynamic lights for the Morph Ball)
+- Revae/Mike12 (Chainsaw attack sprites)
+- Xaser (Chainsaw projectile sprites)
+- Sgt. Shivers (For the Arm Cannon/Chainsaw conversion sprites)
+- Mr. Giga (Base sprites for the Chroma Storm pickup)
+- Sgt. Shivers (Player skin)
+- Scalliano (The facing-down scientists)
+- Enjay (The lying-upwards scientist)
+- Scuba Steve (The lying-sideways scientist)
+- WildWeasel (The CONFONT, taken from Agent Diaz: Last Hours of Purity. Thanks a lot!)
+
+SOUNDS:
+=========
+- Audacity (Incredible amounts of sound editing thanks to this tool)
+- Hollywood Edge/AudioJungle (Numerous stock sound effects)
+- The General Series 6000 (Numerous stock sound effects)
+- Yoshio Sakamoto (His voice reversed and warped for the Icon of Sin)
+- Waqas Hafiz (Titlescreen music)
+- BouncyTEM (Editing the Zero Suit Samus sounds to be more reminiscent of Samus in-suit)
+- For info from what specific sound came from where, read through sndinfo.txt!
+
+CODE:
+=========
+- Repo Man (The basis of the Wave Beam projectile code)
+- TheMisterCat (The lingering fire for the Plasma Beam Charge Combo)

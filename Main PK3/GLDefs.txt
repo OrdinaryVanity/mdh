@@ -1,0 +1,3119 @@
+//2D Beam Brightmaps by Wivicer (thanks dude!)
+
+// Power Beam 2D
+
+brightmap sprite PBEMA0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDA0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDB0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDC0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDD0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDE0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDF0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDG0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDH0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDI0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDJ0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDK0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDL0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDM0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDN0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDO0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDP0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDQ0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDR0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDS0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite POIDT0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite SBIDA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBIDB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBIDC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBIDD0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBIDE0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBIDF0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBIDA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBIDB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBIDC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBIDD0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBIDA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBIDB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBIDC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBIDD0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBIDE0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBIDF0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBIDG0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBIDA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBIDB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBIDC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBIDD0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBIDE0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBIDF0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBIDA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBIDB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBIDC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBIDD0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBIDE0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBIDF0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBIDG0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBIDH0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBIDI0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBIDJ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite PBGLA0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLB0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLC0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+
+brightmap sprite PBGLD0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+
+brightmap sprite PBGLE0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+
+brightmap sprite PBGLF0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+
+brightmap sprite PBGLG0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+
+brightmap sprite PBGLH0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+
+brightmap sprite PBGLI0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+
+brightmap sprite PBGLJ0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLK0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLL0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLM0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLN0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLO0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLP0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLQ0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLR0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLS0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+brightmap sprite PBGLT0
+{
+   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+}
+//brightmap sprite PBEMV0
+//{
+//   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+//}
+//brightmap sprite PBEMW0
+//{
+//   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+//}
+
+// Spazer Beam 2D
+
+brightmap sprite SBEMA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite SBEMB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMD0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite SBEME0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite SBEMF0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite SBEMG0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite SBEMH0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite SBEMI0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite SBEMJ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite SBEMK0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEML0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMM0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMN0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMO0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMP0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMQ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMR0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMS0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMT0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMU0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMV0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite SBEMW0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+// Plasma Beam 2D
+
+brightmap sprite MBEMA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite MBEMB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMD0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite MBEME0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite MBEMF0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite MBEMG0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite MBEMH0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite MBEMI0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite MBEMJ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite MBEMK0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEML0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMM0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMN0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMO0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMP0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMQ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMR0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMS0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMT0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMU0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMV0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite MBEMW0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+// Wave Beam 2D
+
+brightmap sprite WBEMA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite WBEMB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMD0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite WBEME0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite WBEMF0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite WBEMG0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite WBEMH0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite WBEMI0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite WBEMJ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite WBEMK0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEML0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMM0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMN0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMO0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMP0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMQ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMR0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMS0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMT0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMU0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMV0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite WBEMW0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+// Ice Beam 2D
+
+brightmap sprite IBEMA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite IBEMB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMD0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite IBEME0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite IBEMF0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite IBEMG0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite IBEMH0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite IBEMI0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite IBEMJ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite IBEMK0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEML0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMM0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMN0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMO0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMP0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMQ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMR0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMS0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMT0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMU0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMV0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite IBEMW0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+// Long Beam 2D
+
+brightmap sprite LBEMA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite LBEMB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMD0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite LBEME0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite LBEMF0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite LBEMG0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite LBEMH0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite LBEMI0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite LBEMJ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite LBEMK0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEML0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMM0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMN0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMO0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMP0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMQ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMR0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMS0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMT0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMU0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMV0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite LBEMW0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+// Doom Cannon 2D
+
+brightmap sprite DCANA0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite DCANB0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANC0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCAND0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite DCANE0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite DCANF0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite DCANG0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite DCANH0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite DCANI0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite DCANJ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+brightmap sprite DCANK0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANL0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANM0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANN0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANO0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANP0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANQ0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANR0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANS0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANT0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANU0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANV0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+brightmap sprite DCANW0
+{
+   map "brightmaps/2dbeams/CannonBright.png"
+}
+
+// Morph Ball
+
+brightmap sprite MBPUA0
+{
+   map "brightmaps/morphball/MBPBM1.png"
+}
+brightmap sprite MBPUB0
+{
+   map "brightmaps/morphball/MBPBM2.png"
+}
+brightmap sprite MBPUC0
+{
+   map "brightmaps/morphball/MBPBM3.png"
+}
+brightmap sprite MBPUD0
+{
+   map "brightmaps/morphball/MBPBM4.png"
+}
+brightmap sprite MBPUE0
+{
+   map "brightmaps/morphball/MBPBM5.png"
+}
+brightmap sprite MBPUF0
+{
+   map "brightmaps/morphball/MBPBM6.png"
+}
+brightmap sprite MBPUG0
+{
+   map "brightmaps/morphball/MBPBM7.png"
+}
+brightmap sprite MBPUH0
+{
+   map "brightmaps/morphball/MBPBM8.png"
+}
+brightmap sprite MBPUI0
+{
+   map "brightmaps/morphball/MBPBM9.png"
+}
+brightmap sprite MBPUJ0
+{
+   map "brightmaps/morphball/MBPBM10.png"
+}
+brightmap sprite MBPUK0
+{
+   map "brightmaps/morphball/MBPBM11.png"
+}
+brightmap sprite MBPUL0
+{
+   map "brightmaps/morphball/MBPBM12.png"
+}
+brightmap sprite MBPUM0
+{
+   map "brightmaps/morphball/MBPBM13.png"
+}
+brightmap sprite MBPUN0
+{
+   map "brightmaps/morphball/MBPBM14.png"
+}
+brightmap sprite MBPUO0
+{
+   map "brightmaps/morphball/MBPBM15.png"
+}
+brightmap sprite MBPUP0
+{
+   map "brightmaps/morphball/MBPBM16.png"
+}
+brightmap sprite MBPUQ0
+{
+   map "brightmaps/morphball/MBPBM17.png"
+}
+brightmap sprite MBPUR0
+{
+   map "brightmaps/morphball/MBPBM18.png"
+}
+brightmap sprite MBPUS0
+{
+   map "brightmaps/morphball/MBPBM19.png"
+}
+brightmap sprite MBPUT0
+{
+   map "brightmaps/morphball/MBPBM20.png"
+}
+brightmap sprite MBPUU0
+{
+   map "brightmaps/morphball/MBPBM21.png"
+}
+brightmap sprite MBPUV0
+{
+   map "brightmaps/morphball/MBPBM22.png"
+}
+brightmap sprite MBPUW0
+{
+   map "brightmaps/morphball/MBPBM23.png"
+}
+brightmap sprite MBPUX0
+{
+   map "brightmaps/morphball/MBPBM24.png"
+}
+brightmap sprite MBPUY0
+{
+   map "brightmaps/morphball/MBPBM25.png"
+}
+brightmap sprite MBPUZ0
+{
+   map "brightmaps/morphball/MBPBM26.png"
+}
+
+// Boost Ball
+
+brightmap sprite BSBLA0
+{
+   map "brightmaps/morphball/MBPBM1.png"
+}
+brightmap sprite BSBLB0
+{
+   map "brightmaps/morphball/MBPBM2.png"
+}
+brightmap sprite BSBLC0
+{
+   map "brightmaps/morphball/MBPBM3.png"
+}
+brightmap sprite BSBLD0
+{
+   map "brightmaps/morphball/MBPBM4.png"
+}
+brightmap sprite BSBLE0
+{
+   map "brightmaps/morphball/MBPBM5.png"
+}
+brightmap sprite BSBLF0
+{
+   map "brightmaps/morphball/MBPBM6.png"
+}
+brightmap sprite BSBLG0
+{
+   map "brightmaps/morphball/MBPBM7.png"
+}
+brightmap sprite BSBLH0
+{
+   map "brightmaps/morphball/MBPBM8.png"
+}
+brightmap sprite BSBLI0
+{
+   map "brightmaps/morphball/MBPBM9.png"
+}
+brightmap sprite BSBLJ0
+{
+   map "brightmaps/morphball/MBPBM10.png"
+}
+brightmap sprite BSBLK0
+{
+   map "brightmaps/morphball/MBPBM11.png"
+}
+brightmap sprite BSBLL0
+{
+   map "brightmaps/morphball/MBPBM12.png"
+}
+brightmap sprite BSBLM0
+{
+   map "brightmaps/morphball/MBPBM13.png"
+}
+brightmap sprite BSBLN0
+{
+   map "brightmaps/morphball/MBPBM14.png"
+}
+brightmap sprite BSBLO0
+{
+   map "brightmaps/morphball/MBPBM15.png"
+}
+brightmap sprite BSBLP0
+{
+   map "brightmaps/morphball/MBPBM16.png"
+}
+brightmap sprite BSBLQ0
+{
+   map "brightmaps/morphball/MBPBM17.png"
+}
+brightmap sprite BSBLR0
+{
+   map "brightmaps/morphball/MBPBM18.png"
+}
+brightmap sprite BSBLS0
+{
+   map "brightmaps/morphball/MBPBM19.png"
+}
+brightmap sprite BSBLT0
+{
+   map "brightmaps/morphball/MBPBM20.png"
+}
+brightmap sprite BSBLU0
+{
+   map "brightmaps/morphball/MBPBM21.png"
+}
+brightmap sprite BSBLV0
+{
+   map "brightmaps/morphball/MBPBM22.png"
+}
+brightmap sprite BSBLW0
+{
+   map "brightmaps/morphball/MBPBM23.png"
+}
+brightmap sprite BSBLX0
+{
+   map "brightmaps/morphball/MBPBM24.png"
+}
+brightmap sprite BSBLY0
+{
+   map "brightmaps/morphball/MBPBM25.png"
+}
+brightmap sprite BSBLZ0
+{
+   map "brightmaps/morphball/MBPBM26.png"
+}
+
+// Morph Ball
+// ===================
+
+brightmap sprite MARUA1
+{
+   map "brightmaps/morphball/MARUA1.png"
+}
+
+brightmap sprite MARUB1
+{
+   map "brightmaps/morphball/MARUB1.png"
+}
+
+brightmap sprite MARUC1
+{
+   map "brightmaps/morphball/MARUC1.png"
+}
+
+brightmap sprite MARUD1
+{
+   map "brightmaps/morphball/MARUD1.png"
+}
+
+brightmap sprite MARUE1
+{
+   map "brightmaps/morphball/MARUE1.png"
+}
+
+brightmap sprite MARUF1
+{
+   map "brightmaps/morphball/MARUF1.png"
+}
+
+brightmap sprite MARUA5
+{
+   map "brightmaps/morphball/MARUA5.png"
+}
+
+brightmap sprite MARUB5
+{
+   map "brightmaps/morphball/MARUB5.png"
+}
+
+brightmap sprite MARUC5
+{
+   map "brightmaps/morphball/MARUC5.png"
+}
+
+brightmap sprite MARUD5
+{
+   map "brightmaps/morphball/MARUD5.png"
+}
+
+brightmap sprite MARUE5
+{
+   map "brightmaps/morphball/MARUE5.png"
+}
+
+brightmap sprite MARUF5
+{
+   map "brightmaps/morphball/MARUF5.png"
+}
+
+brightmap sprite MARUA2A8
+{
+   map "brightmaps/morphball/MARUA2A8.png"
+}
+
+brightmap sprite MARUB2B8
+{
+   map "brightmaps/morphball/MARUB2B8.png"
+}
+
+brightmap sprite MARUC2C8
+{
+   map "brightmaps/morphball/MARUC2C8.png"
+}
+
+brightmap sprite MARUD2D8
+{
+   map "brightmaps/morphball/MARUD2D8.png"
+}
+
+brightmap sprite MARUE2E8
+{
+   map "brightmaps/morphball/MARUE2E8.png"
+}
+
+brightmap sprite MARUF2F8
+{
+   map "brightmaps/morphball/MARUF2F8.png"
+}
+
+brightmap sprite MARUA4A6
+{
+   map "brightmaps/morphball/MARUA4A6.png"
+}
+
+brightmap sprite MARUB4B6
+{
+   map "brightmaps/morphball/MARUB4B6.png"
+}
+
+brightmap sprite MARUC4C6
+{
+   map "brightmaps/morphball/MARUC4C6.png"
+}
+
+brightmap sprite MARUD4D6
+{
+   map "brightmaps/morphball/MARUD4D6.png"
+}
+
+brightmap sprite MARUE4E6
+{
+   map "brightmaps/morphball/MARUE4E6.png"
+}
+
+brightmap sprite MARUF4F6
+{
+   map "brightmaps/morphball/MARUF4F6.png"
+}
+
+brightmap sprite MARUA3A7
+{
+   map "brightmaps/morphball/MARUA3A7.png"
+}
+
+brightmap sprite MARUB3B7
+{
+   map "brightmaps/morphball/MARUB3B7.png"
+}
+
+brightmap sprite MARUC3C7
+{
+   map "brightmaps/morphball/MARUC3C7.png"
+}
+
+brightmap sprite MARUD3D7
+{
+   map "brightmaps/morphball/MARUD3D7.png"
+}
+
+brightmap sprite MARUE3E7
+{
+   map "brightmaps/morphball/MARUE3E7.png"
+}
+
+brightmap sprite MARUF3F7
+{
+   map "brightmaps/morphball/MARUF3F7.png"
+}
+
+PulseLight MorphGlow
+{
+    Color 0.0 0.5 0.0
+    Size 30
+    SecondarySize 40
+    Interval 6
+    Offset 0 0 6
+    DontLightSelf 1
+}
+
+PointLight BombGlow1
+{
+    Color 0.1 0.0 0.1
+    Size 10
+    DontLightSelf 1
+}
+
+PointLight BombGlow2
+{
+    Color 0.2 0.05 0.2
+    Size 12
+    DontLightSelf 1
+}
+
+PointLight BombGlow3
+{
+    Color 0.35 0.15 0.35
+    Size 14
+    DontLightSelf 1
+}
+
+PointLight BombGlow4
+{
+    Color 0.55 0.45 0.55
+    Size 16
+    DontLightSelf 1
+}
+
+PointLight PowerBombGlow1
+{
+    Color 0.75 0.25 0.75
+    Size 40
+    DontLightSelf 1
+}
+
+PointLight PowerBombGlow2
+{
+    Color 0.5 0.125 0.5
+    Size 32
+    DontLightSelf 1
+}
+
+PointLight PowerBombGlow3
+{
+    Color 0.25 0.0575 0.25
+    Size 24
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing1
+{
+    Color 0.25 0.95 0.8
+    Size 6
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing2
+{
+    Color 0.25 0.95 0.8
+    Size 10
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing3
+{
+    Color 0.25 0.95 0.8
+    Size 14
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing4
+{
+    Color 0.25 0.95 0.8
+    Size 18
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing5
+{
+    Color 0.25 0.95 0.8
+    Size 22
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing6
+{
+    Color 0.25 0.95 0.8
+    Size 26
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing7
+{
+    Color 0.25 0.95 0.8
+    Size 30
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing8
+{
+    Color 0.25 0.95 0.8
+    Size 34
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing9
+{
+    Color 0.25 0.95 0.8
+    Size 38
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing10
+{
+    Color 0.25 0.95 0.8
+    Size 42
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing11
+{
+    Color 0.25 0.95 0.8
+    Size 46
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing12
+{
+    Color 0.25 0.95 0.8
+    Size 50
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing13
+{
+    Color 0.25 0.95 0.8
+    Size 54
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing14
+{
+    Color 0.25 0.95 0.8
+    Size 56
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing15
+{
+    Color 0.2 0.9 0.75
+    Size 58
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing16
+{
+    Color 0.15 0.85 0.7
+    Size 60
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing17
+{
+    Color 0.1 0.8 0.65
+    Size 62
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing18
+{
+    Color 0.05 0.75 0.6
+    Size 64
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing19
+{
+    Color 0.0 0.7 0.55
+    Size 66
+    DontLightSelf 1
+}
+
+PointLight ExplodeRing20
+{
+    Color 0.0 0.65 0.5
+    Size 68
+    DontLightSelf 1
+}
+
+PointLight PowerBombExplodeRing
+{
+    Color 1.0 1.0 0.5
+    Size 128
+    DontLightSelf 1
+}
+
+Object MorphBallPlayer { Frame MARU { Light MorphGlow }}
+Object MorphBallPlayerDM { Frame MARU { Light MorphGlow }}
+Object MorphBallBomb { Frame MBOMA { Light BombGlow1 }
+                       Frame MBOMB { Light BombGlow2 }
+                       Frame MBOMC { Light BombGlow3 }
+                       Frame MBOMD { Light BombGlow4 }}
+Object MorphBallBombDM { Frame MBOMA { Light BombGlow1 }
+                         Frame MBOMB { Light BombGlow2 }
+                         Frame MBOMC { Light BombGlow3 }
+                         Frame MBOMD { Light BombGlow4 }}
+Object MorphBallBombCharged { Frame MBOMA { Light BombGlow1 }
+                              Frame MBOMB { Light BombGlow2 }
+                              Frame MBOMC { Light BombGlow3 }
+                              Frame MBOMD { Light BombGlow4 }}
+Object PowerBomb { Frame PBOMB { Light PowerBombGlow1 }
+                   Frame PBOMC { Light PowerBombGlow2 }
+                   Frame PBOMA { Light PowerBombGlow3 }}
+Object BombRingExp1 { Frame BOMR { Light ExplodeRing1 }}
+Object BombRingExp2 { Frame BOMR { Light ExplodeRing2 }}
+Object BombRingExp3 { Frame BOMR { Light ExplodeRing3 }}
+Object BombRingExp4 { Frame BOMR { Light ExplodeRing4 }}
+Object BombRingExp5 { Frame BOMR { Light ExplodeRing5 }}
+Object BombRingExp6 { Frame BOMR { Light ExplodeRing6 }}
+Object BombRingExp7 { Frame BOMR { Light ExplodeRing7 }}
+Object BombRingExp8 { Frame BOMR { Light ExplodeRing8 }}
+Object BombRingExp9 { Frame BOMR { Light ExplodeRing9 }}
+Object BombRingExp10 { Frame BOMR { Light ExplodeRing10 }}
+Object BombRingExp11 { Frame BOMR { Light ExplodeRing11 }}
+Object BombRingExp12 { Frame BOMR { Light ExplodeRing12 }}
+Object BombRingExp13 { Frame BOMR { Light ExplodeRing13 }}
+Object BombRingExp14 { Frame BOMR { Light ExplodeRing14 }}
+Object BombRingExp15 { Frame BOMR { Light ExplodeRing15 }}
+Object BombRingExp16 { Frame BOMR { Light ExplodeRing16 }}
+Object BombRingExp17 { Frame BOMR { Light ExplodeRing17 }}
+Object BombRingExp18 { Frame BOMR { Light ExplodeRing18 }}
+Object BombRingExp19 { Frame BOMR { Light ExplodeRing19 }}
+Object BombRingExp20 { Frame BOMR { Light ExplodeRing20 }}
+//Object PowerBombShockwaveClientside { Frame PBMX { Light PowerBombExplodeRing }} - Nope, too laggy.
+
+
+
+// Items
+// ===================
+
+PulseLight MorphBallPickup
+{
+    Color 0.00 0.25 1.00
+    Size 25
+    SecondarySize 35
+    Interval 3
+    Offset 0 20 0
+    DontLightSelf 0
+}
+
+PulseLight BoostBallPickup
+{
+    Color 1.00 0.25 0.00
+    Size 25
+    SecondarySize 35
+    Interval 3
+    Offset 0 20 0
+    DontLightSelf 0
+}
+
+PulseLight EnergyGlow1
+{
+    Color 0.45 0.0 0.45
+    Size 15
+    SecondarySize 25
+    Interval 3
+    Offset 0 20 0
+    DontLightSelf 1
+}
+
+PulseLight EnergyGlow2
+{
+    Color 0.55 0.0 0.0
+    Size 25
+    SecondarySize 30
+    Interval 3
+    Offset 0 18 0
+    DontLightSelf 1
+}
+
+PulseLight EnergyGlow3
+{
+    Color 0.65 0.65 0.0
+    Size 25
+    SecondarySize 35
+    Interval 3
+    Offset 0 22 0
+    DontLightSelf 1
+}
+
+PulseLight EnergyGlow4
+{
+    Color 0.85 0.85 0.85
+    Size 25
+    SecondarySize 35
+    Interval 1
+    Offset 0 22 0
+    DontLightSelf 1
+}
+
+PulseLight EnergyGlow5
+{
+    Color 0.85 0.85 0.85
+    Size 25
+    SecondarySize 35
+    Interval 1
+    Offset 0 22 0
+	DontLightSelf 1
+}
+
+PointLight MissileGlow1
+{
+    Color 0.45 0.2 0.45
+    Size 25
+    Offset 0 19 0
+    DontLightSelf 1
+}
+
+PointLight MissileGlow2
+{
+    Color 0.25 0.55 0.25
+    Size 30
+    Offset 0 20 0
+    DontLightSelf 1
+}
+
+PointLight MissileGlow3
+{
+    Color 0.55 0.3 0.55
+    Size 30
+    Offset 0 19 0
+    DontLightSelf 1
+}
+
+PulseLight EnergyTankGlow
+{
+    Color 0.25 0.35 0.75
+    Size 30
+    SecondarySize 40
+    Interval 6
+    Offset 0 14 0
+    DontLightSelf 1
+}
+
+PulseLight RedEnergyTankGlow
+{
+    Color 0.75 0.35 0.25
+    Size 30
+    SecondarySize 40
+    Interval 6
+    Offset 0 14 0
+    DontLightSelf 1
+}
+
+PointLight TankGlow
+{
+    Color 0.25 0.1 0.1
+    Size 40
+    Offset 0 12 0
+    DontLightSelf 1
+}
+
+PointLight SpeedBoosterGlow
+{
+    Color 0.15 0.3 0.15
+    Size 40
+    Offset 0 16 0
+    DontLightSelf 1
+}
+
+PointLight SpazerWeaponGlow
+{
+    Color 0.0 0.15 0.0
+    Size 45
+    Offset 0 12 0
+    DontLightSelf 1
+}
+
+PointLight PlasmaWeaponGlow
+{
+    Color 0.15 0.0 0.0
+    Size 45
+    Offset 0 12 0
+    DontLightSelf 1
+}
+
+PointLight WaveWeaponGlow
+{
+    Color 0.15 0.0 0.15
+    Size 45
+    Offset 0 12 0
+    DontLightSelf 1
+}
+
+PointLight IceWeaponGlow
+{
+    Color 0.0 0.075 0.15
+    Size 45
+    Offset 0 12 0
+    DontLightSelf 1
+}
+
+PointLight LongWeaponGlow
+{
+    Color 0.15 0.15 0.15
+    Size 45
+    Offset 0 12 0
+    DontLightSelf 1
+}
+
+PulseLight DoomCannonGlow
+{
+    Color 0.35 0.3 0.175
+    Size 30
+    SecondarySize 60
+    Interval 4
+    Offset 0 30 0
+    Subtractive 1
+    DontLightSelf 1
+}
+
+PulseLight ComboWeaponGlow
+{
+    Color 0.15 0.25 0.35
+    Size 30
+    SecondarySize 50
+    Interval 4
+    Offset 0 30 0
+    DontLightSelf 1
+}
+
+PulseLight PowerMissileGlow
+{
+    Color 0.75 0.75 0.0
+    Size 25
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PulseLight WaveMissileGlow
+{
+    Color 0.75 0.0 0.75
+    Size 25
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PulseLight WaveBeamGlow
+{
+    Color 0.75 0.0 0.75
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PulseLight SolarFlareGlow
+{
+    Color 0.75 0.0 0.0
+    Size 25
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PulseLight PlasmaBeamGlow
+{
+    Color 0.75 0.0 0.0
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PulseLight IceSpreaderGlow
+{
+    Color 0.25 0.25 0.50
+	Size 0
+	SecondarySize 20
+    Interval 3
+    Offset 0 2 0
+}
+
+PulseLight IceBeamGlow
+{
+    Color 0.25 0.25 0.50
+    Size 0
+	SecondarySize 20
+    Interval 3
+    Offset 0 2 0
+}
+
+PulseLight NovaFlashGlow
+{
+    Color 0.75 0.75 0.75
+    Size 25
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PulseLight LongBeamGlow
+{
+    Color 0.75 0.75 0.75
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PulseLight WideShotGlow
+{
+    Color 0.0 0.75 0.0
+    Size 25
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PulseLight SpazerBeamGlow
+{
+    Color 0.0 0.75 0.0
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PulseLight ChainsawBeamGlow
+{
+    Color 0.35 0.3 0.175
+    Size 25
+    SecondarySize 60
+    Interval 4
+    Offset 0 30 0
+    Subtractive 1
+    DontLightSelf 1
+}
+
+PulseLight DoomCannonGlow
+{
+    Color 0.35 0.3 0.175
+    Size 35
+    SecondarySize 60
+    Interval 4
+    Offset 0 30 0
+    Subtractive 1
+    DontLightSelf 1
+}
+
+PulseLight BombGlow
+{
+    Color 0.85 0.65 0
+    Size 25
+    SecondarySize 35
+    Interval 1.05
+    Offset 0 22 0
+	DontLightSelf 1
+}
+
+/*PointLight ChromaGlow1
+{
+    Color 0.75 0.0 0.0
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGlow2
+{
+    Color 0.75 0.45 0.0
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGlow3
+{
+    Color 0.65 0.75 0.0
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGlow4
+{
+    Color 0.25 0.75 0.05
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGlow5
+{
+    Color 0.0 0.75 0.25
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGlow6
+{
+    Color 0.0 0.75 0.75
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGlow7
+{
+    Color 0.1 0.45 0.75
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGlow8
+{
+    Color 0.0 0.0 0.75
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGlow9
+{
+    Color 0.45 0.0 0.75
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGlow10
+{
+    Color 0.75 0.0 0.75
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGlow11
+{
+    Color 0.75 0.0 0.35
+    Size 35
+    Offset 0 2 0
+    DontLightSelf 1
+}*/
+
+PointLight ChromaRedGlow
+{
+    Color 0.75 0.0 0.0
+    Size 12
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaOrangeGlow
+{
+    Color 0.75 0.375 0.0
+    Size 16
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaYellowGlow
+{
+    Color 0.75 0.75 0.0
+    Size 20
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaGreenGlow
+{
+    Color 0.0 0.75 0.0
+    Size 24
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaCyanGlow
+{
+    Color 0.0 0.375 0.75
+    Size 28
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight ChromaBlueGlow
+{
+    Color 0.75 0.0 0.75
+    Size 32
+    Offset 0 2 0
+    DontLightSelf 1
+}
+
+PointLight FireGlow
+{
+    Color 1.0 0.75 0.0
+    Size 100
+    Offset 0 2 2
+	Attenuate 1
+    DontLightSelf 1
+}
+
+Object Energy10 { Frame NRGA { Light EnergyGlow1 }}
+Object Energy10_Dropped { Frame NRGA { Light EnergyGlow1 }}
+Object Energy25 { Frame NRGB { Light EnergyGlow2 }}
+Object Energy25_Dropped { Frame NRGB { Light EnergyGlow2 }}
+Object Energy100 { Frame NRGD { Light EnergyGlow3 }}
+Object MissileAmmo { Frame MPKU { Light MissileGlow1 }}
+Object MissileAmmo_Dropped { Frame MPKU { Light MissileGlow1 }}
+Object MissileAmmo2 { Frame MPKU { Light MissileGlow1 }}
+Object MissileAmmo3 { Frame MPKU { Light MissileGlow1 }}
+Object MissileAmmo4 { Frame MPKU { Light MissileGlow1 }}
+Object SuperMissileAmmo { Frame SPKU { Light MissileGlow2 }}
+Object SuperMissileAmmo_Dropped { Frame SPKU { Light MissileGlow2 }}
+Object PowerBombAmmo { Frame PBOMD { Light MissileGlow3 } Frame PBOME { Light MissileGlow3 }}
+Object PowerBombAmmo_Dropped { Frame PBOMD { Light MissileGlow3 } Frame PBOME { Light MissileGlow3 }}
+Object EnergyTankPickup { Frame ETNK { Light EnergyTankGlow }}
+Object EnergyTankPickup { Frame ETKM { Light EnergyTankGlow }}
+Object RedEnergyTankPickup { Frame RTKM { Light RedEnergyTankGlow }}
+Object RedEnergyTankPickup { Frame RTNK { Light RedEnergyTankGlow }}
+Object MissileTankPickup { Frame MTNK { Light TankGlow }}
+Object SuperMissileTankPickup { Frame STNK { Light TankGlow }}
+Object PowerBombTankPickup { Frame BTNK { Light TankGlow }}
+Object SpeedBoosterPickup { Frame SPBS { Light SpeedBoosterGlow }}
+Object SpaceJumpPickup { Frame SJMP { Light EnergyTankGlow }}
+Object HiJumpPickup { Frame HJMP { Light EnergyTankGlow }}
+Object HiJumpPickup { Frame HJUP { Light EnergyTankGlow }}
+Object DoomCannonPickup { Frame DCPK { Light DoomCannonGlow }}
+Object SpazerBeamPickup { Frame WPPK { Light SpazerWeaponGlow }}
+Object PlasmaBeamPickup { Frame WPPK { Light PlasmaWeaponGlow }}
+Object WaveBeamPickup { Frame WPPK { Light WaveWeaponGlow }}
+Object IceBeamPickup { Frame WPPK { Light IceWeaponGlow }}
+Object LongBeamPickup { Frame WPPK { Light LongWeaponGlow }}
+//Object ChargeComboPickup { Frame CCMB { Light ComboWeaponGlow }}
+Object RawEnergy { Frame EFLD { Light EnergyGlow4 }}
+Object MorphBallModel { Frame MBPU { Light MorphBallPickup }}
+Object BoostBallPickup { Frame BSBL { Light BoostBallPickup }}
+
+Object BombPickup { Frame BMPK { Light BombGlow }}
+Object BombPickup { Frame BMBM { Light BombGlow }}
+
+/*Object ChromaStormTrail1 { Frame CBPKH { Light ChromaGlow1 }
+                           Frame CBPKI { Light ChromaGlow2 }
+                           Frame CBPKJ { Light ChromaGlow3 }
+                           Frame CBPKK { Light ChromaGlow4 }
+                           Frame CBPKL { Light ChromaGlow5 }
+                           Frame CBPKM { Light ChromaGlow6 }
+                           Frame CBPKN { Light ChromaGlow7 }
+                           Frame CBPKO { Light ChromaGlow8 }
+                           Frame CBPKP { Light ChromaGlow9 }
+                           Frame CBPKQ { Light ChromaGlow10 }
+                           Frame CBPKR { Light ChromaGlow11 }}
+Object ChromaStormTrail2 { Frame CBPKH { Light ChromaGlow1 }
+                           Frame CBPKI { Light ChromaGlow2 }
+                           Frame CBPKJ { Light ChromaGlow3 }
+                           Frame CBPKK { Light ChromaGlow4 }
+                           Frame CBPKL { Light ChromaGlow5 }
+                           Frame CBPKM { Light ChromaGlow6 }
+                           Frame CBPKN { Light ChromaGlow7 }
+                           Frame CBPKO { Light ChromaGlow8 }
+                           Frame CBPKP { Light ChromaGlow9 }
+                           Frame CBPKQ { Light ChromaGlow10 }
+                           Frame CBPKR { Light ChromaGlow11 }}
+Object ChromaStormTrail3 { Frame CBPKH { Light ChromaGlow1 }
+                           Frame CBPKI { Light ChromaGlow2 }
+                           Frame CBPKJ { Light ChromaGlow3 }
+                           Frame CBPKK { Light ChromaGlow4 }
+                           Frame CBPKL { Light ChromaGlow5 }
+                           Frame CBPKM { Light ChromaGlow6 }
+                           Frame CBPKN { Light ChromaGlow7 }
+                           Frame CBPKO { Light ChromaGlow8 }
+                           Frame CBPKP { Light ChromaGlow9 }
+                           Frame CBPKQ { Light ChromaGlow10 }
+                           Frame CBPKR { Light ChromaGlow11 }}*/
+Object Chroma_RedCloud { Frame CCLD { Light ChromaRedGlow }}
+Object Chroma_OrangeCloud { Frame CCLD { Light ChromaOrangeGlow }}
+Object Chroma_YellowCloud { Frame CCLD { Light ChromaYellowGlow }}
+Object Chroma_GreenCloud { Frame CCLD { Light ChromaGreenGlow }}
+Object Chroma_CyanCloud { Frame CCLD { Light ChromaCyanGlow }}
+Object Chroma_BlueCloud { Frame CCLD { Light ChromaBlueGlow }}
+
+
+
+// Missiles
+// ===================
+
+pointlight Missile
+{
+    color 1.0 0.7 0.0
+    size 56
+}
+
+flickerlight MissileX1
+{
+    color 1.0 0.7 0.0
+    size 64
+    secondarySize 72
+    chance 0.3
+}
+
+flickerlight MissileX2
+{
+    color 0.5 0.1 0.0
+    size 80
+    secondarySize 88
+    chance 0.3
+}
+
+flickerlight MissileX3
+{
+    color 0.3 0.0 0.0
+    size 96
+    secondarySize 104
+    chance 0.3
+}
+
+object PowerMissile { frame PMSL { light Missile }
+                      frame TNT1A { light MissileX1 }
+                      frame TNT1B { light MissileX2 }
+                      frame TNT1C { light MissileX3 }}
+object PowerMissileCoop { frame PMSL { light Missile }
+                          frame TNT1A { light MissileX1 }
+                          frame TNT1B { light MissileX2 }
+                          frame TNT1C { light MissileX3 }}
+object SuperMissile { frame SMSL { light Missile }
+                      frame TNT1A { light MissileX1 }
+                      frame TNT1B { light MissileX2 }
+                      frame TNT1C { light MissileX3 }}
+object SuperMissileCoop { frame SMSL { light Missile }
+                          frame TNT1A { light MissileX1 }
+                          frame TNT1B { light MissileX2 }
+                          frame TNT1C { light MissileX3 }}
+
+
+
+brightmap texture "Models/Pickups/Skins/variasuit.png"
+{
+   map "Models/Pickups/Skins/variasuitbrightmap.png"
+}
+
+brightmap texture "Models/Pickups/Skins/gravitysuit.png"
+{
+   map "Models/Pickups/Skins/gravitysuitbrightmap.png"
+}
+
+// Power Beam
+// ===================
+
+PointLight PowerUnchargedGlow
+{
+    Color 0.75 0.75 0.0
+    Size 25
+    Offset 0 0 0
+    DontLightSelf 0
+}
+
+PointLight PowerUnchargedGlow2
+{
+    Color 0.75 0.75 0.0
+    Size 15
+    Offset 0 0 0
+    DontLightSelf 0
+}
+
+PointLight PowerUnchargedGlow3
+{
+    Color 0.75 0.75 0.0
+    Size 10
+    Offset 0 0 0
+    DontLightSelf 0
+}
+
+pointlight PowerChargedGlow
+{
+    color 1.0 1.0 0.0
+    size 50
+    DontLightSelf 0
+}
+
+pointlight PowerChargedGlow2
+{
+    color 0.75 0.75 0.0
+    size 55
+    DontLightSelf 0
+}
+
+pointlight PowerChargedGlow3
+{
+    color 0.5 0.5 0.0
+    size 60
+    DontLightSelf 0
+}
+
+pointlight PowerChargedGlow4
+{
+    color 0.25 0.25 0.0
+    size 70
+    DontLightSelf 0
+}
+
+pointlight PowerChargedGlow5
+{
+    color 0.125 0.125 0.0
+    size 50
+    DontLightSelf 0
+}
+
+pointlight PowerChargingGlow1
+{
+    color 0.05 0.05 0.0
+    size 10
+    DontLightSelf 0
+}
+
+pointlight PowerChargingGlow2
+{
+    color 0.1 0.1 0.0
+    size 20
+    DontLightSelf 0
+}
+
+pointlight PowerChargingGlow3
+{
+    color 0.15 0.15 0.0
+    size 30
+    DontLightSelf 0
+}
+
+pointlight PowerChargingGlow4
+{
+    color 0.2 0.2 0.0
+    size 35
+    DontLightSelf 0
+}
+
+pointlight PowerChargingGlow5
+{
+    color 0.25 0.25 0.0
+    size 40
+    DontLightSelf 0
+}
+
+pointlight PowerChargingGlow6
+{
+    color 0.3 0.3 0.0
+    size 45
+    DontLightSelf 0
+}
+
+pointlight PowerChargingGlow7
+{
+    color 0.35 0.35 0.0
+    size 50
+    DontLightSelf 0
+}
+
+Object PowerBolt { Frame PBSH { Light PowerUnchargedGlow }
+                   Frame PBXPA { Light PowerUnchargedGlow }
+                   Frame PBXPB { Light PowerUnchargedGlow }
+                   Frame PBXPC { Light PowerUnchargedGlow2 }
+                   Frame PBXPD { Light PowerUnchargedGlow2 }
+                   Frame PBXPE { Light PowerUnchargedGlow3 }
+                   Frame PBXPF { Light PowerUnchargedGlow3 }}
+Object PowerBoltCoop { Frame PBSH { Light PowerUnchargedGlow }
+                       Frame PBXPA { Light PowerUnchargedGlow }
+                       Frame PBXPB { Light PowerUnchargedGlow }
+                       Frame PBXPC { Light PowerUnchargedGlow2 }
+                       Frame PBXPD { Light PowerUnchargedGlow2 }
+                       Frame PBXPE { Light PowerUnchargedGlow3 }
+                       Frame PBXPF { Light PowerUnchargedGlow3 }}
+Object PowerBoltCharged { Frame PBCS { Light PowerChargedGlow }}
+Object PowerBoltChargedCoop { Frame PBCS { Light PowerChargedGlow }}
+Object PowerBoltChargedExplosion { Frame PBCXA { Light PowerChargedGlow2 }
+                                   Frame PBCXB { Light PowerChargedGlow2 }
+                                   Frame PBCXC { Light PowerChargedGlow2 }
+                                   Frame PBCXD { Light PowerChargedGlow3 }
+                                   Frame PBCXE { Light PowerChargedGlow3 }
+                                   Frame PBCXF { Light PowerChargedGlow3 }
+                                   Frame PBCXG { Light PowerChargedGlow4 }
+                                   Frame PBCXH { Light PowerChargedGlow4 }
+                                   Frame PBCXI { Light PowerChargedGlow4 }
+                                   Frame PBCXJ { Light PowerChargedGlow5 }
+                                   Frame PBCXK { Light PowerChargedGlow5 }
+                                   Frame PBCXL { Light PowerChargedGlow5 }}
+Object PowerComboMissile { Frame CPWM { Light PowerChargedGlow }}
+Object PowerComboMissileCoop { Frame CPWM { Light PowerChargedGlow }}
+Object PowerBeamCharging1 { Frame PBCH { Light PowerChargingGlow1 }}
+Object PowerBeamCharging2 { Frame PBCH { Light PowerChargingGlow2 }}
+Object PowerBeamCharging3 { Frame PBCH { Light PowerChargingGlow3 }}
+Object PowerBeamCharging4 { Frame PBCH { Light PowerChargingGlow4 }}
+Object PowerBeamCharging5 { Frame PBCH { Light PowerChargingGlow5 }}
+Object PowerBeamCharging6 { Frame PBCH { Light PowerChargingGlow6 }}
+Object PowerBeamCharging7 { Frame PBCH { Light PowerChargingGlow7 }}
+
+Object PowerMissilePickup { Frame PWMC { Light PowerMissileGlow }}
+Object WaveMissilePickup { Frame WAMC { Light WaveMissileGlow }}
+Object WaveBeamPickup { Frame WBPK { Light WaveBeamGlow }}
+Object SolarFlarePickup { Frame SFMC { Light SolarFlareGlow }}
+Object PlasmaBeamPickup { Frame PBPK { Light PlasmaBeamGlow }}
+Object IceSpreaderPickup { Frame ISMC { Light IceSpreaderGlow }}
+Object IceBeamPickup { Frame IBPK { Light IceBeamGlow }}
+Object NovaFlashPickup { Frame NFMC { Light NovaFlashGlow }}
+Object LongBeamPickup { Frame LBPK { Light LongBeamGlow }}
+Object WideShotPickup { Frame WSMC { Light WideShotGlow }}
+Object SpazerBeamPickup { Frame SBPK { Light SpazerBeamGlow }}
+
+Object HyperBeamPickup { Frame PWMC { Light PowerMissileGlow }}
+Object HyperBeamPickup { Frame WAMC { Light WaveMissileGlow}}
+Object HyperBeamPickup { Frame SFMC { Light SolarFlareGlow }}
+Object HyperBeamPickup { Frame ISMC { Light IceSpreaderGlow }}
+Object HyperBeamPickup { Frame NFMC { Light NovaFlashGlow }}
+Object HyperBeamPickup { Frame WSMC { Light WideShotGlow }}
+
+Object ChainsawBeamPickup { Frame DCMC { Light ChainsawBeamGlow }}
+Object DoomCannonPickup { Frame DCPK { Light DoomCannonGlow }}
+
+Object BigFireRise { Frame PFIEA { Light FireGlow }}
+Object BigFireRise2 { Frame PFIBA { Light FireGlow }}
+Object BigFireRise3 { Frame PFICA{ Light FireGlow }}
+Object BigFireRise4 { Frame PFIDA { Light FireGlow }}
+Object BigFireRise5 { Frame PFICA { Light FireGlow }}
+Object BigFireRise6 { Frame PFIBA { Light FireGlow }}
+Object BigFireRise7 { Frame PFIEA { Light FireGlow }}
+Object BigFireRise8 { Frame PFIEA { Light FireGlow }}
+Object BigFireRise9 { Frame PFIBA { Light FireGlow }}
+
+
+// Spazer Beam
+// ===================
+
+pointlight SpazerGlow
+{
+    color 0.0 0.45 0.0
+    size 32
+}
+
+pointlight SpazerChargingGlow1
+{
+    color 0.0 0.05 0.0
+    size 10
+    DontLightSelf 0
+}
+
+pointlight SpazerChargingGlow2
+{
+    color 0.0 0.1 0.0
+    size 20
+    DontLightSelf 0
+}
+
+pointlight SpazerChargingGlow3
+{
+    color 0.0 0.15 0.0
+    size 30
+    DontLightSelf 0
+}
+
+pointlight SpazerChargingGlow4
+{
+    color 0.0 0.2 0.0
+    size 35
+    DontLightSelf 0
+}
+
+pointlight SpazerChargingGlow5
+{
+    color 0.0 0.25 0.0
+    size 40
+    DontLightSelf 0
+}
+
+pointlight SpazerChargingGlow6
+{
+    color 0.0 0.3 0.0
+    size 45
+    DontLightSelf 0
+}
+
+pointlight SpazerChargingGlow7
+{
+    color 0.0 0.35 0.0
+    size 50
+    DontLightSelf 0
+}
+
+Object SpazerBolt1 { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt2 { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt3 { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt1Coop { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt2Coop { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt3Coop { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt1Charged { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt2Charged { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt3Charged { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt1CoopCharged { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt2CoopCharged { Frame SPZR { Light SpazerGlow }}
+Object SpazerBolt3CoopCharged { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged1 { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged2 { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged3 { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged4 { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged5 { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged6 { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged1Coop { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged2Coop { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged3Coop { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged4Coop { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged5Coop { Frame SPZR { Light SpazerGlow }}
+Object SpazerBoltCharged6Coop { Frame SPZR { Light SpazerGlow }}
+Object SpazerBeamCharging1 { Frame SBCH { Light SpazerChargingGlow1 }}
+Object SpazerBeamCharging2 { Frame SBCH { Light SpazerChargingGlow2 }}
+Object SpazerBeamCharging3 { Frame SBCH { Light SpazerChargingGlow3 }}
+Object SpazerBeamCharging4 { Frame SBCH { Light SpazerChargingGlow4 }}
+Object SpazerBeamCharging5 { Frame SBCH { Light SpazerChargingGlow5 }}
+Object SpazerBeamCharging6 { Frame SBCH { Light SpazerChargingGlow6 }}
+Object SpazerBeamCharging7 { Frame SBCH { Light SpazerChargingGlow7 }}
+Object SpazerComboMissile1 { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile2 { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile3 { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile4 { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile5 { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile6 { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile7 { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile8 { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile9 { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile1Coop { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile2Coop { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile3Coop { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile4Coop { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile5Coop { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile6Coop { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile7Coop { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile8Coop { Frame CSPM { Light SpazerGlow }}
+Object SpazerComboMissile9Coop { Frame CSPM { Light SpazerGlow }}
+
+
+
+// Plasma Beam
+// ===================
+
+pointlight PlasmaUnchargedGlow
+{
+    color 0.75 0.0 0.0
+    size 32
+}
+
+pointlight PlasmaChargedGlow
+{
+    color 1.0 0.0 0.0
+    size 64
+}
+
+pointlight PlasmaChargingGlow1
+{
+    color 0.05 0.0 0.0
+    size 10
+    DontLightSelf 0
+}
+
+pointlight PlasmaChargingGlow2
+{
+    color 0.1 0.0 0.0
+    size 20
+    DontLightSelf 0
+}
+
+pointlight PlasmaChargingGlow3
+{
+    color 0.15 0.0 0.0
+    size 30
+    DontLightSelf 0
+}
+
+pointlight PlasmaChargingGlow4
+{
+    color 0.2 0.0 0.0
+    size 35
+    DontLightSelf 0
+}
+
+pointlight PlasmaChargingGlow5
+{
+    color 0.25 0.0 0.0
+    size 40
+    DontLightSelf 0
+}
+
+pointlight PlasmaChargingGlow6
+{
+    color 0.3 0.0 0.0
+    size 45
+    DontLightSelf 0
+}
+
+pointlight PlasmaChargingGlow7
+{
+    color 0.35 0.0 0.0
+    size 50
+    DontLightSelf 0
+}
+
+Object PlasmaBolt { Frame LSMS { Light PlasmaUnchargedGlow }}
+Object PlasmaBoltCoop { Frame LSMS { Light PlasmaUnchargedGlow }}
+Object PlasmaBoltCharged { Frame LSMC { Light PlasmaChargedGlow }}
+Object PlasmaBoltChargedCoop { Frame LSMC { Light PlasmaChargedGlow }}
+Object PlasmaComboMissile { Frame CPLM { Light PlasmaChargedGlow }}
+Object PlasmaComboMissileCoop { Frame CPLM { Light PlasmaChargedGlow }}
+Object PlasmaBeamCharging1 { Frame MBCH { Light PlasmaChargingGlow1 }}
+Object PlasmaBeamCharging2 { Frame MBCH { Light PlasmaChargingGlow2 }}
+Object PlasmaBeamCharging3 { Frame MBCH { Light PlasmaChargingGlow3 }}
+Object PlasmaBeamCharging4 { Frame MBCH { Light PlasmaChargingGlow4 }}
+Object PlasmaBeamCharging5 { Frame MBCH { Light PlasmaChargingGlow5 }}
+Object PlasmaBeamCharging6 { Frame MBCH { Light PlasmaChargingGlow6 }}
+Object PlasmaBeamCharging7 { Frame MBCH { Light PlasmaChargingGlow7 }}
+
+
+// Wave Beam
+// ===================
+
+pointlight WaveUnchargedGlow
+{
+    color 0.5 0.0 0.5
+    size 48
+}
+
+pointlight WaveChargedGlow
+{
+    color 0.75 0.0 0.75
+    size 64
+}
+
+pointlight WaveChargedSmallGlow
+{
+    color 0.5 0.0 0.5
+    size 32
+}
+
+pointlight WaveChargingGlow1
+{
+    color 0.05 0.0 0.05
+    size 10
+    DontLightSelf 0
+}
+
+pointlight WaveChargingGlow2
+{
+    color 0.1 0.0 0.1
+    size 20
+    DontLightSelf 0
+}
+
+pointlight WaveChargingGlow3
+{
+    color 0.15 0.0 0.15
+    size 30
+    DontLightSelf 0
+}
+
+pointlight WaveChargingGlow4
+{
+    color 0.2 0.0 0.2
+    size 35
+    DontLightSelf 0
+}
+
+pointlight WaveChargingGlow5
+{
+    color 0.25 0.0 0.25
+    size 40
+    DontLightSelf 0
+}
+
+pointlight WaveChargingGlow6
+{
+    color 0.3 0.0 0.3
+    size 45
+    DontLightSelf 0
+}
+
+pointlight WaveChargingGlow7
+{
+    color 0.35 0.0 0.35
+    size 50
+    DontLightSelf 0
+}
+
+Object WaveBolt { Frame WSHT { Light WaveUnchargedGlow }}
+Object WaveBoltCoop { Frame WSHT { Light WaveUnchargedGlow }}
+Object WaveBoltCharged { Frame WSHT { Light WaveChargedGlow }}
+Object WaveBoltCharged2 { Frame WSHT { Light WaveChargedGlow }}
+Object WaveBoltCharged3 { Frame WSHT { Light WaveChargedGlow }}
+Object WaveBoltChargedCoop { Frame WSHT { Light WaveChargedGlow }}
+Object WaveBoltCharged2Coop { Frame WSHT { Light WaveChargedGlow }}
+Object WaveBoltCharged3Coop { Frame WSHT { Light WaveChargedGlow }}
+Object WaveSplatterShot { Frame WSHT { Light WaveChargedSmallGlow }}
+Object WaveBeamCharging1 { Frame WBCH { Light WaveChargingGlow1 }}
+Object WaveBeamCharging2 { Frame WBCH { Light WaveChargingGlow2 }}
+Object WaveBeamCharging3 { Frame WBCH { Light WaveChargingGlow3 }}
+Object WaveBeamCharging4 { Frame WBCH { Light WaveChargingGlow4 }}
+Object WaveBeamCharging5 { Frame WBCH { Light WaveChargingGlow5 }}
+Object WaveBeamCharging6 { Frame WBCH { Light WaveChargingGlow6 }}
+Object WaveBeamCharging7 { Frame WBCH { Light WaveChargingGlow7 }}
+Object WaveComboMissile { Frame CWVM { Light WaveChargedGlow }}
+Object WaveComboMissile2 { Frame CWVM { Light WaveChargedGlow }}
+Object WaveComboMissile3 { Frame CWVM { Light WaveChargedGlow }}
+Object WaveComboMissileCoop { Frame CWVM { Light WaveChargedGlow }}
+Object WaveComboMissile2Coop { Frame CWVM { Light WaveChargedGlow }}
+Object WaveComboMissile3Coop { Frame CWVM { Light WaveChargedGlow }}
+Object WaveComboMissileMini { Frame CWVM { Light WaveUnchargedGlow }}
+Object WaveComboMissileMiniCoop { Frame CWVM { Light WaveUnchargedGlow }}
+
+
+
+// Ice Beam
+// ===================
+
+PulseLight IceGlow
+{
+    Color 0.25 0.5 0.75
+    Size 35
+    SecondarySize 50
+    Interval 1
+}
+
+PulseLight IceGlowCharged
+{
+    Color 0.5 0.75 1.0
+    Size 50
+    SecondarySize 64
+    Interval 1
+}
+
+pointlight IceChargingGlow1
+{
+    color 0.0125 0.025 0.05
+    size 10
+    DontLightSelf 0
+}
+
+pointlight IceChargingGlow2
+{
+    color 0.025 0.05 0.1
+    size 20
+    DontLightSelf 0
+}
+
+pointlight IceChargingGlow3
+{
+    color 0.0275 0.075 0.15
+    size 30
+    DontLightSelf 0
+}
+
+pointlight IceChargingGlow4
+{
+    color 0.05 0.1 0.2
+    size 35
+    DontLightSelf 0
+}
+
+pointlight IceChargingGlow5
+{
+    color 0.0575 0.125 0.25
+    size 40
+    DontLightSelf 0
+}
+
+pointlight IceChargingGlow6
+{
+    color 0.075 0.15 0.3
+    size 45
+    DontLightSelf 0
+}
+
+pointlight IceChargingGlow7
+{
+    color 0.0775 0.175 0.35
+    size 50
+    DontLightSelf 0
+}
+
+Object IceBolt { Frame ISHT { Light IceGlow }}
+Object IceBoltCoop { Frame ISHT { Light IceGlow }}
+Object IceBoltCharged { Frame ISHT { Light IceGlowCharged }}
+Object IceComboMissile { Frame CICM { Light IceGlowCharged }}
+Object IceComboMissileCoop { Frame CICM { Light IceGlowCharged }}
+Object IceBoltChargedCoop { Frame ISHT { Light IceGlowCharged }}
+Object IceBeamCharging1 { Frame IBCH { Light IceChargingGlow1 }}
+Object IceBeamCharging2 { Frame IBCH { Light IceChargingGlow2 }}
+Object IceBeamCharging3 { Frame IBCH { Light IceChargingGlow3 }}
+Object IceBeamCharging4 { Frame IBCH { Light IceChargingGlow4 }}
+Object IceBeamCharging5 { Frame IBCH { Light IceChargingGlow5 }}
+Object IceBeamCharging6 { Frame IBCH { Light IceChargingGlow6 }}
+Object IceBeamCharging7 { Frame IBCH { Light IceChargingGlow7 }}
+
+
+
+// Long Beam
+// ===================
+
+pointlight LongChargingGlow1
+{
+    color 0.05 0.05 0.05
+    size 10
+    DontLightSelf 0
+}
+
+pointlight LongChargingGlow2
+{
+    color 0.1 0.1 0.1
+    size 20
+    DontLightSelf 0
+}
+
+pointlight LongChargingGlow3
+{
+    color 0.15 0.15 0.15
+    size 30
+    DontLightSelf 0
+}
+
+pointlight LongChargingGlow4
+{
+    color 0.2 0.2 0.2
+    size 35
+    DontLightSelf 0
+}
+
+pointlight LongChargingGlow5
+{
+    color 0.25 0.25 0.25
+    size 40
+    DontLightSelf 0
+}
+
+pointlight LongChargingGlow6
+{
+    color 0.3 0.3 0.3
+    size 45
+    DontLightSelf 0
+}
+
+pointlight LongChargingGlow7
+{
+    color 0.35 0.35 0.35
+    size 50
+    DontLightSelf 0
+}
+
+Object LongBeamCharging1 { Frame LBCH { Light LongChargingGlow1 }}
+Object LongBeamCharging2 { Frame LBCH { Light LongChargingGlow2 }}
+Object LongBeamCharging3 { Frame LBCH { Light LongChargingGlow3 }}
+Object LongBeamCharging4 { Frame LBCH { Light LongChargingGlow4 }}
+Object LongBeamCharging5 { Frame LBCH { Light LongChargingGlow5 }}
+Object LongBeamCharging6 { Frame LBCH { Light LongChargingGlow6 }}
+Object LongBeamCharging7 { Frame LBCH { Light LongChargingGlow7 }}
+Object LongBeamPuff { Frame TNT1 { Light LongChargingGlow5 }}
+Object LongComboMissile { Frame CLNM { Light LongChargingGlow5 }}
+Object LongComboMissileCoop { Frame CLNM { Light LongChargingGlow5 }}
+Object LongBeamPuffCharged { Frame TNT1 { Light LongChargingGlow7 }}
+
+
+// Doom Cannon
+// ===================
+
+flickerlight DoomBullet1
+{
+    color 0.5 0.5 0.0
+    size 6
+    secondarySize 8
+    chance 0.8
+}
+
+flickerlight DoomBullet2
+{
+    color 0.5 0.5 0.0
+    size 3
+    secondarySize 4
+    chance 0.8
+}
+
+object DoomBulletPuff { frame TNT1A { light DoomBullet1 }
+                        frame TNT1B { light DoomBullet2 }}
+object DoomChainsawPuff { frame PUFFA { light DoomBullet1 }
+                          frame PUFFB { light DoomBullet2 }}
+
+// Chroma Storm
+// ===================
+
+// HAH HAH HAH HAH NOPE
+
+
+
+// Enemies
+// ===================
+
+Object PirateBolt { Frame PSHT { Light PowerChargingGlow4 }}
+
+// Misc
+// ===================
+
+Glow
+{
+    Flats
+    {
+        HPROCRTQ
+    }
+}
+
+// ======== Texture Brightmaps ----
+
+brightmap texture Models/Pickups/Skins/Space2.png {
+	map "Models/Pickups/Skins/SpaceBright.png"
+	disablefullbright
+}
+
+brightmap texture Models/Chozo1/Skins/Chozo5.png {
+	map "Models/Chozo1/Skins/ChozoBright.png"
+	disablefullbright
+}
+
+brightmap texture Models/Pickups/ChargeBeam/Skins/CBeam2.png {
+	map "Models/Pickups/ChargeBeam/Skins/CBeamBright.png"
+	disablefullbright
+}
+
+//Crate1
+
+brightmap texture Models/Crate1/Skins/Box_Back_2.png {
+	map "Models/Crate1/Skins/Bright_Back.png"
+	disablefullbright
+}
+
+brightmap texture Models/Crate1/Skins/Box_Front_2.png {
+	map "Models/Crate1/Skins/Bright_Back.png"
+	disablefullbright
+}
+
+brightmap texture Models/Crate1/Skins/Box_Right_2.png {
+	map "Models/Crate1/Skins/Bright_Back.png"
+	disablefullbright
+}
+
+brightmap texture Models/Crate1/Skins/Left_Sides_2.png {
+	map "Models/Crate1/Skins/Bright_Back.png"
+	disablefullbright
+}
+
+brightmap texture Models/Crate1/Skins/Box_Top_2.png {
+	map "Models/Crate1/Skins/Bright_Top.png"
+	disablefullbright
+}
+
+//Barrel1
+
+brightmap texture Models/Barrel1/Skins/Barrel_Wall_Quarter.png {
+	map "Models/Barrel1/Skins/Barrel_Wall_Quarter_Bright_Map.png"
+	disablefullbright
+}
+
+brightmap texture Models/Barrel1/Skins/Barrel_Top_Bottom.png {
+	map "Models/Barrel1/Skins/Barrel_Top_Bottom_Bright_Map.png"
+	disablefullbright
+}
+
+//Energy Tank . Red Energy Tank Model
+brightmap texture Models/ETank/Skins/Case.png {
+	map "Models/ETank/Skins/Bright.png"
+	disablefullbright
+}
+
+brightmap texture Models/ETank/Skins/RedCase.png {
+	map "Models/ETank/Skins/RedBright.png"
+	disablefullbright
+}
+
+//Bomb Pickup Model
+brightmap texture Models/Bomb/Skins/BOMBS.png {
+	map "Models/Bomb/Skins/BOMBSbrightmap.png"
+	disablefullbright
+}
+
+material texture "Models/Bomb/Skins/BOMBS.png"
+{
+	normal "textures/BOMBS_normal.png"
+	specular "textures/BOMBS_spec.png"
+	specularlevel 20
+	glossiness 20
+}
+
+//Power Bomb Pickup Model
+brightmap texture Models/PowerBomb/Skins/powerbombtank.png {
+	map "Models/HiJump/Skins/highjump_brightmap.png"
+	disablefullbright
+}
+
+material texture "Models/PowerBomb/Skins/powerbombtank.png"
+{
+	normal "textures/missiletank_normal.png"
+	specular "textures/missiletank_spec.png"
+	specularlevel 10
+	glossiness 10
+}
+
+//Varia Suit Pickup Model
+material texture "Models/Pickups/Skins/variasuit.png"
+{
+	normal "textures/variasuit_normal.png"
+	specular "textures/variasuit_spec.png"
+	specularlevel 20
+	glossiness 20
+}
+
+//Gravity Suit Pickup Model
+material texture "Models/Pickups/Skins/gravitysuit.png"
+{
+	normal "textures/variasuit_normal.png"
+	specular "textures/variasuit_spec.png"
+	specularlevel 20
+	glossiness 20
+}
+
+//ThatOneRandomDude's ship
+brightmap texture Models/buttship/Skins/TheShip2.png {
+	map "Models/buttship/Skins/TheShip2Brightmap.png"
+	disablefullbright
+}
+
+//ThatOneRandomDude's MissileTank
+brightmap texture Models/MissileTank/Skins/missiletank.png {
+	map "Models/HiJump/Skins/highjump_brightmap.png"
+	disablefullbright
+}
+
+material texture "Models/MissileTank/Skins/missiletank.png"
+{
+	normal "textures/missiletank_normal.png"
+	specular "textures/missiletank_spec.png"
+	specularlevel 20
+	glossiness 20
+}
+/*
+//ThatOneRandomDude's BoostBall
+brightmap texture Models/BoostBall/Skins/Boostball.png {
+	map "Models/BoostBall/Skins/Boostballbrightmap.png"
+	disablefullbright
+}
+
+material texture "Models/BoostBall/Skins/BoostBall.png"
+{
+	normal "textures/Boostball_normal.png"
+	specular "textures/Boostball.png"
+	specularlevel 10
+	glossiness 10
+}
+
+*/
+
+//ThatOneRandomDude's HiJump
+brightmap texture Models/HiJump/Skins/high_jump.png {
+	map "Models/HiJump/Skins/highjump_brightmap.png"
+	disablefullbright
+}
+
+//ThatOneRandomDude's SpaceJump
+brightmap texture Models/Pickups/Skins/space_jump.png {
+	map "Models/HiJump/Skins/highjump_brightmap.png"
+	disablefullbright
+}
+
+//ThatOneRandomDude's SpeedBooster
+brightmap texture Models/Pickups/Skins/speed_booster.png {
+	map "Models/HiJump/Skins/highjump_brightmap.png"
+	disablefullbright
+}
+
+material texture "Models/buttship/Skins/shipillium.png"
+{
+	normal "textures/shipillium_normal.png"
+	specular "textures/shipillium_spec.png"
+	specularlevel 30
+	glossiness 30
+}
+
+material texture "Models/buttship/Skins/TheShip2.png"
+{
+	normal "textures/TheShip2_normal.png"
+	specular "textures/TheShip2_spec.png"
+	specularlevel 60
+	glossiness 60
+}
+
+material texture "Models/buttship/Skins/ship_hatch.png"
+{
+	normal "textures/ship_hatch_normal.png"
+	specular "textures/ship_hatch_spec.png"
+	specularlevel 15
+	glossiness 15
+}
+
+material texture "Models/buttship/Skins/shiphull.png"
+{
+	normal "textures/shiphull_normal.png"
+	specular "textures/shiphull_spec.png"
+	specularlevel 15
+	glossiness 15
+}
+
+material texture "Models/HiJump/Skins/high_jump.png"
+{
+	normal "textures/high_jump_normal.png"
+	specular "textures/high_jump_spec.png"
+	specularlevel 50
+	glossiness 35
+}
+
+material texture "Models/Pickups/Skins/space_jump.png"
+{
+	normal "textures/high_jump_normal.png"
+	specular "textures/high_jump_spec.png"
+	specularlevel 50
+	glossiness 35
+}
+
+material texture "Models/Pickups/Skins/speed_booster.png"
+{
+	normal "textures/high_jump_normal.png"
+	specular "textures/high_jump_spec.png"
+	specularlevel 50
+	glossiness 35
+}
+
+HardwareShader Texture "Models/Keys/Skins/3blueskullkey.png"
+{
+	Shader "shaders/Fakereflections.fp"
+}
+
+PulseLight MetBlueSkullLight
+{
+    color 0.0 0.0 1.0
+    offset 0.0 20.0 0.0
+    size 100
+    secondarySize 90
+    interval 1
+    attenuate 1
+    dontlightself 0
+    }
+	
+object MetBlueSkull
+{
+	frame 3BSKA  { light MetBlueSkullLight }
+}
+
+HardwareShader Texture "Models/Keys/Skins/2yellowskullkey.png"
+{
+	Shader "shaders/Fakereflections.fp"
+}
+
+PulseLight MetYellowSkullLight
+{
+    color 0.6 0.6 0.0
+    offset 0.0 8.0 0.0
+    size 50
+    secondarySize 90
+    interval 1
+    attenuate 1
+    dontlightself 0
+    }
+	
+object MetYellowSkull
+{
+	frame 3YSKA  { light MetYellowSkullLight }
+}
+
+HardwareShader Texture "Models/Keys/Skins/1redskullkey.png"
+{
+	Shader "shaders/Fakereflections.fp"
+}
+
+PulseLight MetRedSkullLight
+{
+    color 0.6 0.0 0.0
+    offset 0.0 8.0 0.0
+    size 50
+    secondarySize 90
+    interval 1
+    attenuate 1
+    dontlightself 0
+    }
+	
+object MetRedSkull
+{
+	frame 3RSKA  { light MetRedSkullLight }
+}
+
+//ThatOneRandomDude's Red KeyCard
+brightmap texture Models/Keys/Skins/1redkeycard.png {
+	map "Models/Keys/Skins/keycardbrightmap.png"
+	disablefullbright
+}
+
+//ThatOneRandomDude's Yellow KeyCard
+brightmap texture Models/Keys/Skins/2yellowkeycard.png {
+	map "Models/Keys/Skins/keycardbrightmap.png"
+	disablefullbright
+}
+
+//ThatOneRandomDude's Blue KeyCard
+brightmap texture Models/Keys/Skins/3bluekeycard.png {
+	map "Models/Keys/Skins/keycardbrightmap.png"
+	disablefullbright
+}

@@ -1,0 +1,28 @@
+Actor GreyStoneBlock1 17875
+{
+//$Category Metroid
+	Radius 16
+	Height 26
+	Health 50
+	
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+NOICEDEATH
+	+NOGRAVITY
+	
+	Tag "Gray Bombable Block"
+	
+	States
+	{
+	
+	Spawn:
+		GSB1 A 1
+		Loop
+	
+	Death:
+		TNT1 AA 0 A_SpawnItemEx("MissileExplosionSmall",0,0,0,0,0,0,0,160)
+		TNT1 AA 0 A_SpawnItemEx("MissileExplosionLarge",0,0,0,0,0,0,0,160)
+		Stop
+	}
+}

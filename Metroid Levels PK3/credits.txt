@@ -1,0 +1,48 @@
+SPECIAL THANKS TO:
+=========
+- Nintendo (For creating the Metroid series in the first place)
+- id Software (For creating Doom and the idtech1 engine)
+- Graf Zahl, Randy Heit (For the ZDoom/GZDoom engine)
+- Torr Samaho and the Zandronum team (For picking up where Skulltag left off)
+- CodeImp / MaxED (For Doombuilder/GZDoomBuilder)
+
+GRAPHICS:
+=========
+- Rundas45 (Samus' gunship)
+- Jekyll Grim Payne (Waterfall Fog Spawner and ZScript)
+
+SOUNDS:
+=========
+- Please refer to sndinfo.txt for a proper list.
+
+MAPS:
+=========
+- Runsaber (METDM02)
+
+TEXTURES:
+==========
+Textures and flats have been assorted in folders based on where they came from,
+for easier crediting. Games and individuals taken from include:
+- Metroid Prime Hunters
+- Metroid Prime
+- Metroid Prime 2
+- Super Smash Bros. Melee
+- Super Smash Bros. Brawl
+- Freedoom
+- Anachronox
+- Alien VS Predator 2
+- Chasm: The Rift
+- Paul/NMN
+- Quake
+- System Shock 2
+- Hexen: Beyond Heretic
+- Nightmare (N_WFAL0X)
+- lihanchi (METLDOOR)
+- Tormentor667 (2mbrown)
+
+MUSIC:
+==========
+- ChipCat.CAL - Waiting or Progressing (METTEST)
+- Kenji Yamamoto - Hunters (METDM01)
+- Lawrence Schwedler & James Phillipsen - Alinos (METDM02)
+- Kuniaki Haishima - VS Ridley (METDM03)

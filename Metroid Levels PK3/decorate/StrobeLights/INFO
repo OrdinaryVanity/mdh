@@ -1,0 +1,14 @@
+Name: Strobe Lights
+Connection: none
+Palette: Custom
+Summon: strobelight[red/green/blue/yellow]
+Ambient Sound: No
+De-/Activatable: No
+Destroyable: No
+Special Effects: No
+
+Submitted: Captain Toenail
+Decorate: Captain Toenail
+GLDefs: Captain Toenail
+Sprites: Duke3D
+SpriteEdit: Captain Toenail

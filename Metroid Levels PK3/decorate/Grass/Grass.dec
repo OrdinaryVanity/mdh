@@ -1,0 +1,23 @@
+Actor Grass1 17850
+{
+//$Category Metroid
+	Radius 2
+	Height 2
+	Scale .25
+	+NOINTERACTION
+	
+	Tag "Swaying Grass Prop"
+	
+	States
+	{
+		Spawn:
+		GRS1 A 0
+		GRS1 A 9
+		GRS1 A 1 A_Jump(15, "Anim")
+		Loop
+		
+		Anim:
+		GRS1 ABCDEFGHIJ 3
+		Goto Spawn
+	}
+}

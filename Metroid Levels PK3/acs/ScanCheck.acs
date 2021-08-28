@@ -1,0 +1,144 @@
+#include "zcommon.acs"
+
+/* --- FADING THINGS IN AND OUT V5 ------------------------------------------------------------- */
+
+/* USAGE AND EXAMPLES:
+
+IMPORTANT NOTE: It is critical that you separate out newTIDs between actors with different alpha
+values or renderstyles. You will get undesirable results if you try to spawn things with a preset
+alpha value with the same newTID of a thing with a normal renderstyle. The last thing to spawn
+will get priority and all previous actors sharing the same newTID will be affected. This means
+that you should always give different newTIDs to things which have different renderstyles/alphas.
+
+USAGE:
+{
+	Thing_FadeIn(int tid);
+		tid = thing ID of any thing to fade in, usually one previously faded out
+		
+	Thing_FadeSpawn(int spotTID, int spawnID, int newTID);
+		spotTID = MapSpot or TID of the thing to spawn the new thing at
+		spawnID = the spawnID or T_ name identifier of the thing to spawn
+		newTID = the new TID to give the spawned thing, if 0 a unique TID is assigned
+		
+	Thing_FadeSpawnForced(int spotTID, str className, int newTID);
+		spotTID = MapSpot or TID of the thing to force spawn the new thing at
+		className = the class name of the actor to be spawned
+		newTID = the new TID to give the spawned thing, if 0 a unique TID is assigned
+		
+	Thing_FadeOut(int thingID, bool keepThing);
+		thingID = the TID of the thing to fade out
+		keepThing = set to 1 to only fade out the thing, 0 will also remove the thing
+}
+
+EXAMPLES:
+{
+	Thing_FadeIn(1);
+		Fades in any thing with a TID of 1, should be used on a thing with TID of 1 that was faded out
+	
+	Thing_FadeSpawn(1, T_IMP, 0);
+		Fades in a normal Imp at MapSpot 1, then assigns a unique newTID to the spawned thing
+		
+	Thing_FadeSpawnForced(1, "DoomImp", 42);
+		Fades in a normal Imp at MapSpot 1 with a preset newTID of 42
+		
+	Thing_FadeOut(42, 0);
+		Fades out the Imp that would have been faded in from above and then removes it from the map
+}
+*/
+
+#define FADE_TICS 35
+#define FADE_AMOUNT (1.0 / FADE_TICS)
+
+// Script for fading in any thing
+script 998 (int tid)
+{
+	int targetAlpha = 0.0;
+	int currentAlpha = 0.0;
+	int renderStyle = 0;
+	
+	if(CheckActorClass(tid, "Spectre")) targetAlpha = 0.50;
+	else if(CheckActorClass(tid, "LostSoul")) targetAlpha = GetCVar("transsouls");
+	else targetAlpha = 1.0;
+	
+	int fadeStep = FixedMul(FADE_AMOUNT, targetAlpha);
+	
+	Thing_Activate(tid);
+	SoundSequenceOnActor(tid, "SpawnThing");
+	SetActorProperty(tid, APROP_RenderStyle, STYLE_Translucent);
+	SetActorProperty(tid, APROP_Alpha, currentAlpha);
+	
+	for(int counter = 0; counter < FADE_TICS; counter++)
+	{
+		currentAlpha += fadeStep;
+		if(targetAlpha < currentAlpha) currentAlpha = targetAlpha;
+		
+		SetActorProperty(tid, APROP_Alpha, currentAlpha);
+		Delay(1);
+	}
+	
+	if(CheckActorClass(tid, "Spectre")) renderStyle = STYLE_OptFuzzy;
+	else if(CheckActorClass(tid, "LostSoul")) renderStyle = STYLE_SoulTrans;
+	else renderStyle = STYLE_Normal;
+	
+	SetActorProperty(tid, APROP_Alpha, targetAlpha);
+	SetActorProperty(tid, APROP_RenderStyle, renderStyle);
+}
+
+// Script for fading out any thing and optionally removing it
+script 999 (int thingID, int keepThing)
+{
+	int currentAlpha = GetActorProperty(thingID, APROP_Alpha);
+	int fadeStep = FixedMul(FADE_AMOUNT, currentAlpha);
+	int targetAlpha = 0.0;
+	
+	Thing_Deactivate(thingID);
+	SetActorProperty(thingID, APROP_RenderStyle, STYLE_Translucent);
+	
+	for(int counter = 0; counter < FADE_TICS; counter++)
+	{
+		currentAlpha -= fadeStep;
+		if(targetAlpha > currentAlpha) currentAlpha = targetAlpha;
+		
+		SetActorProperty(thingID, APROP_Alpha, currentAlpha);
+		Delay(1);
+	}
+	
+	SetActorProperty(thingID, APROP_Alpha, targetAlpha);
+	if(keepThing == 0) Thing_Remove(thingID);
+}
+
+// Functions for fading in and out
+function void Thing_FadeIn (int tid)
+{
+	ACS_ExecuteWithResult(998, tid);
+}
+function void Thing_FadeSpawn (int spotTID, int spawnID, int newTID)
+{
+	if(newTID == 0) newTID = UniqueTID();
+	Thing_SpawnFacing(spotTID, spawnID, 1, newTID);
+	ACS_ExecuteWithResult(998, newTID);
+}
+function void Thing_FadeSpawnForced (int spotTID, str className, int newTID)
+{
+	if(newTID == 0) newTID = UniqueTID();
+	SpawnSpotFacingForced(className, spotTID, newTID);
+	ACS_ExecuteWithResult(998, newTID);
+}
+function void Thing_FadeOut (int thingID, int keepThing)
+{
+	ACS_ExecuteWithResult(999, thingID, keepThing);
+}
+
+
+script "ScanCheck" (void)
+{
+	if(CheckWeapon("ScanVisorWeapon"))
+	{
+		SetResultValue(1);
+	}
+	
+	else
+	{
+		SetResultValue(0);
+	}
+}

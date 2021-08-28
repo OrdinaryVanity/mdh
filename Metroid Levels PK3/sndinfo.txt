@@ -1,0 +1,71 @@
+ambient/rain	        AMBRAIN
+//$rolloff ambient/rain   1024 1536
+//$limit ambient/rain     0
+
+ambient/river	Liquid
+ambient/waterfall	Wterfall
+ambient/smallwaterfall	SMLLWTFL
+$ambient 1 ambient/river point continuous 1.0
+$ambient 2 ambient/waterfall point continuous 5.0
+$ambient 3 ambient/smallwaterfall point continuous 5.0
+
+SFX/stone	STNSWTCH
+
+$random ambient/thunder { thunder1 thunder2 thunder3 thunder4 thunder5 thunder6 thunder7 }
+thunder1                AMBTHUN1 // Taken from The Ultimate Torment n' Torture
+thunder2                AMBTHUN2 // Taken from The Ultimate Torment n' Torture
+thunder3                AMBTHUN3 // Taken from Hexen
+thunder4                AMBTHUN4 // Taken from The General Series 6000
+thunder5                AMBTHUN5 // Taken from The General Series 6000
+thunder6                AMBTHUN6 // Taken from The General Series 6000
+thunder7                AMBTHUN7 // Taken from The General Series 6000
+
+world/jumppad1          JUMPPAD1 // Taken from Smash Bros. Brawl
+
+DSLSRFIR	DSLSRFIR
+DSLSRIC1	DSLSRIC1
+DSLSRIC2	DSLSRIC2
+DSLSRIC3	DSLSRIC3
+DSLSRIC4	DSLSRIC4
+DSRBPAN1	DSRBPAN1
+DSRBPAN2	DSRBPAN2
+DSRBPAN3	DSRBPAN3
+DSRBDIE		DSRBDIE
+DSRBBEEP	DSRBBEEP
+
+//RailBot from Realm667
+RailBot/Fire		DSLSRFIR
+Railbot/Death		DSRBDIE
+RailBot/Beep		DSRBBEEP
+$random Railbot/Pain	{ DSRBPAN1 DSRBPAN2 DSRBPAN3 }
+
+$random Laser/Bounce	{ DSLSRIC1 DSLSRIC2 DSLSRIC3 DSLSRIC4 }
+
+//Lava Ball Spawner from Realm667
+LavaBall/Hit	LVBLHIT
+
+$Volume LavaBall/Hit 0.5
+
+//Fire Spawner from Realm667
+SFX/FireStart	FIRESTRT
+SFX/FireLoop1	FIRELOP1
+SFX/FireLoop2	FIRELOP2
+SFX/FireLoop3	FIRELOP3
+SFX/FireDie	FIREDIE
+
+
+$Limit SFX/FireStart	0
+$Limit SFX/FireLoop	0
+$Limit SFX/FireDie	0
+
+//CrazyWazy's Doors
+MPDO MPDO
+MPDC MPDC
+MPDR MPDR
+
+//Steam Spawner from Realm667
+Steam/Loop	STEMLOOP
+Steam/Fire	STEMFIRE
+
+//Lab Glass Pack by DavidRaven, Tormentor667 from Realm667
+tubes/break TSTTB

@@ -1,0 +1,444 @@
+Class ScanVisorWeapon : Weapon
+{
+	Array<String> MName; //All monster names
+	Array<int> MICount; //Number of monster and item classes
+	Array<String> IName; //All item names
+	int barWidth, rate; //barWidth is length of scan, rate is how fast to fill it
+						//this was so I could make Prime style scans that take longer
+						//depending on the enemy or item type.
+	
+	Default
+	{
+		Weapon.AmmoUse1 0;
+		Weapon.AmmoUse2 0;
+		Weapon.BobRangeX 0.4;
+		Weapon.BobRangeY 0.4;
+		Weapon.BobSpeed 2.8;
+		Weapon.BobStyle "Inverse";
+		Inventory.Icon "WEAPPLBM";
+		Inventory.PickupMessage "Got the Scan Visor!";
+		
+		+WEAPON.NOALERT;
+		+WEAPON.NOAUTOAIM;
+		+WEAPON.NOAUTOFIRE;
+		+WEAPON.NO_AUTO_SWITCH;
+		+Inventory.UNDROPPABLE;
+	}
+	
+	States
+	{		
+	Select:
+		TNT1 AAAAAAAAAAAAAAAAAAAA 0 A_Raise;
+        XBEM A 1 A_Raise;
+		loop;
+	
+	Deselect:
+		TNT1 A 0 A_PlaySoundEx("beam/deselect","soundslot5");
+	    TNT1 AAAAAA 1 A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
+        TNT1 A 0 A_JumpIfHealthLower(1, "DeadLower");
+        TNT1 A 5 A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
+	    APTR J 1 Offset(0,140);
+        APTR J 1 Offset(0,130);
+        APTR J 1 Offset(0,120);
+        APTR J 1 Offset(0,110);
+        APTR J 1 Offset(0,100);
+        APTR J 1 Offset(0,90);
+        APTR J 1 Offset(0,80);
+        APTR J 1 Offset(0,70);
+        APTR J 1 Offset(0,60);
+        APTR J 1 Offset(0,50);
+        APTR J 1 Offset(0,40);
+        TNT1 A 0 Offset(0,32);
+		//XBEM AAAAAAAAAAAA 1 A_WeaponOffset(0.0, 0.0, WOF_INTERPOLATE | WOF_ADD)
+		TNT1 A 0 A_ZoomFactor(1.0);
+		TNT1 A 0 ACS_ExecuteAlways(605,0,1);
+        TNT1 AAAAAAAAAAAAAAAAAAAA 0 A_Lower;
+        APTR J 0 A_Lower;
+        loop;
+		
+	Ready:
+		TNT1 A 0;
+		TNT1 A 0 A_ZoomFactor(1.25);
+		TNT1 A 0 ACS_ExecuteAlways(888,0);
+		TNT1 A 0 ACS_ExecuteAlways(605,0,0);
+		TNT1 A 1 A_WeaponReady;
+		loop;
+		
+	Fire:
+		TNT1 A 0
+		{
+			int x;
+			FLineTraceData scandata;
+			LineTrace(angle,512,pitch,TRF_ALLACTORS,offsetz:player.viewheight,data:scandata);
+			
+			//Start with enemy actors
+			
+			if (scandata.HitType == TRACE_HitActor)
+			{
+				console.printf("Beginning scan...");
+				
+				if (scandata.HitActor is "Zombieman")
+				{
+					if (!CheckInventory("ZombiemanScan",1))
+					{
+						console.printf("Scanning entity");
+						GiveInventory("ZombiemanScan",1);
+						console.printf("'Zombieman' scan complete! Check scan logs for information.");
+					}
+					else
+					{
+						console.printf("Zombieman entry exists; check scan logs.");
+					}
+				}
+				
+				else if (scandata.HitActor is "ShotgunGuy")
+				{
+						if (!CheckInventory("ShotgunGuyScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("ShotgunGuyScan",1);
+							console.printf("'Shotgun Guy' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Shotgun Guy entry exists; check scan logs.");
+						}
+				}
+			
+				else if (scandata.HitActor is "ChaingunGuy")
+				{
+						if (!CheckInventory("HeavyChaingunnerScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("HeavyChaingunnerScan",1);
+							console.printf("'Heavy Chaingunner' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Heavy Chaingunner entry exists; check scan logs.");
+						}
+				}
+				
+				else if (scandata.HitActor is "DoomImp")
+				{
+						if (!CheckInventory("DoomImpScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("DoomImpScan",1);
+							console.printf("'Imp' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Imp entry exists; check scan logs.");
+						}
+				}
+			
+				else if (scandata.HitActor is "Demon")
+				{
+						if (!CheckInventory("DemonScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("DemonScan",1);
+							console.printf("'Demon' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Demon entry exists; check scan logs.");
+						}
+				}
+				
+				else if (scandata.HitActor is "Spectre")
+				{
+						if (!CheckInventory("SpectreScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("SpectreScan",1);
+							console.printf("'Spectre' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Spectre entry exists; check scan logs.");
+						}
+				}
+				
+				else if (scandata.HitActor is "Cacodemon")
+				{
+						if (!CheckInventory("CacodemonScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("CacodemonScan",1);
+							console.printf("'Cacodemon' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Cacodemon entry exists; check scan logs.");
+						}
+				}
+				
+				else if (scandata.HitActor is "HellKnight")
+				{
+						if (!CheckInventory("HellKnightScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("HellKnightScan",1);
+							console.printf("'Hell Knight' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Hell Knight entry exists; check scan logs.");
+						}
+				}
+				
+				else if (scandata.HitActor is "LostSoul")
+				{
+						if (!CheckInventory("LostSoulScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("LostSoulScan",1);
+							console.printf("'Lost Soul' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Lost Soul entry exists; check scan logs.");
+						}
+				}	
+			
+				else if (scandata.HitActor is "Revenant")
+				{
+						if (!CheckInventory("RevenantScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("RevenantScan",1);
+							console.printf("'Revenant' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Revenant entry exists; check scan logs.");
+						}	
+				}
+			
+				else if (scandata.HitActor is "SpiderMastermind")
+				{
+						if (!CheckInventory("SpiderMastermindScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("SpiderMastermindScan",1);
+							console.printf("'Spider Mastermind' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Spider Mastermind entry exists; check scan logs.");
+						}
+				}
+				
+				else if (scandata.HitActor is "Cyberdemon")
+				{
+						if (!CheckInventory("CyberdemonScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("CyberdemonScan",1);
+							console.printf("'Cyberdemon' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Cyberdemon entry exists; check scan logs.");
+						}
+				}
+				
+				else if (scandata.HitActor is "Arachnotron")
+				{
+						if (!CheckInventory("ArachnotronScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("ArachnotronScan",1);
+							console.printf("'Arachnotron' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Arachnotron entry exists; check scan logs.");
+						}	
+				}
+				
+				else if (scandata.HitActor is "Fatso")
+				{
+						if (!CheckInventory("MancubusScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("MancubusScan",1);
+							console.printf("'Mancubus' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Mancubus entry exists; check scan logs.");
+						}	
+				}
+				
+				else if (scandata.HitActor is "PainElemental")
+				{
+						if (!CheckInventory("PainElementalScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("PainElementalScan",1);
+							console.printf("'Pain Elemental' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Pain Elemental entry exists; check scan logs.");
+						}	
+				}
+				
+				else if (scandata.HitActor is "Archvile")
+				{
+						if (!CheckInventory("ArchvileScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("ArchvileScan",1);
+							console.printf("'Archvile' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Archvile entry exists; check scan logs.");
+						}	
+				}
+				
+				else if (scandata.HitActor is "SpacePirate")
+				{
+						if (!CheckInventory("SpacePirateScan",1))
+						{
+							console.printf("Scanning entity");
+							GiveInventory("SpacePirateScan",1);
+							console.printf("'Space Pirate' scan complete! Check scan logs for information.");
+						}
+						else
+						{
+							console.printf("Space Pirate entry exists; check scan logs.");
+						}	
+				}
+			
+				else if (scandata.HitActor is "MorphBallModel")
+				{
+					if (!CheckInventory("MorphBallScan",1))
+					{
+						console.printf("Scanning entity");
+						GiveInventory("MorphBallScan",1);
+						console.printf("'Morph Ball' scan complete! Check scan logs for more information.");
+					}
+					else
+					{
+						console.printf("Morph Ball entry exists; check scan logs.");
+					}
+				}
+				
+				else if (scandata.HitActor is "BoostBallPickup")
+				{
+					if (!CheckInventory("BoostBallScan",1))
+					{
+						console.printf("Scanning entity");
+						GiveInventory("BoostBallScan",1);
+						console.printf("'Boost Ball' scan complete! Check scan logs for more information.");
+					}
+					else
+					{
+						console.printf("Boost Ball entry exists; check scan logs.");
+					}
+				}
+				
+				else if (scandata.HitActor is "BombPickup")
+				{
+					if (!CheckInventory("BombPickupScan",1))
+					{
+						console.printf("Scanning entity");
+						GiveInventory("BombPickupScan",1);
+						console.printf("'Bombs' scan complete! Check scan logs for more information.");
+					}
+					else
+					{
+						console.printf("Bombs entry exists; check scan logs.");
+					}
+				}
+				
+				else if (scandata.HitActor is "SpeedBoosterPickup")
+				{
+					if (!CheckInventory("SpeedBoosterScan",1))
+					{
+						console.printf("Scanning entity");
+						GiveInventory("SpeedBoosterScan",1);
+						console.printf("'Speed Booster' scan complete! Check scan logs for more information.");
+					}
+					else
+					{
+						console.printf("Speed Booster entry exists; check scan logs.");
+					}
+				}
+				
+				else if (scandata.HitActor is "SpaceJumpPickup")
+				{
+					if (!CheckInventory("SpaceJumpScan",1))
+					{
+						console.printf("Scanning entity");
+						GiveInventory("SpaceJumpScan",1);
+						console.printf("'Space Jump' scan complete! Check scan logs for more information.");
+					}
+					else
+					{
+						console.printf("Space Jump entry exists; check scan logs.");
+					}
+				}
+				
+				else
+				{
+					console.printf("Could not scan entity!");
+				}
+			}
+		}
+		Goto Ready;
+	
+	DeadLower:
+        XBEM A 1 A_Lower;
+        loop;
+	}
+}
+/*
+class ScanHandler : EventHandler
+{
+	override void WorldTick()
+	{
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			if (!playeringame[i]) continue;
+			
+			PlayerInfo pi = players[i];
+			PlayerPawn player = pi.mo;
+			
+			let input = pi.cmd.buttons;
+			let oldinput = pi.oldbuttons;
+			
+			
+			if ((input & BT_ATTACK) && !(oldinput & BT_ATTACK))
+			{
+				Scan(player);
+			}
+		}
+	}
+
+	//Actual scanning part
+	void Scan(Actor samus)
+	{
+		FLineTraceData scandata;
+	
+		LineTrace(0,1024,0,TRF_SOLIDACTORS,offsetz:samus.height,data:scandata);
+	
+		if (scandata.HitType == TRACE_HitActor)
+		{
+			if (scandata.GetClassName() == "Metroid_ZombieGuy")
+			{
+				if (samus.FindInventory("ZombiemanScan") != 0)
+				{
+					ACS_NamedExecute(METROID_SCANTEST, 0, 0);
+				}
+			}
+		}
+	}
+}
+
+*/

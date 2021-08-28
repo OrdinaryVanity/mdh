@@ -1,0 +1,19 @@
+Place on map and use the five arguments to control the intensity and area of the 
+spawner.
+
+First argument controls the size of the area. 32, for example, spawns in a 64x64
+square (or 64 diameter circle. See second argument).
+
+Second argument controls the type of area it spawns in. 0 is square, 1 is
+circle.
+
+Third argument controls it's frequency. The lower the number, the heavier the
+amount of lava balls.
+
+If the fourth argument is non-zero, the ball will not do damage, and will be
+client-sided.
+
+The fifth argument controls the velocity of the projectile.
+
+It only spawns things when not submerged in deep water. However, if placed in
+deep water, it will automatically surface before it starts spawning.

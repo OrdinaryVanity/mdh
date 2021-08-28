@@ -1,0 +1,116 @@
+Class MetBlueSkull : BlueSkull replaces BlueSkull
+{
+  Default
+  {
+  //$Category Metroid
+		Inventory.PickupMessage "$GOTBLUESKUL";
+		Inventory.Icon "METBSKY0";
+		Scale 0.3;
+		Alpha 0.90;
+		Species "BlueSkull";
+  }
+  
+  States
+  {
+	Spawn:
+		2MBS A 1;
+		Loop;
+  }
+}
+
+Class MetRedSkull : RedSkull replaces RedSkull
+{
+  Default
+  {
+  //$Category Metroid
+		Inventory.PickupMessage "$GOTREDSKUL";
+		Inventory.Icon "METRSKY0";
+		Scale 0.3;
+		Alpha 0.90;
+		Species "RedSkull";
+  }
+  
+  States
+  {
+	Spawn:
+		2MRS A 1;
+		Loop;
+  }
+}
+
+Class MetYellowSkull : YellowSkull replaces YellowSkull
+{
+  Default
+  {
+  //$Category Metroid
+		Inventory.PickupMessage "$GOTYELWSKUL";
+		Inventory.Icon "METYSKY0";
+		Scale 0.3;
+		Alpha 0.90;
+		Species "YellowSkull";
+  }
+  
+  States
+  {
+	Spawn:
+		2MYS A 1;
+		Loop;
+  }
+}
+
+Class MetBlueCard : BlueCard replaces BlueCard
+{
+  Default
+  {
+  //$Category Metroid
+		Inventory.PickupMessage "$GOTBLUECARD";
+		Inventory.Icon "METBCRY0";
+		Scale 0.3;
+		Species "BlueCard";
+  }
+  
+  States
+  {
+	Spawn:
+		2MBK A 1;
+		Loop;
+  }
+}
+
+Class MetRedCard : RedCard replaces RedCard
+{
+  Default
+  {
+  //$Category Metroid
+		Inventory.PickupMessage "$GOTREDCARD";
+		Inventory.Icon "METRCRY0";
+		Scale 0.3;
+		Species "RedCard";
+  }
+  
+  States
+  {
+	Spawn:
+		2MRK A 1;
+		Loop;
+  }
+}
+
+Class MetYellowCard : YellowCard replaces YellowCard
+{
+  Default
+  {
+  //$Category Metroid
+		Inventory.PickupMessage "$GOTYELWCARD";
+		Inventory.Icon "METYCRY0";
+		Scale 0.3;
+		Species "YellowCard";
+  }
+  
+  States
+  {
+	Spawn:
+		2MYK A 1;
+		Loop;
+  }
+}

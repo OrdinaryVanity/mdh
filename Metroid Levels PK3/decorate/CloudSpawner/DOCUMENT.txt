@@ -1,0 +1,13 @@
+Argument 1 controls the size of the area in which it spawns, times 2.
+128 would make it a 256x256 square.
+
+Argument 2 controls the vertical size of the area in which it spawns.
+
+Argument 3 is the chance every 30 tics in which it spawns.
+The lower the number, the more likely it will spawn, with 0 being always and 255 being never.
+
+Argument 4 controls the size of the dust cloud spawned. 0 is smallest, 1 is small, 2 is
+medium and 3 and up is large.
+
+Argument 5 is the color of the cloud that is spawned.
+0 is grey, 1 is tan and 2 and over is red.

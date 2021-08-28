@@ -1,0 +1,146 @@
+actor SpeedBoosterPrepare : PowerSpeed
+{
+    Powerup.Duration 0x7FFFFFFF
+    Speed 2.15
+}
+
+actor SpeedWalkerPrepare : PowerSpeed
+{
+    Powerup.Duration 0x7FFFFFFF
+    Speed 1.075
+}
+
+actor SpeedBooster : PowerSpeed
+{
+    Powerup.Duration 0x7FFFFFFF
+    Speed 2.25
+}
+
+actor SpeedWalker : PowerSpeed
+{
+    Powerup.Duration 0x7FFFFFFF
+    Speed 1.125
+}
+
+actor ShinesparkChargeToken : Boolean{}
+
+actor IsShinesparking : Boolean{}
+
+actor ShinesparkCharge : PowerSpeed
+{
+    Powerup.Duration 175
+    Speed 1
+	Inventory.MaxAmount 1
+	+INVENTORY.AUTOACTIVATE
+}
+
+actor ShinesparkFlashing : CustomInventory
+{
+    +INVENTORY.AUTOACTIVATE
+    Inventory.MaxAmount 0
+    States
+    {
+    Spawn:
+    Use:
+        TNT1 A 0
+        TNT1 A 0 A_Jump(255,"WhiteFlash")
+        TNT1 A 0
+        goto Use
+    WhiteFlash:
+        TNT1 A 0
+        TNT1 A 0 A_SetBlend("White",0.25,14)
+        stop
+    }
+}
+
+actor SpeedBoosterFlashing : CustomInventory
+{
+    +INVENTORY.AUTOACTIVATE
+    Inventory.MaxAmount 0
+    States
+    {
+    Spawn:
+    Use:
+        TNT1 A 0
+        TNT1 A 0 A_Jump(255,"RedFlash","OrangeFlash","YellowFlash","GreenFlash","BlueFlash","PurpleFlash","WhiteFlash")
+        TNT1 A 0
+        goto Use
+    RedFlash:
+        TNT1 A 0
+        TNT1 A 0 A_SetBlend("Red",0.3,14)
+        stop
+    OrangeFlash:
+        TNT1 A 0
+        TNT1 A 0 A_SetBlend("Orange",0.3,14)
+        stop
+    YellowFlash:
+        TNT1 A 0
+        TNT1 A 0 A_SetBlend("Yellow",0.3,14)
+        stop
+    GreenFlash:
+        TNT1 A 0
+        TNT1 A 0 A_SetBlend("Green",0.3,14)
+        stop
+    BlueFlash:
+        TNT1 A 0
+        TNT1 A 0 A_SetBlend("Blue",0.35,14)
+        stop
+    PurpleFlash:
+        TNT1 A 0
+        TNT1 A 0 A_SetBlend("Purple",0.35,14)
+        stop
+    WhiteFlash:
+        TNT1 A 0
+        TNT1 A 0 A_SetBlend("White",0.25,14)
+        stop
+    }
+}
+
+actor ShinesparkDamage
+{
+    Radius 1
+    Height 1
+    Speed 0
+    +FORCERADIUSDMG
+    +NOTELEPORT
+    +NOCLIP
+    +NODAMAGETHRUST
+    +PIERCEARMOR
+    +DONTREFLECT
+    +EXTREMEDEATH
+    -SOLID
+    Obituary "%k ran %o over."
+    DamageType "SpeedBooster"
+    States
+    {
+      Spawn:
+        TNT1 A 1
+        TNT1 A 1 A_Explode(1280,32,0)
+        stop
+    }
+}
+
+actor SpeedBoosterDamage
+{
+    Radius 1
+    Height 1
+    Speed 0
+    +FORCERADIUSDMG
+    +NOTELEPORT
+    +NOCLIP
+    +NODAMAGETHRUST
+    +PIERCEARMOR
+    +DONTREFLECT
+    +NOEXTREMEDEATH
+    -SOLID
+    Obituary "%k ran %o over."
+    DamageType "SpeedBooster"
+    States
+    {
+      Spawn:
+        TNT1 A 1
+        TNT1 A 1 A_Explode(256,16,0)
+        stop
+    }
+}
+
