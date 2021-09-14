@@ -1,0 +1,520 @@
+ACTOR ScanLog : PDA //20001
+{
+	Tag "$PDA_ScanLog_Title"
+	PDA.Text "$PDA_ScanLog_Text"
+	//PDA.Image "graphics/PDA/images/Test PDA Image.png"
+	//PDA.Audio "PDA/TestPDAAudio"
+
+	States
+	{
+		Spawn:
+			PMAP A -1
+			Stop
+	}
+}
+
+ACTOR TestStrangeMap : PDA
+{
+	Tag "$PDA_TestStrangeMap_Title"
+	PDA.Image "graphics/PDA/images/StrangeMap.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+//Enemies
+
+ACTOR ZombiemanScan : PDA //20005
+{
+	Tag "$PDA_ZombiemanScan_Title"
+	PDA.Text "$PDA_ZombiemanScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR ShotgunGuyScan : PDA
+{
+	Tag "$PDA_ShotgunGuyScan_Title"
+	PDA.Text "$PDA_ShotgunGuyScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR HeavyChaingunnerScan : PDA
+{
+	Tag "$PDA_HeavyChaingunnerScan_Title"
+	PDA.Text "$PDA_HeavyChaingunnerScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR DoomImpScan : PDA //20006
+{
+	Tag "$PDA_DoomImpScan_Title"
+	PDA.Text "$PDA_DoomImpScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR DemonScan : PDA //20006
+{
+	Tag "$PDA_DemonScan_Title"
+	PDA.Text "$PDA_DemonScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR SpectreScan : PDA //20006
+{
+	Tag "$PDA_SpectreScan_Title"
+	PDA.Text "$PDA_SpectreScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR CacodemonScan : PDA //20006
+{
+	Tag "$PDA_CacodemonScan_Title"
+	PDA.Text "$PDA_CacodemonScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR LostSoulScan : PDA //20006
+{
+	Tag "$PDA_LostSoulScan_Title"
+	PDA.Text "$PDA_LostSoulScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR HellKnightScan : PDA //20006
+{
+	Tag "$PDA_HellKnightScan_Title"
+	PDA.Text "$PDA_HellKnightScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR BaronScan : PDA //20006
+{
+	Tag "$PDA_BaronScan_Title"
+	PDA.Text "$PDA_BaronScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR PainElementalScan : PDA //20006
+{
+	Tag "$PDA_PainElementalScan_Title"
+	PDA.Text "$PDA_PainElementalScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR MancubusScan : PDA //20006
+{
+	Tag "$PDA_MancubusScan_Title"
+	PDA.Text "$PDA_MancubusScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR ArchvileScan : PDA //20006
+{
+	Tag "$PDA_ArchvileScan_Title"
+	PDA.Text "$PDA_ArchvileScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR CyberdemonScan : PDA //20006
+{
+	Tag "$PDA_CyberdemonScan_Title"
+	PDA.Text "$PDA_CyberdemonScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR SpacePirateScan : PDA //20006
+{
+	Tag "$PDA_SpacePirateScan_Title"
+	PDA.Text "$PDA_SpacePirateScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR ArachnotronScan : PDA //20006
+{
+	Tag "$PDA_ArachnotronScan_Title"
+	PDA.Text "$PDA_ArachnotronScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+
+ACTOR RevenantScan : PDA //20006
+{
+	Tag "$PDA_RevenantScan_Title"
+	PDA.Text "$PDA_RevenantScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR SpiderMastermindScan : PDA //20006
+{
+	Tag "$PDA_SpiderMastermindScan_Title"
+	PDA.Text "$PDA_SpiderMastermindScan_Text"
+	PDA.Image "graphics/PDA/images/zombieman.png"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+//Items and Powerups
+
+ACTOR MorphBallScan : PDA //20007
+{
+	Tag "$PDA_MorphBallScan_Title"
+	PDA.Text "$PDA_MorphBallScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR BoostBallScan : PDA
+{
+	Tag "$PDA_BoostBallScan_Title"
+	PDA.Text "$PDA_BoostBallScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR MissileTankScan : PDA //20008
+{
+	Tag "$PDA_MissileTankScan_Title"
+	PDA.Text "$PDA_MissileTankScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR MissileAmmoScan : PDA //20008
+{
+	Tag "$PDA_MissileAmmoScan_Title"
+	PDA.Text "$PDA_MissileAmmoScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR SuperMissileTankScan : PDA //20008
+{
+	Tag "$PDA_SuperMissileTankScan_Title"
+	PDA.Text "$PDA_SuperMissileTankScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR SuperMissileAmmoScan : PDA //20008
+{
+	Tag "$PDA_SuperMissileAmmoScan_Title"
+	PDA.Text "$PDA_SuperMissileAmmoScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR PowerBombScan : PDA
+{
+	Tag "$PDA_PowerBombScan_Title"
+	PDA.Text "$PDA_PowerBombScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR PowerBombAmmoScan : PDA
+{
+	Tag "$PDA_PowerBombAmmoScan_Title"
+	PDA.Text "$PDA_PowerBombAmmoScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR VariaSuitScan : PDA
+{
+	Tag "$PDA_VariaSuitScan_Title"
+	PDA.Text "$PDA_VariaSuitScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR GravitySuitScan : PDA
+{
+	Tag "$PDA_GravitySuitScan_Title"
+	PDA.Text "$PDA_GravitySuitScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR BombPickupScan : PDA
+{
+	Tag "$PDA_BombPickupScan_Title"
+	PDA.Text "$PDA_BombPickupScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR EnergyTankScan : PDA
+{
+	Tag "$PDA_EnergyTankScan_Title"
+	PDA.Text "$PDA_EnergyTankScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR RedEnergyTankScan : PDA
+{
+	Tag "$PDA_RedEnergyTankScan_Title"
+	PDA.Text "$PDA_RedEnergyTankScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR SpeedBoosterScan : PDA
+{
+	Tag "$PDA_SpeedBoosterScan_Title"
+	PDA.Text "$PDA_SpeedBoosterScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR SpaceJumpScan : PDA
+{
+	Tag "$PDA_SpaceJumpScan_Title"
+	PDA.Text "$PDA_SpaceJumpScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR HiJumpBootsScan : PDA
+{
+	Tag "$PDA_HiJumpBootsScan_Title"
+	PDA.Text "$PDA_HiJumpBootsScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+ACTOR ChargeBeamScan : PDA
+{
+	Tag "$PDA_ChargeBeamScan_Title"
+	PDA.Text "$PDA_ChargeBeamScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
+//Beams
+
+ACTOR IceBeamScan : PDA
+{
+	Tag "$PDA_IceBeamScan_Title"
+	PDA.Text "$PDA_IceBeamScan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}

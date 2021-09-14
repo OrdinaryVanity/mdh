@@ -1,0 +1,294 @@
+[enu default]
+
+PDA_READER = "PDA Reader";
+PDA_PICKUP = "New PDA Entry: %s";
+PDA_DEFAULT_TITLE = "Scan Visor Log Data - Press 'Use Inventory' key to access scan logs.";
+
+PDA_ScanLog_Title = "How To Use";
+PDA_ScanLog_Text =
+	"Using the Scan Log."
+	"\n\n"
+	"The scan log will automatically capture entities targeted by "
+	"Samus' scan visor and log them here for informational purposes."
+	"\n\n"
+	"Scanning is needed in some cases to trigger switches or doors, "
+	"and can also reveal enemy weaknesses for Samus' own advantage.";
+
+PDA_TestNote_Title = "Mysterious Note";
+PDA_TestNote_Text = "There was a hole here. It's gone now.";
+
+//Enemies
+
+PDA_ZombiemanScan_Title = "Former Trooper";
+PDA_ZombiemanScan_Text =
+	"An undead soldier, reanimated by Hell itself with a twisted soul."
+	"\n\n"
+	"The zombieman by itself isn't dangerous, however... "
+	"If you encounter them in large groups, it is best to take them all out. "
+	"They will drain your health fast; two shots from my beam should kill 'em.";
+
+PDA_ShotgunGuyScan_Title = "Former Sergeant";
+PDA_ShotgunGuyScan_Text =
+	"Like his comrades, these soldiers are packing. These guys are much "
+	"more dangerous in crowds thanks to the shotgun they wield. "
+	"\n\n"
+	"They may hit harder, but they die just as easily.";
+
+PDA_HeavyChaingunnerScan_Title = "Heavy Chaingunner";
+PDA_HeavyChaingunnerScan_Text =
+	"Imagine a shotgunner on steroids. These guys are big and pack a wallop. "
+	"The chaingun they wield is incredibly accurate and they take "
+	"more shots to take down.";
+
+PDA_DoomImpScan_Title = "Imp";
+PDA_DoomImpScan_Text =
+	"The Lieutenants of Hell. These monstrosities possess sharp claws "
+	"for flaying the toughest opponents and can hurl scorching hot fireballs."
+	"\n\n"
+	"This enemy type is extremely vulnerable to ice and light.";
+
+PDA_DemonScan_Title = "Demon";
+PDA_DemonScan_Text =
+	"Sometimes called 'Bull Demon' or 'Pinky Demon'. "
+	"The Demon is a rather common enemy group, he moves in a random pattern "
+	"to corner you, so be careful.";
+
+PDA_SpectreScan_Title = "Spectre";
+PDA_SpectreScan_Text =
+	"As if a Demon wasn't bad enough, "
+	"This one is partially invisible."
+	"\n\n"
+	"Be careful one doesn't sneak up behind you...";
+	
+PDA_CacodemonScan_Title = "Cacodemon";
+PDA_CacodemonScan_Text =
+	"A psionic demon, with a strong desire to feed. "
+	"They have low intelligence, but are incredibly strong. They fire small blasts, "
+	"but are incredibly easy to dodge."
+	"\n\n"
+	"Samus' Notes: "
+	"These guys sort of remind me of Metroids if they were more dumb and less lethal. "
+	"They sure are resiliant though, they can take TWO super missiles to the face.";
+	
+PDA_HellKnightScan_Title = "Hell Knight";
+PDA_HellKnightScan_Text =
+	"A towering behemoth who is well renowned in the ranks of Hell. "
+	"These guys are tough; they go down hard. "
+	"Luckily, they are slow and so are their shots of Plasma. "
+	"\n\n"
+	"This enemy type is vulnerable to light and fire.";
+
+PDA_LostSoulScan_Title = "Lost Soul";
+PDA_LostSoulScan_Text =
+	"Somehow, these torturous souls lodged free from the Seventh Circle of Hell and "
+	"now roam for the next host to occupy and corrupt. These are the worst of the "
+	"worst; the absolute lowest form of life that Mankind has ever witnessed.";
+
+PDA_SpiderMastermindScan_Title = "The Spider Mastermind";
+PDA_SpiderMastermindScan_Text =	
+	"A Cybernetic Spider-Esque Robot, with a brain atop"
+	"controlling it, along with a super-chaingun strapped to it."
+	"I have experience with brain controlled robots, so I'll be good."
+	"\n\n"
+	"Take cover or keep your distance from it; the bullets from its "
+	"super-chaingun will take huge chunks of energy."
+	"\n\n"
+	"Plan of action: spam Super Missiles, and use strong beams.";
+	
+PDA_ArachnotronScan_Title = "Arachnotron";
+PDA_ArachnotronScan_Text =		
+	"A massive demonic brain held together by 8 robotic legs. "
+	"Using the chaingun attached to itself, it'll fire at its opponent. "
+	"Keep moving and dodging!"
+	"\n\n"
+	"Samus' Notes: "
+	"This gives me uncomfortable reminders of Mother Brain... "
+	"Even so... it'll suffer the same fate.";
+	
+PDA_RevenantScan_Title = "Revenant";
+PDA_RevenantScan_Text =		
+	"The skeletal remains of some horrible demon, reanimated. "
+	"They have a fierce warcry and can shoot homing missiles. "
+	"They also have a nasty left hook if anything gets too close..."
+	"\n\n"
+	"Samus' Notes: "
+	"Between their screams and homing missiles, "
+	"these guys will prove to be a challenge. ";
+	
+PDA_BaronScan_Title = "Baron of Hell";
+PDA_BaronScan_Text =		
+	"The lieutenants and corporals of Hell. "
+	"Twice as strong as a Hell Knight, and s little faster at that. "
+	"You do NOT want to run into a group of these!";
+	
+PDA_PainElementalScan_Title = "Pain Elemental";
+PDA_PainElemental_Text =		
+	"The only thing more warped and twisted than a lost soul "
+	"is a demon that can spin them up at will. Using its gaping mouth, it can "
+	"shoot Lost Souls like rockets. "
+	"\n\n"
+	"If not taken care of immediately, these guys can turn a battle into a war.";
+
+PDA_MancubusScan_Title = "Mancubus";
+PDA_MancubusScan_Text =		
+	"No one knows where the title of 'Mancubus' comes from, only that "
+	"the description is a vile one: a deformed, demonic creature of the "
+	"most grotesque nature."
+	"\n\n"
+	"Mancubus are very slow, but make up for it with dual fireball cannons. "
+	"They like to shoot these in bursts of three, and they hurt a lot.";
+	
+PDA_ArchvileScan_Title = "Archvile";
+PDA_ArchvileScan_Text =		
+	"One of the penultimate adversaries in Hell's army. "
+	"Not only are they highly resistant to weaponry, "
+	"they can reanimate the dead at will."
+	"\n\n"
+	"Archviles are fast, and can blast you off the ground with "
+	"a blast of Hellfire. Find cover, and take these out first!";
+	
+PDA_CyberdemonScan_Title = "Cyberdemon";
+PDA_CyberdemonScan_Text =		
+	"One of, if not THEE penultimate demon in Hell's army. "
+	"A sick joke of a monstrosity; gargantuan in size and sports a "
+	"Rocket Launcher instead of a right arm. I wonder who outfitted that? "
+	"\n\n"
+	"You can hear these things coming a mile away. Their thunderous steps "
+	"are so massive that they shake the ground beneath you. Throw everything "
+	"you have at these things!";
+
+PDA_SpacePirateScan_Title = "Space Pirate";
+PDA_SpacePirateScan_Text =		
+	"One of my oldest enemies. Pirates have been present since the Federation became "
+	"a household name, and are notorious for causing trouble throughout the galaxy. "
+	"They have been known to pillage and destroy, often taking the properties and traits "
+	"of the planets and homeworlds they dismantle and making them their own; a 'keep "
+	"what you kill' mentality"
+	"\n\n"
+	"They are responsible for some of the most disastrous events ever recorded in our history. "
+	"They are agile enemies who wield inferior technology similar to my own beams.";
+	
+//Items and Powerups
+	
+PDA_MorphBallScan_Title = "Morph Ball";
+PDA_MorphBallScan_Text =
+	"The Morph Ball. It helps me to get through small spaces "
+	"and it's also useful for combat and speed. Fortunately, like the Power Suit, "
+	"the Morph Ball is also modular.";
+	
+PDA_BoostBallScan_Title = "Boost Ball";
+PDA_BoostBallScan_Text =
+	"An upgrade for my Morph Ball. It launches me forward at extreme "
+	"speeds. You can aim it in any direction to reach certain heights. "
+	"\n\n"
+	"If you're stuck in a dark corner, you can use it to deal damage to enemies.";
+
+PDA_BombPickupScan_Title = "Bombs";
+PDA_BombPickupScan_Text =
+	"Bombs for the Morph Ball, they create small bursts of explosive energy. "
+	"I use it primarily for two things: Opening new areas and holes in enemies."
+	"\n\n"
+	"While not practical, I also use this to jump. If I time it right... "
+	"I can place bombs repeatedly to lift myself up to a high place.";
+
+PDA_SpeedBoosterScan_Title = "Speed Booster / Shinespark";
+PDA_SpeedBoosterScan_Text =
+	"If I forgot how this thing works, I'd have to be going "
+	"senile. When I build up speed from running, I'll be boosted ahead "
+	"at super sonic speeds. I can use it to crash through enemies."
+	"\n\n"
+	"It has a second ability attached too, when running if I build "
+	"speed, and then crouch down, aim and shoot, I'll be sent "
+	"flying in a specific direction. This will do damage to "
+	"enemies, AND me.";
+	
+PDA_SpaceJumpScan_Title = "Space Jump / Spring Ball";
+PDA_SpaceJumpScan_Text =
+	"Space Jump increases the leaping capabilty of my suit. "
+	"Basically, I get an extra jump while airborn, and this helps me "
+	"reach higher heights than before."
+	"\n\n"
+	"It also comes with the Spring Ball, which allows me to jump without "
+	"the use of a bomb while in Morph Ball.";
+	
+PDA_HiJumpBootsScan_Title = "Hi-Jump Boots";
+PDA_HiJumpBootsScan_Text =
+	"With these, I can jump one-and-a-half times higher than normal. "
+	"That's pretty much it. It's relatively simple.";
+
+PDA_MissileTankScan_Title = "Missile Tank";
+PDA_MissileTankScan_Text =
+	"This is an upgrade module for the arm cannon "
+	"that gives me the ability to fire self-propelled missiles. "
+	"Each tank grants an extension on my max capacity."
+	"\n\n"
+	"Needed on some doors that require some 'persuasion' to open.";
+
+PDA_MissileAmmoScan_Title = "Missile";
+PDA_MissileAmmoScan_Text =
+	"One of my missiles.";
+
+PDA_SuperMissileTankScan_Title = "Super Missile Tank";
+PDA_SuperMissileTankScan_Text =
+	"This capsule gives me 2 extra Super Missiles on top of "
+	"what I already have. I can use a Super Missile if I hold down "
+	"the secondary fire button. Wait for it to click, then release.";
+	
+PDA_SuperMissileAmmoScan_Title = "Super Missile";
+PDA_SuperMissileAmmoScan_Text =	
+	"This is a SUPER MISSILE Drop. Just wanted to make sure you "
+	"got that. A SUPER MISSILE. DROP.";
+	
+PDA_PowerBombScan_Title = "Power Bomb Tank";
+PDA_PowerBombScan_Text =
+	"Similar to Morph Ball bombs, the only thing separating them is "
+	"the fact that these use ammo, and its massive blast radius that "
+	"vaporizes everything within distance. It's good for dealing with "
+	"massive groups of pirates, aliens, or even Hell's finest.";
+	
+PDA_PowerBombAmmoScan_Title = "Power Bomb";
+PDA_PowerBombAmmoScan_Text =
+	"Hey, you remember those power bombs I got earlier? Well... "
+	"THIS is more of them!";
+
+PDA_VariaSuitScan_Title = "Varia Suit";
+PDA_VariaSuitScan_Text =
+	"The Varia Suit is an enhancement for my Power Suit. "
+	"It gives an added protection to heat, as well as defensive shielding. "
+	"I seem to lose this quite a bit too much for my liking...";
+	
+PDA_GravitySuitScan_Title = "Gravity Suit";
+PDA_GravitySuitScan_Text =
+	"The Gravity Suit helps me move more freely when underwater. "
+	"It has added defensive shielding. I don't use this one much, "
+	"unless I'm on a massive bounty. I guess it makes it hurt less when I lose it.";
+	
+PDA_EnergyTankScan_Title = "Energy Tank";
+PDA_EnergyTankScan_Text =
+	"Energy Tanks increase the power to my shields. "
+	"\n\n"
+	"They increase by 100 units. There's 20 in total scattered "
+	"around and hidden. VERY hidden.";
+	
+PDA_RedEnergyTankScan_Title = "Doom Energy Tank";
+PDA_RedEnergyTankScan_Text =
+	"Adds 100 Units to my shield energy supply like the blue "
+	"one, but gives a full shield at full health once you "
+	"have 20 energy tanks.";
+	
+PDA_ChargeBeamScan_Title = "Charge Beam";
+PDA_ChargeBeamScan_Text =
+	"The Charge Beam allows me to increase the damage of each "
+	"beam. I can also use it to pull small objects to me, such as"
+	"energy refills (not yet ;) ) "
+	"\n\n"
+	"If I charge my beam, and then release with the missile button, I can"
+	"do a charge combo, but only if I have that beams charge combo.";
+
+//Beams
+
+PDA_IceBeamScan_Title = "Ice Beam";
+PDA_IceBeamScan_Text =
+	"Another common beam of mine built by the Chozo. " 
+	"The Ice Beam is exactly cold enough to freeze organic based life forms. " 
+	"Fortunately, it also freezes Hellspawn, so there's that.";
