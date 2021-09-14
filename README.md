@@ -6,6 +6,7 @@ This repo consists of two folders:
 
 1. Main.pk3: The majority of game code. Everything from Samus' abilities and weapons to item drops and how drops are handled.
 2. Metroid Levels.pk3: Contains maps and map editing resources (textures, models, props).
+3. Scans.pk3 Contains all the scan visor entries.
 
 <h2>What is this mod?</h2>
 
