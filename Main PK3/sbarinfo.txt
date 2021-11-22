@@ -272,12 +272,12 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
 
     gamemode cooperative, singleplayer
     {
-    InInventory RedCard, 1 { drawimage "RKEYICON", 305, 376; }
-    InInventory BlueCard, 1 { drawimage "BKEYICON", 315, 376; }
-    InInventory YellowCard, 1 { drawimage "YKEYICON", 325, 376; }
-    InInventory RedSkull, 1 { drawimage "RSKUICON", 305, 387; }
-    InInventory BlueSkull, 1 { drawimage "BSKUICON", 315, 387; }
-    InInventory YellowSkull, 1 { drawimage "YSKUICON", 325, 387; }
+    InInventory MetRedCard, 1 { drawimage "RKEYICON", 305, 376; }
+    InInventory MetBlueCard, 1 { drawimage "BKEYICON", 315, 376; }
+    InInventory MetYellowCard, 1 { drawimage "YKEYICON", 325, 376; }
+    InInventory MetRedSkull, 1 { drawimage "RSKUICON", 305, 387; }
+    InInventory MetBlueSkull, 1 { drawimage "BSKUICON", 315, 387; }
+    InInventory MetYellowSkull, 1 { drawimage "YSKUICON", 325, 387; }
     }
     }
 InInventory BorphMallAcquired, 1

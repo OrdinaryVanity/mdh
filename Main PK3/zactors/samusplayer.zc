@@ -12,7 +12,7 @@ Class SamusPlayer : PlayerPawn
 		Player.SoundClass "Hunter";
 		Player.DisplayName "Hunter";
 		Player.StartItem "PowerBeam";
-		Player.StartItem "ScanVisor";
+		//Player.StartItem "ScanVisor";
 		Player.StartItem "MissileStateCounter", 100;
 		Player.StartItem "ChargeDummy", 1;
 		Player.StartItem "ChargeDummy2", 1;

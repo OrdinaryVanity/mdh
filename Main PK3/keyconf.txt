@@ -30,8 +30,9 @@ alias changelog "puke -583 1"
 addmenukey "Morph Ball" morph
 defaultbind z morph
 
-addmenukey "Scan Visor" scan
-defaultbind f scan
+//addmenukey "Scan Visor" scan
+addmenukey "Scan Visor" "netevent MDHOpenScan"
+defaultbind f
 
 addmenukey "Shinespark" shine
 defaultbind x shine

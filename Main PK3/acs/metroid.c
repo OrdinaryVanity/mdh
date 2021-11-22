@@ -8,20 +8,6 @@ world int 2:spawnhp;
 world int 3:armor;
 world int 4:oarmor;
 
-//This stores the currently selected weapon for each player, regardless whether
-//or not it has been out long enough to be added as a stored weapon
-global str 4:CurrentlySelectedWeapon[];
-
-//Previous Weapon and Current Weapon are the 2 stored weapon slots
-global str 1:PreviousWeapon[];
-global str 2:CurrentWeapon[];
-
-//timing variable. This is how long we need to have a weapon out before it counts as being "selected" for the purposes of this mod
-int weptime = 80;
-
-//time since last weapon change per player
-global int 3:LastSwap[];
-
 int playerOnFoot[PLAYERMAX];
 int IsServer;
 
@@ -2750,101 +2736,6 @@ script METROID_SCANSELECT (int onoff)
 		terminate;
 		
 	}
-}
-/*
-script "WeaponMonitor" ENTER
-{
-	int player = PlayerNumber();
-	while (true)
-	{
-		str weapon = GetWeapon();
-		
-		//Every tic, we want to increase the timer if our weapon hasn't changed from the previous weapon
-		if (WeaponChanged() && (LastSwap[player] >= weptime || weapon_in_previous_slot(weapon,player) || IsSlotEmpty(player)))
-		{
-			LastSwap[player] = 0;
-			SetCurrentWeaponSlot(weapon,player);
-			//print(s:weapon,s:" held for long enough - setting as current weapon");
-		}
-		else if (!WeaponChanged() && !weapon_in_current_slot(weapon,player))
-			LastSwap[player] = LastSwap[player] + 1;
-		delay (1);
-	}
-}
-*/
-script "WeaponSwitch" (void) net
-{
-	int player = PlayerNumber();
-	str prev = PreviousWeapon[player];
-	str curr = CurrentWeapon[player];
-	str weapon = GetWeapon(); 
-	
-	//LastSwap[player] = 0;
-	SetCurrentWeaponSlot(weapon,player);
-	
-	SetWeapon("ScanVisorWeapon");
-	
-	if (weapon != curr)
-		SetWeapon(curr);
-	else
-		SetWeapon(prev);
-}
-
-function bool IsSlotEmpty(int player)
-{
-	if (PreviousWeapon[player] == 0 || CurrentWeapon[player] == 0)
-		return true;
-	return false;
-}
-
-function bool WeaponChanged(void)
-{
-	bool value = (GetWeapon() != CurrentlySelectedWeapon[PlayerNumber()]);
-	CurrentlySelectedWeapon[PlayerNumber()] = GetWeapon();
-	return value;
-}
-
-function bool weapon_in_current_slot(str weapon, int player)
-{
-	return weapon == CurrentWeapon[player];
-}
-
-function bool weapon_in_previous_slot(str weapon, int player)
-{
-	return weapon == PreviousWeapon[player];
-}
-
-function void SetCurrentWeaponSlot(str weapon, int player)
-{
-
-	//Here we fix Heretic powered weapons, as they will report their powered versions which we don't want
-	if (weapon == "BlasterPowered")
-		weapon = "Blaster";
-	if (weapon == "CrossbowPowered")
-		weapon = "Crossbow";
-	if (weapon == "GauntletsPowered")
-		weapon = "Gauntlets";
-	if (weapon == "GoldWandPowered")
-		weapon = "GoldWand";
-	if (weapon == "MacePowered")
-		weapon = "Mace";
-	if (weapon == "PhoenixRodPowered")
-		weapon = "PhoenixRod";
-	if (weapon == "SkullRodPowered")
-		weapon = "SkullRod";
-	if (weapon == "StaffPowered")
-		weapon = "Staff";
-
-	if (player < 0 || player > 64)
-	{
-		printbold(s: "Something went wrong with weapon switching. Please contact the author of the Fast Switch mod!");
-		return;
-	}
-	else
-		PreviousWeapon[player] = CurrentWeapon[player];
-		CurrentWeapon[player] = weapon;
-
-	//print(s:"Weapon has changed for player ",d:player, s:" from ", s:PlayerWeapons[player], s:" to ", s:weapon);
 }
 
 script METROID_SCANHUDCAM (int onoff)
