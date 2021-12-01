@@ -4,4 +4,3 @@ vec4 Process(vec4 color)
     vec3 norm = reflect(eyedir, normalize(vWorldNormal.xyz));
     return getTexel(norm.xz * 0.5) * color;
 }
-

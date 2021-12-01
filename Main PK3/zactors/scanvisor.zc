@@ -1,4 +1,4 @@
-Class ScanEvent : EventHandler
+Class ScanEvent : EventHandler //thanks JGP for help with this
 {
     Weapon lastweap; //this is a class-scope pointer
 

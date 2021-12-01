@@ -277,6 +277,7 @@ material texture "Models/Fish/Skins/Fish.png"
 //Green Crystal
 material texture "Models/GreenCrystal/Skins/Green.png"
 {
+	Shader "shaders/Fakereflections.fp"
 	normal "textures/Green_Norm.png"
 	specular "textures/Green_Spec.png"
 	specularlevel 100
@@ -288,6 +289,7 @@ material texture "Models/GreenCrystal/Skins/Green.png"
 //Lime Green Crystal
 material texture "Models/LimeGreenCrystal/Skins/LimeGreen.png"
 {
+	Shader "shaders/Fakereflections.fp"
 	normal "textures/Green_Norm.png"
 	specular "textures/Green_Spec.png"
 	specularlevel 100
@@ -299,6 +301,7 @@ material texture "Models/LimeGreenCrystal/Skins/LimeGreen.png"
 //Orange Crystal
 material texture "Models/OrangeCrystal/Skins/Orange.png"
 {
+	Shader "shaders/Fakereflections.fp"
 	normal "textures/Green_Norm.png"
 	specular "textures/Green_Spec.png"
 	specularlevel 100
@@ -310,6 +313,7 @@ material texture "Models/OrangeCrystal/Skins/Orange.png"
 //Blue Crystal
 material texture "Models/BlueCrystal/Skins/Blue.png"
 {
+	Shader "shaders/Fakereflections.fp"
 	normal "textures/Green_Norm.png"
 	specular "textures/Green_Spec.png"
 	specularlevel 100
@@ -396,25 +400,25 @@ material texture "Models/GrapplePoint/Skins/grapplepoint.png"
 	glossiness 25
 }
 
-HardwareShader Texture "Models/GreenCrystal/Skins/Green.png"
+/*HardwareShader Texture "Models/GreenCrystal/Skins/Green.png"
 {
-	Shader "shaders/Fakereflections.fp"
+	Shader "shaders/Fakereflections.pp"
 }
 
 HardwareShader Texture "Models/LimeGreenCrystal/Skins/LimeGreen.png"
 {
-	Shader "shaders/Fakereflections.fp"
+	Shader "shaders/Fakereflections.pp"
 }
 
 HardwareShader Texture "Models/OrangeCrystal/Skins/Orange.png"
 {
-	Shader "shaders/Fakereflections.fp"
+	Shader "shaders/Fakereflections.pp"
 }
 
 HardwareShader Texture "Models/BlueCrystal/Skins/Blue.png"
 {
-	Shader "shaders/Fakereflections.fp"
-}
+	Shader "shaders/Fakereflections.pp"
+}*/
 
 pulselight GreenCrystalLight
 {
