@@ -138,8 +138,8 @@ int BeamStackCombinations[STACKTYPES][3] =
 #define DROPCOUNT 5
 
 #define D_DROPITEM      0
-#define D_CHECKITEM     1 //1
-#define D_CHECKAMMO     2 //2
+#define D_CHECKITEM     1
+#define D_CHECKAMMO     2
 
 #define DN_NOSPAWNCHANCE 0
 #define DN_PICKCHANCE    1

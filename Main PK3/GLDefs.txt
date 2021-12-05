@@ -1574,7 +1574,7 @@ PulseLight EnergyGlow1
     Color 0.45 0.0 0.45
     Size 15
     SecondarySize 25
-    Interval 3
+    Interval 1.5
     Offset 0 20 0
     DontLightSelf 1
 }
@@ -1584,7 +1584,7 @@ PulseLight EnergyGlow2
     Color 0.55 0.0 0.0
     Size 25
     SecondarySize 30
-    Interval 3
+    Interval 1.5
     Offset 0 18 0
     DontLightSelf 1
 }
@@ -1594,7 +1594,7 @@ PulseLight EnergyGlow3
     Color 0.65 0.65 0.0
     Size 25
     SecondarySize 35
-    Interval 3
+    Interval 1.5
     Offset 0 22 0
     DontLightSelf 1
 }
@@ -1604,7 +1604,7 @@ PulseLight EnergyGlow4
     Color 0.85 0.85 0.85
     Size 25
     SecondarySize 35
-    Interval 1
+    Interval 1.5
     Offset 0 22 0
     DontLightSelf 1
 }
@@ -1614,7 +1614,7 @@ PulseLight EnergyGlow5
     Color 0.85 0.85 0.85
     Size 25
     SecondarySize 35
-    Interval 1
+    Interval 1.5
     Offset 0 22 0
 	DontLightSelf 1
 }

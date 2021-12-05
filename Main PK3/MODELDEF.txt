@@ -5,12 +5,6 @@ Model Crate1 {
 	AngleOffset 90
 	frameindex CRT1 A 0 0
 }
-//Model Crate1_big {
-	//Path "Models/Crate1"
-	//Model 0 "Crate1.md3"
-	//scale 2.0 2.0 2.0
-	//AngleOffset 90
-	//frameindex CRT1 A 0 0
 
 Model Crate1_big {
 	Path "Models/Crate1"
@@ -71,9 +65,6 @@ Model ChozoStatue1{
 Model Platform1 {
 	Path "Models/Platform1"
 	Model 0 "Platform1.md3"
-	//SurfaceSkin 0 0 "Skins/Top.png"
-	//SurfaceSkin 0 1 "Skins/Sides.png"
-	//SurfaceSkin 0 2 "Skins/Bottom.png"
 	Scale 8.6 8.6 8.6
 	Offset 0 0 -4
 	FrameIndex PFM1 A 0 0

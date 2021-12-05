@@ -360,16 +360,39 @@ actor Energy10 : Health replaces Stimpack 17526
     Inventory.PickupSound "health/10"
     Renderstyle Add
     Alpha 0.975
-    Scale 0.7
+    Scale 0.15
     +NOGRAVITY
+	+FORCEXYBILLBOARD
 	
 	Tag "10 Energy"
 	
     States
     {
       Spawn:
-        NRGA ABCD 4 BRIGHT
-        NRGA ABCD 4
+        NRGA A 3 BRIGHT A_SetScale(0.147)
+		NRGA B 3 BRIGHT A_SetScale(0.148)
+ 		NRGA C 3 BRIGHT A_SetScale(0.149)
+		NRGA D 3 BRIGHT A_SetScale(0.150)
+		NRGA E 3 BRIGHT A_SetScale(0.151)
+		NRGA F 3 BRIGHT A_SetScale(0.152)
+		NRGA G 3 BRIGHT A_SetScale(0.153)
+		NRGA H 3 BRIGHT A_SetScale(0.154)
+		NRGA I 3 BRIGHT A_SetScale(0.155)
+		NRGA J 3 BRIGHT A_SetScale(0.156)
+		NRGA K 3 BRIGHT A_SetScale(0.157)
+		NRGA L 3 BRIGHT A_SetScale(0.158)
+		NRGA M 3 BRIGHT A_SetScale(0.159)
+		NRGA N 3 BRIGHT A_SetScale(0.158)
+		NRGA O 3 BRIGHT A_SetScale(0.157)
+		NRGA P 3 BRIGHT A_SetScale(0.156)
+		NRGA Q 3 BRIGHT A_SetScale(0.155)
+		NRGA R 3 BRIGHT A_SetScale(0.154)
+		NRGA S 3 BRIGHT A_SetScale(0.153)
+		NRGA T 3 BRIGHT A_SetScale(0.152)
+		NRGA U 3 BRIGHT A_SetScale(0.151)
+		NRGA V 3 BRIGHT A_SetScale(0.150)
+		NRGA W 3 BRIGHT A_SetScale(0.149)
+		NRGA X 3 BRIGHT A_SetScale(0.148)
         loop
     }
 }
@@ -386,8 +409,30 @@ ACTOR Energy10_Dropped : Energy10
       Spawn1:
         TNT1 A 0 A_JumpIfInventory("Health100",31,"RemoveCheck")
         TNT1 A 0 A_GiveInventory("Health100",1)
-        NRGA ABCD 4 BRIGHT
-        NRGA ABCD 4
+        NRGA A 3 BRIGHT A_SetScale(0.147)
+		NRGA B 3 BRIGHT A_SetScale(0.148)
+ 		NRGA C 3 BRIGHT A_SetScale(0.149)
+		NRGA D 3 BRIGHT A_SetScale(0.150)
+		NRGA E 3 BRIGHT A_SetScale(0.151)
+		NRGA F 3 BRIGHT A_SetScale(0.152)
+		NRGA G 3 BRIGHT A_SetScale(0.153)
+		NRGA H 3 BRIGHT A_SetScale(0.154)
+		NRGA I 3 BRIGHT A_SetScale(0.155)
+		NRGA J 3 BRIGHT A_SetScale(0.156)
+		NRGA K 3 BRIGHT A_SetScale(0.157)
+		NRGA L 3 BRIGHT A_SetScale(0.158)
+		NRGA M 3 BRIGHT A_SetScale(0.159)
+		NRGA N 3 BRIGHT A_SetScale(0.158)
+		NRGA O 3 BRIGHT A_SetScale(0.157)
+		NRGA P 3 BRIGHT A_SetScale(0.156)
+		NRGA Q 3 BRIGHT A_SetScale(0.155)
+		NRGA R 3 BRIGHT A_SetScale(0.154)
+		NRGA S 3 BRIGHT A_SetScale(0.153)
+		NRGA T 3 BRIGHT A_SetScale(0.152)
+		NRGA U 3 BRIGHT A_SetScale(0.151)
+		NRGA V 3 BRIGHT A_SetScale(0.150)
+		NRGA W 3 BRIGHT A_SetScale(0.149)
+		NRGA X 3 BRIGHT A_SetScale(0.148)
         loop
       GiveGravity:
         NRGA A 1
@@ -399,8 +444,30 @@ ACTOR Energy10_Dropped : Energy10
         TNT1 A 0
         TNT1 A 0 A_TakeInventory("Health100",100)
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,16,0,0) == 1,"Spawn1")
-        NRGA ABCD 4 BRIGHT
-        NRGA ABCD 4
+        NRGA A 3 BRIGHT A_SetScale(0.147)
+		NRGA B 3 BRIGHT A_SetScale(0.148)
+ 		NRGA C 3 BRIGHT A_SetScale(0.149)
+		NRGA D 3 BRIGHT A_SetScale(0.150)
+		NRGA E 3 BRIGHT A_SetScale(0.151)
+		NRGA F 3 BRIGHT A_SetScale(0.152)
+		NRGA G 3 BRIGHT A_SetScale(0.153)
+		NRGA H 3 BRIGHT A_SetScale(0.154)
+		NRGA I 3 BRIGHT A_SetScale(0.155)
+		NRGA J 3 BRIGHT A_SetScale(0.156)
+		NRGA K 3 BRIGHT A_SetScale(0.157)
+		NRGA L 3 BRIGHT A_SetScale(0.158)
+		NRGA M 3 BRIGHT A_SetScale(0.159)
+		NRGA N 3 BRIGHT A_SetScale(0.158)
+		NRGA O 3 BRIGHT A_SetScale(0.157)
+		NRGA P 3 BRIGHT A_SetScale(0.156)
+		NRGA Q 3 BRIGHT A_SetScale(0.155)
+		NRGA R 3 BRIGHT A_SetScale(0.154)
+		NRGA S 3 BRIGHT A_SetScale(0.153)
+		NRGA T 3 BRIGHT A_SetScale(0.152)
+		NRGA U 3 BRIGHT A_SetScale(0.151)
+		NRGA V 3 BRIGHT A_SetScale(0.150)
+		NRGA W 3 BRIGHT A_SetScale(0.149)
+		NRGA X 3 BRIGHT A_SetScale(0.148)
         TNT1 A 0
         stop
     }
@@ -415,16 +482,39 @@ actor Energy25 : Health replaces Medikit 17527
     Renderstyle Add
     Scale 1
     Alpha 0.975
-    Scale 0.9
+    Scale 0.25
     +NOGRAVITY
+	+FORCEXYBILLBOARD
 	
 	Tag "25 Energy"
 	
     States
     {
       Spawn:
-        NRGB ABCD 4 BRIGHT
-        NRGB ABCD 4
+        NRGB A 3 BRIGHT A_SetScale(0.247)
+		NRGB B 3 BRIGHT A_SetScale(0.248)
+ 		NRGB C 3 BRIGHT A_SetScale(0.249)
+		NRGB D 3 BRIGHT A_SetScale(0.250)
+		NRGB E 3 BRIGHT A_SetScale(0.251)
+		NRGB F 3 BRIGHT A_SetScale(0.252)
+		NRGB G 3 BRIGHT A_SetScale(0.253)
+		NRGB H 3 BRIGHT A_SetScale(0.254)
+		NRGB I 3 BRIGHT A_SetScale(0.255)
+		NRGB J 3 BRIGHT A_SetScale(0.256)
+		NRGB K 3 BRIGHT A_SetScale(0.257)
+		NRGB L 3 BRIGHT A_SetScale(0.258)
+		NRGB M 3 BRIGHT A_SetScale(0.259)
+		NRGB N 3 BRIGHT A_SetScale(0.258)
+		NRGB O 3 BRIGHT A_SetScale(0.257)
+		NRGB P 3 BRIGHT A_SetScale(0.256)
+		NRGB Q 3 BRIGHT A_SetScale(0.255)
+		NRGB R 3 BRIGHT A_SetScale(0.254)
+		NRGB S 3 BRIGHT A_SetScale(0.253)
+		NRGB T 3 BRIGHT A_SetScale(0.252)
+		NRGB U 3 BRIGHT A_SetScale(0.251)
+		NRGB V 3 BRIGHT A_SetScale(0.250)
+		NRGB W 3 BRIGHT A_SetScale(0.249)
+		NRGB X 3 BRIGHT A_SetScale(0.248)
         loop
     }
 }
@@ -442,8 +532,30 @@ ACTOR Energy25_Dropped : Energy25
       Spawn1:
         TNT1 A 0 A_JumpIfInventory("Health100",31,"RemoveCheck")
         TNT1 A 0 A_GiveInventory("Health100",1)
-        NRGB ABCD 4 BRIGHT
-        NRGB ABCD 4
+       NRGB A 3 BRIGHT A_SetScale(0.247)
+		NRGB B 3 BRIGHT A_SetScale(0.248)
+ 		NRGB C 3 BRIGHT A_SetScale(0.249)
+		NRGB D 3 BRIGHT A_SetScale(0.250)
+		NRGB E 3 BRIGHT A_SetScale(0.251)
+		NRGB F 3 BRIGHT A_SetScale(0.252)
+		NRGB G 3 BRIGHT A_SetScale(0.253)
+		NRGB H 3 BRIGHT A_SetScale(0.254)
+		NRGB I 3 BRIGHT A_SetScale(0.255)
+		NRGB J 3 BRIGHT A_SetScale(0.256)
+		NRGB K 3 BRIGHT A_SetScale(0.257)
+		NRGB L 3 BRIGHT A_SetScale(0.258)
+		NRGB M 3 BRIGHT A_SetScale(0.259)
+		NRGB N 3 BRIGHT A_SetScale(0.258)
+		NRGB O 3 BRIGHT A_SetScale(0.257)
+		NRGB P 3 BRIGHT A_SetScale(0.256)
+		NRGB Q 3 BRIGHT A_SetScale(0.255)
+		NRGB R 3 BRIGHT A_SetScale(0.254)
+		NRGB S 3 BRIGHT A_SetScale(0.253)
+		NRGB T 3 BRIGHT A_SetScale(0.252)
+		NRGB U 3 BRIGHT A_SetScale(0.251)
+		NRGB V 3 BRIGHT A_SetScale(0.250)
+		NRGB W 3 BRIGHT A_SetScale(0.249)
+		NRGB X 3 BRIGHT A_SetScale(0.248)
         loop
       GiveGravity:
         NRGB A 1
@@ -455,8 +567,30 @@ ACTOR Energy25_Dropped : Energy25
         TNT1 A 0
         TNT1 A 0 A_TakeInventory("Health100",100)
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,16,0,0) == 1,"Spawn1")
-        NRGB ABCD 4 BRIGHT
-        NRGB ABCD 4
+        NRGB A 3 BRIGHT A_SetScale(0.247)
+		NRGB B 3 BRIGHT A_SetScale(0.248)
+ 		NRGB C 3 BRIGHT A_SetScale(0.249)
+		NRGB D 3 BRIGHT A_SetScale(0.250)
+		NRGB E 3 BRIGHT A_SetScale(0.251)
+		NRGB F 3 BRIGHT A_SetScale(0.252)
+		NRGB G 3 BRIGHT A_SetScale(0.253)
+		NRGB H 3 BRIGHT A_SetScale(0.254)
+		NRGB I 3 BRIGHT A_SetScale(0.255)
+		NRGB J 3 BRIGHT A_SetScale(0.256)
+		NRGB K 3 BRIGHT A_SetScale(0.257)
+		NRGB L 3 BRIGHT A_SetScale(0.258)
+		NRGB M 3 BRIGHT A_SetScale(0.259)
+		NRGB N 3 BRIGHT A_SetScale(0.258)
+		NRGB O 3 BRIGHT A_SetScale(0.257)
+		NRGB P 3 BRIGHT A_SetScale(0.256)
+		NRGB Q 3 BRIGHT A_SetScale(0.255)
+		NRGB R 3 BRIGHT A_SetScale(0.254)
+		NRGB S 3 BRIGHT A_SetScale(0.253)
+		NRGB T 3 BRIGHT A_SetScale(0.252)
+		NRGB U 3 BRIGHT A_SetScale(0.251)
+		NRGB V 3 BRIGHT A_SetScale(0.250)
+		NRGB W 3 BRIGHT A_SetScale(0.249)
+		NRGB X 3 BRIGHT A_SetScale(0.248)
         TNT1 A 0
         stop
     }
@@ -466,11 +600,12 @@ actor Energy100 : Health 17528
 {
 //$Category Metroid
 	+DONTTHRUST
+	+FORCEXYBILLBOARD
     Inventory.Amount 100
     Inventory.PickupMessage "Picked up a greater energy capsule."
     Inventory.PickupSound "health/50"
     Renderstyle Add
-    Scale 0.75
+    Scale 0.35
     Alpha 0.975
     +NOGRAVITY
 	
@@ -479,8 +614,30 @@ actor Energy100 : Health 17528
     States
     {
       Spawn:
-        NRGD ABCD 4 BRIGHT
-        NRGD ABCD 4
+        NRGD A 2 BRIGHT A_SetScale(0.347)
+		NRGD B 2 BRIGHT A_SetScale(0.348)
+ 		NRGD C 2 BRIGHT A_SetScale(0.349)
+		NRGD D 2 BRIGHT A_SetScale(0.350)
+		NRGD E 2 BRIGHT A_SetScale(0.351)
+		NRGD F 2 BRIGHT A_SetScale(0.352)
+		NRGD G 2 BRIGHT A_SetScale(0.353)
+		NRGD H 2 BRIGHT A_SetScale(0.354)
+		NRGD I 2 BRIGHT A_SetScale(0.355)
+		NRGD J 2 BRIGHT A_SetScale(0.356)
+		NRGD K 2 BRIGHT A_SetScale(0.357)
+		NRGD L 2 BRIGHT A_SetScale(0.358)
+		NRGD M 2 BRIGHT A_SetScale(0.359)
+		NRGD N 2 BRIGHT A_SetScale(0.358)
+		NRGD O 2 BRIGHT A_SetScale(0.357)
+		NRGD P 2 BRIGHT A_SetScale(0.356)
+		NRGD Q 2 BRIGHT A_SetScale(0.355)
+		NRGD R 2 BRIGHT A_SetScale(0.354)
+		NRGD S 2 BRIGHT A_SetScale(0.353)
+		NRGD T 2 BRIGHT A_SetScale(0.352)
+		NRGD U 2 BRIGHT A_SetScale(0.351)
+		NRGD V 2 BRIGHT A_SetScale(0.350)
+		NRGD W 2 BRIGHT A_SetScale(0.349)
+		NRGD X 2 BRIGHT A_SetScale(0.348)
         loop
     }
 }
