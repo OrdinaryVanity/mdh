@@ -112,3 +112,5 @@ pic 10 tics 1
 cameratexture SCVSTEX1 256 128 //fit 80 56
 
 Warp Texture HPROCRTQ
+
+//Animdefs for Codex

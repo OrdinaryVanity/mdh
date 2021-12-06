@@ -504,6 +504,19 @@ ACTOR ChargeBeamScan : PDA
 	}
 }
 
+ACTOR Energy10Scan : PDA
+{
+	Tag "$PDA_Energy10Scan_Title"
+	PDA.Text "$PDA_Energy10Scan_Text"
+
+	States
+	{
+		Spawn:
+			NOTE A -1
+			Stop
+	}
+}
+
 //Beams
 
 ACTOR IceBeamScan : PDA

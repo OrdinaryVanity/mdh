@@ -352,6 +352,8 @@ Class ScanVisorWeapon : Weapon
 						}	
 				}
 			
+				// now do item types
+			
 				else if (scandata.HitActor is "MorphBallModel")
 				{
 					if (!CheckInventory("MorphBallScan",1))
@@ -419,6 +421,20 @@ Class ScanVisorWeapon : Weapon
 					else
 					{
 						console.printf("Space Jump entry exists; check scan logs.");
+					}
+				}
+				
+				else if (scandata.HitActor is "Energy10" || "Energy10_Dropped")
+				{
+					if (!CheckInventory("Energy10Scan",1))
+					{
+						console.printf("Scanning entity");
+						GiveInventory("Energy10Scan",1);
+						console.printf("'Small Energy' scan complete! Check scan logs for more information.");
+					}
+					else
+					{
+						console.printf("Small Energy entry exists; check scan logs.");
 					}
 				}
 				

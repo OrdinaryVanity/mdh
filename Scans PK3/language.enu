@@ -285,6 +285,12 @@ PDA_ChargeBeamScan_Text =
 	"If I charge my beam, and then release with the missile button, I can"
 	"do a charge combo, but only if I have that beams charge combo.";
 
+PDA_Energy10Scan_Title = "Small Energy";
+PDA_Energy10Scan_Text =
+	"Energy is found from all living creatures. What is left behind "
+	"is a fraction of the creature's existence... Absorbing this energy type will "
+	"restore 10 units of energy.";
+
 //Beams
 
 PDA_IceBeamScan_Title = "Ice Beam";
