@@ -688,7 +688,7 @@ Class IceBolt : Actor {
 		+FORCEXYBILLBOARD;
 		+HITTRACER;
 		Speed 30;
-		Damage (20);
+		Damage (1);
 		Scale 0.25;
 		RenderStyle "Add";
 		Alpha 0.95;
@@ -709,24 +709,23 @@ Class IceBolt : Actor {
       Death:
         ISHT B 1
 		{
-			if (tracer && (tracer.bISMONSTER || tracer.player) && !tracer.bBOSS) 
-			{
-				tracer.GiveInventory("FreezeToken",1);
-				let frz = FreezeToken(tracer.FindInventory("FreezeToken"));
-				if (frz)
+				if (tracer && (tracer.bISMONSTER || tracer.player) && !tracer.bBOSS) 
 				{
-					frz.fcounter+=64;
+					tracer.GiveInventory("FreezeToken",1);
+					let frz = FreezeToken(tracer.FindInventory("FreezeToken"));
+					if (frz)
+					{
+						frz.fcounter+=64;
+					}
 				}
 			}
-			
-		}
         TNT1 A 0 A_Stop;
         //ISHT B 1 A_SpawnItemEx("IceBoltExplosion",0,0,0,0,0,0,0,32);
         TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("IceSpark",0,0,0,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,400)/100.00,random(-180,180),160,0);
         TNT1 AAAAAAAAAAAAA 0 A_CustomMissile("IceTrailFlicker",0,0,Random(-200,200),3,Random(-200,200));
         TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("MissileTrail",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-180,180),160,128);
         ISHT B 1 A_SpawnItemEx("IceBoltPuff",0,0,0,0,0,0,0,160);
-        ISHT B 4; // Linger a while so it'll register with doors
+        ISHT B 4;// Linger a while so it'll register with doors
         stop;
     }
 }
@@ -757,7 +756,7 @@ Class IceBoltCoop : IceBolt
 {
 	Default
 	{
-		Damage (20);
+		Damage (5);
 		Species "Player";
 		DamageType "IceBeam";
 		+THRUSPECIES;
@@ -766,7 +765,7 @@ Class IceBoltCoop : IceBolt
 	
     States {
 		Death:
-			ISHT B 0
+			ISHT B 1
 			{
 				if (tracer && (tracer.bISMONSTER || tracer.player) && !tracer.bBOSS) 
 				{
@@ -777,7 +776,6 @@ Class IceBoltCoop : IceBolt
 						frz.fcounter+=64;
 					}
 				}
-			
 			}
 			ISHT B 0 A_Stop;
 			//ISHT B 0 A_SpawnItemEx("IceBoltExplosionCoop",0,0,0,0,0,0,0,32);
@@ -785,7 +783,7 @@ Class IceBoltCoop : IceBolt
 			TNT1 BBBBBBBBBBBBB 0 A_CustomMissile("IceTrailFlicker",0,0,Random(-200,200),3,Random(-200,200));
 			TNT1 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB 0 A_SpawnItemEx("MissileTrail",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-180,180),160,128);
 			ISHT B 0 A_SpawnItemEx("IceBoltPuff",0,0,0,0,0,0,0,160);
-			ISHT B 4; // Linger a while so it'll register with doors
+			ISHT B 4;// Linger a while so it'll register with doors
 			stop;
 	}
 }
@@ -1164,6 +1162,7 @@ Class IceBoltCharged : Actor
 		Projectile;
 		+NOGRAVITY;
 		+FORCEXYBILLBOARD;
+		+HITTRACER;
 		Speed 45;
 		Damage (40);
 		Scale 0.35;
@@ -1182,7 +1181,18 @@ Class IceBoltCharged : Actor
 			loop;
 
 		Death:
-			ISHT B 0;
+			ISHT B 1
+			{
+				if (tracer && (tracer.bISMONSTER || tracer.player) && !tracer.bBOSS) 
+				{
+					tracer.GiveInventory("FreezeToken",1);
+					let frz = FreezeToken(tracer.FindInventory("FreezeToken"));
+					if (frz)
+					{
+						frz.fcounter+=64;
+					}
+				}
+			}
 			TNT1 A 0 A_Stop;
 			TNT1 A 0 A_SpawnItemEx("IceBoltChargedExplosion",0,0,0,0,0,0,0,32);
 			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("IceSpark",0,0,0,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,400)/100.00,random(-180,180),160,0);
@@ -1203,11 +1213,23 @@ Class IceBoltChargedCoop : IceBoltCharged {
 		DamageType "IceCharged";
 		+THRUSPECIES;
 		+FORCEXYBILLBOARD;
+		+HITTRACER;
 	}
 	
 	States {
 		Death:
-			TNT1 A 0;
+			TNT1 A 0
+			{
+				if (tracer && (tracer.bISMONSTER || tracer.player) && !tracer.bBOSS) 
+				{
+					tracer.GiveInventory("FreezeToken",1);
+					let frz = FreezeToken(tracer.FindInventory("FreezeToken"));
+					if (frz)
+					{
+						frz.fcounter+=64;
+					}
+				}
+			}
 			TNT1 A 0 A_Stop;
 			TNT1 A 0 A_SpawnItemEx("IceBoltChargedExplosionCoop",0,0,0,0,0,0,0,32);
 			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("IceSpark",0,0,0,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,400)/100.00,random(-180,180),160,0);
@@ -1318,9 +1340,10 @@ Class IceBoltHalfCharged : IceBoltCharged
 	Default
 	{
 		+FORCEXYBILLBOARD;
+		+HITTRACER;
 		Radius 8;
 		Height 8;
-		Damage (30);
+		Damage (20);
 		DamageType "IceHalfCharged";
 		Scale 0.15;
 	}
@@ -1405,7 +1428,7 @@ Class FreezeToken : Inventory {
 			owner.A_SetScale(Clamp(owner.radius*0.04,0.1,1));
 			owner.SetOrigin(owner.pos + (0,0,owner.default.height*0.5),false);
 			owner.bSPRITEFLIP = random[sfx](0,1);
-			//owner.sprite = GetSpriteIndex("IGIB");
+			owner.sprite = GetSpriteIndex("IGIB");
 			owner.frame = 0;
 			owner.A_SetTranslation("Ice");
 			owner.A_SetTics(1000);
