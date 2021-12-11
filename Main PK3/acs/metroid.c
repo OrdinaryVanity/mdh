@@ -2856,3 +2856,96 @@ script "JumpCheck" Enter
 		Delay(1);		
 	}
 }
+
+script "TempDropState" (int which, int a1, int a2)
+{
+		delay(1);
+        int myx = GetActorX(0);
+        int myy = GetActorY(0);
+        int myz = GetActorZ(0);
+        delay(10);
+        SetActivatorToTarget(0);
+
+        int maxRoll = 0;
+        a1 = oldmax(1, a1);
+
+        // TempDropState is used to tell the shit below
+        //  whether an item can be dropped or not
+        for (int i = 0; i < DROPCOUNT; i++)
+        {
+            int checkitem = MonsterDropItems[i][D_CHECKITEM];
+            int checkammo = MonsterDropItems[i][D_CHECKAMMO];
+            TempDropState[i] = 0;
+
+            if (GameType() == GAME_SINGLE_PLAYER)
+            {
+				
+                if (strcmp(checkitem, "InGame"))
+                {
+                    if (!CheckInventory(checkitem)) { continue; }
+                }
+				
+				if (!strcmp(checkammo, "Health"))
+                {
+                    if (GetActorProperty(0, APROP_Health) >= getMaxHealth()) { continue; }
+                }
+				
+				else if (strcmp(checkammo, ""))
+					{
+						if (CheckInventory(checkammo) >= GetAmmoCapacity(checkammo)) { continue; }
+					}
+            }
+        
+            maxRoll += MonsterDropChances[i][DN_PICKCHANCE];
+            TempDropState[i] = 1;
+        }
+
+        maxRoll -= 1; // the range starts from 0, not 1
+
+        if (maxRoll < 0) { terminate; }
+
+        while (a1-- > 0)
+        {
+            int roll    = random(0, maxRoll);
+            int curstep = 0;
+            int item    = "";
+            
+            for (i = 0; i < DROPCOUNT; i++)
+            {
+                if (!TempDropState[i]) { continue; }
+
+                curstep += MonsterDropChances[i][DN_PICKCHANCE];
+
+                if (roll < curstep)
+                {
+                    if (random(0, 255) >= MonsterDropChances[i][DN_NOSPAWNCHANCE])
+                    {
+                        item = MonsterDropItems[i][D_DROPITEM];
+                    }
+
+                    break;
+                }
+            }
+
+            if (strcmp(item, ""))
+            {
+                int mag   = 16 * a1;
+                int ang, pitch;
+                int nx, ny, nz;
+                i = 0;
+
+                do
+                {
+                    ang   = random(0, 1.0);
+                    pitch = random(-0.25, 0.25);
+
+                    nx = myx + (mag * FixedMul(cos(ang), cos(pitch)));
+                    ny = myy + (mag * FixedMul(sin(ang), cos(pitch)));
+                    nz = myz + (mag * sin(pitch));
+
+                    i++;
+                } while (!Spawn(item, nx, ny, nz) && (i < 16));
+            }
+        }
+        terminate;
+	}

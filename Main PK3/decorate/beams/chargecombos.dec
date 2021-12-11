@@ -89,7 +89,7 @@ actor PowerComboMissileSeekerCoop : PowerComboMissileSeeker { +THRUSPECIES Speci
 
 actor GrossHack : ArtiBlastRadius { +INVENTORY.AUTOACTIVATE }
 
-ACTOR IceComboMissile
+/*ACTOR IceComboMissile
 {
     Radius 12
     Height 8
@@ -418,7 +418,7 @@ actor IceComboPuff3
 }
 
 actor IceComboPuff4 : IceComboPuff3 { Scale 1.95 +FORCEXYBILLBOARD }
-
+*/
 ACTOR WaveComboMissile
 {
     Radius 12

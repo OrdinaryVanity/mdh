@@ -756,7 +756,7 @@ Class IceBoltCoop : IceBolt
 {
 	Default
 	{
-		Damage (5);
+		Damage (2);
 		Species "Player";
 		DamageType "IceBeam";
 		+THRUSPECIES;
@@ -769,6 +769,12 @@ Class IceBoltCoop : IceBolt
 			{
 				if (tracer && (tracer.bISMONSTER || tracer.player) && !tracer.bBOSS) 
 				{
+					if(tracer.FindInventory("FreezeToken"))
+					{
+						tracer.TakeInventory("FreezeToken",1);
+						tracer.GiveInventory("FreezeToken",1);
+					}
+					
 					tracer.GiveInventory("FreezeToken",1);
 					let frz = FreezeToken(tracer.FindInventory("FreezeToken"));
 					if (frz)
@@ -778,7 +784,7 @@ Class IceBoltCoop : IceBolt
 				}
 			}
 			ISHT B 0 A_Stop;
-			//ISHT B 0 A_SpawnItemEx("IceBoltExplosionCoop",0,0,0,0,0,0,0,32);
+			ISHT B 0 A_SpawnItemEx("IceBoltExplosionCoop",0,0,0,0,0,0,0,32);
 			TNT1 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB 0 A_SpawnItemEx("IceSpark",0,0,0,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,400)/100.00,random(-180,180),160,0);
 			TNT1 BBBBBBBBBBBBB 0 A_CustomMissile("IceTrailFlicker",0,0,Random(-200,200),3,Random(-200,200));
 			TNT1 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB 0 A_SpawnItemEx("MissileTrail",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-180,180),160,128);
@@ -799,7 +805,7 @@ Class IceBoltExplosionCoop : IceBoltExplosion
     {
       Spawn:
         TNT1 A 0;
-        TNT1 A 1 A_Explode(8,32,0);
+        TNT1 A 1 A_Explode(4,32,0);
         Stop;
     }
 }
@@ -813,6 +819,7 @@ Class IceTrail : Actor
 		+NOINTERACTION;
 		+FORCEXYBILLBOARD;
 		+CLIENTSIDEONLY;
+		+HITTRACER
 		RenderStyle "Add";
 	}
 	
@@ -1164,7 +1171,7 @@ Class IceBoltCharged : Actor
 		+FORCEXYBILLBOARD;
 		+HITTRACER;
 		Speed 45;
-		Damage (40);
+		Damage (20);
 		Scale 0.35;
 		RenderStyle "Add";
 		Alpha 0.95;
@@ -1183,13 +1190,23 @@ Class IceBoltCharged : Actor
 		Death:
 			ISHT B 1
 			{
-				if (tracer && (tracer.bISMONSTER || tracer.player) && !tracer.bBOSS) 
+				if (tracer && (tracer.bISMONSTER || tracer.player)) 
 				{
+					if(tracer.FindInventory("FreezeToken"))
+					{
+						tracer.TakeInventory("FreezeToken",1);
+						tracer.GiveInventory("FreezeToken",1);
+					}
 					tracer.GiveInventory("FreezeToken",1);
 					let frz = FreezeToken(tracer.FindInventory("FreezeToken"));
 					if (frz)
 					{
-						frz.fcounter+=64;
+						if(tracer.bBOSS)
+						{
+							frz.fcounter+=64;
+						}
+						
+						frz.fcounter+=128;
 					}
 				}
 			}
@@ -1222,8 +1239,27 @@ Class IceBoltChargedCoop : IceBoltCharged {
 			{
 				if (tracer && (tracer.bISMONSTER || tracer.player) && !tracer.bBOSS) 
 				{
+					if(tracer.FindInventory("FreezeToken"))
+					{
+						tracer.TakeInventory("FreezeToken",1);
+						tracer.GiveInventory("FreezeToken",1);
+					}
 					tracer.GiveInventory("FreezeToken",1);
 					let frz = FreezeToken(tracer.FindInventory("FreezeToken"));
+					if (frz)
+					{
+						frz.fcounter+=96;
+					}
+				}
+				if (tracer && (tracer.bISMONSTER || tracer.player) && tracer.bBOSS)
+				{
+					if(tracer.FindInventory("FreezeTokenCharged"))
+					{
+						tracer.TakeInventory("FreezeTokenCharged",1);
+						tracer.GiveInventory("FreezeTokenCharged",1);
+					}
+					tracer.GiveInventory("FreezeTokenCharged",1);
+					let frz = FreezeTokenCharged(tracer.FindInventory("FreezeTokenCharged"));
 					if (frz)
 					{
 						frz.fcounter+=64;
@@ -1260,7 +1296,7 @@ Class IceBoltChargedExplosion : Actor
     {
       Spawn:
         TNT1 A 0;
-        TNT1 A 1 A_Explode(16,112,0);
+        TNT1 A 1 A_Explode(8,112,0);
         Stop;
     }
 }
@@ -1276,7 +1312,7 @@ Class IceBoltChargedExplosionCoop : IceBoltChargedExplosion
     {
       Spawn:
         TNT1 A 0;
-        TNT1 A 1 A_Explode(16,192,0);
+        TNT1 A 1 A_Explode(8,192,0);
         Stop;
     }
 }
@@ -1343,7 +1379,7 @@ Class IceBoltHalfCharged : IceBoltCharged
 		+HITTRACER;
 		Radius 8;
 		Height 8;
-		Damage (20);
+		Damage (10);
 		DamageType "IceHalfCharged";
 		Scale 0.15;
 	}
@@ -1358,21 +1394,30 @@ Class IceTrailHalfCharged : IceTrailCharged
 	}
 }
 
-Class FreezeToken : Inventory {
-	int fcounter;
+Class FreezeToken : Inventory { //[R4L] I owe this to JGP, this might as well be his mod at this point.
+	int fcounter;				//A LOT of adjustments were made to this code.
 	uint ownertrans;
 	bool grav;
+	bool floater;
 	
-	override void AttachToOwner(actor other) {
+	Default
+	{
+		Inventory.MaxAmount 1;
+	}
+	
+	override void AttachToOwner(actor other) 
+	{
 		super.AttachToOwner(other);
 		if (!owner)
 			return;
 		grav = owner.bNOGRAVITY;
+		floater = owner.bFLOAT;
 		if (grav)
-			owner.bNOGRAVITY = false;
+		floater = false; //Cacos won't float up/down while frozen
 		owner.bNOPAIN = true;
+		owner.bDONTTHRUST = true; //Don't move anything while frozen!
 		ownertrans = owner.translation;
-		owner.A_SetTranslation("Ice");
+		//owner.A_SetTranslation("Ice");
 		owner.A_StartSound("ibeam/freeze");
 		let layer = Spawn("FrozenLayer",owner.pos);
 		if (layer) {
@@ -1380,19 +1425,21 @@ Class FreezeToken : Inventory {
 			layer.sprite = owner.sprite;
 			layer.frame = owner.frame;
 			layer.angle = owner.angle;
-			layer.scale.x = owner.scale.x*1.32;
-			layer.scale.y = owner.scale.y*1.07;
+			layer.scale.x = owner.scale.x*1.10;
+			layer.scale.y = owner.scale.y*1.10;
 			layer.bSPRITEFLIP = owner.bSPRITEFLIP;
 			layer.bYFLIP = owner.bYFLIP;
+			layer.A_SetTranslation("Translucent");
+			layer.alpha = 1.0;
 		}
 	}
 	override void DoEffect() {
 		super.DoEffect();
-		if (level.isFrozen() || !owner)
+		if (!owner)
 			return;
+		owner.alpha = 0; //Make non-frozen sprite invisible so it slowly fades in.
 		owner.A_SetTics(fcounter);
 		fcounter--;
-		//console.printf("owner: %s, counter: %d",owner.GetclassName(),fcounter);
 		if (fcounter <= 0) {
 			DepleteOrDestroy();
 			return;
@@ -1401,34 +1448,45 @@ Class FreezeToken : Inventory {
 			for (int i = 7; i >= 0; i--)
 				owner.A_SoundVolume(i,0);
 			int rad = owner.radius;
-			for (int i = random[sfx](5,8); i > 0; i--) {
+			for (int i = random[sfx](10,16); i > 0; i--) {
 				let ice = Spawn("IceChunk",owner.pos + (frandom[sfx](-rad,rad),frandom[sfx](-rad,rad),frandom[sfx](0,owner.default.height)));
 				if (ice) {
+					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
+					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
+					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
+					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
+					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
+					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
 					ice.vel = (frandom[sfx](-3,3),frandom[sfx](-3,3),frandom[sfx](2,6));
 					ice.master = owner;
 					ice.gravity = 0.7;
 				}
 			}
-			for (int i = random[sfx](12,16); i > 0; i--) {
-				let ice = Spawn("IceChunk",owner.pos + (frandom[sfx](-rad,rad),frandom[sfx](-rad,rad),frandom[sfx](0,owner.default.height)));
+			for (int i = random[sfx](20,26); i > 0; i--) {
+				let ice = Spawn("IceChunk2",owner.pos + (frandom[sfx](-rad,rad),frandom[sfx](-rad,rad),frandom[sfx](0,owner.default.height)));
 				if (ice) {
+					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
+					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
+					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
+					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
+					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
+					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
 					ice.vel = (frandom[sfx](-3.5,3.5),frandom[sfx](-3.5,3.5),frandom[sfx](3,7));
 					ice.master = owner;
 					ice.gravity = 0.5;
 					ice.A_SetRenderstyle(1.0,Style_AddShaded);
-					ice.SetShade("08caed");
+					ice.SetShade("08CAED");
 					ice.A_SetScale(frandom[sfx](0.4,0.75));
 				}
 			}
 			owner.A_StartSound("ibeam/freeze");
 			owner.gravity = 0.4;
-			//owner.vel = (frandom[sfx](-2,2),frandom[sfx](-2,2),frandom[sfx](3,6));
 			owner.vel *= 0.15;
 			owner.A_NoBlocking();
 			owner.A_SetScale(Clamp(owner.radius*0.04,0.1,1));
 			owner.SetOrigin(owner.pos + (0,0,owner.default.height*0.5),false);
 			owner.bSPRITEFLIP = random[sfx](0,1);
-			owner.sprite = GetSpriteIndex("IGIB");
+			owner.sprite = GetSpriteIndex("TNT1");
 			owner.frame = 0;
 			owner.A_SetTranslation("Ice");
 			owner.A_SetTics(1000);
@@ -1443,10 +1501,77 @@ Class FreezeToken : Inventory {
 			return;
 		owner.bNOPAIN = owner.default.bNOPAIN;
 		owner.bNOGRAVITY = grav;
+		owner.bFLOAT = floater;
 		if (owner.health > 0)
 			owner.translation = ownertrans;
 		super.DetachFromOwner();
 	}
+}
+
+Class FreezeTokenCharged : FreezeToken
+{
+	override void AttachToOwner(actor other) 
+	{
+		super.AttachToOwner(other);
+		if (!owner)
+			return;
+		grav = owner.bNOGRAVITY;
+		floater = owner.bFLOAT;
+		if (grav)
+		floater = false; //Cacos won't float up/down while frozen
+		owner.bNOPAIN = true;
+		owner.bDONTTHRUST = true; //Don't move anything while frozen!
+		ownertrans = owner.translation;
+		//owner.A_SetTranslation("Ice");
+		owner.A_StartSound("ibeam/freeze");
+		let layer = Spawn("FrozenLayerCharged",owner.pos);
+		if (layer) {
+			layer.master = owner;
+			layer.sprite = owner.sprite;
+			layer.frame = owner.frame;
+			layer.angle = owner.angle;
+			layer.scale.x = owner.scale.x*1.10;
+			layer.scale.y = owner.scale.y*1.10;
+			layer.bSPRITEFLIP = owner.bSPRITEFLIP;
+			layer.bYFLIP = owner.bYFLIP;
+			layer.A_SetTranslation("Translucent");
+			layer.alpha = 1.0;
+		}
+	}
+
+}
+
+Class FreezeTokenChargeCombo : FreezeToken
+{
+	override void AttachToOwner(actor other) 
+	{
+		super.AttachToOwner(other);
+		if (!owner)
+			return;
+		grav = owner.bNOGRAVITY;
+		floater = owner.bFLOAT;
+		if (grav)
+		floater = false; //Cacos won't float up/down while frozen
+		owner.bNOPAIN = true;
+		owner.bDONTTHRUST = true; //Don't move anything while frozen!
+		ownertrans = owner.translation;
+		//owner.A_SetTranslation("Ice");
+		owner.A_StartSound("ibeam/freeze");
+		let layer = Spawn("FrozenLayerChargeCombo",owner.pos);
+		if (layer) {
+			layer.master = owner;
+			layer.sprite = owner.sprite;
+			layer.frame = owner.frame;
+			layer.angle = owner.angle;
+			layer.scale.x = owner.scale.x*1.10;
+			layer.scale.y = owner.scale.y*1.10;
+			layer.bSPRITEFLIP = owner.bSPRITEFLIP;
+			layer.bYFLIP = owner.bYFLIP;
+			layer.A_SetTranslation("Translucent");
+			layer.alpha = 1.0;
+		}
+	}
+
 }
 
 Class FrozenLayer : Actor 
@@ -1454,20 +1579,83 @@ Class FrozenLayer : Actor
 	Default 
 	{
 		+NOINTERACTION;
-		RenderStyle "Shaded";
-		StencilColor "08CAED";
+		RenderStyle "Add";
+		Translation "0:255=@100[0,50,100]";
+		Alpha 1.0;
 	}
 	override void Tick() {
 		if (master && master.FindInventory("FreezeToken")) {
 			SetOrigin(master.pos,true);
+			master.alpha = master.alpha+0.015;
+			alpha = alpha-0.015;
 		}
 		else
 			destroy();
 	}
 	states {
 	Spawn:
-		#### # -1;
-		stop;
+		#### # -1 BRIGHT;
+		Stop;
+	}
+}
+
+Class FrozenLayerCharged : Actor 
+{
+	Default 
+	{
+		+NOINTERACTION;
+		RenderStyle "Add";
+		Translation "0:255=@100[0,50,100]";
+		Alpha 1.0;
+	}
+	override void Tick() {
+		if (master && master.FindInventory("FreezeTokenCharged")) {
+			SetOrigin(master.pos,true);
+			if(master.bBOSS)
+			{
+				master.alpha = master.alpha+0.015;
+				alpha = alpha-0.015;
+			}
+			master.alpha = master.alpha+0.005;
+			alpha = alpha-0.005;
+		}
+		else
+			destroy();
+	}
+	states {
+	Spawn:
+		#### # -1 BRIGHT;
+		Stop;
+	}
+}
+
+Class FrozenLayerChargeCombo : Actor 
+{
+	Default 
+	{
+		+NOINTERACTION;
+		RenderStyle "Add";
+		Translation "0:255=@100[0,50,100]";
+		Alpha 1.0;
+	}
+	override void Tick() {
+		if (master && master.FindInventory("FreezeTokenChargeCombo")) {
+			SetOrigin(master.pos,true);
+			if(master.bBOSS)
+			{
+				master.alpha = master.alpha+0.003;
+				alpha = alpha-0.003;
+			}
+			master.alpha = master.alpha+0.001;
+			alpha = alpha-0.001;
+		}
+		else
+			destroy();
+	}
+	states {
+	Spawn:
+		#### # -1 BRIGHT;
+		Stop;
 	}
 }
 
@@ -1475,22 +1663,21 @@ Class FrozenDummy : Actor
 {
 	Default
 	{
-		+SHOOTABLE;
-		+SOLID;
-		+NOBLOOD;
-		Height 56;
-		Radius 16;
-		Health 15;
-		Speed 0;
-		Mass 0x7fffffff;
-		Translation "Ice";
-		DamageFactor "NoDamage", 0.0;
-		DamageFactor "Normal", 0.75;
-		DamageFactor "IceBeamExplode", 0.0;
-		DamageFactor "IceChargedExplode", 0.0;
-		DamageFactor "IceCombo", 0.0;
-	}
-	
+    +SHOOTABLE;
+    +SOLID;
+    +NOBLOOD;
+    Height 56;
+    Radius 16;
+    Health 15;
+    Speed 0;
+    Mass 0x7fffffff;
+    Translation "Ice";
+    DamageFactor "NoDamage", 0.0;
+    DamageFactor "Normal", 0.75;
+    DamageFactor "IceBeamExplode", 0.0;
+    DamageFactor "IceChargedExplode", 0.0;
+    DamageFactor "IceCombo", 0.0;
+}
     States
     {
     Spawn:
@@ -1508,8 +1695,6 @@ Class FrozenDummy : Actor
         TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
         TNT1 A 0 A_FreezeDeathChunks;
         TNT1 A 0 A_NoBlocking;
-		TNT1 A 0 A_SpawnItemEx("EnemyDropSpawner",0,0,0);
-		TNT1 A 0 ACS_ExecuteAlways(594,0,31);
         TNT1 A 1;
         Stop;
     }

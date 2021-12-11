@@ -66,7 +66,7 @@ map METDM03 "Gettin' Hot, Stayin' Cool" // By TerminusEst13
     SmoothLighting
 }
 
-map TEST "Test" // By R4L
+map R4LTEST "R4LTest" // By R4L
 {
     next = "METTEST"
 	music = "M_TEST"

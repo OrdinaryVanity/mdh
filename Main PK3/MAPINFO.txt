@@ -8,6 +8,7 @@ gameinfo
 	infopage = "METRTIP0", "CREDIT"
 	AddEventHandlers = "GHookHandler"
 	AddEventHandlers = "ScanEvent"
+	AddEventHandlers = "MonsterDrops"
 }
 
 
