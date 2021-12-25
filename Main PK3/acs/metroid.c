@@ -246,9 +246,9 @@ script METROID_ENTER ENTER
 
     if (isFreeForAll() || isTeamgame()) 
 	{
-		SetAmmoCapacity("MissileAmmo",10); 
-		GiveInventory("MissileAmmo",5); 
-		GiveInventory("MissileTankAcquired",1); 
+		//SetAmmoCapacity("MissileAmmo",10); 
+		//GiveInventory("MissileAmmo",5); 
+		//GiveInventory("MissileTankAcquired",1); 
 	
 	}
 	
@@ -258,6 +258,8 @@ script METROID_ENTER ENTER
 		{ 
 			GiveInventory("CoopModeOn",1); 
 			SetActorState(0,"CoopModeOn"); 
+			SetAmmoCapacity("MissileAmmo",0); 
+			SetAmmoCapacity("PowerBombAmmo",0); 
 		}
 	}
 
@@ -1687,10 +1689,12 @@ script METROID_DECORATE (int which, int a1, int a2)
     case 37:
 		if (isSinglePlayer() && GotMissiles == 1) { SetResultValue(1); }
         else { SetResultValue(0); }
+		break;
 		
 	case 38:
 		GiveInventory("PowerBombAmmo", 1);
 		delay(1);
+		break;
 	
 	case 39:
 		if ((isSinglePlayer() == true) && (GotMissiles != 1)) { SetResultValue(1); }
@@ -1782,6 +1786,11 @@ script METROID_DECORATE (int which, int a1, int a2)
 
 	case 57:
 		if (isSinglePlayer() && GotGravity == 1) { SetResultValue(1); }
+        else { SetResultValue(0); }
+        break;
+		
+	case 58:
+		if (isSinglePlayer() && GotPowerBomb == 1) { SetResultValue(1); }
         else { SetResultValue(0); }
         break;
     }

@@ -18,12 +18,12 @@ Class SamusPlayer : PlayerPawn
 		Player.StartItem "ChargeDummy2", 1;
 		Player.StartItem "PowerBeamAcquired", 1;
 		Player.StartItem "ChargeBeamAcquired", 0;
-		Player.StartItem "MissileTankAcquired", -1;
+		Player.StartItem "MissileTankAcquired", 0;
 		Player.StartItem "PlayerTotalMissiles", 0;
 		Player.StartItem "PlayerTotalSuperMissiles", 0;
 		Player.StartItem "PlayerTotalPowerBombs", 0;
-		Player.StartItem "PowerBombAcquired", -1;
-		Player.StartItem "PowerBombAmmo", 0;
+		//Player.StartItem "PowerBombAcquired", 0;
+		//Player.StartItem "PowerBombAmmo", 0;
 		Player.StartItem "MissileAmmo", 0;
 		Player.StartItem "CombatVisorAcquired", 1;
 		Player.StartItem "BombCount", 3;
