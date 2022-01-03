@@ -3117,3 +3117,9 @@ brightmap texture Models/Keys/Skins/3bluekeycard.png {
 	map "Models/Keys/Skins/keycardbrightmap.png"
 	disablefullbright
 }
+
+//ThatOneRandomDude's New Ship
+brightmap texture "Models/SamusShip/Skins/ship layout.png" {
+	map "Models/SamusShip/Skins/ship layout brightmap.png"
+	disablefullbright
+}

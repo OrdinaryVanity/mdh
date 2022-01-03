@@ -1,21 +1,344 @@
-actor SamusGunshipModel : SwitchableDecoration 17830 
+Actor GunshipPiece1 : SwitchableDecoration 20000 
 {
 //$Category Metroid
-    Radius 135
-    Height 78
+    Radius 80
+    Height 100
 	+USESPECIAL
     +SOLID
     +NOGRAVITY
     -SHOOTABLE
 	
-	Tag "Gunship"
+	Tag "GunshipPiece1"
 	
      States {
 		Spawn:
 			TNT1 A 0
-			GSHP A -1
-			stop
+			GS01 A -1
+			Stop
     }
+}
+
+Actor GunshipPiece2 : SwitchableDecoration 20001 {
+//$Category Metroid
+    Radius 80
+    Height 100
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece2"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS02 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece3 : SwitchableDecoration 20002 {
+//$Category Metroid
+    Radius 120
+    Height 120
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece3"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS03 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece4 : SwitchableDecoration 20003 {
+//$Category Metroid
+    Radius 50
+    Height 40
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece4"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS04 A -1
+			Stop
+	 }
+}
+
+Actor GunshipPiece5 : SwitchableDecoration 20004 {
+//$Category Metroid
+    Radius 80
+    Height 100
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece5"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS05 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece6 : SwitchableDecoration 20005 {
+//$Category Metroid
+    Radius 20
+    Height 60
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece6"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS06 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece7 : SwitchableDecoration 20006 {
+//$Category Metroid
+    Radius 20
+    Height 60
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece7"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS07 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece8 : SwitchableDecoration 20007 {
+//$Category Metroid
+    Radius 49
+    Height 24
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece8"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS08 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece9 : SwitchableDecoration 20008 {
+//$Category Metroid
+    Radius 36
+    Height 150
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece9"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS09 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece10 : SwitchableDecoration 20009 {
+//$Category Metroid
+    Radius 36
+    Height 150
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece10"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS10 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece11 : SwitchableDecoration 20010 {
+//$Category Metroid
+    Radius 49
+    Height 24
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece11"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS11 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece12 : SwitchableDecoration 20011 {
+//$Category Metroid
+    Radius 36
+    Height 150
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece12"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS12 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece13 : SwitchableDecoration 20012 {
+//$Category Metroid
+    Radius 36
+    Height 150
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece13"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS13 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece14 : SwitchableDecoration 20013 {
+//$Category Metroid
+    Radius 36
+    Height 8
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece14"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS14 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece15 : SwitchableDecoration 20014 {
+//$Category Metroid
+    Radius 36
+    Height 140
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece15"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS15 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece16 : SwitchableDecoration 20015 {
+//$Category Metroid
+    Radius 64
+    Height 52
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece16"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS16 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece17 : SwitchableDecoration 20016 {
+//$Category Metroid
+    Radius 36
+    Height 140
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece17"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS17 A -1
+			Stop
+	}
+}
+
+Actor GunshipPiece18 : SwitchableDecoration 20017 {
+//$Category Metroid
+    Radius 36
+    Height 8
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "GunshipPiece18"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GS18 A -1
+			Stop
+	}
 }
 
 actor PowerGunshipFlight : PowerFlight { Powerup.Duration 0x7FFFFFFF }

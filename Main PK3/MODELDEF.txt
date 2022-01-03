@@ -1,3 +1,186 @@
+// Samus Gunship Models. These will get joined after.
+Model GunshipPiece1 {
+	Path "Models/SamusShip"
+	Model 0 "Part1.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset -75 0 -65
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS01 A 0 0
+}
+
+Model GunshipPiece2 {
+	Path "Models/SamusShip"
+	Model 0 "Part2.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 10 0 -65
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS02 A 0 0
+}
+Model GunshipPiece3 {
+	Path "Models/SamusShip"
+	Model 0 "Part3.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 140 0 -65
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS03 A 0 0
+}
+Model GunshipPiece4 {
+	Path "Models/SamusShip"
+	Model 0 "Part4.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 215 0 -45
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS04 A 0 0
+}
+Model GunshipPiece5 {
+	Path "Models/SamusShip"
+	Model 0 "Part5.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 300 0 -45
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS05 A 0 0
+}
+Model GunshipPiece6 {
+	Path "Models/SamusShip"
+	Model 0 "Part6.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset -20 0 -46
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS06 A 0 0
+}
+Model GunshipPiece7 {
+	Path "Models/SamusShip"
+	Model 0 "Part7.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset -60 0 0
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS07 A 0 0
+}
+Model GunshipPiece8 {
+	Path "Models/SamusShip"
+	Model 0 "Part8.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 175 -170 -75
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS08 A 0 0
+}
+Model GunshipPiece9 {
+	Path "Models/SamusShip"
+	Model 0 "Part9.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 125 -225 -1
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS09 A 0 0
+}
+Model GunshipPiece10 {
+	Path "Models/SamusShip"
+	Model 0 "Part10.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 185 -225 -1
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS10 A 0 0
+}
+Model GunshipPiece11 {
+	Path "Models/SamusShip"
+	Model 0 "Part11.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 175 170 -75
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS11 A 0 0
+}
+Model GunshipPiece12 {
+	Path "Models/SamusShip"
+	Model 0 "Part12.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 125 225 -1
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS12 A 0 0
+}
+Model GunshipPiece13 {
+	Path "Models/SamusShip"
+	Model 0 "Part13.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 185 225 -1
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS13 A 0 0
+}
+Model GunshipPiece14 {
+	Path "Models/SamusShip"
+	Model 0 "Part14.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 286 -180 -95
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS14 A 0 0
+}
+Model GunshipPiece15 {
+	Path "Models/SamusShip"
+	Model 0 "Part15.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 282 -100 0
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS15 A 0 0
+}
+Model GunshipPiece16 {
+	Path "Models/SamusShip"
+	Model 0 "Part16.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 280 0 0
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS16 A 0 0
+}
+Model GunshipPiece17 {
+	Path "Models/SamusShip"
+	Model 0 "Part17.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 280 100 0
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS17 A 0 0
+}
+Model GunshipPiece18 {
+	Path "Models/SamusShip"
+	Model 0 "Part18.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 286 180 -95
+	AngleOffset 90
+	Scale 2.0 2.0 2.0
+	
+	FrameIndex GS18 A 0 0
+}
+
 Model Crate1 {
 	Path "Models/Crate1"
 	Model 0 "Crate1.md3"

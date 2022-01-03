@@ -77,7 +77,6 @@ graphic f1_tposs, 800, 600
 //sprite 0000A0, 1, 1 { patch TNT1A0, 0, 0 {} }
 
 sprite MBMDA0, 1, 1 { Patch TNT1A0, 0, 0 } //Morph Ball model
-sprite GUNSA0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
 sprite BRL1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Crate 1 model
 sprite CRT1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Crate 1 model
 sprite CRT2A0, 1, 1 { Patch TNT1A0, 0, 0 } //Crate 2 model
@@ -89,6 +88,26 @@ sprite VSUTA0, 1, 1 { Patch TNT1A0, 0, 0 } //Varia Suit Pickup
 sprite GSUTA0, 1, 1 { Patch TNT1A0, 0, 0 } //Gravity Suit Pickup
 sprite CBEMA0, 1, 1 { Patch TNT1A0, 0, 0 } //Charge Beam Pickup
 sprite SJUMA0, 1, 1 { Patch TNT1A0, 0, 0 } //Space Jump
+
+//GUNSHIP GETS IT OWN FUCKIN BLOCK
+sprite GS01A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS02A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS03A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS04A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS05A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS06A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS07A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS08A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS09A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS10A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS11A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS12A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS13A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS14A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS15A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS16A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS17A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GS18A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
 
 //Keys
 
