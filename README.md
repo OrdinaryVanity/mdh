@@ -2,7 +2,9 @@
 A GZDoom compatible mod
 
 <h2>What is this repo?</h2>
-This repo consists of two folders:
+This repo has two branches: Main and Experimental. <b>Main</b> is for the stable channel of updates and code. This branch will receive very few updates. <b>Experimental</b> is for pretty much all changes to the code and assets as I switch things over to ZScript, therefore this branch will receive the majority of updates as things change.
+
+Both branches consist of three folders:
 
 1. Main.pk3: The majority of game code. Everything from Samus' abilities and weapons to item drops and how drops are handled.
 2. Metroid Levels.pk3: Contains maps and map editing resources (textures, models, props).
