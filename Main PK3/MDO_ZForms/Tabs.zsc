@@ -1,0 +1,180 @@
+class MDO_ZF_Tabs : MDO_ZF_ElementContainer {
+	protected Array<MDO_ZF_RadioButton> tabLabels;
+	protected Array<MDO_ZF_Frame> tabFrames;
+	protected MDO_ZF_RadioController curTab;
+
+	protected double tabHeight;
+	double getTabHeight() { return self.tabHeight; }
+	void setTabHeight(double tabHeight) { self.tabHeight = tabHeight; }
+
+	protected double tabLabelMargin;
+	double getTabLabelMargin() { return self.tabLabelMargin; }
+	void setTabLabelMargin(double tabLabelMargin) { self.tabLabelMargin = tabLabelMargin; }
+
+	protected Font tabFont;
+	Font getTabFont() { return self.tabFont; }
+	void setTabFont(Font tabFont) {
+		if (tabFont == NULL) {
+			self.tabFont = smallfont;
+		}
+		else {
+			self.tabFont = tabFont;
+		}
+	}
+
+	protected double tabTextScale;
+	double getTabTextScale() { return self.tabTextScale; }
+	void setTabTextScale(double tabTextScale) { self.tabTextScale = tabTextScale; }
+
+	protected MDO_ZF_BoxTextures tabNormal;
+	MDO_ZF_BoxTextures getTabNormalTexture() { return self.tabNormal; }
+	void setTabNormalTexture(MDO_ZF_BoxTextures tabNormal) { self.tabNormal = tabNormal; setTabLabelBoxes(); }
+
+	protected MDO_ZF_BoxTextures tabHover;
+	MDO_ZF_BoxTextures getTabHoverTexture() { return self.tabHover; }
+	void setTabHoverTexture(MDO_ZF_BoxTextures tabHover) { self.tabHover = tabHover; setTabLabelBoxes(); }
+
+	protected MDO_ZF_BoxTextures tabActive;
+	MDO_ZF_BoxTextures getTabActiveTexture() { return self.tabActive; }
+	void setTabActiveTexture(MDO_ZF_BoxTextures tabActive) { self.tabActive = tabActive; setTabLabelBoxes(); }
+
+	protected uint tabFocus;
+
+	protected int lastTab;
+
+	protected bool setBoxes;
+	void setTabLabelBoxes() {
+		if (setBoxes) {
+			double curX = 0.0;
+			for (int i = 0; i < tabLabels.size(); i++) {
+				let l = tabLabels[i];
+				l.setBox((curX, 0.0), (tabFont.stringWidth(l.getText()) * tabTextScale + 2.0 * tabLabelMargin, tabHeight));
+				l.config(curTab, i, tabNormal, tabHover, tabActive, NULL, l.getText(), tabFont, tabTextScale);
+				curX += l.box.size.x;
+			}
+		}
+	}
+	
+	void config(
+		double tabHeight, double tabLabelMargin, Font tabFont = NULL, double tabTextScale = 1.0,
+		MDO_ZF_BoxTextures tabNormal = NULL, MDO_ZF_BoxTextures tabHover = NULL, MDO_ZF_BoxTextures tabActive = NULL
+	) {
+		self.setBoxes = false;
+
+		setTabHeight(tabHeight);
+		setTabLabelMargin(tabLabelMargin);
+		setTabFont(tabFont);
+		setTabTextScale(tabTextScale);
+		setTabNormalTexture(tabNormal);
+		setTabHoverTexture(tabHover);
+		setTabActiveTexture(tabActive);
+		setAlpha(1.0);
+
+		self.setBoxes = true;
+
+		setTabLabelBoxes();
+	}
+
+	static MDO_ZF_Tabs create(
+		Vector2 pos, Vector2 size,
+		double tabHeight, double tabLabelMargin, Font tabFont = NULL, double tabTextScale = 1.0,
+		MDO_ZF_BoxTextures tabNormal = NULL, MDO_ZF_BoxTextures tabHover = NULL, MDO_ZF_BoxTextures tabActive = NULL
+	) {
+		let ret = new("MDO_ZF_Tabs");
+
+		ret.setBox(pos, size);
+		ret.curTab = new("MDO_ZF_RadioController");
+		ret.config(tabHeight, tabLabelMargin, tabFont, tabTextScale, tabNormal, tabHover, tabActive);
+
+		return ret;
+	}
+
+	override void getFocusAABB(MDO_ZF_AABB box) {
+		let label = tabLabels[tabFocus];
+		box.pos = label.relToMainFrame((0, 0));
+		box.size = label.box.size;
+	}
+
+	override void beenFocused(MDO_ZF_NavEventType type) {
+		switch (type) {
+		case MDO_ZF_NavEventType_Left: tabFocus = tabLabels.size() - 1; break;
+
+		case MDO_ZF_NavEventType_Right:
+		case MDO_ZF_NavEventType_Tab:
+			tabFocus = 0; break;
+
+		case MDO_ZF_NavEventType_Down:
+		case MDO_ZF_NavEventType_Up:
+			tabFocus = curTab.curVal; break;
+		}
+	}
+
+	void showCorrectTab() {
+		for (int i = 0; i < tabFrames.size(); i++) {
+			if (i == curTab.curVal) { tabFrames[i].show(); }
+			else { tabFrames[i].hide(); }
+		}
+	}
+
+	void addTab(string label) {
+		let button = MDO_ZF_RadioButton.create((0, 0), (0, 0), curTab, 0, text: label);
+		let frame = MDO_ZF_Frame.create((0.0, tabHeight), (box.size.x, box.size.y - tabHeight));
+
+		button.master = self;
+		frame.master = self;
+
+		elements.push(button);
+		elements.push(frame);
+
+		tabLabels.push(button);
+		tabFrames.push(frame);
+
+		setTabLabelBoxes();
+
+		showCorrectTab();
+	}
+
+	MDO_ZF_Frame getTabFrame(int index) {
+		return tabFrames[index];
+	}
+
+	override void topDrawer() {
+		if (curTab.curVal != lastTab) {
+			lastTab = curTab.curVal;
+			showCorrectTab();
+		}
+		Super.topDrawer();
+	}
+
+	override void drawer() {
+		if (curTab.curVal != lastTab) {
+			lastTab = curTab.curVal;
+			showCorrectTab();
+		}
+		Super.drawer();
+	}
+
+	override bool onNavEvent(MDO_ZF_NavEventType type, bool fromController) {
+		if (isFocused() && isEnabled()) {
+			switch (type) {
+			case MDO_ZF_NavEventType_Right:
+				if (tabFocus != tabLabels.size() - 1) {
+					tabFocus += 1;
+					return true;
+				}
+				break;
+			case MDO_ZF_NavEventType_Left:
+				if (tabFocus != 0) {
+					tabFocus -= 1;
+					return true;
+				}
+				break;
+			case MDO_ZF_NavEventType_Confirm:
+				curTab.curVal = tabFocus;
+				break;
+			}
+		}
+		return Super.onNavEvent(type, fromController);
+	}
+
+}

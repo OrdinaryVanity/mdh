@@ -1,0 +1,37 @@
+class MDO_ZF_BoxImage : MDO_ZF_Element {
+	protected MDO_ZF_BoxTextures boxTex;
+	MDO_ZF_BoxTextures getBoxTex() { return self.boxTex; }
+	void setBoxTex(MDO_ZF_BoxTextures boxTex) { self.boxTex = boxTex; }
+	protected MDO_ZF_BoxDrawer boxDrawer;
+
+	protected Vector2 boxScale;
+	Vector2 getBoxScale() { return self.boxScale; }
+	void setBoxScale(Vector2 boxScale) { self.boxScale = boxScale; }
+
+	void config(MDO_ZF_BoxTextures textures = NULL, Vector2 scale = (1, 1)) {
+		setBoxTex(textures);
+		setBoxScale(scale);
+		setAlpha(1.0);
+	}
+
+	static MDO_ZF_BoxImage create(Vector2 pos, Vector2 size, MDO_ZF_BoxTextures textures = NULL, Vector2 scale = (1, 1)) {
+		let ret = new('MDO_ZF_BoxImage');
+
+		ret.config(textures, scale);
+		ret.setBox(pos, size);
+
+		return ret;
+	}
+
+	override void drawer() {
+		if (hidden) { return; }
+
+		MDO_ZF_AABB beforeClip, clipRect;
+		screenClip(beforeClip, clipRect);
+		Screen.setClipRect(int(clipRect.pos.x), int(clipRect.pos.y), int(clipRect.size.x), int(clipRect.size.y));
+
+		boxDrawer.draw(self, (0, 0), box.size, boxTex, true, boxScale);
+
+		Screen.setClipRect(int(beforeClip.pos.x), int(beforeClip.pos.y), int(beforeClip.size.x), int(beforeClip.size.y));
+	}
+}
