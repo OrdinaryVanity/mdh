@@ -38,3 +38,45 @@ Actor Fish 17870
 		Goto Spawn
 	}
 }
+
+Actor Eel 17876
+{
+//$Category Metroid
+	Radius 12
+	Height 24
+	Speed 6
+	MaxStepHeight 0
+	
+	+NOGRAVITY
+	-SOLID
+	-SHOOTABLE
+	
+	States
+	{
+		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_ChangeFlag("FRIGHTENED", FALSE)
+		EEL1 A 0 A_Look
+		EEL1 ABCDEFGHIJKLMNOPQ 1 A_Wander
+		Loop
+		EEL1 A 1 ThrustThingZ(0, 20, 1, 1)
+		Goto Spawn
+		
+		See:
+		TNT1 A 0
+		//TNT1 A 0 A_CheckProximity("Scare", "SamusPlayer", 128)
+		EEL1 ABCDEFGHIJKLMNOPQ 1 A_Wander
+		Loop
+		EEL1 A 1 ThrustThingZ(0, 20, 1, 1)
+		Goto Spawn
+		
+		Scare:
+		TNT1 A 0 A_ChangeFlag("FRIGHTENED", TRUE)
+		RunAway:
+		EEL1 ABCDEFGHIJKLMNOPQ 1 A_Wander
+		EEL1 A 0 A_CheckRange(256, "See", FALSE)
+		Loop
+		EEL1 A 1 ThrustThingZ(0, 20, 1, 1)
+		Goto Spawn
+	}
+}

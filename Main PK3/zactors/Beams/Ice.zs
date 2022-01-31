@@ -1192,13 +1192,13 @@ Class IceBoltCharged : Actor
 			{
 				if (tracer && (tracer.bISMONSTER || tracer.player)) 
 				{
-					if(tracer.FindInventory("FreezeToken"))
+					if(tracer.FindInventory("FreezeTokenCharged"))
 					{
-						tracer.TakeInventory("FreezeToken",1);
-						tracer.GiveInventory("FreezeToken",1);
+						tracer.TakeInventory("FreezeTokenCharged",1);
+						tracer.GiveInventory("FreezeTokenCharged",1);
 					}
-					tracer.GiveInventory("FreezeToken",1);
-					let frz = FreezeToken(tracer.FindInventory("FreezeToken"));
+					tracer.GiveInventory("FreezeTokenCharged",1);
+					let frz = FreezeTokenCharged(tracer.FindInventory("FreezeTokenCharged"));
 					if (frz)
 					{
 						if(tracer.bBOSS)
@@ -1239,16 +1239,16 @@ Class IceBoltChargedCoop : IceBoltCharged {
 			{
 				if (tracer && (tracer.bISMONSTER || tracer.player) && !tracer.bBOSS) 
 				{
-					if(tracer.FindInventory("FreezeToken"))
+					if(tracer.FindInventory("FreezeTokenCharged"))
 					{
-						tracer.TakeInventory("FreezeToken",1);
-						tracer.GiveInventory("FreezeToken",1);
+						tracer.TakeInventory("FreezeTokenCharged",1);
+						tracer.GiveInventory("FreezeTokenCharged",1);
 					}
-					tracer.GiveInventory("FreezeToken",1);
-					let frz = FreezeToken(tracer.FindInventory("FreezeToken"));
+					tracer.GiveInventory("FreezeTokenCharged",1);
+					let frz = FreezeTokenCharged(tracer.FindInventory("FreezeTokenCharged"));
 					if (frz)
 					{
-						frz.fcounter+=96;
+						frz.fcounter+=128;
 					}
 				}
 				if (tracer && (tracer.bISMONSTER || tracer.player) && tracer.bBOSS)
@@ -1318,11 +1318,50 @@ Class IceBoltChargedExplosionCoop : IceBoltChargedExplosion
 }
 
 Class IceBoltPuffCharged : IceBoltPuff 
-{ 
+{
+	//BlockThingsIterator for puffs
+	int RadiusFreeze(double radius)
+	{
+		BlockThingsIterator FrzRadius = BlockThingsIterator.Create(self, radius);
+		Actor mo;
+		int blockobjects;
+	
+		while (FrzRadius.Next())
+		{
+			mo = FrzRadius.thing;
+			if (!mo || !mo.bIsMonster || mo.bBoss || mo.health <= 0 || mo.player || Distance2D(mo) > radius)
+			{
+				continue;
+			}
+				if (mo.FindInventory("FreezeTokenCharged"))
+				{
+					mo.TakeInventory("FreezeTokenCharged", 1);
+				}
+				mo.GiveInventory("FreezeTokenCharged", 1);
+				let frz = FreezeTokenCharged(mo.FindInventory("FreezeTokenCharged"));
+				if (frz)
+				{
+					frz.fcounter+=128;
+				}
+				++blockobjects;
+		}
+		//mo.TakeInventory("FreezeTokenCharged", 1);
+		return blockobjects;
+	}
+	
 	Default
 	{
 		Scale 0.7;
 	}
+	
+	States
+    {
+      Spawn:
+        TNT1 A 0;
+        IPFF A 1 BRIGHT RadiusFreeze(128);
+		IPFF BCDEFGHIJKL 2 BRIGHT;
+        stop;
+    }
 }
 
 Class IceTrailCharged : Actor 
@@ -1448,28 +1487,22 @@ Class FreezeToken : Inventory { //[R4L] I owe this to JGP, this might as well be
 			for (int i = 7; i >= 0; i--)
 				owner.A_SoundVolume(i,0);
 			int rad = owner.radius;
-			for (int i = random[sfx](10,16); i > 0; i--) {
+			for (int i = random[sfx](4,8); i > 0; i--) {
 				let ice = Spawn("IceChunk",owner.pos + (frandom[sfx](-rad,rad),frandom[sfx](-rad,rad),frandom[sfx](0,owner.default.height)));
 				if (ice) {
+					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);;
 					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
-					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
-					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
-					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
-					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
 					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
 					ice.vel = (frandom[sfx](-3,3),frandom[sfx](-3,3),frandom[sfx](2,6));
 					ice.master = owner;
 					ice.gravity = 0.7;
 				}
 			}
-			for (int i = random[sfx](20,26); i > 0; i--) {
+			for (int i = random[sfx](12,18); i > 0; i--) {
 				let ice = Spawn("IceChunk2",owner.pos + (frandom[sfx](-rad,rad),frandom[sfx](-rad,rad),frandom[sfx](0,owner.default.height)));
 				if (ice) {
 					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
 					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
-					ice.A_SpawnItemEx("IceTrailFlicker",random(-1,1),random(-1,1),random(16,46),random(-500,500)/100.00,random(-500,500)/100.00,random(-200,500)/100.00,random(-180,180),161);
-					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
-					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
 					ice.A_SpawnItemEx("IceTrailFlicker3",random(-1,1),random(-1,1),random(16,46),random(-400,400)/100.00,random(-400,400)/100.00,random(10,500)/100.00,random(-180,180),161);
 					ice.vel = (frandom[sfx](-3.5,3.5),frandom[sfx](-3.5,3.5),frandom[sfx](3,7));
 					ice.master = owner;
@@ -1488,7 +1521,7 @@ Class FreezeToken : Inventory { //[R4L] I owe this to JGP, this might as well be
 			owner.bSPRITEFLIP = random[sfx](0,1);
 			owner.sprite = GetSpriteIndex("TNT1");
 			owner.frame = 0;
-			owner.A_SetTranslation("Ice");
+			owner.A_SetTranslation("Translucent");
 			owner.A_SetTics(1000);
 			owner.deathsound = "";
 			owner.bDONTTHRUST = true;
@@ -1510,6 +1543,11 @@ Class FreezeToken : Inventory { //[R4L] I owe this to JGP, this might as well be
 
 Class FreezeTokenCharged : FreezeToken
 {
+	Default
+	{
+		Inventory.MaxAmount 1;
+	}
+	
 	override void AttachToOwner(actor other) 
 	{
 		super.AttachToOwner(other);
@@ -1590,7 +1628,7 @@ Class FrozenLayer : Actor
 			alpha = alpha-0.015;
 		}
 		else
-			destroy();
+			Destroy();
 	}
 	states {
 	Spawn:
@@ -1616,8 +1654,8 @@ Class FrozenLayerCharged : Actor
 				master.alpha = master.alpha+0.015;
 				alpha = alpha-0.015;
 			}
-			master.alpha = master.alpha+0.005;
-			alpha = alpha-0.005;
+			master.alpha = master.alpha+0.007;
+			alpha = alpha-0.007;
 		}
 		else
 			destroy();

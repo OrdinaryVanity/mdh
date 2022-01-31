@@ -274,6 +274,22 @@ material texture "Models/Fish/Skins/Fish.png"
 	glossiness 5
 }
 
+//Eel brightmap
+brightmap texture Models/Fish/Skins/eel.png 
+{
+	map "Models/Fish/Skins/eelbrightmap.png"
+	disablefullbright
+}
+
+//Fish
+material texture "Models/Fish/Skins/eel.png"
+{
+	normal "textures/eel_normal.png"
+	specular "textures/eel_spec.png"
+	specularlevel 5
+	glossiness 5
+}
+
 //Green Crystal
 material texture "Models/GreenCrystal/Skins/Green.png"
 {
@@ -399,6 +415,9 @@ material texture "Models/GrapplePoint/Skins/grapplepoint.png"
 	specularlevel 25
 	glossiness 25
 }
+
+brightmap texture "textures/original/YLLALO2.png" { map "textures/original/YLLALBRT.png" } //Ylla switch left
+brightmap texture "textures/original/YLLARO2.png" { map "textures/original/YLLARBRT.png" } //Ylla switch right
 
 /*HardwareShader Texture "Models/GreenCrystal/Skins/Green.png"
 {

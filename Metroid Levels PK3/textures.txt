@@ -149,4 +149,5 @@ sprite KST1A0, 1, 1 { Patch TNT1A0, 0, 0 } //KeyStone Red
 sprite KST2A0, 1, 1 { Patch TNT1A0, 0, 0 } //KeyStone Purple
 sprite KST3A0, 1, 1 { Patch TNT1A0, 0, 0 } //KeyStone Yelloww
 sprite FISHA0, 1, 1 { Patch TNT1A0, 0, 0 } //Fish
+sprite EEL1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Eel
 sprite GSB1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Grey Stone Breakable Block

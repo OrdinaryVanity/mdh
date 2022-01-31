@@ -334,9 +334,40 @@ Class IceComboMissileCoop : IceComboMissile
 
 Class IceComboPuff : Actor
 { 
+	//BlockThingsIterator for IceSpreader
+	int RadiusFreeze(double radius)
+	{
+		BlockThingsIterator FrzRadius = BlockThingsIterator.Create(self, radius);
+		Actor mo;
+		int blockobjects;
+	
+		while (FrzRadius.Next())
+		{
+			mo = FrzRadius.thing;
+			if (!mo || !mo.bIsMonster ||  mo.health <= 0 || mo.player || Distance2D(mo) > radius)
+			{
+				continue;
+			}
+				if (mo.FindInventory("FreezeTokenCharged"))
+				{
+					mo.TakeInventory("FreezeTokenCharged", 1);
+				}
+				
+				mo.GiveInventory("FreezeTokenCharged", 1);
+				let frz = FreezeTokenCharged(mo.FindInventory("FreezeTokenCharged"));
+				if (frz)
+				{
+					frz.fcounter+=228;
+				}
+				++blockobjects;
+		}
+		//mo.TakeInventory("FreezeTokenCharged", 1);
+		return blockobjects;
+	}
+
 	Default
 	{
-		Alpha 0.75;
+		Alpha 0.55;
 		Scale 1.95;
 		+NOINTERACTION;
 		+CLIENTSIDEONLY;
@@ -347,7 +378,8 @@ Class IceComboPuff : Actor
     {
     Spawn:
         TNT1 A 0;
-        IPFF ABCDEFGHIJKL 10 BRIGHT;
+        IPFF A 1 BRIGHT RadiusFreeze(156);
+		IPFF BCDEFGHIJKL 5 BRIGHT;
         Stop;
     }
 }
@@ -356,7 +388,7 @@ Class IceComboPuff2 : IceComboPuff
 { 
 	Default
 	{
-		Alpha 0.45; 
+		Alpha 0.35; 
 		Scale 2.75; 
 		+FORCEXYBILLBOARD; 
 	}
@@ -364,9 +396,39 @@ Class IceComboPuff2 : IceComboPuff
 
 Class IceComboPuff3 : Actor
 {
+	//BlockThingsIterator for puffs
+	int RadiusFreeze(double radius)
+	{
+		BlockThingsIterator FrzRadius = BlockThingsIterator.Create(self, radius);
+		Actor mo;
+		int blockobjects;
+	
+		while (FrzRadius.Next())
+		{
+			mo = FrzRadius.thing;
+			if (!mo || !mo.bIsMonster || mo.health <= 0 || mo.player || Distance2D(mo) > radius)
+			{
+				continue;
+			}
+				if (mo.FindInventory("FreezeTokenCharged"))
+				{
+					mo.TakeInventory("FreezeTokenCharged", 1);
+				}
+				mo.GiveInventory("FreezeTokenCharged", 1);
+				let frz = FreezeTokenCharged(mo.FindInventory("FreezeTokenCharged"));
+				if (frz)
+				{
+					frz.fcounter+=228;
+				}
+				++blockobjects;
+		}
+		//mo.TakeInventory("FreezeTokenCharged", 1);
+		return blockobjects;
+	}
+	
 	Default
 	{
-		Alpha 0.65;
+		Alpha 0.25;
 		Scale 1.55;
 		+NOINTERACTION;
 		+CLIENTSIDEONLY;
@@ -377,7 +439,8 @@ Class IceComboPuff3 : Actor
     {
     Spawn:
         TNT1 A 0;
-        IPFF ABCDEFGHIJKL 5 BRIGHT;
+        IPFF A 1 BRIGHT RadiusFreeze(156);
+		IPFF BCDEFGHIJKL 3 BRIGHT;
         Stop;
     }
 }

@@ -546,3 +546,33 @@ Model Fish
 	FrameIndex FISH P 0 15
 	FrameIndex FISH Q 0 16
 }
+
+Model Eel
+{
+	INTERPOLATEDOUBLEDFRAMES
+	USEACTORPITCH
+	USEACTORROLL
+	Path "Models/Fish"
+	Model 0 "Eel.md3"
+	Skin 0 "Skins/eel.png"
+	Scale 6.0 6.0 6.0
+	Offset 0 0 12
+	AngleOffset -90
+	FrameIndex EEL1 A 0 0
+	FrameIndex EEL1 B 0 1
+	FrameIndex EEL1 C 0 2
+	FrameIndex EEL1 D 0 3
+	FrameIndex EEL1 E 0 4
+	FrameIndex EEL1 F 0 5
+	FrameIndex EEL1 G 0 6
+	FrameIndex EEL1 H 0 7
+	FrameIndex EEL1 I 0 8
+	FrameIndex EEL1 J 0 9
+	FrameIndex EEL1 K 0 10
+	FrameIndex EEL1 L 0 11
+	FrameIndex EEL1 M 0 12
+	FrameIndex EEL1 N 0 13
+	FrameIndex EEL1 O 0 14
+	FrameIndex EEL1 P 0 15
+	FrameIndex EEL1 Q 0 16
+}

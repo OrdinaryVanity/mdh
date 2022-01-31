@@ -183,11 +183,11 @@ ACTOR SpacePirate replaces WolfensteinSS 17010
         PIRT K -1
         Stop
 
-    Death.IceBeam:
-    Death.IceCharged:
-    Death.IceBeamExplode:
-    Death.IceChargedExplode:
-    Death.IceCombo:
+    //Death.IceBeam:
+    //Death.IceCharged:
+    //Death.IceBeamExplode:
+    //Death.IceChargedExplode:
+    /*Death.IceCombo:
         PIRT G 1
         TNT1 A 0 A_NoBlocking
         TNT1 A 0 A_PlaySound("misc/freeze")
@@ -200,6 +200,7 @@ ACTOR SpacePirate replaces WolfensteinSS 17010
     FrozenNope:
         TNT1 A 0
         stop
+		*/
     }
 }
 
