@@ -240,7 +240,8 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
 	}
 	}
 	
-	InInventory ScanVisorAcquired, 1 { drawimage "SCANEQA0", 655, 309; }
+	//InInventory ScanVisorAcquired, 1 { drawimage "SCANEQA0", 655, 309; }
+	drawimage "SCANEQA0", 655, 309;
 	IsSelected "ScanVisorWeapon" 
 	{
 		drawimage "SCNVISA0", 0, 0; 

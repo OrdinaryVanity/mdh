@@ -13,9 +13,11 @@ Class GH_Anchor : Actor
 	{
 		if (GHR1 && GHR2 && player)
 		{
-			Vector3 dist = Vec3To(player) + (0.0,9.0,6); // -3.0, 9.0, 32.0
-			//dist.XY = Actor.RotateVector(dist.XY, player.Angle-90);
+			Vector3 dist = Vec3To(player) + (0.0,9.0,6.0); // -3.0, 9.0, 32.0
+			//dist.x = -cos(player.angle) * dist.length();
+			dist.y = -sin(player.angle) * dist.length();
 			dist.Z += player.Height / 2;
+			
 			GHR1.pitch = -VectorAngle(dist.xy.length(),dist.z);
 			GHR1.angle = VectorAngle(dist.x,dist.y);
 			GHR2.roll = GHR1.pitch - 90;

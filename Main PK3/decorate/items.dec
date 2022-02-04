@@ -794,80 +794,90 @@ ACTOR SuperMissileTankPickup : CustomInventory 17522
 ACTOR AmmoTankSpawner1 : RandomSpawner replaces Backpack
 {
     DropItem "MissileTankPickup", 255, 10
-    DropItem "SuperMissileTankPickup", 175, 4
-    DropItem "PowerBombTankPickup", 150, 4
+    DropItem "SuperMissileTankPickup", 255, 10
+    DropItem "PowerBombTankPickup", 255, 10
 }
 
-ACTOR UpgradeSpawner1 : RandomSpawner replaces GreenArmor
+ACTOR UpgradeSpawnerTier1 : RandomSpawner
 {
 	DropItem "MorphBallModel", 255, 20
-	DropItem "BombPickup", 255, 19
-	DropItem "BoostBallPickup", 150, 14
-	DropItem "HiJumpPickup", 150, 13
-    DropItem "SpaceJumpPickup", 125
-    DropItem "SpeedBoosterPickup", 125
-	DropItem "ChargeBeamPickup", 255, 18
-	DropItem "MissileTankPickup", 255, 17
-	DropItem "SuperMissileTankPickup", 255, 17
-	DropItem "EnergyTankPickup", 200, 18
-	DropItem "PowerMissilePickup", 150, 12
-	DropItem "WideShotPickup", 150, 11
-	DropItem "SolarFlarePickup", 150, 10
-	DropItem "WaveMissilePickup", 150, 9
-	DropItem "IceSpreaderPickup", 150, 8
-	DropItem "NovaFlashPickup", 150, 7
-	DropItem "ChainsawBeamPickup", 100, 4
-	DropItem "HyperBeamPickup", 100, 3
-	DropItem "VariaSuitPickup", 200, 16
-	DropItem "GravitySuitPickup", 200, 15
+	DropItem "MissileTankPickup", 255, 15
+	DropItem "BombPickup", 255, 8
+	DropItem "ChargeBeamPickup", 255, 7
+	DropItem "HiJumpPickup", 255, 6
+	DropItem "VariaSuitPickup", 255, 5
+	DropItem "GrappleBeamPickup", 255, 3
+	DropItem "RawEnergy", 255, 1
 }
 
-ACTOR UpgradeSpawner2 : RandomSpawner replaces Berserk
+ACTOR UpgradeSpawnerTier2 : RandomSpawner
 {
-	DropItem "MorphBallModel", 255, 20
-	DropItem "BombPickup", 255, 19
-	DropItem "BoostBallPickup", 150, 14
-	DropItem "HiJumpPickup", 150, 13
-    DropItem "SpaceJumpPickup", 125
-    DropItem "SpeedBoosterPickup", 125
-	DropItem "ChargeBeamPickup", 255, 18
-	DropItem "MissileTankPickup", 255, 17
-	DropItem "SuperMissileTankPickup", 255, 17
-	DropItem "EnergyTankPickup", 200, 18
-	DropItem "PowerMissilePickup", 150, 12
-	DropItem "WideShotPickup", 150, 11
-	DropItem "SolarFlarePickup", 150, 10
-	DropItem "WaveMissilePickup", 150, 9
-	DropItem "IceSpreaderPickup", 150, 8
-	DropItem "NovaFlashPickup", 150, 7
-	DropItem "ChainsawBeamPickup", 100, 4
-	DropItem "HyperBeamPickup", 100, 3
-	DropItem "VariaSuitPickup", 200, 16
-	DropItem "GravitySuitPickup", 200, 15
+	DropItem "SuperMissileTankPickup", 255, 20
+	DropItem "EnergyTankPickup", 255, 18
+	DropItem "PowerMissilePickup", 255, 7
+	DropItem "WideShotPickup", 255, 6
+	DropItem "SolarFlarePickup", 255, 5
+	DropItem "WaveMissilePickup", 255, 4
+	DropItem "IceSpreaderPickup", 255, 3
+	DropItem "NovaFlashPickup", 255, 2
+	DropItem "SpaceJumpPickup", 255, 10
 }
 
-ACTOR UpgradeSpawner3 : RandomSpawner replaces RadSuit
+ACTOR UpgradeSpawnerTier3 : RandomSpawner
 {
-	DropItem "MorphBallModel", 255, 20
-	DropItem "BombPickup", 255, 19
-	DropItem "BoostBallPickup", 150, 14
-	DropItem "HiJumpPickup", 150, 13
-    DropItem "SpaceJumpPickup", 125
-    DropItem "SpeedBoosterPickup", 125
-	DropItem "ChargeBeamPickup", 255, 18
-	DropItem "MissileTankPickup", 255, 17
-	DropItem "SuperMissileTankPickup", 255, 17
-	DropItem "EnergyTankPickup", 200, 18
-	DropItem "PowerMissilePickup", 150, 12
-	DropItem "WideShotPickup", 150, 11
-	DropItem "SolarFlarePickup", 150, 10
-	DropItem "WaveMissilePickup", 150, 9
-	DropItem "IceSpreaderPickup", 150, 8
-	DropItem "NovaFlashPickup", 150, 7
-	DropItem "ChainsawBeamPickup", 100, 4
-	DropItem "HyperBeamPickup", 100, 3
-	DropItem "VariaSuitPickup", 200, 16
-	DropItem "GravitySuitPickup", 200, 15
+	DropItem "PowerBombTankPickup", 255, 15
+	DropItem "HyperBeamPickup", 255, 5
+	DropItem "ChainsawBeamPickup", 255, 4
+	DropItem "GravitySuitPickup", 255, 10
+	DropItem "BoostBallPickup", 255, 20
+	DropItem "SpeedBoosterPickup", 255, 3
+}
+
+ACTOR UpgradeSpawnerGreen : UpgradeSpawnerTier1 replaces GreenArmor //Tier 1 upgrades only
+{
+}
+
+ACTOR UpgradeSpawnerZerk : UpgradeSpawnerTier1 replaces Berserk //Tier 1 upgrades only
+{
+}
+
+ACTOR UpgradeSpawnerRad : UpgradeSpawnerTier1 replaces RadSuit //Tier 1 upgrades only
+{
+}
+
+ACTOR UpgradeSpawnerBlue : RandomSpawner replaces BlueArmor //Any Tier
+{
+	DropItem "UpgradeSpawnerTier1" 240
+	DropItem "UpgradeSpawnerTier2" 240
+	DropItem "UpgradeSpawnerTier3" 255
+}
+	
+ACTOR UpgradeSpawnerMap : RandomSpawner replaces Allmap //Any Tier
+{
+	DropItem "UpgradeSpawnerTier1" 240
+	DropItem "UpgradeSpawnerTier2" 240
+	DropItem "UpgradeSpawnerTier3" 255
+}
+
+ACTOR UpgradeSpawnerInfrared : RandomSpawner replaces Infrared //Any Tier
+{
+	DropItem "UpgradeSpawnerTier1" 240
+	DropItem "UpgradeSpawnerTier2" 240
+	DropItem "UpgradeSpawnerTier3" 255
+}
+
+ACTOR UpgradeSpawnerBlur : RandomSpawner replaces BlurSphere //Any Tier
+{
+	DropItem "UpgradeSpawnerTier1" 240
+	DropItem "UpgradeSpawnerTier2" 240
+	DropItem "UpgradeSpawnerTier3" 255
+}
+
+ACTOR UpgradeSpawnerInvuln : RandomSpawner replaces InvulnerabilitySphere //Any Tier
+{
+	DropItem "UpgradeSpawnerTier1" 240
+	DropItem "UpgradeSpawnerTier2" 240
+	DropItem "UpgradeSpawnerTier3" 255
 }
 
 ACTOR EnemyDropSpawner
@@ -960,14 +970,20 @@ ACTOR SoulsphereSpawner : CustomInventory replaces Soulsphere
     {
       Spawn:
         TNT1 A 0
-        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,11,0,0) == 1, "SpawnDM")
-        TNT1 A 0 A_SpawnItemEx("Soul_Energy100")
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,11,0,0) == 1, "SpawnDM")
+        TNT1 A 0 A_SpawnItemEx("SoulSpawner")
         stop
 
       SpawnDM:
         TNT1 A 0 A_SpawnItemEx("Soul_EnergyTank",0,0,0,0,0,0,0,32)
         stop
     }
+}
+Actor SoulSpawner : RandomSpawner
+{
+	DropItem "Soul_Energy100" 255, 25
+	DropItem "Soul_EnergyTank" 255, 25
+	DropItem "UpgradeSpawnerTier2" 255, 15
 }
 
 actor Soul_Energy100: Energy100
@@ -1040,7 +1056,7 @@ ACTOR SoulsphereSpawner2 : RandomSpawner
     DropItem "EnergyTankPickup", 255
 }
 
-ACTOR SpeedBoosterPickup : CustomInventory replaces BlurSphere 17531
+ACTOR SpeedBoosterPickup : CustomInventory 17531
 {
 //$Category Metroid
     Inventory.PickupMessage ""
@@ -1056,14 +1072,14 @@ ACTOR SpeedBoosterPickup : CustomInventory replaces BlurSphere 17531
     States
     {
 	  Spawn:
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,49,0,0) == 1, "RandomSpawn")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,49,0,0) == 1, "Tier3Time")
 		SPBS A 10
         SPBS B 5 BRIGHT
 		loop
 		
-	  RandomSpawn:
-        TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("UpgradeSpawner1",0,0,0,0,0,0,0,32)
+	  Tier3Time:
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
         stop
 
       Pickup:
@@ -1122,7 +1138,7 @@ ACTOR PowerBombTankPickup : CustomInventory 17523
     }
 }
 
-actor RawEnergy : CustomInventory replaces BlueArmor 17532
+actor RawEnergy : CustomInventory 17532
 {
 //$Category Metroid
     RenderStyle Add
@@ -1141,16 +1157,15 @@ actor RawEnergy : CustomInventory replaces BlueArmor 17532
     {
       Spawn:
         TNT1 A 0
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,51,0,0) == 1, "RandomSpawn")
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,51,0,0) == 1, "Tier1Time")
         TNT1 A 0 A_PlaySound("rawenergy/idle")
         EFLD WWWWWWWWWW 2 BRIGHT //A_SpawnItemEx("LascannonBurstHaze2",0,0,20,random(-100,100)/250.0,random(-100,100)/250.0,random(-100,100)/250.0,0,32) // 10x2 = 20
         EFLD WWWWW 2 BRIGHT //A_SpawnItemEx("LascannonBurstHaze2",0,0,20,random(-100,100)/250.0,random(-100,100)/250.0,random(-100,100)/250.0,0,32) // 5x2 = 10
         EFLD ABCDEFGHIJKLMNOPQRSTUV 2 BRIGHT //A_SpawnItemEx("LascannonBurstHaze2",0,0,20,random(-100,100)/250.0,random(-100,100)/250.0,random(-100,100)/250.0,0,32)
         loop
 
-	  RandomSpawn:
-        TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("UpgradeSpawner1",0,0,0,0,0,0,0,32)
+	  Tier1Time:
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
         stop
 
       Pickup:
@@ -1197,7 +1212,7 @@ actor RawEnergyShield : BasicArmorPickup
 
 actor RawEnergyShield2 : RawEnergyShield { Armor.SaveAmount 1 }
 
-ACTOR SpaceJumpPickup : CustomInventory replaces Allmap 17530
+ACTOR SpaceJumpPickup : CustomInventory 17530
 {
 //$Category Metroid
 	Scale 0.30
@@ -1239,7 +1254,7 @@ ACTOR SpaceJumpPickup : CustomInventory replaces Allmap 17530
     }
 }
 
-Actor MorphBallModel : CustomInventory replaces Infrared 18700 
+Actor MorphBallModel : CustomInventory 18700 
 {
 //$Category Metroid
 	Inventory.PickupMessage ""
@@ -1261,13 +1276,13 @@ Actor MorphBallModel : CustomInventory replaces Infrared 18700
 	States {
 		
 		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,33,0,0) == 1, "Tier1Time")
 		MBPU ABCDEFGHIKLMNOPQRSTUVWXYZ 2
-        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,33,0,0) == 1, "MissileTankTime")
 		loop
 		
-		MissileTankTime:
-        TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("MissileTankPickup",0,0,0,0,0,0,0,32)
+		Tier1Time:
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
         stop
 		
 		Pickup:
@@ -1309,14 +1324,14 @@ ACTOR VariaSuitPickup : CustomInventory 7085 {
     {
 		
 	  Spawn:
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,34,0,0) == 1, "MissileTankTime")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,34,0,0) == 1, "Tier1Time")
         VSPK AABBBCCCDD 1 BRIGHT
 		VSPK DEEEFFFGGGHHH 1
         loop
 
-	  MissileTankTime:
-        TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("MissileTankPickup",0,0,0,0,0,0,0,32)
+	  Tier1Time:
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
         stop
 
 	Pickup:
@@ -1327,6 +1342,7 @@ ACTOR VariaSuitPickup : CustomInventory 7085 {
 		TNT1 A 1 A_SetBlend("Red", 0.5, 5)
 		TNT1 A 0
 		stop
+		
 	Nope:
 		TNT1 A 0
 		fail
@@ -1368,13 +1384,13 @@ ACTOR GrappleBeamPickup : CustomInventory 7086
     {
 		
 	  Spawn:
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,34,0,0) == 1, "MissileTankTime")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,34,0,0) == 1, "Tier1Time")
         GPLB ABCDEFGHIJKLMNOPQRSTUVWX 2 BRIGHT
         loop
 
-	  MissileTankTime:
-        TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("MissileTankPickup",0,0,0,0,0,0,0,32)
+	  Tier1Time:
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
         stop
 
 	Pickup:
@@ -1384,13 +1400,14 @@ ACTOR GrappleBeamPickup : CustomInventory 7086
 		TNT1 A 1 A_SetBlend("White", 0.5, 5)
 		TNT1 A 0
 		stop
+		
 	Nope:
 		TNT1 A 0
 		fail
     }
 }
 
-ACTOR ChargeBeamPickup : CustomInventory replaces InvulnerabilitySphere 17542
+ACTOR ChargeBeamPickup : CustomInventory 17542
 {
 //$Category Metroid
 	Inventory.PickupMessage ""
@@ -1410,14 +1427,14 @@ ACTOR ChargeBeamPickup : CustomInventory replaces InvulnerabilitySphere 17542
     {
 	
 		Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,35,0,0) == 1, "Tier1Time")
 		CHBM A 10 BRIGHT
 		CHBM A 5
-        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,35,0,0) == 1, "MissileTankTime")
 		loop
 		
-		MissileTankTime:
-        TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("MissileTankPickup",0,0,0,0,0,0,0,32)
+		Tier1Time:
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
         stop
 		
 		Pickup:
@@ -1451,13 +1468,13 @@ ACTOR BombPickup : CustomInventory 18701
     States
     {
 	  Spawn:
+	    TNT1 A 0
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,53,0,0) == 1, "Tier1Time")
 		BMPK AAABBBCCCDDDEEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPP 1
-        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,53,0,0) == 1, "RandomSpawn")
 		loop
 		
-	  RandomSpawn:
-        TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("UpgradeSpawner1",0,0,0,0,0,0,0,32)
+	  Tier1Time:
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
         stop
 
       Pickup:
@@ -1495,13 +1512,14 @@ ACTOR BoostBallPickup : CustomInventory 18702
     {
 
 	  Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,54,0,0) == 1, "Tier3Time")
 		BSBL ABCDEFGHIJKLMNOPQRSTUVWXYZ 2
-        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,54,0,0) == 1, "RandomSpawn")
 		loop
 		
-	  RandomSpawn:
+	  Tier3Time:
         TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("UpgradeSpawner1",0,0,0,0,0,0,0,32)
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier3",0,0,0,0,0,0,0,32)
         stop
 
       Pickup:
@@ -1537,14 +1555,14 @@ ACTOR HiJumpPickup : CustomInventory 18703
 		
 	  Spawn:
 	    TNT1 A 0
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,55,0,0) == 1, "Tier1Time")
 		HJMP ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 BRIGHT
 		HJUP ABCDEFGHIJKLMNOPQRSTUV 2 BRIGHT
-        TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,55,0,0) == 1, "RandomSpawn")
 		loop
 		
-	  RandomSpawn:
+	  Tier1Time:
         TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("UpgradeSpawner1",0,0,0,0,0,0,0,32)
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
         stop
 
       Pickup:
@@ -1627,7 +1645,7 @@ ACTOR ScanVisor : CustomInventory 18704
 			
 		RandomSpawn:
 			TNT1 A 0
-			TNT1 A 0 A_SpawnItemEx("UpgradeSpawner1",0,0,0,0,0,0,0,32)
+			TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
 			stop
 		
 		Pickup:

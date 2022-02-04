@@ -348,13 +348,13 @@ Class IceComboPuff : Actor
 			{
 				continue;
 			}
-				if (mo.FindInventory("FreezeTokenCharged"))
+				if (mo.FindInventory("FreezeTokenChargeCombo"))
 				{
-					mo.TakeInventory("FreezeTokenCharged", 1);
+					mo.TakeInventory("FreezeTokenChargeCombo", 1);
 				}
 				
-				mo.GiveInventory("FreezeTokenCharged", 1);
-				let frz = FreezeTokenCharged(mo.FindInventory("FreezeTokenCharged"));
+				mo.GiveInventory("FreezeTokenChargeCombo", 1);
+				let frz = FreezeTokenChargeCombo(mo.FindInventory("FreezeTokenChargeCombo"));
 				if (frz)
 				{
 					frz.fcounter+=228;
@@ -410,12 +410,12 @@ Class IceComboPuff3 : Actor
 			{
 				continue;
 			}
-				if (mo.FindInventory("FreezeTokenCharged"))
+				if (mo.FindInventory("FreezeTokenChargeCombo"))
 				{
-					mo.TakeInventory("FreezeTokenCharged", 1);
+					mo.TakeInventory("FreezeTokenChargeCombo", 1);
 				}
-				mo.GiveInventory("FreezeTokenCharged", 1);
-				let frz = FreezeTokenCharged(mo.FindInventory("FreezeTokenCharged"));
+				mo.GiveInventory("FreezeTokenChargeCombo", 1);
+				let frz = FreezeTokenChargeCombo(mo.FindInventory("FreezeTokenChargeCombo"));
 				if (frz)
 				{
 					frz.fcounter+=228;

@@ -113,6 +113,17 @@ actor WeaponPickup: CustomInventory
 		TNT1 A 0
         TNT1 A 0 A_SpawnItemEx("ChainsawBeamPickup",0,0,0,0,0,0,0,32)
         stop
+		
+	  //need an array of items to iterate through for these	
+	  UpgradeTier1:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("ChainsawBeamPickup",0,0,0,0,0,0,0,32)
+        stop
+		
+	  UpgradeTier2:
+		TNT1 A 0
+        TNT1 A 0 A_SpawnItemEx("ChainsawBeamPickup",0,0,0,0,0,0,0,32)
+        stop
     }
 }
 
