@@ -123,7 +123,7 @@ class GHookHandler : EventHandler
 			//if (data.HitType == TRACE_HitCeiling ||
 			//	data.HitType == TRACE_HitWall)
 			  //if (data.HitType == TRACE_HitActor)
-			  if ((data.HitActor is "GrapplePoint2") || (data.HitActor is "GrapplePoint1"))
+			  if ((data.HitActor is "GrapplePoint2") || (data.HitActor is "GrapplePoint1") || player.GetCVar("met_grapple") && data.HitType == TRACE_HitActor)
 			{
 				anchor[index] = GH_Anchor(player.Spawn('GH_Anchor', data.HitLocation));
 				anchor[index].player = player;

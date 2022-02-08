@@ -859,16 +859,18 @@ script METROID_ENTER ENTER
             if (!CheckInventory("IceBeamAcquired")) { GiveInventory("IceBeamAcquired", 1); }
             if (!CheckInventory("LongBeamAcquired")) { GiveInventory("LongBeamAcquired", 1); }
 			if (!CheckInventory("DoomCannonAcquired")) { GiveInventory("DoomCannonAcquired", 1); }
-			if (!CheckInventory("ChromaStormAcquired")) { GiveInventory("ChromaStormAcquired", 1); }
-			if (GetCVar("met_doomcannon") == 1) { if (!CheckInventory("DoomCannonAcquired")) { GiveInventory("DoomCannonAcquired", 1); } }
+			if (GetCVar("met_skulltagweapons") > 0) { if (!CheckInventory("ChromaStormAcquired")) { GiveInventory("ChromaStormAcquired", 1); GiveInventory("ChromaBeam", 1); } }
+			if (GetCVar("met_doomcannon") > 0) { if (!CheckInventory("DoomCannon")) { GiveInventory("DoomCannonAcquired", 1); GiveInventory("DoomCannon", 1); } }
 			if (!CheckInventory("MorphBallAcquired")) { GiveInventory("MorphBallAcquired", 1); }
 			if (!CheckInventory("HiJumpAcquired")) { GiveInventory("HiJumpAcquired", 1); } //GiveInventory("HiJump", 1); }
 			if (!CheckInventory("SpaceJumpAcquired")) { GiveInventory("SpaceJumpAcquired", 1); GiveInventory("CanSpaceJump", 1); }
 			if (!CheckInventory("SpeedBoosterAcquired")) { GiveInventory("SpeedBoosterAcquired", 1); }
 			if (!CheckInventory("BoostBallAcquired")) { GiveInventory("BoostBallAcquired", 1); }
 			if (!CheckInventory("BombAcquired")) { GiveInventory("BombsAcquired", 1); }
-			if (!CheckInventory("VariaSuitAcquired")) { GiveInventory("VariaSuitAcquired", 1); GiveInventory("IHateHeat", 1); }
+			//if (!CheckInventory("VariaSuitAcquired")) { GiveInventory("VariaSuitAcquired", 1); GiveInventory("IHateHeat", 1); }
+			if (!CheckInventory("GravitySuitAcquired")) { GiveInventory("GravitySuitAcquired", 1); GiveInventory("GravityShield", 1); }
 			if (!CheckInventory("ChargeBeamAcquired")) { GiveInventory("ChargeBeamAcquired", 1); }
+			if (!CheckInventory("GrappleBeamAcquired")) { GiveInventory("GrappleBeamAcquired", 1); }
 			if (CheckInventory("PowerBombAcquired") < 1) { GiveInventory("PowerBombAcquired", 2); }
 			if (CheckInventory("MissileTankAcquired") < 1) { GiveInventory("MissileTankAcquired", 2); }
 			if (!CheckInventory("PowerMissileAcquired")) { GiveInventory("PowerMissileAcquired", 1); }
@@ -878,8 +880,7 @@ script METROID_ENTER ENTER
 			if (!CheckInventory("NovaFlashAcquired")) { GiveInventory("NovaFlashAcquired", 1); }
 			if (!CheckInventory("HyperBeamAcquired")) { GiveInventory("HyperBeamAcquired", 1); }
 			if (!CheckInventory("IceSpreaderAcquired")) { GiveInventory("IceSpreaderAcquired", 1); }
-			if (GetCVar("met_doomcannon") == 1) { if (!CheckInventory("ChainsawBeamAcquired")) { GiveInventory("ChainsawBeamAcquired", 1); } }
-
+			if (GetCVar("met_doomcannon") > 0) { if (!CheckInventory("ChainsawBeamAcquired")) { GiveInventory("ChainsawBeamAcquired", 1); } }
             Print(s:"You may want to use the metroid_loaded cvar in the future instead, this might break things.");
 
             TakeInventory("MetroodIDKFAHack", 0x7FFFFFFF);

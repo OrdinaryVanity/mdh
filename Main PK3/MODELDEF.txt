@@ -252,3 +252,14 @@ Model Platform1 {
 	Offset 0 0 -4
 	FrameIndex PFM1 A 0 0
 }
+
+//Power Bomb explosion
+Model PBExplode {
+	DONTCULLBACKFACES
+	ROTATING
+	Path "Models/PowerBomb"
+	Model 0 "PBExplode.md3"
+	Skin 0 "Skins/PowerBomb.png"
+	Scale 1 1 1
+	FrameIndex PBME A 0 0
+}

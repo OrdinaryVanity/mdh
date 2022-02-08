@@ -35,12 +35,13 @@ actor PowerBomb
 
       Death:
         TNT1 A 0
-        TNT1 A 0 A_Explode(64, 128, XF_EXPLICITDAMAGETYPE, "PowerBomb")
+        //TNT1 A 0 A_Explode(64, 128, XF_EXPLICITDAMAGETYPE, "PowerBomb")
         TNT1 A 0 Radius_Quake(6,70,0,32,0)
         TNT1 A 0 A_SetTranslucent(1, 1)
         TNT1 A 0 A_PlaySound("morphball/pbomexplod", CHAN_AUTO, 1.0, 0, ATTN_NONE)
         TNT1 A 0 A_SpawnItemEx("DummyExplode",0,0,-32,0,0,0,0,32)
-
+		TNT1 A 0 A_SpawnItemEx("PBExplode",0,0,0,0,0,0,0,32)
+		/*
         TNT1 A 0 A_CustomMissile("PowerBombShockwave", 3,0,   0, 6, 0)
         TNT1 A 0 A_CustomMissile("PowerBombShockwave", 3,0,   8, 6, 0)
         TNT1 A 0 A_CustomMissile("PowerBombShockwave", 3,0,  16, 6, 0)
@@ -398,7 +399,7 @@ actor PowerBomb
         TNT1 A 0 A_CustomMissile("PowerBombShockwave", 3,0, 342.85714285714283, 6, -15)
         TNT1 A 0 A_CustomMissile("PowerBombShockwave", 3,0, 351.4285714285714, 6, -15)
         TNT1 A 0 A_CustomMissile("PowerBombShockwave", 3,0, 359.99999999999994, 6, -15)
-
+		*/
         MISL BCD 8
         stop
     }

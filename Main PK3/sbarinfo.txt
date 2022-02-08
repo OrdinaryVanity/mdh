@@ -204,7 +204,7 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
     IsSelected "IceBeam" { drawimage "IBICONB0", -62, 300; 
 	InInventory IceSpreaderAcquired, 1 
 	{ //drawimage "ICEYCMA0", 0, 0; 
-	InInventory MissileAmmo, 10
+	InInventory MissileAmmo, 20
 	{ drawimage "ICEYCB01", 183, 340; }
 	}
 	}

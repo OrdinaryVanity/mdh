@@ -1,0 +1,61 @@
+Class PBExplode : Actor //[R4L] fuck this code, this took forever lol
+{	
+	double scalevalue;
+	double radius;
+	
+	Default
+	{
+		Alpha 0.70;
+		RenderStyle "Add";
+		+NoGravity;
+		+DontThrust;
+	}
+	
+	States
+	{
+		Spawn:
+			PBME A 1 BRIGHT
+			{
+				scalevalue = 0.00;
+			}
+		Spawn2:
+			PBME A 1 BRIGHT
+			{
+				radius = 512;
+				BlockThingsIterator CheckForTracers = BlockThingsIterator.Create(self,radius); 
+				Actor CurrentActor;
+				int blockobjects;
+					
+				while (CheckForTracers.Next())
+				{
+					CurrentActor = CheckForTracers.Thing;
+						if(scalevalue <= radius)
+						{
+							++scalevalue;
+						}
+						if (CurrentActor && !CurrentActor.player && CurrentActor.bShootable || CurrentActor.bIsMonster || CurrentActor.bBoss && Distance3D(CurrentActor) <= (radius))
+						{
+							CurrentActor.DamageMObj(self,self,200,"PowerBomb");
+							CurrentActor.ApplyKickback(self,self,75,0,"PowerBomb",0);
+						}
+						++blockobjects;
+				}
+				return blockobjects;
+			}
+			PBME A 1 BRIGHT
+			{
+				if(scalevalue >= 512.0) //[R4L] all because BTI doesn't stop on its own apparently
+				{
+					return ResolveState("Death");
+				}
+				
+				A_SetScale(scalevalue,scalevalue);
+				return ResolveState(null);
+			}
+			Loop;
+		
+		Death:
+			PBME AAAAAAAAAAAAAAA 1 A_FadeTo(0.0,0.1,true);
+			Stop;
+	}
+}

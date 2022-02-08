@@ -112,12 +112,13 @@ Actor PowerBombBlastDoor 17862
 	Health 1
 	Gravity 0
 	Mass 100
-	DamageFactor "Normal", 1
+	DamageFactor "Normal", 0
 	DamageFactor "Missile", 0
 	DamageFactor "SuperMissile", 0
 	DamageFactor "PowerBomb", 1
+	DamageFactor "PowerBombShockwave", 1
 	DamageFactor "Bomb", 0
-	DamageFactor "PowerBeam", 1
+	DamageFactor "PowerBeam", 0
 	DamageFactor "PowerCharged", 0
 	DamageFactor "SpazerBeam", 0
 	DamageFactor "SpazerCharged", 0

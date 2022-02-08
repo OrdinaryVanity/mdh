@@ -27,6 +27,7 @@ server int met_noshinesparkdrain = 0;
 server int met_nohijump = 0;
 server int met_shinevel = 25;
 server int met_boostvel = 30;
+server int met_grapple = 0;
 
 // Clientside cvars
 //  Still marked server for CVARINFO, since these are accessed from not-player scripts.

@@ -87,7 +87,7 @@ Class SamusPlayer : PlayerPawn
 		DamageFactor "SpeedBooster", 0.6;
 		RadiusDamageFactor 0.75;
 		//Player.ColorRange 16,43; // Oh man, Tumblr's going to have me by the balls for this.
-		+NOSKIN
+		//+NOSKIN
 		+NOBLOOD
 		+SLIDESONWALLS
 		-THRUSPECIES

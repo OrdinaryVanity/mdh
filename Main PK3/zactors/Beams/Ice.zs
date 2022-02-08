@@ -576,7 +576,7 @@ Class IceBeam : Weapon
 		
 	  ChargeCombo:
 		TNT1 A 0 A_JumpIfInventory("IceSpreaderAcquired",1,1);
-        TNT1 A 0 A_JumpIfInventory("MissileAmmo",10,1);
+        TNT1 A 0 A_JumpIfInventory("MissileAmmo",20,1);
         goto HoldFinal2;
         TNT1 A 0;
         IBEM R 20 BRIGHT A_PlaySoundEx("combo/ready","soundslot7");
@@ -595,7 +595,7 @@ Class IceBeam : Weapon
 	  ComboCoop:
         TNT1 A 0 A_FireCustomMissile("IceComboMissileCoop",0,0,12,-2,0,0);
       ComboFinish:
-        TNT1 A 0 A_TakeInventory("MissileAmmo",10);
+        TNT1 A 0 A_TakeInventory("MissileAmmo",20);
         TNT1 A 0 A_SetAngle(angle+(random(-200,200)/100.00));
         TNT1 A 0 A_SetPitch(pitch-(random(300,500)/100.00));
         TNT1 A 0 A_AlertMonsters;

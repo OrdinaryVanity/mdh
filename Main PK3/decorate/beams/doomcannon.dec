@@ -500,7 +500,7 @@ ACTOR "DoomCannon" : Weapon
 
       ChargeCombo:
 		TNT1 A 0 A_JumpIfInventory("ChainsawBeamAcquired",1,1)
-        TNT1 A 0 A_JumpIfInventory("MissileAmmo",10,1)
+        TNT1 A 0 A_JumpIfInventory("MissileAmmo",10,2)
         goto HoldFinal2
         TNT1 A 0
         DCAN Q 10 BRIGHT A_PlaySoundEx("combo/ready","soundslot7")

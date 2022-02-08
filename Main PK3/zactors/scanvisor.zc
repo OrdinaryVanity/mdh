@@ -22,14 +22,14 @@ Class ScanEvent : EventHandler //thanks JGP for help with this
                     plr.GiveInventory("ScanVisorWeapon",1);
                 lastweap = curweap; //record the current weapon before switching to visor                
                 plr.A_SelectWeapon("ScanVisorWeapon"); //now switch to visor
-                console.printf("ScanVisor Given");
+                //console.printf("ScanVisor Given");
             }
             //do the following if visor is currently selected:
             else if (lastweap)
             {                
-                console.printf("ScanVisor Taken");
+                //console.printf("ScanVisor Taken");
                 plr.player.pendingweapon = lastweap;
-				plr.TakeInventory("ScanVisorWeapon", 1);
+				//plr.TakeInventory("ScanVisorWeapon", 1);
             }
         }            
     }

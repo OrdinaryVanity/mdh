@@ -11,8 +11,7 @@ Class GravitySuitPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+DONTGIB;
 		+NOGRAVITY;
-		+DONTGIB;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Scale 0.50;
 		DamageFactor "Slime", 0;
