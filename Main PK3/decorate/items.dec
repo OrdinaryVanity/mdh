@@ -847,37 +847,37 @@ ACTOR UpgradeSpawnerRad : UpgradeSpawnerTier1 replaces RadSuit //Tier 1 upgrades
 
 ACTOR UpgradeSpawnerBlue : RandomSpawner replaces BlueArmor //Any Tier
 {
-	DropItem "UpgradeSpawnerTier1" 240
-	DropItem "UpgradeSpawnerTier2" 240
-	DropItem "UpgradeSpawnerTier3" 255
+	DropItem "UpgradeSpawnerTier1" 255, 20
+	DropItem "UpgradeSpawnerTier2" 255, 35
+	DropItem "UpgradeSpawnerTier3" 255, 45
 }
 	
 ACTOR UpgradeSpawnerMap : RandomSpawner replaces Allmap //Any Tier
 {
-	DropItem "UpgradeSpawnerTier1" 240
-	DropItem "UpgradeSpawnerTier2" 240
-	DropItem "UpgradeSpawnerTier3" 255
+	DropItem "UpgradeSpawnerTier1" 255, 5
+	DropItem "UpgradeSpawnerTier2" 255, 50
+	DropItem "UpgradeSpawnerTier3" 255, 20
 }
 
 ACTOR UpgradeSpawnerInfrared : RandomSpawner replaces Infrared //Any Tier
 {
-	DropItem "UpgradeSpawnerTier1" 240
-	DropItem "UpgradeSpawnerTier2" 240
-	DropItem "UpgradeSpawnerTier3" 255
+	DropItem "UpgradeSpawnerTier1" 255, 5
+	DropItem "UpgradeSpawnerTier2" 255, 50
+	DropItem "UpgradeSpawnerTier3" 255, 20
 }
 
 ACTOR UpgradeSpawnerBlur : RandomSpawner replaces BlurSphere //Any Tier
 {
-	DropItem "UpgradeSpawnerTier1" 240
-	DropItem "UpgradeSpawnerTier2" 240
-	DropItem "UpgradeSpawnerTier3" 255
+	DropItem "UpgradeSpawnerTier1" 255, 5
+	DropItem "UpgradeSpawnerTier2" 255, 50
+	DropItem "UpgradeSpawnerTier3" 255, 20
 }
 
 ACTOR UpgradeSpawnerInvuln : RandomSpawner replaces InvulnerabilitySphere //Any Tier
 {
-	DropItem "UpgradeSpawnerTier1" 240
-	DropItem "UpgradeSpawnerTier2" 240
-	DropItem "UpgradeSpawnerTier3" 255
+	DropItem "UpgradeSpawnerTier1" 255, 10
+	DropItem "UpgradeSpawnerTier2" 255, 25
+	DropItem "UpgradeSpawnerTier3" 255, 35
 }
 
 ACTOR EnemyDropSpawner

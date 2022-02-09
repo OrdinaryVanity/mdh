@@ -114,15 +114,15 @@ actor WeaponPickup: CustomInventory
         TNT1 A 0 A_SpawnItemEx("ChainsawBeamPickup",0,0,0,0,0,0,0,32)
         stop
 		
-	  //need an array of items to iterate through for these	
-	  UpgradeTier1:
-		TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("ChainsawBeamPickup",0,0,0,0,0,0,0,32)
+	  UpgradeSpawnerTime:
+		TNT1 A 0 A_Jump(127, "Spawner2", "Spawner3")
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
         stop
-		
-	  UpgradeTier2:
-		TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("ChainsawBeamPickup",0,0,0,0,0,0,0,32)
+	  Spawner2:
+		TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier2",0,0,0,0,0,0,0,32)
+        stop
+	  Spawner3:
+		TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier3",0,0,0,0,0,0,0,32)
         stop
     }
 }
@@ -138,7 +138,7 @@ ACTOR SpazerBeamPickup : WeaponPickup replaces Shotgun 17533
     {
       Spawn:
         TNT1 A 0
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,21,0,0) == 1, "NoPickup")
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,21,0,0) == 1, "WideShotTime")
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
 		SBPK A 1
 
@@ -176,7 +176,7 @@ ACTOR PlasmaBeamPickup : WeaponPickup replaces SuperShotgun 17534
     {
       Spawn:
         TNT1 A 0
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,22,0,0) == 1, "NoPickup")
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,22,0,0) == 1, "SolarFlareTime")
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
 		PBPK A 1
 
@@ -214,7 +214,7 @@ ACTOR WaveBeamPickup : WeaponPickup replaces Chaingun 17535
     {
       Spawn:
         TNT1 A 0
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,23,0,0) == 1, "NoPickup")
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,23,0,0) == 1, "WaveMissileTime")
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
 		WBPK A 1
 
@@ -253,7 +253,7 @@ ACTOR IceBeamPickup : WeaponPickup replaces RocketLauncher 17536
     {
       Spawn:
         TNT1 A 0
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,24,0,0) == 1, "NoPickup")
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,24,0,0) == 1, "IceSpreaderTime")
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
 		IBPK A 1
 
@@ -291,7 +291,7 @@ ACTOR LongBeamPickup : WeaponPickup replaces PlasmaRifle 17537
     {
       Spawn:
         TNT1 A 0
-		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,25,0,0) == 1, "NoPickup")
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,25,0,0) == 1, "NovaFlashTime")
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,4,0,0) == 1, "NoPickup")
 		LBPK A 1
 
@@ -600,7 +600,7 @@ ACTOR HyperBeamPickup : WeaponPickup 18671
 			loop
 			
 		Pickup:
-			TNT1 A 0 A_JumpIfInventory("HyperBeamAcquired",1,"PickupFail")
+			TNT1 A 0 A_JumpIfInventory("HyperBeamAcquired",1,"UpgradeSpawnerTime")
 			TNT1 A 0 ACS_ExecuteWithResult(594, 20, 23)
 			TNT1 A 0 A_SetBlend("FF FF FF", 0.75, 35)
 			goto CheckStaySuper
