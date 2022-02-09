@@ -222,7 +222,7 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
     IsSelected "DoomCannon" { drawimage "DCICONB0", -2, 323; 
 	InInventory ChainsawBeamAcquired, 1 
 	{ //drawimage "DOOMCB01", 183, 340; 
-	InInventory MissileAmmo, 10
+	InInventory MissileAmmo, 25
 	{ drawimage "DOOMCB01", 183, 340;  }
 	InInventory TheReturnOfSamusReturns, 1
 	{ drawimage "CHSWCB01", 183, 340; }
