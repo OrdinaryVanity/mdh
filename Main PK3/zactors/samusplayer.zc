@@ -382,16 +382,6 @@ Class SamusPlayer : PlayerPawn
 		GravitySuitAcquired = false;
 	  }
 	  
-	 // if (GetClassName() == "MorphBallPlayer" || GetClassName() == "MorphBallPlayerDM")
-	  //{
-	//	IsMorphBall = true;
-	 // }
-	  
-	 // else
-	 // {
-	//	IsMorphBall = false;
-	 // }
-	  
 	  JumpZ = JumpZ;
       //if (waterlevel >=2 && !player.onground)
          //if (Vel.Z >-6)

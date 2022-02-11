@@ -168,7 +168,7 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
     IsSelected "PowerBeam" { drawimage "PWICONB0", -100, 248;
 	InInventory PowerMissileAcquired, 1 
 	{ //drawimage "POWRCMBO", 181, 229; 
-	InInventory MissileAmmo, 5
+	InInventory MissileAmmo, 10
 	{ drawimage "POWRCB01", 183, 340; }
 	} 
 	}

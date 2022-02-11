@@ -82,7 +82,6 @@ class GHookHandler : EventHandler
 
 	override void WorldTick()
 	{
-		
 		for (int i = 0; i < MAXPLAYERS; i++)
 		{
 			if (!playeringame[i]) continue;
@@ -94,7 +93,7 @@ class GHookHandler : EventHandler
 			let oldinput = pi.oldbuttons;
 			
 			bool canSwing = (!pi.onGround || swinging[i]);
-			
+	
 			if (canSwing && (input & BT_USE) && !(oldinput & BT_USE) ||
 				swinging[i] && (input & BT_JUMP) && !(oldinput & BT_JUMP))
 			{
@@ -104,7 +103,6 @@ class GHookHandler : EventHandler
 					//player.vel += (0,0,7.0); //7.0
 				}
 			}
-			
 			if (swinging[i]) GH_Swing(player, anchor[i], slack[i]);
 		}
 	}
@@ -117,25 +115,20 @@ class GHookHandler : EventHandler
 		if (!swinging[index])
 		{
 			FLineTraceData data;
-			player.LineTrace(player.angle, 576, player.pitch, TRF_NOSKY, //576
-							 player.height*0.5 ,0, 3.0, data: data); //player.height*0.5
+			player.LineTrace(player.angle,576,player.pitch,TRF_ALLACTORS,player.height*0.5,0,3.0,data: data);
 			
-			//if (data.HitType == TRACE_HitCeiling ||
-			//	data.HitType == TRACE_HitWall)
-			  //if (data.HitType == TRACE_HitActor)
-			  if ((data.HitActor is "GrapplePoint2") || (data.HitActor is "GrapplePoint1") || player.GetCVar("met_grapple") && data.HitType == TRACE_HitActor)
-			{
-				anchor[index] = GH_Anchor(player.Spawn('GH_Anchor', data.HitLocation));
-				anchor[index].player = player;
-				anchor[index].GHR1 = player.Spawn('GH_Rope', anchor[index].pos - (-3, 0, 0));
-				anchor[index].GHR2 = player.Spawn('GH_Rope', anchor[index].pos - (-3, 0, 0));
-				anchor[index].GHR2.pitch = 90;
-				swinging[index] = true;
-				slack[index] = data.distance;
-				player.A_PlaySound("gbeam/gbeamon",0,0.8);
-				
-			}
-			
+				if ((data.HitActor is "GrapplePoint2") || (data.HitActor is "GrapplePoint1")) //|| (player.GetCVar("met_grapple") && data.HitType == TRACE_HitActor)
+				{
+					anchor[index] = GH_Anchor(player.Spawn('GH_Anchor', data.HitLocation));
+					anchor[index].player = player;
+					anchor[index].GHR1 = player.Spawn('GH_Rope', anchor[index].pos - (-3, 0, 0));
+					anchor[index].GHR2 = player.Spawn('GH_Rope', anchor[index].pos - (-3, 0, 0));
+					anchor[index].GHR2.pitch = 90;
+					swinging[index] = true;
+					slack[index] = data.distance;
+					player.A_PlaySound("gbeam/gbeamon",0,0.8);
+				}
+
 		}
 		else
 		{

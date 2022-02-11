@@ -806,14 +806,14 @@ ACTOR UpgradeSpawnerTier1 : RandomSpawner
 	DropItem "ChargeBeamPickup", 255, 7
 	DropItem "HiJumpPickup", 255, 6
 	DropItem "VariaSuitPickup", 255, 5
-	DropItem "GrappleBeamPickup", 255, 3
+	DropItem "GrappleBeamPickup", 255, 10
 	DropItem "RawEnergy", 255, 1
 }
 
 ACTOR UpgradeSpawnerTier2 : RandomSpawner
 {
 	DropItem "SuperMissileTankPickup", 255, 20
-	DropItem "EnergyTankPickup", 255, 18
+	DropItem "EnergyTankPickup", 255, 5
 	DropItem "PowerMissilePickup", 255, 7
 	DropItem "WideShotPickup", 255, 6
 	DropItem "SolarFlarePickup", 255, 5

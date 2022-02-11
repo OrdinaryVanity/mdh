@@ -467,7 +467,8 @@ ACTOR GrapplePoint1 : SwitchableDecoration 17859
   Gravity 0
   Health 0x7FFFFFFF
   +SOLID
-  +SHOOTABLE
+  +NOGRAVITY
+  //+SHOOTABLE
   +DONTTHRUST
   +SPAWNCEILING
   
@@ -490,7 +491,8 @@ ACTOR GrapplePoint2 : SwitchableDecoration 17864
   Gravity 0
   Health 0x7FFFFFFF
   +SOLID
-  +SHOOTABLE
+  +NOGRAVITY
+  //+SHOOTABLE
   +DONTTHRUST
   
   Tag "Grapple Point (Horizontal)"
