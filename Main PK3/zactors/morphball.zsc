@@ -222,6 +222,7 @@ Class MorphBallPlayer : PlayerPawn
 					}
 				 
 				  //JumpZ = JumpZ;
+				  player.jumpTics = 0;
 				  Vel.Z += JumpZ;
 				}
 				

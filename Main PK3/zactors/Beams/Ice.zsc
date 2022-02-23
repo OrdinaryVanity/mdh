@@ -21,7 +21,7 @@ Class IceBeam : Weapon
 		+Weapon.NOAUTOAIM;
 		+Weapon.NOAUTOFIRE;
 		+Weapon.NO_AUTO_SWITCH;
-		+Inventory.UNDROPPABLE
+		+Inventory.UNDROPPABLE;
 		
 	}
 

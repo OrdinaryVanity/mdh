@@ -1,6 +1,21 @@
 DoomEdNums
 {
 	7806 = "GravitySuitPickup"
+	17533 = "SpazerBeamPickup"
+	17534 = "PlasmaBeamPickup"
+	17535 = "WaveBeamPickup"
+	17536 = "IceBeamPickup"
+	17537 = "LongBeamPickup"
+	17538 = "DoomCannonPickup"
+	17541 = "DoomCannonAlwaysPickup"
+	18665 = "PowerMissilePickup"
+	18666 = "WaveMissilePickup"
+	18667 = "SolarFlarePickup"
+	18668 = "IceSpreaderPickup"
+	18669 = "NovaFlashPickup"
+	18670 = "WideShotPickup"
+	18671 = "HyperBeamPickup"
+	18672 = "ChainsawBeamPickup"
 }
 
 gameinfo

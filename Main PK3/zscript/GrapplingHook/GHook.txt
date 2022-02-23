@@ -24,7 +24,7 @@ Class GH_Anchor : Actor
 			GHR2.angle = GHR1.angle + 90;
 			GHR1.scale.y = dist.length(); //-86; //86
 			GHR2.scale.y = GHR1.scale.y; //-86; //86
-			player.A_PlaySound("gbeam/gbeamcn",0,1.0,true);
+			player.A_StartSound("gbeam/gbeamcn",0,CHANF_LOOPING,1.0,ATTN_NORM);
 		}
 		super.Tick();
 	}
@@ -91,6 +91,7 @@ class GHookHandler : EventHandler
 			
 			let input = pi.cmd.buttons;
 			let oldinput = pi.oldbuttons;
+			let curweap = pi.readyweapon;
 			
 			bool canSwing = (!pi.onGround || swinging[i]);
 	
@@ -126,7 +127,7 @@ class GHookHandler : EventHandler
 					anchor[index].GHR2.pitch = 90;
 					swinging[index] = true;
 					slack[index] = data.distance;
-					player.A_PlaySound("gbeam/gbeamon",0,0.8);
+					player.A_StartSound("gbeam/gbeamon",0,0,0.8,ATTN_NORM);
 				}
 
 		}
@@ -134,7 +135,8 @@ class GHookHandler : EventHandler
 		{
 			anchor[index].Destroy();
 			swinging[index] = false;
-			player.A_PlaySound("gbeam/gbeamoff",0);
+			//player.A_PlaySound("gbeam/gbeamoff",0);
+			player.A_StartSound("gbeam/gbeamoff",0,CHANF_LOOPING,0.8,ATTN_NORM);
 		}
 		}
 	}
