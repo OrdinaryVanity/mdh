@@ -369,29 +369,29 @@ material texture "Models/ExplosiveBarrel/Skins/The_Barrel.png"
 	glossiness 25
 }
 
-brightmap texture "Models/MissileDoorCover/Skins/missiledoor.png" { map "Models/MissileDoorCover/Skins/blastdoor_brightmap.png" }
+brightmap texture "Models/MissileDoorCover/Skins/missile door.png" { map "Models/MissileDoorCover/Skins/door shield brightmap.png" }
 
-material texture "Models/MissileDoorCover/Skins/missiledoor.png"
+material texture "Models/MissileDoorCover/Skins/missile door.png"
 {
-	specular "textures/missiledoor_spec.png"
+	specular "textures/missile_door_spec.png"
 	specularlevel 25
 	glossiness 25
 }
 
-brightmap texture "Models/MissileDoorCover/Skins/supermissiledoor.png" { map "Models/MissileDoorCover/Skins/blastdoor_brightmap.png" }
+brightmap texture "Models/MissileDoorCover/Skins/super missile door.png" { map "Models/MissileDoorCover/Skins/door shield brightmap.png" }
 
-material texture "Models/MissileDoorCover/Skins/supermissiledoor.png"
+material texture "Models/MissileDoorCover/Skins/super missile door.png"
 {
-	specular "textures/missiledoor_spec.png"
+	specular "textures/missile_door_spec.png"
 	specularlevel 25
 	glossiness 25
 }
 
-brightmap texture "Models/MissileDoorCover/Skins/powerbombdoor.png" { map "Models/MissileDoorCover/Skins/blastdoor_brightmap.png" }
+brightmap texture "Models/MissileDoorCover/Skins/power bomb door.png" { map "Models/MissileDoorCover/Skins/door shield brightmap.png" }
 
-material texture "Models/MissileDoorCover/Skins/powerbombdoor.png"
+material texture "Models/MissileDoorCover/Skins/power bomb door.png"
 {
-	specular "textures/missiledoor_spec.png"
+	specular "textures/missile_door_spec.png"
 	specularlevel 25
 	glossiness 25
 }

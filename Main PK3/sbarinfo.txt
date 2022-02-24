@@ -24,7 +24,7 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
 				DrawNumber 4, METHUDF, Combat, Health, 236, 40; 
 			}
 		}
-		
+		/*
 		IsSelected not "ThermalVisorWeapon" //[R4L] Draw Combat Visor.
 		{
 			//DrawImage "NEWSMVS2", 0, 0;
@@ -42,7 +42,7 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
 				DrawNumber 4, METHUDF, Combat, Health, 236, 40; 
 			}
 		}
-	
+		
     GameMode Teamplay, TeamGame, OneFlagCTF, CTF, Skulltag, TeamLMS, TeamPossession
     {
     InInventory IsOnTeam0, 1 { drawimage "samviso0", 0, 0; }
@@ -50,7 +50,7 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
     InInventory IsOnTeam2, 1 { drawimage "samviso2", 0, 0; }
     InInventory IsOnTeam3, 1 { drawimage "samviso3", 0, 0; }
     }
-	
+	*/
     InInventory ChargeBeamAcquired, 1 
 	{ drawbar "VRTCHBMF", "VRTCHBME", PowerBeamChargeLevel, vertical, interpolate(10), -102, 96;
 	  drawbar "VRTCHBMF", "VRTCHBME", PowerBeamChargeLevel, vertical, interpolate(10), 738, 96;
@@ -285,7 +285,7 @@ InInventory BorphMallAcquired, 1
     {
     InInventory not DoomHealthCounter, 1 { drawimage "NWSCRBAR", -8, 0; }
     InInventory DoomHealthCounter, 1 { drawimage "NWSCRBAR", -8, 0; }
-    GameMode Teamplay, TeamGame, OneFlagCTF, CTF, Skulltag, TeamLMS, TeamPossession { drawimage translatable "NWSCRBA4", -8, 0; }
+   // GameMode Teamplay, TeamGame, OneFlagCTF, CTF, Skulltag, TeamLMS, TeamPossession { drawimage translatable "NWSCRBA4", -8, 0; }
     drawbar "NWBARFUL", "NWBAREMP", Health Health100, horizontal, interpolate(5), 48, 32, 1;
     InInventory not DoomHealthCounter, 1 { drawnumber 2, METHUDF, Untranslated, PlayerTotalHealth, fillzeros, 132,10; }
     InInventory DoomHealthCounter, 1 { drawnumber 4, METHUDF, Untranslated, Health, 132, 10; }

@@ -269,9 +269,10 @@ Model MissileBlastDoor
 {
 	Path "Models/MissileDoorCover"
 	Model 0 "Missile.md3"
-	Scale 1.0 1.0 1.0
-	Offset 100 0 0
-	AngleOffset 90
+	Skin 0 "Skins/missile door.png"
+	Scale 70.0 70.0 70.0
+	Offset 55 0 50
+	AngleOffset -90
 	FrameIndex MBDR A 0 0
 }
 
@@ -279,9 +280,10 @@ Model SuperMissileBlastDoor
 {
 	Path "Models/MissileDoorCover"
 	Model 0 "Super.md3"
-	Scale 1.0 1.0 1.0
-	Offset 100 0 0
-	AngleOffset 90
+	Skin 0 "Skins/super missile door.png"
+	Scale 70.0 70.0 70.0
+	Offset 55 0 50
+	AngleOffset -90
 	FrameIndex SMDR A 0 0
 }
 
@@ -289,9 +291,10 @@ Model PowerBombBlastDoor
 {
 	Path "Models/MissileDoorCover"
 	Model 0 "PowerBomb.md3"
-	Scale 1.0 1.0 1.0
-	Offset 100 0 0
-	AngleOffset 90
+	Skin 0 "Skins/power bomb door.png"
+	Scale 70.0 70.0 70.0
+	Offset 55 0 50
+	AngleOffset -90
 	FrameIndex PBDR A 0 0
 }
 /*

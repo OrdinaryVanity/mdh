@@ -147,7 +147,7 @@ ACTOR ChromaStormPickup : WeaponPickup replaces BFG9000 17540
 
 	  RandomSpawn:
         TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("UpgradeSpawner1",0,0,0,0,0,0,0,32)
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerBlue",0,0,0,0,0,0,0,32)
         stop
 		
     // NO CODING TECHNIQUES CAN SAVE YOU FROM THE EVIL OF DECORATE

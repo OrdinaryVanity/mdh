@@ -1238,7 +1238,7 @@ ACTOR SpaceJumpPickup : CustomInventory 17530
 		
 	  RandomSpawn:
         TNT1 A 0
-        TNT1 A 0 A_SpawnItemEx("UpgradeSpawner1",0,0,0,0,0,0,0,32)
+        TNT1 A 0 A_SpawnItemEx("UpgradeSpawnerTier1",0,0,0,0,0,0,0,32)
         stop
 
       Pickup:

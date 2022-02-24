@@ -512,7 +512,7 @@ actor GunshipLeft : CustomInventory
     {
     Pickup:
         TNT1 A 0
-        TNT1 A 0 ThrustThing(angle*256/360+64, 1.5, 1, 0)
+        //TNT1 A 0 ThrustThing(angle*256/360+64, 1.5, 1, 0)
         stop
     }
 }
@@ -523,7 +523,7 @@ actor GunshipRight : CustomInventory
     {
     Pickup:
         TNT1 A 0
-        TNT1 A 0 ThrustThing(angle*256/360+192, 1.5, 1, 0)
+        //TNT1 A 0 ThrustThing(angle*256/360+192, 1.5, 1, 0)
         stop
     }
 }

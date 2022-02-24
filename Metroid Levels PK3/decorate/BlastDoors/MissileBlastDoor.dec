@@ -116,7 +116,6 @@ Actor PowerBombBlastDoor 17862
 	DamageFactor "Missile", 0
 	DamageFactor "SuperMissile", 0
 	DamageFactor "PowerBomb", 1
-	DamageFactor "PowerBombShockwave", 1
 	DamageFactor "Bomb", 0
 	DamageFactor "PowerBeam", 0
 	DamageFactor "PowerCharged", 0

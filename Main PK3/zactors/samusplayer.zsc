@@ -143,12 +143,12 @@ Class SamusPlayer : PlayerPawn
 	  
       if (waterlevel<=2 && oldwaterlevel==3)
 	  {
-         A_PlaySound("player/surface",CHAN_AUTO);
+         A_StartSound("player/surface",CHAN_AUTO);
 	  }
 	  
       if (waterlevel>=1 && oldwaterlevel==0)
 	  {
-         A_PlaySound("player/splash",CHAN_AUTO);
+         A_StartSound("player/splash",CHAN_AUTO);
 	  }
 		 
       oldwaterlevel = waterlevel;
@@ -311,7 +311,7 @@ Class SamusPlayer : PlayerPawn
 				
 				if (!(player.cheats & CF_PREDICTING)) 
 				{
-					A_PlaySound("*jump", CHAN_BODY);
+					A_StartSound("*jump", CHAN_BODY);
 				}
 			}
 			
@@ -509,7 +509,7 @@ Class SamusPlayer : PlayerPawn
     Death.IceCombo:
         SAMS C 2;
         TNT1 A 0 A_NoBlocking;
-        TNT1 A 0 A_PlaySound("misc/freeze");
+        TNT1 A 0 A_StartSound("misc/freeze",6);
         TNT1 A 0 A_StartSound("ibeam/freeze",6);
         TNT1 A 0 A_SpawnItemEx("EnemyDropSpawner",0,0,10,0,0,0,0,32);
         TNT1 A 0 A_SpawnItemEx("SamusFrozen",0,0,0,0,0,0,0,32);
