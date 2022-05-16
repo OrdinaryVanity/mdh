@@ -1,0 +1,141 @@
+Class GreenMaw : Actor
+{
+	int counter;
+	
+	override void Tick()
+	{
+		super.Tick();
+		if (IsFrozen())
+			return;
+		actor afterimg = Spawn("GMawAfterImage",pos);
+		
+		if (afterimg)
+		{
+			afterimg.A_SetRenderStyle(alpha,GetRenderStyle());
+			afterimg.sprite = sprite;
+			afterimg.frame = frame;
+		}
+	}
+
+	Default
+	{
+		Health 100;
+		Radius 16;
+		Height 16;
+		Mass 100;
+		Scale 1.50;
+		Speed 8;
+		PainChance 100;
+		Monster;
+		+FLOAT +NOGRAVITY
+		//SeeSound "caco/sight";
+		//PainSound "caco/pain";
+		//DeathSound "caco/death";
+		//ActiveSound "caco/active";
+		//Obituary "$OB_CACO";
+		//HitObituary "$OB_CACOHIT";
+		Tag "Green Maw";
+	}
+	
+	States
+	{
+	Spawn:
+		GMAW A 10 A_Look;
+		Loop;
+		
+	See:
+		TNT1 A 0 {
+			counter = 0;
+			self.bFRIGHTENED = false;
+			self.bMISSILEMORE = false;
+			self.bMISSILEEVENMORE = false;
+		}
+		GMAW ABCDEFGH 3 A_Chase;
+		TNT1 A 0 {
+			self.vel.z+=4;
+		}
+		TNT1 A 0 {
+			if (waterlevel >= 1)
+			{
+				self.vel.z+=4;
+			}
+			else
+			{
+				self.vel.z-=6;
+			}
+		}
+		GMAW ABCDEFGH 3;
+		Loop;
+		
+	ScaredSee:
+		TNT1 A 0 {
+			self.speed = 24;
+			counter++;
+		}
+		GMAW ABCDEFGH 2 A_Chase;
+		TNT1 A 0 {
+			self.vel.z+=4;
+		}
+		TNT1 A 0 {
+			if (waterlevel >= 1)
+			{
+				self.vel.z+=4;
+			}
+			else
+			{
+				self.vel.z-=6;
+			}
+		}
+		GMAW ABCDEFGH 2;
+		TNT1 A 0 {
+			if (counter >= 35)
+			{
+				return ResolveState("See");
+			}
+			else
+			{
+				return ResolveState("ScaredSee");
+			}
+		}
+		Loop;
+	
+	Missile:
+		TNT1 A 0 {
+			if (!self.bFRIGHTENED && !self.bMISSILEEVENMORE && !self.bMISSILEMORE)
+				return ResolveState("See");
+			else
+				return ResolveState(null);
+		}
+		GMAW ABCDEFGH 2 A_FaceTarget;
+		GMAW A 1 A_HeadAttack;
+		Goto See;
+		
+	Pain:
+		GMAW ABCDEFGH 2 {
+			self.bFRIGHTENED = true;
+			self.bMISSILEEVENMORE = true;
+			self.bMISSILEMORE = true;
+		}
+	Goto ScaredSee;
+	}
+}
+
+Class GMawAfterImage : Actor
+{
+	Default
+	{
+		+NOINTERACTION
+	}
+	
+	States
+	{
+	Spawn:
+		#### # 1
+		{
+			A_FadeOut(0.95);
+			scale *= 0.90;
+		}
+		Loop;
+	}
+}
+		

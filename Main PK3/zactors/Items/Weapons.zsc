@@ -1,5 +1,5 @@
 Class WeaponPickup : CustomInventory
-{
+{	
 	Default
 	{
 		Inventory.MaxAmount 0;

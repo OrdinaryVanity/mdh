@@ -3,6 +3,7 @@ DoomEdNums {
 	17871 = "KeyStoneRed"
 	17872 = "KeyStonePurple"
 	17873 = "KeyStoneYellow"
+	19000 = "GreenMaw"
 }
 
 episode ARRIVAL

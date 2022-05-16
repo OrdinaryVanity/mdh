@@ -202,11 +202,14 @@ ifreeze2                IBEAMFR2
 ifreeze3                IBEAMFR3
 ibeam/break             IBEAMBRK
 
+//Doom Cannon
+dcann/charge			DCCHARGE // Made my Cycro @ Freesound.org
 dcann/fire              DCANNFIR
 dcann/chfire            DCANNFI2
 dcann/cock              DCANNCK1
 dcann/cock2             DCANNCK2
 dcann/cock3             DCANNCK3
+dcann/idle				DCANNIDL
 dcann/hbeat             DCANNBET // Taken from Heretic
 dcann/up                DCANNUP // Taken from Painkiller
 

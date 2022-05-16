@@ -1,0 +1,72 @@
+Class MDOBeam : Weapon
+{
+	// Thanks to Lewisk3 for the help with this. Fuck vectors.
+	action void TheSucc()
+	{
+		int rad = GetCvar("met_pulldist");
+		
+		if(GetCvar("met_chargepull"))
+		{
+			for(let i = BlockThingsIterator.Create(self,rad); i.Next();) //Iterate through all actors in a 360 unit range
+			{ 
+				Actor other = i.thing;
+				Vector3 vec1 = self.pos;
+				Vector3 vec2 = other.pos;
+				Vector3 vec3 = level.vec3Diff(self.pos, other.pos);
+				//Console.printf("%f, %f, %f", vec3.x, vec3.y, vec3.z);
+				if(other==self)
+				{
+					Continue; //If the actor is a player, skip
+				} 
+				
+				double distance = Distance3D(self);
+				double distance2 = Distance3D(other);
+				
+				if(distance>rad)
+				{
+					Continue; //If it's above the specified distance, skip
+				} 
+				
+				if((self.player) && (other is "Ammo") || (other is "Health")) //If it's a player, and other is an item, continue
+				{
+					if(distance2<16) // If item is within 16 units away from player, grab it automatically.
+					{
+						other.Touch(self);
+					}
+					
+					other.A_Face(self); //Face the player
+					other.vel = vec3.Unit() * -6.0; //Move towards the player with a speed of 6 units per tick
+					distance2 = Distance3D(other); //update distance2 with the item's position.
+				}
+			}
+		}
+    }
+	
+	Default
+	{
+		//Only Weapon.SlotNumber, SelectionOrder, InventoryIcon
+		//PickupMessage, Obituary are unique
+		
+		Weapon.AmmoType "MissileAmmo";
+		Weapon.AmmoType2 "SuperMissileAmmo";
+		Weapon.AmmoUse1 0;
+		Weapon.AmmoUse2 0;
+		Weapon.BobRangeX 0.4;
+		Weapon.BobRangeY 0.4;
+		Weapon.BobSpeed 2.8;
+		Weapon.BobStyle "Inverse";
+		+Weapon.NOALERT;
+		+Weapon.NOAUTOAIM;
+		+Weapon.NOAUTOFIRE;
+		+Weapon.NO_AUTO_SWITCH;
+		+Inventory.UNDROPPABLE;
+	}
+}
+
+Class GrossHack : ArtiBlastRadius 
+{
+	Default
+	{
+		+INVENTORY.AUTOACTIVATE;
+	}
+}

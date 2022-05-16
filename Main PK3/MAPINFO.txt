@@ -1,6 +1,21 @@
 DoomEdNums
 {
+	7085 = "VariaSuitPickup"
+	7086 = "GrappleBeamPickup"
 	7806 = "GravitySuitPickup"
+	17520 = "MissileAmmo"
+	17521 = "MissileTankPickup"
+	17522 = "SuperMissileTankPickup"
+	17523 = "PowerBombTankPickup"
+	17524 = "SuperMissileAmmo"
+	17525 = "PowerBombAmmo"
+	17526 = "Energy10"
+	17527 = "Energy25"
+	17528 = "Energy100"
+	17529 = "EnergyTankPickup"
+	17530 = "SpaceJumpPickup"
+	17531 = "SpeedBoosterPickup"
+	17532 = "RawEnergy"
 	17533 = "SpazerBeamPickup"
 	17534 = "PlasmaBeamPickup"
 	17535 = "WaveBeamPickup"
@@ -8,6 +23,7 @@ DoomEdNums
 	17537 = "LongBeamPickup"
 	17538 = "DoomCannonPickup"
 	17541 = "DoomCannonAlwaysPickup"
+	17542 = "ChargeBeamPickup"
 	18665 = "PowerMissilePickup"
 	18666 = "WaveMissilePickup"
 	18667 = "SolarFlarePickup"
@@ -16,6 +32,12 @@ DoomEdNums
 	18670 = "WideShotPickup"
 	18671 = "HyperBeamPickup"
 	18672 = "ChainsawBeamPickup"
+	18700 = "MorphBallModel"
+	18701 = "BombPickup"
+	18702 = "BoostBallPickup"
+	18703 = "HiJumpPickup"
+	18704 = "ScanVisor"
+	18705 = "RedEnergyTankPickup"
 }
 
 gameinfo

@@ -31,11 +31,15 @@
             StaticText      "General Options", 1
             Option "Doom-style Health Counter",      "met_cl_doomhealth", "OnOff"
             Option "Doom-style Pickup System",       "met_cl_nometroidpickups", "OnOff"
-            Option "Projectile-based Beam Charging", "met_cl_custommissilecharge", "OnOff"
             Option "Soulsphere Energy Tanks",        "met_soultanks", "OnOff"
             Option "Enemy Item Drops Stay",          "met_dropstay", "OnOff"
             Option "Enemy Item Drops Gravity",       "met_dropgravity", "OnOff"
 			Option "All Enemies Are Grapple Points", "met_grapple", "OnOff"
+			StaticText      "Not recommended.", 1
+            StaticText      ""
+			Option "Prime Style Charge Pulling",     "met_chargepull", "OnOff"
+			Slider "Charge Beam Pull Distance",      "met_pulldist", 128, 1024, 64
+			StaticText      "384mu is default.", 1
             StaticText      ""
             StaticText      "Removal Options", 1
             Option "No Particle Effects",            "met_cl_noeffects", "OnOff"
@@ -55,9 +59,9 @@
             StaticText      ""
             StaticText      "Cheat Options", 1
             Option "Start With Space Jump",          "met_spacejump", "OnOff"
+			Slider "How Many Jumps In Space Jump",   "met_jumpcount", 2, 40, 2
             Option "Start With Weapons",             "met_loaded", "LoadedOptions"
             Slider "Start With Energy Tanks",        "met_startingtanks", 0, 20, 1
-            Slider "How Many Jumps",                 "met_jumpcount", 2, 40, 2
 			StaticText      ""
 			Slider "Boostball Velocity",			 "met_boostvel", 1, 500, 5
 			StaticText      "30 is default.", 1

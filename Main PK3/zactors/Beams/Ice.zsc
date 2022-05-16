@@ -1,28 +1,12 @@
-Class IceBeam : Weapon
+Class IceBeam : MDOBeam
 {
 	Default 
 	{
 		Inventory.Icon "WEAPICBM";
 		Inventory.PickupMessage "Got the Ice Beam!";
 		Obituary "%k left %o in the cold.";
-		
 		Weapon.SelectionOrder 2000;
-		Weapon.AmmoType "MissileAmmo";
-		Weapon.AmmoType2 "SuperMissileAmmo";
-		Weapon.AmmoUse1 0;
-		Weapon.AmmoUse2 0;
 		Weapon.SlotNumber 5;
-		Weapon.BobRangeX 0.4;
-		Weapon.BobRangeY 0.4;
-		Weapon.BobSpeed 2.8;
-		Weapon.BobStyle "Inverse";
-
-		//+NOALERT;
-		+Weapon.NOAUTOAIM;
-		+Weapon.NOAUTOFIRE;
-		+Weapon.NO_AUTO_SWITCH;
-		+Inventory.UNDROPPABLE;
-		
 	}
 
     States
@@ -218,8 +202,6 @@ Class IceBeam : Weapon
         TNT1 A 0 A_StartSound("pbeam/charge",5);
       Hold2:
         TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold2");
-        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold2");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
         IBEM KK 1 BRIGHT A_SpawnItemEx("IceBeamCharging1",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("IceBeamChargingSpawner1",0,0,0,0,0,0)
@@ -255,8 +237,6 @@ Class IceBeam : Weapon
 
 	  Hold3:
         TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold3");
-        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold3");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
         IBEM LL 1 BRIGHT A_SpawnItemEx("IceBeamCharging2",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("IceBeamChargingSpawner2",0,0,0,0,0,0)
@@ -265,8 +245,6 @@ Class IceBeam : Weapon
 
 	  Hold4:
         TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold4");
-        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold4");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
 		TNT1 A 0 A_GiveInventory("PowerBeamHalfCharged",1);
@@ -276,8 +254,6 @@ Class IceBeam : Weapon
 
 	  Hold5:
         TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold5");
-        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold5");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
         IBEM NN 1 BRIGHT A_SpawnItemEx("IceBeamCharging4",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("IceBeamChargingSpawner4",0,0,0,0,0,0)
@@ -286,8 +262,6 @@ Class IceBeam : Weapon
 
 	  Hold6:
         TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold6");
-        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold6");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
         IBEM OO 1 BRIGHT A_SpawnItemEx("IceBeamCharging5",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("IceBeamChargingSpawner5",0,0,0,0,0,0)
@@ -296,131 +270,11 @@ Class IceBeam : Weapon
 
 	  Hold7:
         TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHold7");
-        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHold7");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
         IBEM PP 1 BRIGHT A_SpawnItemEx("IceBeamCharging6",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("IceBeamChargingSpawner6",0,0,0,0,0,0)
         TNT1 A 0 A_Refire;
         goto HoldFire;
-
-	  CrouchHold2:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        IBEM KK 1 BRIGHT A_SpawnItemEx("IceBeamCharging1",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	  CrouchHold3:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        IBEM LL 1 BRIGHT A_SpawnItemEx("IceBeamCharging2",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	  CrouchHold4:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-		TNT1 A 0 A_GiveInventory("PowerBeamHalfCharged",1);
-        IBEM MM 1 BRIGHT A_SpawnItemEx("IceBeamCharging3",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	  CrouchHold5:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        IBEM NN 1 BRIGHT A_SpawnItemEx("IceBeamCharging4",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	  CrouchHold6:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        IBEM OO 1 BRIGHT A_SpawnItemEx("IceBeamCharging5",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	  CrouchHold7:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        IBEM PP 1 BRIGHT A_SpawnItemEx("IceBeamCharging6",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	  CrouchHoldFinal2:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"D_RUNNIN");
-        TNT1 A 0 A_JumpIfInventory("PowerBeamIdle",26,"HoldFinal3");
-        TNT1 A 0 A_GiveInventory("PowerBeamIdle",1);
-        IBEM QQ 1 BRIGHT A_SpawnItemEx("IceBeamCharging7",-15,64,(sin(pitch)*-63)+8,0,0,0,-270,32);
-        TNT1 A 0 A_JumpIfInventory("ISSynthFireRight",1,"ChargeCombo");
-        TNT1 A 0 A_Refire;
-        goto HoldFinish;
-
-	OldHold2:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        IBEM KK 1 BRIGHT A_FireProjectile("IceBeamChargingSpawner1",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	OldHold3:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        IBEM LL 1 BRIGHT A_FireProjectile("IceBeamChargingSpawner2",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	OldHold4:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-		TNT1 A 0 A_GiveInventory("PowerBeamHalfCharged",1);
-        IBEM MM 1 BRIGHT A_FireProjectile("IceBeamChargingSpawner3",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	OldHold5:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        IBEM NN 1 BRIGHT A_FireProjectile("IceBeamChargingSpawner4",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	OldHold6:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        IBEM OO 1 BRIGHT A_FireProjectile("IceBeamChargingSpawner5",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	OldHold7:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
-        TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        IBEM PP 1 BRIGHT A_FireProjectile("IceBeamChargingSpawner6",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
-        goto HoldFire;
-
-	OldHoldFinal2:
-        TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"D_RUNNIN");
-        TNT1 A 0 A_JumpIfInventory("PowerBeamIdle",26,"HoldFinal3");
-        TNT1 A 0 A_GiveInventory("PowerBeamIdle",1);
-        IBEM QQ 1 BRIGHT A_FireProjectile("IceBeamChargingSpawner7",0,0,0,0,0,0);
-        TNT1 A 0 A_JumpIfInventory("ISSynthFireRight",1,"ChargeCombo");
-        TNT1 A 0 A_Refire;
-        goto HoldFinish;
 
 	  HoldFinal:
         TNT1 A 0;
@@ -428,13 +282,12 @@ Class IceBeam : Weapon
         TNT1 A 0 A_StartSound("pbeam/idle",7);
       HoldFinal2:
         TNT1 A 0;
-        TNT1 A 0 A_JumpIfInventory("CustomMissileCharge",1,"OldHoldFinal2");
-        TNT1 A 0 A_JumpIfInventory("WhyCantMetroidCrawl",1,"CrouchHoldFinal2");
         TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"D_RUNNIN");
         TNT1 A 0 A_JumpIfInventory("PowerBeamIdle",26,"HoldFinal3");
         TNT1 A 0 A_GiveInventory("PowerBeamIdle",1);
         IBEM QQ 1 BRIGHT A_SpawnItemEx("IceBeamCharging7",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("IceBeamChargingSpawner7",0,0,0,0,0,0)
         TNT1 A 0 A_JumpIfInventory("ISSynthFireRight",1,"ChargeCombo");
+		TNT1 A 0 TheSucc();
         TNT1 A 0 A_Refire;
       HoldFinish:
         TNT1 A 0 A_StartSound("silence",7);//A_StopSound(5)
@@ -485,6 +338,7 @@ Class IceBeam : Weapon
         TNT1 A 0;
         TNT1 A 0 A_TakeInventory("PowerBeamIdle",99);
         TNT1 A 0 A_StartSound("pbeam/idle",7);
+		TNT1 A 0 TheSucc();
         goto HoldFinal2;
 
       Missile:

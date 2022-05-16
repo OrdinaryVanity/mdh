@@ -1,3 +1,4 @@
+/*
 ACTOR MissileAmmo : Ammo replaces Shell 17520
 {
 //$Category Metroid
@@ -197,7 +198,7 @@ ACTOR MissileAmmoPack_Dropped : MissileAmmoPack
 		
     }
 }
-
+*/
 actor SuperMissileAmmo : Ammo 17524
 {
 //$Category Metroid

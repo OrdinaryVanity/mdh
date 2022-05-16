@@ -28,6 +28,8 @@ server int met_nohijump = 0;
 server int met_shinevel = 25;
 server int met_boostvel = 30;
 server int met_grapple = 0;
+server int met_chargepull = 1;
+server int met_pulldist = 360;
 
 // Clientside cvars
 //  Still marked server for CVARINFO, since these are accessed from not-player scripts.
@@ -42,6 +44,5 @@ user int met_cl_doomhealth = 0;
 user int met_cl_nometroidpickups = 0;
 user int met_cl_hitindicator = 0;
 user int met_cl_chromabeamdensity = 8;
-user int met_cl_custommissilecharge = 0;
 user int met_cl_pickupmusic = 0;
 user int met_cl_showallbeams = 0;
