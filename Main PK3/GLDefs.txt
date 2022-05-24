@@ -1,91 +1,232 @@
-//2D Beam Brightmaps by Wivicer (thanks dude!)
+// OKAY, THIS LIST IS REALLY FUCKING LONG. I WILL TRY TO REMEMBER TO COMMENT THE SHIT OUT OF THIS
 
-// Power Beam 2D
+// Missile arm cannon states
+// Missile - Idle
+brightmap sprite MLIDA0
+{
+   map "brightmaps/2dbeams/Missile/MIS_BM_Idle.png"
+}
 
+// Missile - To Missile Transformation
+brightmap sprite MLTOA0
+{
+   map "brightmaps/2dbeams/Missile/To_MIS_BM_0.png"
+}
+brightmap sprite MLTOB0
+{
+   map "brightmaps/2dbeams/Missile/To_MIS_BM_1.png"
+}
+brightmap sprite MLTOC0
+{
+   map "brightmaps/2dbeams/Missile/To_MIS_BM_2.png"
+}
+brightmap sprite MLTOD0
+{
+   map "brightmaps/2dbeams/Missile/To_MIS_BM_3.png"
+}
+brightmap sprite MLTOE0
+{
+   map "brightmaps/2dbeams/Missile/To_MIS_BM_4.png"
+}
+brightmap sprite MLTOF0
+{
+   map "brightmaps/2dbeams/Missile/To_MIS_BM_5.png"
+}
+brightmap sprite MLTOG0
+{
+   map "brightmaps/2dbeams/Missile/To_MIS_BM_6.png"
+}
+brightmap sprite MLTOH0
+{
+   map "brightmaps/2dbeams/Missile/To_MIS_BM_7.png"
+}
+
+// Missile - From Missile Transformation
+brightmap sprite MLFRA0
+{
+   map "brightmaps/2dbeams/Missile/From_MIS_BM_0.png"
+}
+brightmap sprite MLFRB0
+{
+   map "brightmaps/2dbeams/Missile/From_MIS_BM_1.png"
+}
+brightmap sprite MLFRC0
+{
+   map "brightmaps/2dbeams/Missile/From_MIS_BM_2.png"
+}
+brightmap sprite MLFRD0
+{
+   map "brightmaps/2dbeams/Missile/From_MIS_BM_3.png"
+}
+brightmap sprite MLFRE0
+{
+   map "brightmaps/2dbeams/Missile/From_MIS_BM_4.png"
+}
+
+// Missile - Fire Animation
+brightmap sprite MLFIA0
+{
+   map "brightmaps/2dbeams/Missile/MIS_Fire_BM_0.png"
+}
+brightmap sprite MLFIB0
+{
+   map "brightmaps/2dbeams/Missile/MIS_Fire_BM_1.png"
+}
+brightmap sprite MLFIC0
+{
+   map "brightmaps/2dbeams/Missile/MIS_Fire_BM_2.png"
+}
+brightmap sprite MLFID0
+{
+   map "brightmaps/2dbeams/Missile/MIS_Fire_BM_3.png"
+}
+brightmap sprite MLFIE0
+{
+   map "brightmaps/2dbeams/Missile/MIS_Fire_BM_4.png"
+}
+brightmap sprite MLFIF0
+{
+   map "brightmaps/2dbeams/Missile/MIS_Fire_BM_5.png"
+}
+brightmap sprite MLFIG0
+{
+   map "brightmaps/2dbeams/Missile/MIS_Fire_BM_6.png"
+}
+brightmap sprite MLFIH0
+{
+   map "brightmaps/2dbeams/Missile/MIS_Fire_BM_7.png"
+}
+
+// Power Beam - Idle
 brightmap sprite PBEMA0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_BM_Idle.png"
 }
-brightmap sprite POIDA0
+
+//Power Beam - Charge Up
+brightmap sprite PBCUA0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_Cha_BM_0.png"
 }
-brightmap sprite POIDB0
+brightmap sprite PBCUB0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_Cha_BM_1.png"
 }
-brightmap sprite POIDC0
+brightmap sprite PBCUC0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_Cha_BM_2.png"
 }
-brightmap sprite POIDD0
+brightmap sprite PBCUD0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_Cha_BM_3.png"
 }
-brightmap sprite POIDE0
+brightmap sprite PBCUE0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_Cha_BM_4.png"
 }
-brightmap sprite POIDF0
+brightmap sprite PBCUF0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_Cha_BM_5.png"
 }
-brightmap sprite POIDG0
+brightmap sprite PBCUG0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_Cha_BM_6.png"
 }
-brightmap sprite POIDH0
+brightmap sprite PBCUH0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_Cha_BM_7.png"
 }
-brightmap sprite POIDI0
+brightmap sprite PBCUI0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_Cha_BM_8.png"
 }
-brightmap sprite POIDJ0
+brightmap texture PBCUJ0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_Cha_BM_9.png"
 }
-brightmap sprite POIDK0
+
+//Power Beam - Charge Fire
+brightmap sprite PBCFA0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/Pow_CFire_BM_1.png"
 }
-brightmap sprite POIDL0
+brightmap sprite PBCFB0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/Pow_CFire_BM_2.png"
 }
-brightmap sprite POIDM0
+brightmap sprite PBCFC0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/Pow_CFire_BM_3.png"
 }
-brightmap sprite POIDN0
+brightmap sprite PBCFD0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/Pow_CFire_BM_4.png"
 }
-brightmap sprite POIDO0
+brightmap sprite PBCFE0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/Pow_CFire_BM_5.png"
 }
-brightmap sprite POIDP0
+brightmap sprite PBCFF0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/Pow_CFire_BM_6.png"
 }
-brightmap sprite POIDQ0
+brightmap sprite PBCFG0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/Pow_CFire_BM_7.png"
 }
-brightmap sprite POIDR0
+
+//Power Beam - Fire
+brightmap sprite PBFIA0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_BM_1.png"
 }
-brightmap sprite POIDS0
+brightmap sprite PBFIB0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_BM_1.png"
 }
-brightmap sprite POIDT0
+brightmap sprite PBFIC0
 {
-   map "brightmaps/2dbeams/Cannon_Idle_Brightmap.png"
+   map "brightmaps/2dbeams/PowerBeam/POW_BM_2.png"
 }
+brightmap sprite PBFID0
+{
+   map "brightmaps/2dbeams/PowerBeam/POW_BM_3.png"
+}
+brightmap sprite PBFIE0
+{
+   map "brightmaps/2dbeams/PowerBeam/POW_BM_4.png"
+}
+brightmap sprite PBFIF0
+{
+   map "brightmaps/2dbeams/PowerBeam/POW_BM_5.png"
+}
+
+//Power Beam - Transition To Beam
+brightmap sprite PBEMR0
+{
+   map "brightmaps/2dbeams/PowerBeam/POW_0_BM.png"
+}
+brightmap sprite PBEMS0
+{
+   map "brightmaps/2dbeams/PowerBeam/POW_1_BM.png"
+}
+brightmap sprite PBEMT0
+{
+   map "brightmaps/2dbeams/PowerBeam/POW_2_BM.png"
+}
+brightmap sprite PBEMU0
+{
+   map "brightmaps/2dbeams/PowerBeam/POW_3_BM.png"
+}
+brightmap sprite PBEMV0
+{
+   map "brightmaps/2dbeams/PowerBeam/POW_4_BM.png"
+}
+brightmap sprite PBEMW0
+{
+   map "brightmaps/2dbeams/PowerBeam/POW_5_BM.png"
+}
+
 brightmap sprite SBIDA0
 {
    map "brightmaps/2dbeams/CannonBright.png"
@@ -2180,85 +2321,92 @@ PointLight PowerUnchargedGlow3
 pointlight PowerChargedGlow
 {
     color 1.0 1.0 0.0
-    size 50
-    DontLightSelf 0
+    size 40
+    DontLightSelf 1
 }
 
 pointlight PowerChargedGlow2
 {
     color 0.75 0.75 0.0
-    size 55
-    DontLightSelf 0
+    size 45
+    DontLightSelf 1
 }
 
 pointlight PowerChargedGlow3
 {
     color 0.5 0.5 0.0
-    size 60
-    DontLightSelf 0
+    size 50
+    DontLightSelf 1
 }
 
 pointlight PowerChargedGlow4
 {
     color 0.25 0.25 0.0
-    size 70
-    DontLightSelf 0
+    size 55
+    DontLightSelf 1
 }
 
 pointlight PowerChargedGlow5
 {
     color 0.125 0.125 0.0
-    size 50
-    DontLightSelf 0
+    size 60
+    DontLightSelf 1
+}
+
+pointlight PowerChargedGlow6
+{
+    color 0.125 0.125 0.0
+    size 65
+    DontLightSelf 1
 }
 
 pointlight PowerChargingGlow1
 {
     color 0.05 0.05 0.0
     size 10
-    DontLightSelf 0
+    DontLightSelf 1
 }
 
 pointlight PowerChargingGlow2
 {
     color 0.1 0.1 0.0
     size 20
-    DontLightSelf 0
+    DontLightSelf 1
 }
 
 pointlight PowerChargingGlow3
 {
     color 0.15 0.15 0.0
     size 30
-    DontLightSelf 0
+    DontLightSelf 1
 }
 
 pointlight PowerChargingGlow4
 {
     color 0.2 0.2 0.0
     size 35
-    DontLightSelf 0
+    DontLightSelf 1
 }
 
 pointlight PowerChargingGlow5
 {
     color 0.25 0.25 0.0
     size 40
-    DontLightSelf 0
+    DontLightSelf 1
 }
 
 pointlight PowerChargingGlow6
 {
     color 0.3 0.3 0.0
     size 45
-    DontLightSelf 0
+    DontLightSelf 1
 }
 
 pointlight PowerChargingGlow7
 {
     color 0.35 0.35 0.0
     size 50
-    DontLightSelf 0
+    DontLightSelf 1
 }
 
 Object PowerBolt { Frame PBSH { Light PowerUnchargedGlow }

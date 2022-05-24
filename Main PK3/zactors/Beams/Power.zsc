@@ -1,7 +1,12 @@
 Class PowerBeam : MDOBeam
 {	
-	enum PBLayers
+	bool missilesOn;
+	int missileCooldown;
+	
+	enum PBLayers // OH SHIT SON WE GOT PSPRITES UP IN THIS B
 	{
+		PSP_MDOChargeParticles = -12,
+		PSP_MDOCharge = -11,
 		PSP_MDOFlash = -10,
 		PSP_MDOHLights = 10
 	}
@@ -19,53 +24,44 @@ Class PowerBeam : MDOBeam
 	{
       Spawn:
         MGUN A -1;
+		TNT1 A 0 {
+			invoker.missileCooldown = 0;
+		}
         Stop;
 
       Ready:
         TNT1 A 0 ACS_ExecuteWithResult(476, 1);
 		TNT1 A 0 A_SetCrosshair(9);
+		TNT1 A 0 A_JumpIf(invoker.missilesOn, "ReadyMissile");
 		Goto Ready2;
 		
 	  Ready2:
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID AA 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID B 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID C 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID D 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID E 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID F 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID G 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID H 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID I 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID J 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID K 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
-			TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
-			POID L 1 A_WeaponReady;
-			TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineBright");
-			TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive", 1,"D_RUNNIN");
-			Goto Ready;
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
+		TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineBright");
+		TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive", 1,"D_RUNNIN");
+		PBEM A 1 A_WeaponReady;
+		Goto Ready;
+	
+	  ReadyMissile:
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 0), "Missile");
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594, 28, 1), "SuperMissile");
+		TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineBright");
+		TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive", 1,"D_RUNNIN");
+		MLID A 0 {
+			if(invoker.missileCooldown < 1)	//Check missile cooldown and play
+			{								//the missile transition back to arm cannon animation
+				invoker.missilesOn = false;
+				return ResolveState("MissileFromTrans");
+			}
+			else
+			{
+				invoker.missileCooldown--;
+				return ResolveState(null);
+			}
+		}
+		MLID A 1 A_WeaponReady;
+		Goto Ready;
 			
 	  Select:
         TNT1 AAAAAAAAAAAAAAAAAAAA 0 A_Raise;
@@ -75,6 +71,10 @@ Class PowerBeam : MDOBeam
 	  Deselect:
         PBEM A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 A_PlaySoundEx("beam/deselect","soundslot5");
+		TNT1 A 0 {
+			invoker.missileCooldown = 0; //Override missile transition timer since we're firing normally
+			invoker.missilesOn = false;  //and don't need the animation to play
+			}
 	  Deselect2:
 	    PBEM RSTUVW 1 A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
         TNT1 A 0 A_JumpIfHealthLower(1, "DeadLower");
@@ -92,48 +92,56 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_JumpIfInventory("IceBeamChilled",1,"FireChilled");
         TNT1 A 0 A_PlayWeaponSound("pbeam/fire");
         TNT1 A 0 A_Recoil(0.05);
-        TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"FireCoop");
-        TNT1 A 0 {
-			A_FireCustomMissile("PowerBolt",random(20,200)/100.00,0,12,0,0,random(20,50)/100.00);
-			A_OverlayFlags(PSP_MDOFlash, PSPF_RenderStyle, true);
-			A_OverlayRenderStyle(PSP_MDOFlash, Style_Fuzzy);
-			A_Overlay(PSP_MDOFlash, "MDOFlash");
-			A_Overlay(PSP_MDOHLights, "MDOHighlights");
-		}
+        TNT1 A 0 A_FireProjectile("PowerBolt",random(20,200)/100.00,0,12,0,0,random(20,50)/100.00);
+		TNT1 A 0 {
+			invoker.missileCooldown = 0; //Override missile transition timer since we're firing normally
+			invoker.missilesOn = false;  //and don't need the animation to play
+			}
         Goto FireFinish;
 
 	  MDOFlash:
-        PBMF ABCDBA 1 BRIGHT;
-        TNT1 A 0;
+        PBMF ABCD 1 BRIGHT;
         Stop;
 		
-	  MDOHighlghts:
+	  MDOHighlghts: //WIP
 		TNT1 A 0;
 		Stop;
 	  
-      FireCoop:
-        //TNT1 A 0 A_FireCustomMissile("PowerBoltCoop",random(20,200)/100.00,0,12,0,0,random(20,50)/100.00);
-		TNT1 A 0 {
-			A_FireCustomMissile("PowerBolt",random(20,200)/100.00,0,12,0,0,random(20,50)/100.00);
-			A_Overlay(PSP_MDOFlash, "MDOFlash");
-			A_Overlay(PSP_MDOHLights, "MDOHighlights");
-		}
 	  FireFinish:
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_Light1;
-        PBEM B 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+        PBFI A 1 {
+			A_Overlay(PSP_MDOFlash, "MDOFlash");
+			}
+		PBFI B 2  {
+			A_OverlayOffset(PSP_MDOFlash, 0, 2, WOF_ADD);
+			A_WeaponOffset(0, 8, WOF_ADD);
+			A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+			}
         TNT1 A 0 A_Light0;
-        PBEM C 1 BRIGHT A_WeaponReady(WRF_NOSWITCH);
+        PBFI C 3  {
+			A_OverlayOffset(PSP_MDOFlash, 1, 10, WOF_ADD);
+			A_WeaponOffset(2, 20, WOF_ADD);
+			A_WeaponReady(WRF_NOSWITCH);
+			}
         TNT1 A 0 A_Light0;
-        PBEM D 1 BRIGHT A_WeaponReady(WRF_NOSWITCH);
-        PBEM EEFFFEEGHA 1 A_WeaponReady(WRF_NOSWITCH);
-        PBEM A 6 A_WeaponReady(WRF_NOSWITCH);
+        PBFI D 2  {
+			A_OverlayOffset(PSP_MDOFlash, 0, 1, WOF_ADD);
+			A_WeaponOffset(0, 16, WOF_ADD);
+			A_WeaponReady(WRF_NOSWITCH);
+			}
+		PBFI E 2 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_WeaponReady(WRF_NOSWITCH);
+			}
+        PBFI F 2 {
+			A_WeaponOffset(0, 32, WOF_INTERPOLATE);
+			A_WeaponReady(WRF_NOSWITCH);
+			}
 		TNT1 A 0 A_JumpIfInventory("ChargeBeamAcquired", 1, "PreHold");
-        //TNT1 A 0 A_Refire;
         Goto Ready;
 		
 	  PreHold:
-		TNT1 A 0;
 		TNT1 A 0 A_Refire;
 		Goto Ready;
 
@@ -141,21 +149,21 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_PlayWeaponSound("pbeam/fire");
         TNT1 A 0 A_Recoil(0.05);
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ChilledCoop");
-        TNT1 A 0 A_FireCustomMissile("PowerBolt",random(-75,75)/100.00,0,0,-2,0,random(-50,50)/100.00);
+        TNT1 A 0 A_FireProjectile("PowerBolt",random(-75,75)/100.00,0,0,-2,0,random(-50,50)/100.00);
         Goto ChilledFinish;
 
       ChilledCoop:
-        TNT1 A 0 A_FireCustomMissile("PowerBoltCoop",random(-75,75)/100.00,0,0,-2,0,random(-50,50)/100.00);
+        TNT1 A 0 A_FireProjectile("PowerBoltCoop",random(-75,75)/100.00,0,0,-2,0,random(-50,50)/100.00);
 	  ChilledFinish:
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_Light2;
-        PBEM B 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+        PBFI B 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
         TNT1 A 0 A_Light1;
-        PBEM C 2 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+        PBFI C 2 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
         TNT1 A 0 A_Light0;
-        PBEM D 2 BRIGHT A_WeaponReady(WRF_NOSWITCH);
-        PBEM EEFFFEEGHA 2 A_WeaponReady(WRF_NOSWITCH);
-        PBEM A 6 A_WeaponReady(WRF_NOSWITCH);
+        PBFI D 2 BRIGHT A_WeaponReady(WRF_NOSWITCH);
+        PBFI BBBBAA 2 A_WeaponReady(WRF_NOSWITCH);
+        PBFI A 6 A_WeaponReady(WRF_NOSWITCH);
         TNT1 A 0 A_Refire;
         Goto Ready;
 
@@ -169,14 +177,131 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",5,"Hold3");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",1,"Hold2");
         TNT1 A 0 A_PlaySoundEx("pbeam/charge","soundslot5");
+		TNT1 A 0 {
+			A_Overlay(PSP_MDOChargeParticles, "MDOChargeParticles");
+			A_OverlayScale(PSP_MDOChargeParticles, -0.1, -0.1, WOF_ADD);
+			A_Overlay(PSP_MDOCharge, "MDOChargeHold2", true);
+			A_OverlayScale(PSP_MDOCharge, -1.0, -1.0, WOF_ADD);
+			}
       Hold2:
-        TNT1 A 0;
+        TNT1 A 0 A_AttachLightDef("ChargeLight2","PowerChargedGlow");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        PBEM KK 1 BRIGHT A_SpawnItemEx("PowerBeamCharging1",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("PowerBeamChargingSpawner1",0,0,0,0,0,0);
+        PBCU AB 1  {
+			A_Overlay(PSP_MDOCharge, "MDOChargeHold2", true);
+			A_OverlayPivotAlign(PSP_MDOCharge,PSPA_CENTER,PSPA_CENTER);
+			A_OverlayRotate(PSP_MDOCharge, -0.10, WOF_ADD);
+			A_OverlayAlpha(PSP_MDOCharge, 0.65);
+			A_OverlayAlpha(PSP_MDOChargeParticles, 0.10);
+			A_WeaponOffset(1, 53);
+			A_OverlayOffset(PSP_MDOCharge, 203, 85);
+			A_OverlayOffset(PSP_MDOChargeParticles, 205, 85);
+			}
+		TNT1 A 0 A_OverlayScale(PSP_MDOCharge, -0.02, -0.02, WOF_ADD);
         TNT1 A 0 A_Refire;
+		Goto HoldFire;
+	  
+	  MDOChargeParticles:
+		TNT1 A 0 {
+			A_OverlayFlags(PSP_MDOChargeParticles, PSPF_RenderStyle|PSPF_ALPHA, true);
+			A_OverlayRenderStyle(PSP_MDOChargeParticles, Style_Add);
+			}
+		PPT1 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 Bright;
+		Loop;
+	  
+	  MDOChargeHold2:
+		TNT1 A 0 {
+			A_OverlayFlags(PSP_MDOCharge, PSPF_RenderStyle|PSPF_ALPHA, true);
+			A_OverlayRenderStyle(PSP_MDOCharge, Style_Add);
+			A_AttachLightDef("ChargeLight2","PowerChargedGlow");
+			}
+		TNT1 A 0 A_Jump(255, random(1,4));
+		PBHC ABCDA 1 Bright;
+		PBHC BCDAB 1 Bright;
+		PBHC CDABC 1 Bright;
+		PBHC DABCD 1 Bright;
+		Loop;
+		
+	  MDOChargeHold3:
+		TNT1 A 0 {
+			A_OverlayFlags(PSP_MDOCharge, PSPF_RenderStyle|PSPF_ALPHA, true);
+			A_OverlayRenderStyle(PSP_MDOCharge, Style_Add);
+			A_AttachLightDef("ChargeLight3","PowerChargedGlow2");
+			}
+		TNT1 A 0 A_Jump(255, random(1,4));
+		PBHC ABCDA 1 Bright;
+		PBHC BCDAB 1 Bright;
+		PBHC CDABC 1 Bright;
+		PBHC DABCD 1 Bright;
+		Loop;
+		
+	  MDOChargeHold4:
+	    TNT1 A 0 {
+			A_OverlayFlags(PSP_MDOCharge, PSPF_RenderStyle|PSPF_ALPHA, true);
+			A_OverlayRenderStyle(PSP_MDOCharge, Style_Add);
+			A_AttachLightDef("ChargeLight4","PowerChargedGlow3");
+			}
+		TNT1 A 0 A_Jump(255, random(1,4));
+		PBHC ABCDA 1 Bright;
+		PBHC BCDAB 1 Bright;
+		PBHC CDABC 1 Bright;
+		PBHC DABCD 1 Bright;
+		Loop;
+		
+	  MDOChargeHold5:
+		TNT1 A 0 {
+			A_OverlayFlags(PSP_MDOCharge, PSPF_RenderStyle|PSPF_ALPHA, true);
+			A_OverlayRenderStyle(PSP_MDOCharge, Style_Add);
+			A_AttachLightDef("ChargeLight5","PowerChargedGlow4");
+			}
+		TNT1 A 0 A_Jump(255, random(1,4));
+		PBHC ABCDA 1 Bright;
+		PBHC BCDAB 1 Bright;
+		PBHC CDABC 1 Bright;
+		PBHC DABCD 1 Bright;
+		Loop;
+		
+	  MDOChargeHold6:
+		TNT1 A 0 {
+			A_OverlayFlags(PSP_MDOCharge, PSPF_RenderStyle|PSPF_ALPHA, true);
+			A_OverlayRenderStyle(PSP_MDOCharge, Style_Add);
+			A_AttachLightDef("ChargeLight6","PowerChargedGlow5");
+			}
+		TNT1 A 0 A_Jump(255, random(1,4));
+		PBHC ABCDA 1 Bright;
+		PBHC BCDAB 1 Bright;
+		PBHC CDABC 1 Bright;
+		PBHC DABCD 1 Bright;
+		Loop;
+		
+	  MDOChargeHold7:
+	    TNT1 A 0 {
+			A_OverlayFlags(PSP_MDOCharge, PSPF_RenderStyle|PSPF_ALPHA, true);
+			A_OverlayRenderStyle(PSP_MDOCharge, Style_Add);
+			A_AttachLightDef("ChargeLight7","PowerChargedGlow6");
+			}
+		TNT1 A 0 A_Jump(255, random(1,4));
+		PBHC ABCDA 1 Bright;
+		PBHC BCDAB 1 Bright;
+		PBHC CDABC 1 Bright;
+		PBHC DABCD 1 Bright;
+		Loop;
+		
       HoldFire:
-        TNT1 A 0;
+        TNT1 A 0 {
+			let psp = player.FindPSprite(PSP_MDOCharge);
+			if (psp)
+			{
+				psp.Destroy();
+				A_RemoveLight("ChargeLight2");
+				A_RemoveLight("ChargeLight3");
+				A_RemoveLight("ChargeLight4");
+				A_RemoveLight("ChargeLight5");
+				A_RemoveLight("ChargeLight6");
+				A_RemoveLight("ChargeLight7");
+			}
+		}
+		TNT1 A 0 A_PSPDestroy(PSP_MDOChargeParticles);
 		TNT1 A 0 A_JumpIfInventory("PowerBeamHalfCharged",1,"HalfShotHoldFinish");
         TNT1 A 0 A_PlaySoundEx("silence","soundslot5");
         TNT1 A 0 A_PlayWeaponSound("pbeam/fire");
@@ -185,62 +310,145 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_ClearRefire;
         TNT1 A 0 A_Recoil(0.05);
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"UnholdCoop");
-        TNT1 A 0 A_FireCustomMissile("PowerBolt",random(-75,75)/100.00,0,0,-2,0,random(-50,50)/100.00);
+        TNT1 A 0 A_FireProjectile("PowerBolt",random(-75,75)/100.00,0,0,12,0,random(-50,50)/100.00);
         Goto UnholdFinish;
 
       UnholdCoop:
-        TNT1 A 0 A_FireCustomMissile("PowerBoltCoop",random(-75,75)/100.00,0,0,-2,0,random(-50,50)/100.00);
+        TNT1 A 0 A_FireProjectile("PowerBolt",random(20,200)/100.00,0,12,0,0,random(20,50)/100.00);
 	  UnholdFinish:
+		TNT1 A 0 {
+			let psp = player.FindPSprite(PSP_MDOCharge);
+			if (psp)
+			{
+				psp.Destroy();
+				A_RemoveLight("ChargeLight2");
+				A_RemoveLight("ChargeLight3");
+				A_RemoveLight("ChargeLight4");
+				A_RemoveLight("ChargeLight5");
+				A_RemoveLight("ChargeLight6");
+				A_RemoveLight("ChargeLight7");
+			}
+		}
+		TNT1 A 0 A_PSPDestroy(PSP_MDOChargeParticles);
         TNT1 A 0 A_AlertMonsters;
-        TNT1 A 0 A_Light2;
-        PBEM B 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
         TNT1 A 0 A_Light1;
-        PBEM C 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+        PBFI A 1 {
+			A_Overlay(PSP_MDOFlash, "MDOFlash");
+			}
+		PBFI B 1  {
+			A_OverlayOffset(PSP_MDOFlash, 0, 2, WOF_ADD);
+			A_WeaponOffset(0, 2, WOF_ADD);
+			A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+			}
         TNT1 A 0 A_Light0;
-        PBEM D 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
-        PBEM EEFFFEEGHA 1 A_WeaponReady(WRF_NOSWITCH);
-        PBEM A 6 A_WeaponReady(WRF_NOSWITCH);
+        PBFI C 1  {
+			A_OverlayOffset(PSP_MDOFlash, 0, 6, WOF_ADD);
+			A_WeaponOffset(0, 14, WOF_ADD);
+			A_WeaponReady(WRF_NOSWITCH);
+			}
+        TNT1 A 0 A_Light0;
+        PBFI D 1   {
+			A_OverlayOffset(PSP_MDOFlash, 0, 1, WOF_ADD);
+			A_WeaponOffset(0, 1, WOF_ADD);
+			A_WeaponReady(WRF_NOSWITCH);
+			}
+        PBFI EDCBA 3 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_WeaponReady(WRF_NOSWITCH);
+			}
+        PBFI A 3 {
+			A_WeaponOffset(0, 32, WOF_INTERPOLATE);
+			A_WeaponReady(WRF_NOSWITCH);
+			}
         Goto Ready;
 		
 	  Hold3:
-		TNT1 A 0;
+		TNT1 A 0 A_AttachLightDef("ChargeLight3","PowerChargedGlow");
+		TNT1 A 0 A_RemoveLight("ChargeLight2");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        PBEM LL 1 BRIGHT A_SpawnItemEx("PowerBeamCharging2",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("PowerBeamChargingSpawner2",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
+        PBCU CD 1  {
+			A_Overlay(PSP_MDOCharge, "MDOChargeHold3", true);
+			A_OverlayPivotAlign(PSP_MDOCharge,PSPA_CENTER,PSPA_CENTER);
+			A_OverlayRotate(PSP_MDOCharge, -.10, WOF_ADD);
+			A_OverlayAlpha(PSP_MDOCharge, 0.70);
+			A_OverlayAlpha(PSP_MDOChargeParticles, 0.20);
+			A_WeaponOffset(1, 54);
+			A_OverlayOffset(PSP_MDOCharge, 202, 84);
+			}
+		TNT1 A 0 A_OverlayScale(PSP_MDOCharge, -0.03, -0.03, WOF_ADD);
+		TNT1 A 0 A_Refire;
         Goto HoldFire;
 	
 	  Hold4:
-		TNT1 A 0;
+		TNT1 A 0 A_AttachLightDef("ChargeLight4","PowerChargedGlow");
+		TNT1 A 0 A_RemoveLight("ChargeLight3");
 		TNT1 A 0 A_GiveInventory("PowerBeamHalfCharged",1);
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        PBEM MM 1 BRIGHT A_SpawnItemEx("PowerBeamCharging3",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("PowerBeamChargingSpawner3",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
+        PBCU EF 1  {
+			A_Overlay(PSP_MDOCharge, "MDOChargeHold4", true);
+			A_OverlayPivotAlign(PSP_MDOCharge,PSPA_CENTER,PSPA_CENTER);
+			A_OverlayRotate(PSP_MDOCharge, -0.10, WOF_ADD);
+			A_OverlayAlpha(PSP_MDOCharge, 0.75);
+			A_OverlayAlpha(PSP_MDOChargeParticles, 0.30);
+			A_WeaponOffset(1, 55);
+			A_OverlayOffset(PSP_MDOCharge, 201, 83);
+			}
+		TNT1 A 0 A_OverlayScale(PSP_MDOCharge, -0.04, -0.04, WOF_ADD);
+		TNT1 A 0 A_Refire;
         Goto HoldFire;
 		
 	  Hold5:
-        TNT1 A 0;
+		TNT1 A 0 A_AttachLightDef("ChargeLight5","PowerChargedGlow");
+        TNT1 A 0 A_RemoveLight("ChargeLight4");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        PBEM NN 1 BRIGHT A_SpawnItemEx("PowerBeamCharging4",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("PowerBeamChargingSpawner4",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
+        PBCU GH 1  {
+			A_Overlay(PSP_MDOCharge, "MDOChargeHold5", true);
+			A_OverlayPivotAlign(PSP_MDOCharge,PSPA_CENTER,PSPA_CENTER);
+			A_OverlayRotate(PSP_MDOCharge, -0.10, WOF_ADD);
+			A_OverlayAlpha(PSP_MDOCharge, 0.80);
+			A_OverlayAlpha(PSP_MDOChargeParticles, 0.40);
+			A_WeaponOffset(2, 56);
+			A_OverlayOffset(PSP_MDOCharge, 200, 82);
+			}
+		TNT1 A 0 A_OverlayScale(PSP_MDOCharge, -0.05, -0.05, WOF_ADD);
+		TNT1 A 0 A_Refire;
         Goto HoldFire;
 
 	  Hold6:
-        TNT1 A 0;
+		TNT1 A 0 A_AttachLightDef("ChargeLight6","PowerChargedGlow");
+        TNT1 A 0 A_RemoveLight("ChargeLight5");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        PBEM OO 1 BRIGHT A_SpawnItemEx("PowerBeamCharging5",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("PowerBeamChargingSpawner5",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
+        PBCU IJ 1  {
+			A_Overlay(PSP_MDOCharge, "MDOChargeHold6", true);
+			A_OverlayPivotAlign(PSP_MDOCharge,PSPA_CENTER,PSPA_CENTER);
+			A_OverlayRotate(PSP_MDOCharge, -0.10, WOF_ADD);
+			A_OverlayAlpha(PSP_MDOCharge, 0.85);
+			A_OverlayAlpha(PSP_MDOChargeParticles, 0.50);
+			A_WeaponOffset(2, 57);
+			A_OverlayOffset(PSP_MDOCharge, 199, 81);
+			}
+		TNT1 A 0 A_Refire;
         Goto HoldFire;
 
 	  Hold7:
-        TNT1 A 0;
+		TNT1 A 0 A_AttachLightDef("ChargeLight7","PowerChargedGlow");
+		TNT1 A 0 A_RemoveLight("ChargeLight6");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        PBEM PP 1 BRIGHT A_SpawnItemEx("PowerBeamCharging6",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("PowerBeamChargingSpawner6",0,0,0,0,0,0);
-        TNT1 A 0 A_Refire;
+        PBCU IJ 1  {
+			A_Overlay(PSP_MDOCharge, "MDOChargeHold7", true);
+			A_OverlayPivotAlign(PSP_MDOCharge,PSPA_CENTER,PSPA_CENTER);
+			A_OverlayRotate(PSP_MDOCharge, -0.10, WOF_ADD);
+			A_OverlayAlpha(PSP_MDOCharge, 0.90);
+			A_OverlayAlpha(PSP_MDOChargeParticles, 0.60);
+			A_WeaponOffset(3, 58);
+			A_OverlayOffset(PSP_MDOCharge, 198, 80);
+			}
+		TNT1 A 0 A_Refire;
         Goto HoldFire;
 
       HoldFinal:
@@ -252,11 +460,33 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"D_RUNNIN");
         TNT1 A 0 A_JumpIfInventory("PowerBeamIdle",26,"HoldFinal3"); // The shit I do because A_StopSoundEx doesn't work online.
         TNT1 A 0 A_GiveInventory("PowerBeamIdle",1);
-        PBEM QQ 1 BRIGHT A_SpawnItemEx("PowerBeamCharging7",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("PowerBeamChargingSpawner7",0,0,0,0,0,0);
-        TNT1 A 0 A_JumpIfInventory("PMSynthFireRight",1,"ChargeCombo");
+        PBCU IJ 1  {
+			A_Overlay(PSP_MDOCharge, "MDOChargeHold7", true);
+			A_OverlayPivotAlign(PSP_MDOCharge,PSPA_CENTER,PSPA_CENTER);
+			A_OverlayRotate(PSP_MDOCharge, -0.10, WOF_ADD);
+			A_OverlayAlpha(PSP_MDOCharge, 0.95);
+			A_OverlayAlpha(PSP_MDOChargeParticles, 0.70);
+			A_WeaponOffset(3, 58);
+			A_OverlayOffset(PSP_MDOCharge, 198, 80);
+			}
+		TNT1 A 0 A_JumpIfInventory("PMSynthFireRight",1,"ChargeCombo");
 		TNT1 A 0 TheSucc();
         TNT1 A 0 A_Refire;
 	  HoldFinish:
+		TNT1 A 0 {
+			let psp = player.FindPSprite(PSP_MDOCharge);
+			if (psp)
+			{
+				psp.Destroy();
+				A_RemoveLight("ChargeLight2");
+				A_RemoveLight("ChargeLight3");
+				A_RemoveLight("ChargeLight4");
+				A_RemoveLight("ChargeLight5");
+				A_RemoveLight("ChargeLight6");
+				A_RemoveLight("ChargeLight7");
+			}
+		}
+		TNT1 A 0 A_PSPDestroy(PSP_MDOChargeParticles);
         TNT1 A 0 A_PlaySoundEx("silence","soundslot7");//A_StopSoundEx("soundslot7")
         TNT1 A 0 A_PlayWeaponSound("pbeam/chfire");
 		TNT1 A 0 A_TakeInventory("PowerBeamHalfCharged",1);
@@ -268,10 +498,24 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT);
         TNT1 A 0 Radius_Quake(4,8,0,1,0);
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ChargedCoop");
-        TNT1 A 0 A_FireCustomMissile("PowerBoltCharged",random(-75,75)/100.00,0,8,-2,0,random(-50,50)/100.00);
+        TNT1 A 0 A_FireProjectile("PowerBoltCharged",random(-75,75)/100.00,0,8,-2,0,random(-50,50)/100.00);
         Goto ChargedFinish;
 		
 	  HalfShotHoldFinish:
+		TNT1 A 0 {
+			let psp = player.FindPSprite(PSP_MDOCharge);
+			if (psp)
+			{
+				psp.Destroy();
+				A_RemoveLight("ChargeLight2");
+				A_RemoveLight("ChargeLight3");
+				A_RemoveLight("ChargeLight4");
+				A_RemoveLight("ChargeLight5");
+				A_RemoveLight("ChargeLight6");
+				A_RemoveLight("ChargeLight7");
+			}
+		}
+		TNT1 A 0 A_PSPDestroy(PSP_MDOChargeParticles);
 		TNT1 A 0 A_StopSoundEx("soundslot5");
         TNT1 A 0 A_PlayWeaponSound("pbeam/fire");
 		TNT1 A 0 A_TakeInventory("PowerBeamHalfCharged",1);
@@ -283,27 +527,41 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT);
         TNT1 A 0 Radius_Quake(1,8,0,1,0);
         //TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ChargedCoop");
-        TNT1 A 0 A_FireCustomMissile("PowerBoltHalfCharged",random(-75,75)/100.00,0,8,-2,0,random(-50,50)/100.00);
+        TNT1 A 0 A_FireProjectile("PowerBoltHalfCharged",random(-75,75)/100.00,0,8,-2,0,random(-50,50)/100.00);
         Goto ChargedFinish;
 		
       ChargedCoop:
-        TNT1 A 0 A_FireCustomMissile("PowerBoltChargedCoop",random(-75,75)/100.00,0,8,-2,0,random(-50,50)/100.00);
+        TNT1 A 0 A_FireProjectile("PowerBoltChargedCoop",random(-75,75)/100.00,0,8,-2,0,random(-50,50)/100.00);
 	  ChargedFinish:
+		TNT1 A 0 {
+			let psp = player.FindPSprite(PSP_MDOCharge);
+			if (psp)
+			{
+				psp.Destroy();
+				A_RemoveLight("ChargeLight2");
+				A_RemoveLight("ChargeLight3");
+				A_RemoveLight("ChargeLight4");
+				A_RemoveLight("ChargeLight5");
+				A_RemoveLight("ChargeLight6");
+				A_RemoveLight("ChargeLight7");
+			}
+		}
+		TNT1 A 0 A_PSPDestroy(PSP_MDOChargeParticles);
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_Light2;
-        PBEM B 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+        PBCF A 1  A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
         TNT1 A 0 A_Light1;
         TNT1 A 0 A_ZoomFactor(0.975,ZOOM_INSTANT);
-        PBEM C 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+        PBCF B 1  A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
         TNT1 A 0 A_Light0;
         TNT1 A 0 A_ZoomFactor(1.00,ZOOM_INSTANT);
-        PBEM D 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
-        PBEM EEFFFEEGHA 1 A_WeaponReady(WRF_NOSWITCH);
+        PBCF C 4  A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+        PBCF DEFG 1 A_WeaponReady(WRF_NOSWITCH);
+		PBCF G 3 A_WeaponReady(WRF_NOSWITCH);
         PBEM A 6 A_WeaponReady(WRF_NOSWITCH);
         Goto Ready;
 
       HoldFinal3:
-        TNT1 A 0;
         TNT1 A 0 A_TakeInventory("PowerBeamIdle",99);
         TNT1 A 0 A_PlaySoundEx("pbeam/idle","soundslot7");
 		TNT1 A 0 TheSucc();
@@ -313,33 +571,98 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 ACS_ExecuteWithResult(594, 29, 0, 1);
         TNT1 A 0 A_PlayWeaponSound("missile/fire");
+		TNT1 A 0 A_PlaySound("missile/disengage",CHAN_UI,1.0,false,ATTN_NORM);
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT);
         TNT1 A 0 A_Recoil(2);
         TNT1 A 0 Radius_Quake(1,8,0,1,0);
+		TNT1 A 0 {
+			invoker.missileCooldown = 100;
+			}
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"Missile_Coop");
         Goto Missile_DM;
 
       Missile_DM:
-        TNT1 A 0 A_FireCustomMissile("PowerMissile",0,1,8,-2,0,0);
-        Goto MissileAnim;
+        TNT1 A 0 A_FireProjectile("PowerMissile",0,1,8,-2,0,0);
+        Goto MissileTransition;
 
       Missile_Coop:
-        TNT1 A 0 A_FireCustomMissile("PowerMissileCoop",0,1,8,-2,0,0);
-        Goto MissileAnim;
-
+        TNT1 A 0 A_FireProjectile("PowerMissileCoop",0,1,8,-2,0,0);
+        Goto MissileTransition;
+	
+	  MissileFromTrans:
+		TNT1 A 0 A_PlaySound("missile/disengage",CHAN_BODY,1.0,false,ATTN_NORM);
+		MLFR ABC 2;
+		MLFR DE 1;
+		Goto Ready;
+	
+	  MissileTransition:
+		TNT1 A 0 {
+			invoker.missilesOn = true;
+			}
+		MLTO A 0 A_JumpIfInventory("IceBeamChilled", 1, "MissileAnim_Chilled");
+        MLTO A 0 A_Light2;
+        MLTO A 1 BRIGHT {
+			A_Overlay(PSP_MDOFlash, "MDOFlash");
+			A_WeaponOffset(0, 8, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+        MLTO B 0 A_Light1;
+        MLTO B 0 A_ZoomFactor(0.975,ZOOM_INSTANT);
+        MLTO B 1 BRIGHT {
+			A_WeaponOffset(2, 20, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+        MLTO C 0 A_Light0;
+        MLTO C 0 A_ZoomFactor(1.00,ZOOM_INSTANT);
+        MLTO C 1 {
+			A_WeaponOffset(0, 16, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+        MLTO D 1 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+		MLTO E 1 {
+			A_WeaponOffset(0, 32, WOF_INTERPOLATE);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+		MLTO F 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+		MLTO GH 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+        Goto Ready;
+		
 	  MissileAnim:
-        PBEM A 0 A_JumpIfInventory("IceBeamChilled", 1, "MissileAnim_Chilled");
-        PBEM A 0 A_Light2;
-        PBEM I 1 BRIGHT A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
-        PBEM A 0 A_Light1;
-        PBEM A 0 A_ZoomFactor(0.975,ZOOM_INSTANT);
-        PBEM J 1 BRIGHT A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
-        PBEM A 0 A_Light0;
-        PBEM A 0 A_ZoomFactor(1.00,ZOOM_INSTANT);
-        PBEM E 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
-        PBEM EEFFFEEGGHH 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
-        PBEM A 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+        MLFI A 0 A_JumpIfInventory("IceBeamChilled", 1, "MissileAnim_Chilled");
+        MLFI A 0 A_Light2;
+        MLFI A 1 BRIGHT {
+			A_Overlay(PSP_MDOFlash, "MDOFlash");
+			A_WeaponOffset(0, 8, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+        MLFI B 0 A_Light1;
+        MLFI B 0 A_ZoomFactor(0.975,ZOOM_INSTANT);
+        MLFI B 1 BRIGHT {
+			A_Overlay(PSP_MDOFlash, "MDOFlash");
+			A_WeaponOffset(2, 20, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+        MLFI C 0 A_Light0;
+        MLFI C 0 A_ZoomFactor(1.00,ZOOM_INSTANT);
+        MLFI C 1 {
+			A_Overlay(PSP_MDOFlash, "MDOFlash");
+			A_WeaponOffset(0, 16, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+        MLFI D 1 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+		MLFI E 1 {
+			A_WeaponOffset(0, 32, WOF_INTERPOLATE);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+		MLFI EEFFF 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+        MLFI GH 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
         Goto Ready;
 		
 	  MissileAnim_Chilled:
@@ -359,35 +682,61 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 ACS_ExecuteWithResult(594, 29, 1, 1);
         TNT1 A 0 A_PlayWeaponSound("supermissile/fire");
+		TNT1 A 0 A_PlaySound("missile/disengage",CHAN_UI,1.0,false,ATTN_NORM);
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_ZoomFactor(0.925,ZOOM_INSTANT);
         TNT1 A 0 A_Recoil(5);
         TNT1 A 0 Radius_Quake(2,8,0,1,0);
+		TNT1 A 0 {
+			invoker.missileCooldown = 100;
+			}
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"SuperCoop");
         Goto SuperDM;
 
       SuperDM:
-        TNT1 A 0 A_FireCustomMissile("SuperMissile",0,0,8,-2,0,0);
-        Goto SuperAnim;
+        TNT1 A 0 A_FireProjectile("SuperMissile",0,0,8,-2,0,0);
+        Goto MissileTransition;
 
       SuperCoop:
-        TNT1 A 0 A_FireCustomMissile("SuperMissileCoop",0,0,8,-2,0,0);
-        Goto SuperAnim;
+        TNT1 A 0 A_FireProjectile("SuperMissileCoop",0,0,8,-2,0,0);
+        Goto MissileTransition;
 		
 	  SuperAnim:
-        TNT1 A 0 A_SetAngle(angle+(random(-200,200)/100.00));
-        TNT1 A 0 A_SetPitch(pitch-(random(300,500)/100.00));
-        TNT1 A 0 A_AlertMonsters;
+        TNT1 A 0 {
+        	A_SetAngle(angle+(random(-200,200)/100.00));
+        	A_SetPitch(pitch-(random(300,500)/100.00));
+        	}
+		TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_Light2;
-        PBEM I 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
-        TNT1 A 0 A_Light1;
-        TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT);
-        PBEM J 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
-        TNT1 A 0 A_Light0;
-        TNT1 A 0 A_ZoomFactor(1.00,ZOOM_INSTANT);
-        PBEM E 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
-        PBEM EEFFFEEGGHHAA 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
-        PBEM A 8 A_WeaponReady(WRF_NOSECONDARY|WRF_NOSWITCH);
+        MLFI A 1 BRIGHT {
+			A_Overlay(PSP_MDOFlash, "MDOFlash");
+			A_WeaponOffset(0, 8, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+        MLFI B 0 A_Light1;
+        MLFI B 0 A_ZoomFactor(0.975,ZOOM_INSTANT);
+        MLFI B 1 BRIGHT {
+			A_Overlay(PSP_MDOFlash, "MDOFlash");
+			A_WeaponOffset(2, 20, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+        MLFI C 0 A_Light0;
+        MLFI C 0 A_ZoomFactor(1.00,ZOOM_INSTANT);
+        MLFI C 1 {
+			A_Overlay(PSP_MDOFlash, "MDOFlash");
+			A_WeaponOffset(0, 16, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+        MLFI D 1 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+		MLFI E 1 {
+			A_WeaponOffset(0, 32, WOF_INTERPOLATE);
+			A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+			}
+		MLFI EEFFF 1 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+        MLFI GH 2 A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
         Goto Ready;
 
 // ======== MISSILE COMBO SHIT ========		
@@ -396,8 +745,17 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_JumpIfInventory("MissileAmmo",10,1);
         Goto HoldFinal2;
 		
-        TNT1 A 0;
-        PBEM R 10 BRIGHT A_PlaySoundEx("combo/ready","soundslot7");
+        TNT1 A 0 {
+			A_PSPDestroy(PSP_MDOCharge);
+			A_PSPDestroy(PSP_MDOChargeParticles);
+			A_RemoveLight("ChargeLight2");
+			A_RemoveLight("ChargeLight3");
+			A_RemoveLight("ChargeLight4");
+			A_RemoveLight("ChargeLight5");
+			A_RemoveLight("ChargeLight6");
+			A_RemoveLight("ChargeLight7");
+		}
+        PBCU J 10 BRIGHT A_PlaySoundEx("combo/ready","soundslot7");
         TNT1 A 0 A_PlayWeaponSound("combo/power");
         TNT1 A 0 A_TakeInventory("PowerBeamCharged",1);
         TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25);
@@ -407,53 +765,83 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT);
         TNT1 A 0 Radius_Quake(2,8,0,1,0);
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ComboCoop");
-        TNT1 A 0 A_FireCustomMissile("PowerComboMissile",0,0,8,-2,0,0);
+        TNT1 A 0 A_FireProjectile("PowerComboMissile",0,0,8,-2,0,0);
         Goto ComboFinish;
 
       ComboCoop:
-		TNT1 A 0 A_PlayWeaponSound("combo/power");
-        TNT1 A 0 A_FireCustomMissile("PowerComboMissileSeeker",0,0,8,-2,0,0);
-		PBEM R 2;
-		TNT1 A 0 A_PlayWeaponSound("combo/power");
-		TNT1 A 0 A_FireCustomMissile("PowerComboMissileSeeker",0,0,8,-2,0,0);
-		PBEM R 2;
-		TNT1 A 0 A_PlayWeaponSound("combo/power");
-		TNT1 A 0 A_FireCustomMissile("PowerComboMissileSeeker",0,0,8,-2,0,0);
-		PBEM R 2;
-		TNT1 A 0 A_PlayWeaponSound("combo/power");
-		TNT1 A 0 A_FireCustomMissile("PowerComboMissileSeeker",0,0,8,-2,0,0);
-		PBEM R 2;
-		TNT1 A 0 A_PlayWeaponSound("combo/power");
-		TNT1 A 0 A_FireCustomMissile("PowerComboMissileSeeker",0,0,8,-2,0,0);
-		PBEM R 2;
-		TNT1 A 0 A_PlayWeaponSound("combo/power");
-		TNT1 A 0 A_FireCustomMissile("PowerComboMissileSeeker",0,0,8,-2,0,0);
-		PBEM R 2;
-		TNT1 A 0 A_PlayWeaponSound("combo/power");
-		TNT1 A 0 A_FireCustomMissile("PowerComboMissileSeeker",0,0,8,-2,0,0);
-		PBEM R 2;
-		TNT1 A 0 A_PlayWeaponSound("combo/power");
-		TNT1 A 0 A_FireCustomMissile("PowerComboMissileSeeker",0,0,8,-2,0,0);
-		PBEM R 2;
-		TNT1 A 0 A_PlayWeaponSound("combo/power");
-		TNT1 A 0 A_FireCustomMissile("PowerComboMissileSeeker",0,0,8,-2,0,0);
-		PBEM R 2;
-		TNT1 A 0 A_PlayWeaponSound("combo/power");
-		TNT1 A 0 A_FireCustomMissile("PowerComboMissileSeeker",0,0,8,-2,0,0);
+		TNT1 A 0 A_WeaponOffset(0, 32);
+		PBFI A 0 A_PlayWeaponSound("combo/power");
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_PlayWeaponSound("combo/power");
+		}
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_PlayWeaponSound("combo/power");
+		}
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_PlayWeaponSound("combo/power");
+		}
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_PlayWeaponSound("combo/power");
+		}
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_PlayWeaponSound("combo/power");
+		}
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_PlayWeaponSound("combo/power");
+		}
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_PlayWeaponSound("combo/power");
+		}
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_PlayWeaponSound("combo/power");
+		}
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_PlayWeaponSound("combo/power");
+		}
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 	  ComboFinish:
+		TNT1 A 0 A_WeaponOffset(0, 32, WOF_INTERPOLATE);
         TNT1 A 0 A_TakeInventory("MissileAmmo",10);
         TNT1 A 0 A_SetAngle(angle+(random(-200,200)/100.00));
         TNT1 A 0 A_SetPitch(pitch-(random(300,500)/100.00));
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_Light2;
-        PBEM P 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH); //I;
+        PBEM A 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH); //I;
         TNT1 A 0 A_Light1;
         TNT1 A 0 A_ZoomFactor(0.975,ZOOM_INSTANT);
-        PBEM Q 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH); //J;
+        PBEM A 1 BRIGHT A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH); //J;
         TNT1 A 0 A_Light0;
         TNT1 A 0 A_ZoomFactor(1.00,ZOOM_INSTANT);
-        PBEM E 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
-        PBEM EEFFFEEGGHHAA 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+        PBEM A 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
+        PBEM AAAAAAAAAAA 1 A_WeaponReady(WRF_NOSECONDARY|WRF_NOPRIMARY|WRF_NOSWITCH);
         PBEM A 8 A_WeaponReady(WRF_NOSECONDARY|WRF_NOSWITCH);
         Goto Ready;
 		
@@ -464,61 +852,96 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_TakeInventory("PowerBeamIdle",34);
         TNT1 A 0 A_TakeInventory("MissileCharged",1);
         TNT1 A 0 A_TakeInventory("MissileChargeLevel",34);
+		TNT1 A 0 {
+			invoker.missileCooldown = 0; //Override missile transition timer since we're firing normally
+			invoker.missilesOn = false;  //and don't need the animation to play
+			A_PSPDestroy(PSP_MDOCharge);
+			A_PSPDestroy(PSP_MDOChargeParticles);
+			A_RemoveLight("ChargeLight2");
+			A_RemoveLight("ChargeLight3");
+			A_RemoveLight("ChargeLight4");
+			A_RemoveLight("ChargeLight5");
+			A_RemoveLight("ChargeLight6");
+			A_RemoveLight("ChargeLight7");
+		}	
         TNT1 A 0 A_ClearRefire;
-        TNT1 A 0 Offset(0,32);
-        PBEM A 1 Offset(0,40);
-        PBEM A 1 Offset(0,50);
-        PBEM A 1 Offset(0,60);
-        PBEM A 1 Offset(0,70);
-        PBEM A 1 Offset(0,80);
-        PBEM A 1 Offset(0,90);
-        PBEM A 1 Offset(0,100);
-        PBEM A 1 Offset(0,110);
-        PBEM A 1 Offset(0,120);
-        PBEM A 1 Offset(0,130);
-        PBEM A 1 Offset(0,140);
+        PBEM A 1 A_WeaponOffset(0,10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
 	  IdleLoop:
-        TNT1 A 1;
+		TNT1 A 1;
 		TNT1 A 0 A_JumpIfInventory("ShinesparkCharge",1,"PreShine");
         TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"IdleLoop");
         Goto BackToNormal;
 		
 	  PreShine:
+		TNT1 A 0 {
+			invoker.missileCooldown = 0; //Override missile transition timer since we're firing normally
+			invoker.missilesOn = false;  //and don't need the animation to play
+			}
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0,32.0,WOF_ADD);
+	  PreShine2:
 		TNT1 A 1;
-		TNT1 A 0 A_JumpIfInventory("ShinesparkCharge",1,"PreShine");
+		TNT1 A 0 A_JumpIfInventory("ShinesparkCharge",1,"PreShine2");
 		Goto Ready;
 		
 	  ShineBright:
-		TNT1 A 0 Offset(0,32);
-        PBEM A 1 Offset(0,40);
-        PBEM A 1 Offset(0,50);
-        PBEM A 1 Offset(0,60);
-        PBEM A 1 Offset(0,70);
-        PBEM A 1 Offset(0,80);
-        PBEM A 1 Offset(0,90);
-        PBEM A 1 Offset(0,100);
-        PBEM A 1 Offset(0,110);
-        PBEM A 1 Offset(0,120);
-        PBEM A 1 Offset(0,130);
-        PBEM A 1 Offset(0,140);
+		PBEM A 1 A_WeaponOffset(0,10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0.1,10.0,WOF_ADD);
 	  ShineLoop:
         TNT1 A 1;
 		TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineLoop");
 		Goto BackToNormal;
 		
 	  BackToNormal:
-		PBEM A 1 Offset(0,140);
-        PBEM A 1 Offset(0,130);
-        PBEM A 1 Offset(0,120);
-        PBEM A 1 Offset(0,110);
-        PBEM A 1 Offset(0,100);
-        PBEM A 1 Offset(0,90);
-        PBEM A 1 Offset(0,80);
-        PBEM A 1 Offset(0,70);
-        PBEM A 1 Offset(0,60);
-        PBEM A 1 Offset(0,50);
-        PBEM A 1 Offset(0,40);
-        TNT1 A 0 Offset(0,32);
+		TNT1 A 0 {
+			invoker.missileCooldown = 0; //Override missile transition timer since we're firing normally
+			invoker.missilesOn = false;  //and don't need the animation to play
+			}
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+        PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(-0.1,-10.0,WOF_ADD);
+		PBEM A 1 A_WeaponOffset(0,32.0,WOF_ADD);
         Goto Ready;
     }
 }

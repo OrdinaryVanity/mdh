@@ -1924,10 +1924,13 @@ script METROID_SPEEDBOOSTER ENTER
 							{
 								justcrouched = 1;
 								ActivatorSound("speedboost/loop1",127);
-								GiveInventory("ShinesparkCharge", 1);
-								GiveInventory("ShinesparkChargeToken", 1);
-								//Print(s:"Shinespark charged");
-								ACS_Execute(600,0);
+								if((CheckInventory("ShinesparkChargeToken") <= 1) && (justcrouched != 0))
+								{
+									GiveInventory("ShinesparkCharge", 1);
+									GiveInventory("ShinesparkChargeToken", 1);
+									//Print(s:"Shinespark charged");
+									ACS_Execute(600,0);
+								}
 							}
 						}
 						
@@ -1935,7 +1938,10 @@ script METROID_SPEEDBOOSTER ENTER
 					else { TakeInventory("SpeedBoosterPrepare",1); TakeInventory("SpeedBooster",1); GiveInventory("SpeedWalkerPrepare",1); GiveInventory("SpeedWalker",1); /*Print(s:"AlwaysRun is off.");*/ }
 					if (CheckInventory("ShinesparkCharge") == 1 | justcrouched == 1){ ActivatorSound("speedboost/loop1",127);}
 					else { ActivatorSound("speedboost/loop",127);}
-					GiveInventory("SpeedBoosterFlashing",1);
+					if(GetCVar("met_speedfx") == 0)
+					{
+						GiveInventory("SpeedBoosterFlashing",1);
+					}
 					}
 				}
 				else
@@ -1989,7 +1995,10 @@ script METROID_SHINESPARK (void)
 						terminate;
 						}
 						ActivatorSound("speedboost/loop1",127); //Play shinespark charge sound
-						GiveInventory("ShinesparkFlashing",1); //Give flashing effect
+						if(GetCVar("met_shinefx") == 0)
+						{
+							GiveInventory("ShinesparkFlashing",1); //Give flashing effect
+						}
 					}
 					cooldown++; //Raise the counter
 					break;

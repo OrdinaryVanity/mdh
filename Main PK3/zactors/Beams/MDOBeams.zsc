@@ -42,6 +42,30 @@ Class MDOBeam : Weapon
 		}
     }
 	
+	action void A_PSPFadeOut(double factor)
+    {
+        if (!player)
+            return;
+        let psp = player.FindPSprite(OverlayID());
+        if (psp)
+        {
+            psp.alpha -= factor;
+            if (psp.alpha <= 0)
+                player.SetPSprite(OverlayID(), ResolveState("Null"));
+        }
+    }
+	
+	action void A_PSPDestroy(int layer)
+    {
+        if (!player)
+            return;
+        let psp = player.FindPSprite(layer);
+        if (psp)
+        {
+            psp.Destroy();
+        }
+    }
+	
 	Default
 	{
 		//Only Weapon.SlotNumber, SelectionOrder, InventoryIcon

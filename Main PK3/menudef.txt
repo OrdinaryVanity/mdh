@@ -49,6 +49,8 @@
             Option "No BFG",                         "met_nobfg", "OnOff"
             Option "No Morph Ball",                  "met_nomorph", "OnOff"
             Option "No Enemy Item Drops",            "met_noenemydrops", "OnOff"
+			Option "Remove Speedboost Screen Flash", "met_speedfx", "OnOff"
+			Option "Remove Shinespark Screen Flash", "met_shinefx", "OnOff"
 			Option "Disable Shinespark Energy Drain","met_noshinesparkdrain", "OnOff"
 			Option "Disable Hi Jump",				 "met_nohijump", "OnOff"
 			Option "Cap Max Missiles At 255",		 "met_missilemax", "OnOff"

@@ -117,3 +117,75 @@ sprite 3YSKA0, 1, 1 { Patch TNT1A0, 0, 0 } //Yellow Skull Key
 sprite 3BCKA0, 1, 1 { Patch TNT1A0, 0, 0 } //Blue KeyCard
 sprite 3RCKA0, 1, 1 { Patch TNT1A0, 0, 0 } //Red KeyCard
 sprite 3YCKA0, 1, 1 { Patch TNT1A0, 0, 0 } //Yeller KeyCard
+
+//Missiles
+//Missile Idle
+sprite MLIDA0, 378, 302 {   offset 20, 50   YScale 1.5}
+//Missile Fire
+sprite MLFIA0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFIB0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFIC0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFID0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFIE0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFIF0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFIG0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFIH0, 378, 302 {   offset 20, 50   YScale 1.5}
+//Missile To Transition
+sprite MLTOA0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLTOB0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLTOC0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLTOD0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLTOE0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLTOF0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLTOG0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLTOH0, 378, 302 {   offset 20, 50   YScale 1.5}
+//Missile From Transition
+sprite MLFRA0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFRB0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFRC0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFRD0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFRE0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFRF0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFRG0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFRH0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFRI0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite MLFRJ0, 378, 302 {   offset 20, 50   YScale 1.5}
+
+//Beams
+//General All Purpose Deselect Frame
+sprite XBEMA0, 378, 302 { 	offset 20, 50	YScale 1.5}
+//Power Idle
+sprite PBEMA0, 378, 302 {   offset 20, 50   YScale 1.5}
+//Power Fire
+sprite PBFIA0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBFIB0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBFIC0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBFID0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBFIE0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBFIF0, 378, 302 {   offset 20, 50   YScale 1.5}
+//Power Charge Fire
+sprite PBCFA0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBCFB0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBCFC0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBCFD0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBCFE0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBCFF0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBCFG0, 378, 302 {   offset 20, 50   YScale 1.5}
+//Power Charge Up
+sprite PBCUA0, 378, 302 {   offset 20, 80   YScale 1.5}
+sprite PBCUB0, 378, 302 {   offset 20, 80   YScale 1.5}
+sprite PBCUC0, 378, 302 {   offset 20, 80   YScale 1.5}
+sprite PBCUD0, 378, 302 {   offset 20, 80   YScale 1.5}
+sprite PBCUE0, 378, 302 {   offset 20, 80   YScale 1.5}
+sprite PBCUF0, 378, 302 {   offset 20, 80   YScale 1.5}
+sprite PBCUG0, 378, 302 {   offset 20, 80   YScale 1.5}
+sprite PBCUH0, 378, 302 {   offset 20, 80   YScale 1.5}
+sprite PBCUI0, 378, 302 {   offset 20, 80   YScale 1.5}
+sprite PBCUJ0, 378, 302 {   offset 20, 80   YScale 1.5}
+//Power Beam Transition
+sprite PBEMR0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBEMS0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBEMT0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBEMU0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBEMV0, 378, 302 {   offset 20, 50   YScale 1.5}
+sprite PBEMW0, 378, 302 {   offset 20, 50   YScale 1.5}

@@ -30,6 +30,8 @@ server int met_boostvel = 30;
 server int met_grapple = 0;
 server int met_chargepull = 1;
 server int met_pulldist = 360;
+server int met_shinefx = 0;
+server int met_speedfx = 0;
 
 // Clientside cvars
 //  Still marked server for CVARINFO, since these are accessed from not-player scripts.
