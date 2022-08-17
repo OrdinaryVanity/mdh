@@ -263,3 +263,18 @@ Model PBExplode {
 	Scale 1 1 1
 	FrameIndex PBME A 0 0
 }
+
+Model MorphBallPlayer {
+	USEACTORROLL
+	Path "Models/maru"
+	Model 0 "Morph.md3"
+	Skin 0 "Skins/Morphball.png"
+	Scale 40 40 45
+	Offset 0 0 35
+	AngleOffset -90
+	FrameIndex MBML A 0 0
+	FrameIndex MBML B 0 1
+	FrameIndex MBML C 0 2
+	FrameIndex MBML D 0 3
+	FrameIndex MBML E 0 4
+}

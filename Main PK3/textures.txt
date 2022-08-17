@@ -76,7 +76,7 @@ graphic f1_tposs, 800, 600
 //Nash Radius Debug
 //sprite 0000A0, 1, 1 { patch TNT1A0, 0, 0 {} }
 
-sprite MBMDA0, 1, 1 { Patch TNT1A0, 0, 0 } //Morph Ball model
+sprite MARUA0, 1, 1 { Patch TNT1A0, 0, 0 } //Morph Ball model
 sprite BRL1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Crate 1 model
 sprite CRT1A0, 1, 1 { Patch TNT1A0, 0, 0 } //Crate 1 model
 sprite CRT2A0, 1, 1 { Patch TNT1A0, 0, 0 } //Crate 2 model
@@ -89,7 +89,7 @@ sprite GSUTA0, 1, 1 { Patch TNT1A0, 0, 0 } //Gravity Suit Pickup
 sprite CBEMA0, 1, 1 { Patch TNT1A0, 0, 0 } //Charge Beam Pickup
 sprite SJUMA0, 1, 1 { Patch TNT1A0, 0, 0 } //Space Jump
 
-//GUNSHIP GETS IT OWN FUCKIN BLOCK
+//GUNSHIP GETS ITS OWN FUCKIN BLOCK
 sprite GS01A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
 sprite GS02A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
 sprite GS03A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model

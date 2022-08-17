@@ -856,7 +856,7 @@ Class UpgradeSpawnerTier1 : RandomSpawner
 {
 	Default
 	{
-		DropItem "MorphBallModel", 255, 20;
+		DropItem "MorphBall", 255, 20;
 		DropItem "MissileTankPickup", 255, 15;
 		DropItem "BombPickup", 255, 8;
 		DropItem "ChargeBeamPickup", 255, 7;
@@ -1385,7 +1385,7 @@ Class SpaceJumpPickup : CustomInventory
     }
 }
 
-Class MorphBallModel : CustomInventory
+Class MorphBall : CustomInventory
 {
 	Default
 	{

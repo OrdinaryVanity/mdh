@@ -352,7 +352,7 @@ Class ScanVisorWeapon : Weapon
 						}	
 				}
 			
-				else if (scandata.HitActor is "MorphBallModel")
+				else if (scandata.HitActor is "MorphBall")
 				{
 					if (!CheckInventory("MorphBallScan",1))
 					{

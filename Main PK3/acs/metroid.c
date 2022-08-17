@@ -160,7 +160,7 @@ script METROID_MORPHCAMERA (int dist, int height) CLIENTSIDE
         }
         else
         {
-            SetChasecam(dist, height, tid, 1);
+            //SetChasecam(dist, height, tid, 1);
         }
 
         Delay(1);

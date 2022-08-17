@@ -1073,6 +1073,20 @@ brightmap sprite DCANW0
    map "brightmaps/2dbeams/CannonBright.png"
 }
 
+//Morph Ball Model yet again
+material texture "Models/maru/Skins/Morphball.png"
+{
+	normal "textures/Morphball_normal.png"
+	specular "textures/Morphball_spec.png"
+	specularlevel 20
+	glossiness 20
+}
+
+brightmap texture "Models/maru/Skins/Morphball.png"
+{
+   map "Models/maru/Skins/Morphball_Brightmap.png"
+}
+
 // Morph Ball
 
 brightmap sprite MBPUA0
@@ -1447,7 +1461,7 @@ PulseLight MorphGlow
     SecondarySize 40
     Interval 6
     Offset 0 0 6
-    DontLightSelf 1
+    DontLightSelf 0
 }
 
 PointLight BombGlow1
@@ -1646,8 +1660,8 @@ PointLight PowerBombExplodeRing
     DontLightSelf 1
 }
 
-Object MorphBallPlayer { Frame MARU { Light MorphGlow }}
-Object MorphBallPlayerDM { Frame MARU { Light MorphGlow }}
+Object MorphBallPlayer { Frame MBML { Light MorphGlow }}
+Object MorphBallPlayerDM { Frame MBML { Light MorphGlow }}
 Object MorphBallBomb { Frame MBOMA { Light BombGlow1 }
                        Frame MBOMB { Light BombGlow2 }
                        Frame MBOMC { Light BombGlow3 }
@@ -2181,7 +2195,7 @@ Object IceBeamPickup { Frame WPPK { Light IceWeaponGlow }}
 Object LongBeamPickup { Frame WPPK { Light LongWeaponGlow }}
 //Object ChargeComboPickup { Frame CCMB { Light ComboWeaponGlow }}
 Object RawEnergy { Frame EFLD { Light EnergyGlow4 }}
-Object MorphBallModel { Frame MBPU { Light MorphBallPickup }}
+Object MorphBall { Frame MBPU { Light MorphBallPickup }}
 Object BoostBallPickup { Frame BSBL { Light BoostBallPickup }}
 
 Object BombPickup { Frame BMPK { Light BombGlow }}
