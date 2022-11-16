@@ -1,5 +1,9 @@
--GZDoom branch
-
-- Models for Boost Ball, Bombs
-- Gravity Suit, sprites, models
-- Minimap???
+- Buff all combos except ice
+- Combine supers like Dread/Fusion
+	- Need to create a new missile class. Give this item instead if CVar is true.
+	- Change damage of normal missiles to 1.5x if unified is on.
+	- Remove Super and Missile icons from HUD. Draw only Missiles, then Supers if unified is on. Otherwise, separate HUD icons like normal.
+	- Change drop code to ignore supers.
+	- Change all super missile spawns to regular missiles.
+	- Have supers give regular missiles too if using unified.
+- CVar for Missile/Super launcher pre-requisite.

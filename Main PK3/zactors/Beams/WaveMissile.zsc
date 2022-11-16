@@ -1,4 +1,4 @@
-Class WaveComboMissile : FastProjectile
+Class WaveComboMissile : FastProjectile //BUFF THIS BITCH UP.
 {
 	Default
 	{
@@ -128,7 +128,7 @@ Class WaveComboMissile3Coop : WaveComboMissileCoop
     }
 }
 
-Class WaveComboMissileMini : FastProjectile
+Class WaveComboMissileMini : FastProjectile //BUFF THESE TOO BISH
 {
 	Default
 	{

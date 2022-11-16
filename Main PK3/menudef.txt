@@ -41,6 +41,8 @@
 			Slider "Charge Beam Pull Distance",      "met_pulldist", 128, 1024, 64
 			StaticText      "384mu is default.", 1
             StaticText      ""
+			Option "Missile Style",     			 "met_unifiedmissiles", "SuperZeroFusionOptions"
+			StaticText      ""
             StaticText      "Removal Options", 1
             Option "No Particle Effects",            "met_cl_noeffects", "OnOff"
             Option "No Warning Siren",               "met_cl_nosiren", "OnOff"
@@ -90,4 +92,10 @@
             0, "Nothing Spawns"
             1, "New Weapons"
             2, "Equivalent Weapons"
+    }
+	
+	OptionValue SuperZeroFusionOptions // HOWS THAT FOR A FUCKIN NAME
+    {
+            0, "Super"
+            1, "Fusion/Dread"
     }

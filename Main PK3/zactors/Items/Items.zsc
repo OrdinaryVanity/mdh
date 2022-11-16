@@ -241,7 +241,7 @@ Class SuperMissileAmmo : Ammo
 	
     States
     {
-      Spawn:
+      Spawn: //Add a check for met_unifiedmissiles CVar here. Need to override super spawns.
         SPKU A 10 BRIGHT;
         SPKU B 4 BRIGHT;
         Loop;
@@ -262,7 +262,7 @@ Class SuperMissileAmmo_Dropped : SuperMissileAmmo
 	
 	States
     {
-      Spawn:
+      Spawn: //ADD IT HERE TOO
         TNT1 A 0;
         TNT1 A 1;
         TNT1 A 1 ACS_ExecuteAlways(594,0,30);
@@ -823,7 +823,7 @@ Class SuperMissileTankPickup : CustomInventory
 	
     States
     {
-      Spawn:
+      Spawn: //OVERRIDE THIS TOO. Need at least one pickup, then convert all to regular missiles?
         STNK S 20;
         STNK ABCDEFGHIJKLMNOPQRS 1 BRIGHT;
         Loop;
