@@ -1,4 +1,4 @@
-version "4.6.0"
+version "4.10.0"
 
 #include "zscript/RadiusDebug/RadiusDebug.zc"
 #include "zscript/GrapplingHook/GHook.txt"
@@ -7,6 +7,7 @@ version "4.6.0"
 #include "zactors/Items/PowerBomb.zsc"
 #include "zactors/Items/Weapons.zsc"
 #include "zactors/Items/Items.zsc"
+#include "zactors/Items/Missiles.zsc"
 
 //Beams and Beam Combos
 #include "zactors/Beams/MDOBeams.zsc"
@@ -29,3 +30,4 @@ version "4.6.0"
 #include "zactors/morphball.zsc"
 #include "zactors/scanvisor.zsc"
 #include "zactors/Event Handlers/Itemdrops.zsc"
+#include "zactors/Event Handlers/FusionMode.zsc"

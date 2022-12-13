@@ -1346,28 +1346,31 @@ script METROID_DECORATE (int which, int a1, int a2)
 
     case 9:
 		
-		if(GetCVar("met_supermissilemax") > 0)
+		if(!GetCVar("met_unifiedmissiles"))
 		{
-			if(CheckInventory("PlayerTotalSuperMissiles") >= 50) 
+			if(GetCVar("met_supermissilemax") > 0)
 			{
+				if(CheckInventory("PlayerTotalSuperMissiles") >= 50) 
+				{
+					GiveInventory("SuperMissileAmmo",2);
+					break;
+				}
+					
+				SetAmmoCapacity("SuperMissileAmmo",GetAmmoCapacity("SuperMissileAmmo")+2);
+				delay(1);
 				GiveInventory("SuperMissileAmmo",2);
+				GiveInventory("PlayerTotalSuperMissiles", 2);
 				break;
 			}
-				
+			
+			else
+			{
 			SetAmmoCapacity("SuperMissileAmmo",GetAmmoCapacity("SuperMissileAmmo")+2);
 			delay(1);
 			GiveInventory("SuperMissileAmmo",2);
 			GiveInventory("PlayerTotalSuperMissiles", 2);
 			break;
-		}
-		
-		else
-		{
-        SetAmmoCapacity("SuperMissileAmmo",GetAmmoCapacity("SuperMissileAmmo")+2);
-        delay(1);
-        GiveInventory("SuperMissileAmmo",2);
-		GiveInventory("PlayerTotalSuperMissiles", 2);
-        break;
+			}
 		}
 
     case 10:

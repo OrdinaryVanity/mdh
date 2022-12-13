@@ -340,7 +340,7 @@ Class PlasmaBeam : MDOBeam
         Goto MissileAnim;
 
       Missile_Coop:
-        TNT1 A 0 A_FireProjectile("PowerMissileCoop",0,1,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("PowerMissile",0,1,12,-2,0,0);
         Goto MissileAnim;
 
 	  MissileAnim:
@@ -389,7 +389,7 @@ Class PlasmaBeam : MDOBeam
         Goto SuperAnim;
 
       SuperCoop:
-        TNT1 A 0 A_FireProjectile("SuperMissileCoop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SuperMissile",0,0,12,-2,0,0);
         Goto SuperAnim;
 
 	  SuperAnim:

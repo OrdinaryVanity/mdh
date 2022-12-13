@@ -357,7 +357,7 @@ Class WaveBeam : MDOBeam
         Goto MissileAnim;
 
       Missile_Coop:
-        TNT1 A 0 A_FireCustomMissile("PowerMissileCoop",0,1,12,-2,0,0);
+        TNT1 A 0 A_FireCustomMissile("PowerMissile",0,1,12,-2,0,0);
         Goto MissileAnim;
 
 	  MissileAnim:
@@ -403,7 +403,7 @@ Class WaveBeam : MDOBeam
         Goto SuperAnim;
 
       SuperCoop:
-        TNT1 A 0 A_FireCustomMissile("SuperMissileCoop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireCustomMissile("SuperMissile",0,0,12,-2,0,0);
         Goto SuperAnim;
 
 	  SuperAnim:

@@ -242,9 +242,23 @@ Class SuperMissileAmmo : Ammo
     States
     {
       Spawn: //Add a check for met_unifiedmissiles CVar here. Need to override super spawns.
-        SPKU A 10 BRIGHT;
-        SPKU B 4 BRIGHT;
+		TNT1 A 0 NoDelay
+		{
+			if(!met_unifiedmissiles)
+				return ResolveState("SpawnSupers");
+			else
+				return ResolveState("SpawnMissile");
+		}
         Loop;
+		
+	  SpawnSupers:
+		SPKU A 10 BRIGHT;
+        SPKU B 4 BRIGHT;
+		Loop;
+	  
+	  SpawnMissile:
+		TNT1 A 0 A_SpawnItem("MissileAmmo");
+		Stop;
     }
 }
 
@@ -264,14 +278,28 @@ Class SuperMissileAmmo_Dropped : SuperMissileAmmo
     {
       Spawn: //ADD IT HERE TOO
         TNT1 A 0;
-        TNT1 A 1;
         TNT1 A 1 ACS_ExecuteAlways(594,0,30);
       Spawn1:
+		TNT1 A 0
+		{
+			if(!met_unifiedmissiles)
+				return ResolveState("SpawnSupers");
+			else
+				return ResolveState("SpawnMissile");
+		}
+        Loop;
+		
+	  SpawnSupers:
         TNT1 A 0 A_JumpIfInventory("Health100",70,"RemoveCheck");
         TNT1 A 0 A_GiveInventory("Health100",1);
         SPKU AAAAAAAAAA 1 BRIGHT;
         SPKU BBBB 1 BRIGHT;
         Loop;
+		
+	  SpawnMissile:
+		TNT1 A 0 A_SpawnItem("MissileAmmo");
+		Stop;
+		
       GiveGravity:
         SPKU A 1;
         SPKU A 1 A_ChangeFlag("NOGRAVITY",0);
@@ -288,16 +316,29 @@ Class SuperMissileAmmo_Dropped : SuperMissileAmmo
         Stop;
 
       Pickup:
-        TNT1 A 0;
-        //TNT1 A 0 A_JumpIfInTargetInventory("PowerBeamChargeLevel",1,"PickupFail");
-        TNT1 A 0 A_JumpIfInventory("SuperMissileAmmo",0,"PickupFail");
-        TNT1 A 0 A_JumpIfInventory("SuperMissileAcquired",1,1);
-        Goto PickupFail;
-        TNT1 A 0;
-        TNT1 A 0 A_GiveInventory("SuperMissileAmmo",1);
-        TNT1 A 1;
+        TNT1 A 0
+		{
+			if(!met_unifiedmissiles)
+				return ResolveState("PickupSupers");
+			else
+				return ResolveState("PickupMissile");
+		}
         Stop;
 
+	  PickupSupers:
+		//TNT1 A 0 A_JumpIfInTargetInventory("PowerBeamChargeLevel",1,"PickupFail");
+			TNT1 A 0 A_JumpIfInventory("SuperMissileAmmo",0,"PickupFail");
+			TNT1 A 0 A_JumpIfInventory("SuperMissileAcquired",1,1);
+			Goto PickupFail;
+			TNT1 A 0;
+			TNT1 A 0 A_GiveInventory("SuperMissileAmmo",1);
+			TNT1 A 1;
+			Stop;
+	  
+	  PickupMissile:
+			TNT1 A 0 A_GiveInventory("MissileAmmo",1);
+			Stop;
+			
       PickupFail:
         TNT1 A 0;
         SPKU A 1 BRIGHT; // This is required, else it'll cause a crash.
@@ -807,6 +848,7 @@ Class MissileTankPickup : CustomInventory
 
 Class SuperMissileTankPickup : CustomInventory
 {
+	
 	Default
 	{
 		//$Category Metroid;
@@ -824,11 +866,29 @@ Class SuperMissileTankPickup : CustomInventory
     States
     {
       Spawn: //OVERRIDE THIS TOO. Need at least one pickup, then convert all to regular missiles?
+		/*TNT1 A 0 NoDelay 
+		{
+			if(met_unifiedmissiles)
+			{
+				A_JumpIfInventory("SuperMissileAcquired",1,"SpawnMissile");
+				return ResolveState(Null);
+			}
+			else
+			{
+				return ResolveState("Spawn");
+			}
+		}*/
         STNK S 20;
         STNK ABCDEFGHIJKLMNOPQRS 1 BRIGHT;
         Loop;
 
+	  SpawnMissile:
+		MTNK S 20;
+        MTNK ABCDEFGHIJKLMNOPQRS 1 BRIGHT;
+        Loop;
+		
       Pickup:
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,0,37) != 1, "Pickup2");
         TNT1 A 0 A_JumpIfInventory("SMNotInThisLevel",1,"PickupFail");
         TNT1 A 0 ACS_ExecuteWithResult(594, 20, 0);  // pickup message
         TNT1 A 0 ACS_ExecuteWithResult(594, 9);      // explosive pleasure
@@ -836,6 +896,15 @@ Class SuperMissileTankPickup : CustomInventory
         TNT1 A 0 A_SetBlend("White", 0.5, 16);       // (climax)
         Stop;
 
+	  PickupMissile:
+		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,0,37) != 1, "Pickup2");
+		TNT1 A 0 A_GiveInventory("MissileTankAcquired", 1);
+		TNT1 A 0 ACS_ExecuteWithResult(594, 36); //give very first 5
+		TNT1 A 0 ACS_ExecuteWithResult(594, 37); //gotmissile = 1
+		TNT1 A 0 ACS_ExecuteWithResult(594, 20, 1);  // pickup message
+		TNT1 A 0 A_SetBlend("White", 0.5, 16);
+        Stop;
+		
       PickupFail:
         TNT1 A 0;
         Fail;

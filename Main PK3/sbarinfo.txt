@@ -267,7 +267,13 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
 	DrawBar "CBARFULL", "FBAREMPT", Health Health100, horizontal, interpolate(5), 243, 40, 1;
 	
     drawbar "FSHBFULL", "FSHBEMPT", Armor, horizontal, interpolate(5), 243, 40;
-    InInventory SuperMissileAcquired, 1 { drawnumber 3, METHUDF, Untranslated, SuperMissileAmmo, fillzeros, 414, 384; } //drawimage "SMISSGET", 545, 32;
+    InInventory SuperMissileAcquired, 1 
+	{
+		IfCVarInt not met_unifiedmissiles, 1, equal
+		{
+			drawnumber 3, METHUDF, Untranslated, SuperMissileAmmo, fillzeros, 414, 384; 
+		} //drawimage "SMISSGET", 545, 32;
+	}
     //InInventory PowerBombAcquired, 1 { drawimage "PBOMBGET", 81, 32; drawnumber 3, METHUDF, Untranslated, PowerBombAmmo, fillzeros, 81, 28; }
     //InInventory VariaSuitAcquired, 1 { drawimage "VARSICON", 260, 6; }
 

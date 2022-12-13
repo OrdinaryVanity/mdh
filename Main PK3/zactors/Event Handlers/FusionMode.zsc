@@ -1,0 +1,48 @@
+Class MissileType : Thinker //Thanks Boondorl
+{
+  private bool fusion;
+
+  static MissileType Get()
+  {
+    let it = ThinkerIterator.Create("MissileType", STAT_STATIC);
+    let mt = MissileType(it.Next());
+    if (!mt)
+    {
+       mt = new("MissileType");
+       mt.ChangeStatNum(STAT_STATIC);
+       mt.fusion = met_unifiedmissiles;
+    }
+
+    return mt;
+  }
+
+  clearscope bool IsFusion() const
+  {
+    return fusion;
+  }
+}
+
+Class MetroidHandler : EventHandler
+{
+  private MissileType mt;
+
+  override void OnRegister()
+  {
+    mt = MissileType.Get();
+  }
+
+  override void CheckReplacement(ReplaceEvent e)
+  {
+	for (int i = 0; i < MAXPLAYERS; i++)
+	{
+		if (!playerInGame[i])
+		continue;
+
+    // If a player doesn't meet the requirements, don't replace it yet
+    let player = players[i].mo;
+	
+    if (e.replacee == "SuperMissileTankPickup" && mt.IsFusion() && player.CountInv("SuperMissileAcquired"))
+      e.replacement = "MissileTankPickup";
+	 }
+  }
+}

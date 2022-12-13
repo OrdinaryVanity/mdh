@@ -46,6 +46,7 @@ gameinfo
 	AddEventHandlers = "GHookHandler"
 	AddEventHandlers = "ScanEvent"
 	AddEventHandlers = "MonsterDrops"
+	AddEventHandlers = "MetroidHandler"
 }
 
 
