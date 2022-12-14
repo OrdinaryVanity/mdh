@@ -160,7 +160,7 @@ script METROID_MORPHCAMERA (int dist, int height) CLIENTSIDE
         }
         else
         {
-            //SetChasecam(dist, height, tid, 1);
+            SetChasecam(dist, height, tid, 1);
         }
 
         Delay(1);
@@ -1299,7 +1299,7 @@ script METROID_DECORATE (int which, int a1, int a2)
         break;
 
     case 5:
-		if ((GetActorClass(0) != "MorphBallModel") || (GetActorClass(0) != "MorphBallModelDM")) {
+		if ((GetActorClass(0) != "MorphBall") || (GetActorClass(0) != "MorphBallDM")) {
         SetActorProperty(0, APROP_SpawnHealth,  (1 + CheckInventory("EnergyTankAcquired")) * 100);
         SetActorProperty(0, APROP_Health, oldmax(GetActorProperty(0, APROP_Health), (1 + CheckInventory("EnergyTankAcquired")) * 100)); //1 + 
         break;
@@ -2517,7 +2517,7 @@ script METROID_SCANVISOR (void)
 			break;
 		}
 		
-		else if(StrICmp(mName, "MorphBallModel") == 0)
+		else if(StrICmp(mName, "MorphBall") == 0)
 		{
 			//prefix = "ITEM TYPE: ";
 			//mName = "Missiles";

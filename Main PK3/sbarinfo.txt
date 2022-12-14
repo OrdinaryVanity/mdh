@@ -6,17 +6,18 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
 	InInventory MetroidHitOpponent, 1 { drawimage "ENEMYHIT", 0, 0; } //[R4L] Supposed to be for hit indicators, but not working.
 	InInventory not BorphMallAcquired, 1 //[R4L] Check to see if we are not in Morph Ball. If not, draw normal HUD.
 	{
+		DrawBar "CBARFULL", "FBAREMPT", Health Health100, horizontal, interpolate(5), 243, 40, 1;
 		//[R4L] Draw appropriate visors when selected.
 		IsSelected not "ScanVisorWeapon" //[R4L] Draw Combat Visor.
 		{
 			DrawImage "NEWSMVS2", 0, 0;
 			DrawImage "NEWSMVS1", 0, 0;
-			DrawImage "CBATVSB0", 628, 317; 
+			DrawImage "CBATVSB0", 628, 317;
 			
 			//[R4L] Checks for Doom health bar CVAR.
 			InInventory not DoomHealthCounter, 1
 			{
-				DrawNumber 2, METHUDF, Combat, PlayerTotalHealth, fillzeros, 237, 41; 
+				DrawNumber 2, METHUDF, Combat, PlayerTotalHealth, fillzeros, 237, 41;
 			}
 		
 			InInventory DoomHealthCounter, 1 
@@ -51,6 +52,7 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
     InInventory IsOnTeam3, 1 { drawimage "samviso3", 0, 0; }
     }
 	*/
+	
     InInventory ChargeBeamAcquired, 1 
 	{ drawbar "VRTCHBMF", "VRTCHBME", PowerBeamChargeLevel, vertical, interpolate(10), -102, 96;
 	  drawbar "VRTCHBMF", "VRTCHBME", PowerBeamChargeLevel, vertical, interpolate(10), 738, 96;
@@ -89,78 +91,86 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
 	InInventory EnergyTankAcquired, 19 { drawimage "ETNKEMPT", 387, 31; }
 	InInventory EnergyTankAcquired, 20 { drawimage "ETNKEMPT", 395, 31; }
 	
-    InInventory HealthOver100, 1 
-	{ 
-		DrawImage "FBAREMPT", 243, 40; 
-	}
-	
-    InInventory HealthOver100, 1 
-	{ 
-		DrawImage "CTNKFULL", 243, 31; 
-	}
-	
-    InInventory HealthOver100, 1 
-	{
-		DrawBar "CBARFUL1", "FBAREMP1", Health Health200, horizontal, interpolate(5), 87, 40, 1; 
-	}
+    InInventory HealthOver100, 1 { DrawImage "FBAREMPT", 243, 40; }
+	InInventory HealthOver100, 1 { DrawImage "CTNKFULL", 243, 31; }
+    InInventory HealthOver100, 1 { DrawBar "CBARFUL1", "FBAREMP1", Health Health200, horizontal, interpolate(5), 87, 40, 1; }
 	
     InInventory HealthOver200, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver200, 1 { drawimage "CTNKFULL", 251, 31; }
     InInventory HealthOver200, 1 { drawbar "CBARFUL2", "FBAREMP2", Health Health300, horizontal, interpolate(5), -69, 40, 1; }
+	
     InInventory HealthOver300, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver300, 1 { drawimage "CTNKFULL", 259, 31; }
     InInventory HealthOver300, 1 { drawbar "CBARFUL3", "FBAREMP3", Health Health400, horizontal, interpolate(5), -225, 40, 1; }
+	
     InInventory HealthOver400, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver400, 1 { drawimage "CTNKFULL", 267, 31; }
     InInventory HealthOver400, 1 { drawbar "CBARFUL4", "FBAREMP4", Health Health500, horizontal, interpolate(5), -381, 40, 1; }
+	
     InInventory HealthOver500, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver500, 1 { drawimage "CTNKFULL", 275, 31; }
     InInventory HealthOver500, 1 { drawbar "CBARFUL5", "FBAREMP5", Health Health600, horizontal, interpolate(5), -537, 40, 1; }
+	
     InInventory HealthOver600, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver600, 1 { drawimage "CTNKFULL", 283, 31; }
     InInventory HealthOver600, 1 { drawbar "CBARFUL6", "FBAREMP6", Health Health700, horizontal, interpolate(5), -693, 40, 1; }
+	
     InInventory HealthOver700, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver700, 1 { drawimage "CTNKFULL", 291, 31; }
     InInventory HealthOver700, 1 { drawbar "CBARFUL7", "FBAREMP7", Health Health800, horizontal, interpolate(5), -849, 40, 1; }
+	
     InInventory HealthOver800, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver800, 1 { drawimage "CTNKFULL", 299, 31; }
     InInventory HealthOver800, 1 { drawbar "CBARFUL8", "FBAREMP8", Health Health900, horizontal, interpolate(5), -1005, 40, 1; }
+	
     InInventory HealthOver900, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver900, 1 { drawimage "CTNKFULL", 307, 31; }
     InInventory HealthOver900, 1 { drawbar "CBARFUL9", "FBAREMP9", Health Health1000, horizontal,interpolate(5), -1161, 40, 1; }
+	
     InInventory HealthOver1000, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver1000, 1 { drawimage "CTNKFULL", 315, 31; }
     InInventory HealthOver1000, 1 { drawbar "CBARFUL0", "FBAREMP0", Health Health1100, horizontal, interpolate(5), -1317, 40, 1; }
+	
 	InInventory HealthOver1100, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver1100, 1 { drawimage "CTNKFULL", 323, 31; }
     InInventory HealthOver1100, 1 { drawbar "CBARFUL1", "FBAREMP1", Health Health1200, horizontal, interpolate(5), 87, 40, 1; }
+	
 	InInventory HealthOver1200, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver1200, 1 { drawimage "CTNKFULL", 331, 31; }
     InInventory HealthOver1200, 1 { drawbar "CBARFUL2", "FBAREMP2", Health Health1300, horizontal, interpolate(5), -69, 40, 1; }
+	
     InInventory HealthOver1300, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver1300, 1 { drawimage "CTNKFULL", 339, 31; }
     InInventory HealthOver1300, 1 { drawbar "CBARFUL3", "FBAREMP3", Health Health1400, horizontal, interpolate(5), -225, 40, 1; }
+	
     InInventory HealthOver1400, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver1400, 1 { drawimage "CTNKFULL", 347, 31; }
     InInventory HealthOver1400, 1 { drawbar "CBARFUL4", "FBAREMP4", Health Health1500, horizontal, interpolate(5), -381, 40, 1; }
+	
     InInventory HealthOver1500, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver1500, 1 { drawimage "CTNKFULL", 355, 31; }
     InInventory HealthOver1500, 1 { drawbar "CBARFUL5", "FBAREMP5", Health Health1600, horizontal, interpolate(5), -537, 40, 1; }
+	
     InInventory HealthOver1600, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver1600, 1 { drawimage "CTNKFULL", 363, 31; }
     InInventory HealthOver1600, 1 { drawbar "CBARFUL6", "FBAREMP6", Health Health1700, horizontal, interpolate(5), -693, 40, 1; }
+	
     InInventory HealthOver1700, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver1700, 1 { drawimage "CTNKFULL", 371, 31; }
     InInventory HealthOver1700, 1 { drawbar "CBARFUL7", "FBAREMP7", Health Health1800, horizontal, interpolate(5), -849, 40, 1; }
+	
     InInventory HealthOver1800, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver1800, 1 { drawimage "CTNKFULL", 379, 31; }
     InInventory HealthOver1800, 1 { drawbar "CBARFUL8", "FBAREMP8", Health Health1900, horizontal, interpolate(5), -1005, 40, 1; }
+	
     InInventory HealthOver1900, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver1900, 1 { drawimage "CTNKFULL", 387, 31; }
     InInventory HealthOver1900, 1 { drawbar "CBARFUL9", "FBAREMP9", Health Health2000, horizontal,interpolate(5), -1161, 40, 1; }
+	
     InInventory HealthOver2000, 1 { drawimage "FBAREMPT", 243, 40; }
     InInventory HealthOver2000, 1 { drawimage "CTNKFULL", 395, 31; }
     InInventory HealthOver2000, 1 { drawbar "CBARFUL0", "FBAREMP0", Health Health2100, horizontal, interpolate(5), -1317, 40, 1; }
+	
     //InInventory MissileTankAcquired, 1 { drawbar "NEWBARFL", "NEWBAREM", MissileAmmo, vertical, interpolate(5), 558, 325, 1; }
     InInventory MissileTankAcquired, 1 { drawnumber 3, METHUDF, Untranslated, MissileAmmo, fillzeros, 251, 384; }
     
@@ -255,7 +265,7 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
 		
 		InInventory not DoomHealthCounter, 1
 			{
-				DrawNumber 2, METHUDF, Scan, PlayerTotalHealth, fillzeros, 237, 41; 
+				DrawNumber 2, METHUDF, Scan, PlayerTotalHealth, fillzeros, 237, 41;
 			}
 		
 			InInventory DoomHealthCounter, 1 
@@ -263,8 +273,6 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
 				DrawNumber 4, METHUDF, Scan, Health, 236, 40; 
 			}
 	}	
-	
-	DrawBar "CBARFULL", "FBAREMPT", Health Health100, horizontal, interpolate(5), 243, 40, 1;
 	
     drawbar "FSHBFULL", "FSHBEMPT", Armor, horizontal, interpolate(5), 243, 40;
     InInventory SuperMissileAcquired, 1 
