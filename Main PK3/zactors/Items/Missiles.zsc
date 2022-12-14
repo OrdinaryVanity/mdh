@@ -1,6 +1,8 @@
 Class PowerMissile : FastProjectile //Need to buff the damage to do 2x for unified missiles.
 {
 	int dam;
+	int explodedmg;
+	int exploderad;
 	
 	Default
 	{
@@ -27,7 +29,6 @@ Class PowerMissile : FastProjectile //Need to buff the damage to do 2x for unifi
 			TNT1 A 0 NoDelay
 			{
 				int nosupers = target.CountInv("SuperMissileAcquired");
-				
 				if(met_unifiedmissiles && target && nosupers == 0)
 					SetFunctionDamage(40);
 				else if(!met_unifiedmissiles)
@@ -44,7 +45,25 @@ Class PowerMissile : FastProjectile //Need to buff the damage to do 2x for unifi
 			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("MissileTrail",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-180,180),160,128);
 			TNT1 AA 0 A_SpawnItemEx("MissileExplosionSmall",0,0,0,0,0,0,0,160);
 			TNT1 A 0 A_SpawnItemEx("MissileExplosionLarge",0,0,0,0,0,0,0,160);
-			//TNT1 A 8 Bright A_Explode(64,128); //64
+			TNT1 A 0 {
+				int nosupers = target.CountInv("SuperMissileAcquired");
+				if(met_unifiedmissiles && target && nosupers == 0)
+				{
+					explodedmg = 64;
+					exploderad = 128;
+				}
+				else if(!met_unifiedmissiles)
+				{
+					explodedmg = 64;
+					exploderad = 128;
+				}
+				else
+				{
+					explodedmg = 240;
+					exploderad = 256;
+				}
+			}
+			TNT1 A 8 Bright A_Explode(explodedmg,exploderad,0); //64
 			TNT1 B 6;
 			TNT1 C 4;
 			TNT1 A 0;
