@@ -817,10 +817,13 @@ script METROID_ENTER ENTER
         if (CheckInventory("MetroodIDKFAHack"))
         {
             RaiseAmmoCapacity("MissileAmmo",      255, 1);
-            RaiseAmmoCapacity("SuperMissileAmmo", 50,  1);
+			if(!GetCVar("met_unifiedmissiles"))
+			{
+				RaiseAmmoCapacity("SuperMissileAmmo", 50,  1);
+				GiveInventory("PlayerTotalSuperMissiles", 50);
+			}
             RaiseAmmoCapacity("PowerBombAmmo",    10,   1);
 			GiveInventory("PlayerTotalMissiles", 255);
-			GiveInventory("PlayerTotalSuperMissiles", 50);
 			GiveInventory("PlayerTotalPowerBombs", 10);
 
             if (CheckInventory("BasicArmor") && CheckInventory("MetroodIDKFAHack_Ammo"))
