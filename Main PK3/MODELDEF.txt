@@ -181,6 +181,17 @@ Model GunshipPiece18 {
 	FrameIndex GS18 A 0 0
 }
 
+Model Gunship {
+	Path "Models/SamusShip"
+	Model 0 "Ship.md3"
+	Skin 0 "Skins\ship layout.png"
+	Offset 0 0 0
+	AngleOffset 90
+	Scale 1.4 1.4 1.4
+	
+	FrameIndex GSCB A 0 0
+}
+
 Model Crate1 {
 	Path "Models/Crate1"
 	Model 0 "Crate1.md3"

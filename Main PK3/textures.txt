@@ -108,6 +108,7 @@ sprite GS15A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
 sprite GS16A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
 sprite GS17A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
 sprite GS18A0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model
+sprite GSCBA0, 1, 1 { Patch TNT1A0, 0, 0 } //Gunship Model Combined
 
 //Keys
 

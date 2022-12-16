@@ -59,7 +59,7 @@ Class PowerMissile : FastProjectile //Need to buff the damage to do 2x for unifi
 				}
 				else
 				{
-					explodedmg = 240;
+					explodedmg = 128;
 					exploderad = 256;
 				}
 			}

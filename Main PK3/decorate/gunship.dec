@@ -341,6 +341,25 @@ Actor GunshipPiece18 : SwitchableDecoration 20017 {
 	}
 }
 
+Actor Gunship : SwitchableDecoration 20018 {
+//$Category Metroid
+    Radius 155
+    Height 120
+	+USESPECIAL
+    +SOLID
+    +NOGRAVITY
+    -SHOOTABLE
+	
+	Tag "Gunship"
+	
+     States {
+		Spawn:
+			TNT1 A 0
+			GSCB A -1
+			Stop
+	}
+}
+
 actor PowerGunshipFlight : PowerFlight { Powerup.Duration 0x7FFFFFFF }
 
 actor GunshipForwardDash : CustomInventory
