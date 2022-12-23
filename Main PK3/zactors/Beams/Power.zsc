@@ -70,7 +70,7 @@ Class PowerBeam : MDOBeam
 		
 	  Deselect:
         PBEM A 0 ACS_ExecuteWithResult(476, 0);
-        TNT1 A 0 A_PlaySoundEx("beam/deselect","soundslot5");
+        TNT1 A 0 A_StartSound("beam/deselect",5);
 		TNT1 A 0 {
 			invoker.missileCooldown = 0; //Override missile transition timer since we're firing normally
 			invoker.missilesOn = false;  //and don't need the animation to play
@@ -90,7 +90,7 @@ Class PowerBeam : MDOBeam
       Fire:
         PBEM A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 A_JumpIfInventory("IceBeamChilled",1,"FireChilled");
-        TNT1 A 0 A_PlayWeaponSound("pbeam/fire");
+        TNT1 A 0 A_StartSound("pbeam/fire", CHAN_WEAPON);
         TNT1 A 0 A_Recoil(0.05);
         TNT1 A 0 A_FireProjectile("PowerBolt",random(20,200)/100.00,0,12,0,0,random(20,50)/100.00);
 		TNT1 A 0 {
@@ -146,7 +146,7 @@ Class PowerBeam : MDOBeam
 		Goto Ready;
 
       FireChilled:
-        TNT1 A 0 A_PlayWeaponSound("pbeam/fire");
+        TNT1 A 0 A_StartSound("pbeam/fire", CHAN_WEAPON);
         TNT1 A 0 A_Recoil(0.05);
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ChilledCoop");
         TNT1 A 0 A_FireProjectile("PowerBolt",random(-75,75)/100.00,0,0,-2,0,random(-50,50)/100.00);
@@ -176,7 +176,7 @@ Class PowerBeam : MDOBeam
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",9,"Hold4");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",5,"Hold3");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",1,"Hold2");
-        TNT1 A 0 A_PlaySoundEx("pbeam/charge","soundslot5");
+        TNT1 A 0 A_StartSound("pbeam/charge",5);
 		TNT1 A 0 {
 			A_Overlay(PSP_MDOChargeParticles, "MDOChargeParticles");
 			A_OverlayScale(PSP_MDOChargeParticles, -0.1, -0.1, WOF_ADD);
@@ -303,8 +303,8 @@ Class PowerBeam : MDOBeam
 		}
 		TNT1 A 0 A_PSPDestroy(PSP_MDOChargeParticles);
 		TNT1 A 0 A_JumpIfInventory("PowerBeamHalfCharged",1,"HalfShotHoldFinish");
-        TNT1 A 0 A_PlaySoundEx("silence","soundslot5");
-        TNT1 A 0 A_PlayWeaponSound("pbeam/fire");
+        TNT1 A 0 A_StartSound("silence",5);
+        TNT1 A 0 A_StartSound("pbeam/fire", CHAN_WEAPON);
         TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25);
 		TNT1 A 0 A_TakeInventory("PowerBeamHalfCharged",1);
         TNT1 A 0 A_ClearRefire;
@@ -454,7 +454,7 @@ Class PowerBeam : MDOBeam
       HoldFinal:
         TNT1 A 0;
         TNT1 A 0 A_GiveInventory("PowerBeamCharged",1);
-        TNT1 A 0 A_PlaySoundEx("pbeam/idle","soundslot7");
+        TNT1 A 0 A_StartSound("pbeam/idle",7);
 	  HoldFinal2:
         TNT1 A 0;
         TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"D_RUNNIN");
@@ -487,8 +487,8 @@ Class PowerBeam : MDOBeam
 			}
 		}
 		TNT1 A 0 A_PSPDestroy(PSP_MDOChargeParticles);
-        TNT1 A 0 A_PlaySoundEx("silence","soundslot7");//A_StopSoundEx("soundslot7")
-        TNT1 A 0 A_PlayWeaponSound("pbeam/chfire");
+        TNT1 A 0 A_StartSound("silence",7);//A_StopSoundEx("soundslot7")
+        TNT1 A 0 A_StartSound("pbeam/chfire", CHAN_WEAPON);
 		TNT1 A 0 A_TakeInventory("PowerBeamHalfCharged",1);
         TNT1 A 0 A_TakeInventory("PowerBeamCharged",1);
         TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25);
@@ -516,8 +516,8 @@ Class PowerBeam : MDOBeam
 			}
 		}
 		TNT1 A 0 A_PSPDestroy(PSP_MDOChargeParticles);
-		TNT1 A 0 A_StopSoundEx("soundslot5");
-        TNT1 A 0 A_PlayWeaponSound("pbeam/fire");
+		TNT1 A 0 A_StopSound(5);
+        TNT1 A 0 A_StartSound("pbeam/fire", CHAN_WEAPON);
 		TNT1 A 0 A_TakeInventory("PowerBeamHalfCharged",1);
         TNT1 A 0 A_TakeInventory("PowerBeamCharged",1);
         TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25);
@@ -563,15 +563,15 @@ Class PowerBeam : MDOBeam
 
       HoldFinal3:
         TNT1 A 0 A_TakeInventory("PowerBeamIdle",99);
-        TNT1 A 0 A_PlaySoundEx("pbeam/idle","soundslot7");
+        TNT1 A 0 A_StartSound("pbeam/idle",7);
 		TNT1 A 0 TheSucc();
         Goto HoldFinal2;
 
 	  Missile:
         TNT1 A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 ACS_ExecuteWithResult(594, 29, 0, 1);
-        TNT1 A 0 A_PlayWeaponSound("missile/fire");
-		TNT1 A 0 A_PlaySound("missile/disengage",CHAN_UI,1.0,false,ATTN_NORM);
+        TNT1 A 0 A_StartSound("missile/fire", CHAN_WEAPON);
+		TNT1 A 0 A_StartSound("missile/disengage",CHAN_UI,0,1.0,ATTN_NORM);
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT);
         TNT1 A 0 A_Recoil(2);
@@ -591,7 +591,7 @@ Class PowerBeam : MDOBeam
         Goto MissileTransition;
 	
 	  MissileFromTrans:
-		TNT1 A 0 A_PlaySound("missile/disengage",CHAN_BODY,1.0,false,ATTN_NORM);
+		TNT1 A 0 A_StartSound("missile/disengage",CHAN_BODY,0,1.0,ATTN_NORM);
 		MLFR ABC 2;
 		MLFR DE 1;
 		Goto Ready;
@@ -681,8 +681,8 @@ Class PowerBeam : MDOBeam
 	  SuperMissile:
         TNT1 A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 ACS_ExecuteWithResult(594, 29, 1, 1);
-        TNT1 A 0 A_PlayWeaponSound("supermissile/fire");
-		TNT1 A 0 A_PlaySound("missile/disengage",CHAN_UI,1.0,false,ATTN_NORM);
+        TNT1 A 0 A_StartSound("supermissile/fire", CHAN_WEAPON);
+		TNT1 A 0 A_StartSound("missile/disengage",CHAN_UI,0,1.0,ATTN_NORM);
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_ZoomFactor(0.925,ZOOM_INSTANT);
         TNT1 A 0 A_Recoil(5);
@@ -755,8 +755,8 @@ Class PowerBeam : MDOBeam
 			A_RemoveLight("ChargeLight6");
 			A_RemoveLight("ChargeLight7");
 		}
-        PBCU J 10 BRIGHT A_PlaySoundEx("combo/ready","soundslot7");
-        TNT1 A 0 A_PlayWeaponSound("combo/power");
+        PBCU J 10 BRIGHT A_StartSound("combo/ready",7);
+        TNT1 A 0 A_StartSound("combo/power", CHAN_WEAPON);
         TNT1 A 0 A_TakeInventory("PowerBeamCharged",1);
         TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25);
         TNT1 A 0 A_TakeInventory("PowerBeamIdle",34);
@@ -770,60 +770,60 @@ Class PowerBeam : MDOBeam
 
       ComboCoop:
 		TNT1 A 0 A_WeaponOffset(0, 32);
-		PBFI A 0 A_PlayWeaponSound("combo/power");
+		PBFI A 0 A_StartSound("combo/power", CHAN_WEAPON);
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
-			A_PlayWeaponSound("combo/power");
+			A_StartSound("combo/power", CHAN_WEAPON);
 		}
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
-			A_PlayWeaponSound("combo/power");
+			A_StartSound("combo/power", CHAN_WEAPON);
 		}
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
-			A_PlayWeaponSound("combo/power");
+			A_StartSound("combo/power", CHAN_WEAPON);
 		}
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
-			A_PlayWeaponSound("combo/power");
+			A_StartSound("combo/power", CHAN_WEAPON);
 		}
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
-			A_PlayWeaponSound("combo/power");
+			A_StartSound("combo/power", CHAN_WEAPON);
 		}
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
-			A_PlayWeaponSound("combo/power");
+			A_StartSound("combo/power", CHAN_WEAPON);
 		}
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
-			A_PlayWeaponSound("combo/power");
+			A_StartSound("combo/power", CHAN_WEAPON);
 		}
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
-			A_PlayWeaponSound("combo/power");
+			A_StartSound("combo/power", CHAN_WEAPON);
 		}
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
-			A_PlayWeaponSound("combo/power");
+			A_StartSound("combo/power", CHAN_WEAPON);
 		}
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
@@ -968,7 +968,7 @@ Class PowerBolt : FastProjectile
     States
     {
       Spawn:
-        PBSH AABBCCDDEEFF 1 BRIGHT A_CustomMissile("PowerTrail",0,0,0);
+        PBSH AABBCCDDEEFF 1 BRIGHT A_SpawnProjectile("PowerTrail",0,0,0);
         Loop;
 
       Death:
@@ -1011,7 +1011,7 @@ Class PowerTrail : Actor
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,0,0,0) == 1,"Nope");
-        PBSH ABC 1 BRIGHT A_CustomMissile("PowerSpark",0,0,Random(-180,180),2,Random(-100,100));
+        PBSH ABC 1 BRIGHT A_SpawnProjectile("PowerSpark",0,0,Random(-180,180),2,Random(-100,100));
         PBSH DEF 1 BRIGHT;
         Stop;
 
@@ -1124,7 +1124,7 @@ Class PowerBoltCharged : PowerBolt
     States
     {
       Spawn:
-        PBCS AABB 1 BRIGHT A_CustomMissile("PowerTrailCharged",0,0,0);
+        PBCS AABB 1 BRIGHT A_SpawnProjectile("PowerTrailCharged",0,0,0);
         Loop;
 		
       Death:
@@ -1177,7 +1177,7 @@ Class PowerTrailCharged : Actor
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,0,0,0) == 1,"Nope");
-        PBSH ABCDEF 1 BRIGHT A_CustomMissile("PowerSparkCharged",0,0,Random(-180,180),2,Random(-100,100));
+        PBSH ABCDEF 1 BRIGHT A_SpawnProjectile("PowerSparkCharged",0,0,Random(-180,180),2,Random(-100,100));
         Stop;
 
       Nope:
@@ -1203,7 +1203,7 @@ Class PowerBoltChargedExplosion : Actor
     States
     {
       Spawn:
-        PBCX BCDEFFGGHHIIJJKKLM 1 BRIGHT A_CustomMissile("PowerSparkCharged",0,0,Random(-180,180),2,Random(-100,100));
+        PBCX BCDEFFGGHHIIJJKKLM 1 BRIGHT A_SpawnProjectile("PowerSparkCharged",0,0,Random(-180,180),2,Random(-100,100));
 		TNT1 A 1;
         Stop;
     }
@@ -1238,7 +1238,7 @@ Class PowerBoltHalfCharged : PowerBolt
     States
     {
       Spawn:
-        PBHS AABB 1 BRIGHT A_CustomMissile("PowerTrailHalfCharged",0,0,0);
+        PBHS AABB 1 BRIGHT A_SpawnProjectile("PowerTrailHalfCharged",0,0,0);
         Loop;
 
       Death:
@@ -1268,7 +1268,7 @@ Class PowerTrailHalfCharged : Actor
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,0,0,0) == 1,"Nope");
-        PBSH ABCDEF 1 BRIGHT A_CustomMissile("PowerSparkCharged",0,0,Random(-180,180),2,Random(-100,100));
+        PBSH ABCDEF 1 BRIGHT A_SpawnProjectile("PowerSparkCharged",0,0,Random(-180,180),2,Random(-100,100));
         Stop;
 
       Nope:
@@ -1294,7 +1294,7 @@ Class PowerBoltHalfChargedExplosion : Actor
     States
     {
       Spawn:
-        PBCX BCDEFFGGHHIIJJKKLM 1 BRIGHT A_CustomMissile("PowerSparkCharged",0,0,Random(-180,180),2,Random(-100,100));
+        PBCX BCDEFFGGHHIIJJKKLM 1 BRIGHT A_SpawnProjectile("PowerSparkCharged",0,0,Random(-180,180),2,Random(-100,100));
         Stop;
     }
 }

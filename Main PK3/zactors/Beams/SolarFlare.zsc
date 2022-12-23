@@ -95,7 +95,7 @@ Class BigFireSpawner : Actor
     {
 		Spawn:
 			TNT1 A 0;
-			TNT1 A 0 A_PlaySound("combo/plasmafire");
+			TNT1 A 0 A_StartSound("combo/plasmafire");
 		Spawn1:
 			TNT1 A 0 A_JumpIfInventory("Health200",4,"Spawn2");
 			TNT1 A 1 A_SpawnItemEx("BigFireRise", Random(-200,200)/100.00, Random(-600,600)/100.00, Random(-200,400)/100.00, 0, 0, Random(0,100)/100.00, 0, 150);

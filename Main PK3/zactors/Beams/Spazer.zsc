@@ -92,7 +92,7 @@ Class SpazerBeam : MDOBeam
 
 	  Deselect:
         SBEM A 0 ACS_ExecuteWithResult(476, 0);
-        TNT1 A 0 A_PlaySoundEx("beam/deselect","soundslot5");
+        TNT1 A 0 A_StartSound("beam/deselect",5);
       Deselect2:
         SBEM RSTUVW 1 A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
         TNT1 A 0 A_JumpIfHealthLower(1, "DeadLower");
@@ -108,12 +108,12 @@ Class SpazerBeam : MDOBeam
 	  Fire:
         SBEM A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 A_JumpIfInventory("IceBeamChilled",1,"FireChilled");
-        TNT1 A 0 A_PlayWeaponSound("sbeam/fire");
+        TNT1 A 0 A_StartSound("sbeam/fire", CHAN_WEAPON);
         TNT1 A 0 A_Recoil(0.05);
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"FireCoop");
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt1",-1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt2",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt3",1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt1",-1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt2",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt3",1,0,12,-2,0,0);
         Goto FireFinish;
 		
 	  PreHold:
@@ -122,9 +122,9 @@ Class SpazerBeam : MDOBeam
 		Goto Ready;
 		
 	  FireCoop:
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt1Coop",-1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt2Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt3Coop",1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt1Coop",-1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt2Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt3Coop",1,0,12,-2,0,0);
 	  FireFinish:
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_Light2;
@@ -141,18 +141,18 @@ Class SpazerBeam : MDOBeam
         Goto Ready;
 
 	  FireChilled2D:
-        TNT1 A 0 A_PlayWeaponSound("sbeam/fire");
+        TNT1 A 0 A_StartSound("sbeam/fire", CHAN_WEAPON);
         TNT1 A 0 A_Recoil(0.05);
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ChilledCoop");
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt1",-1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt2",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt3",1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt1",-1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt2",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt3",1,0,12,-2,0,0);
         Goto ChilledFinish;
 		
 	  ChilledCoop:
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt1Coop",-1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt2Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt3Coop",1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt1Coop",-1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt2Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt3Coop",1,0,12,-2,0,0);
 	  ChilledFinish:
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_Light2;
@@ -176,33 +176,33 @@ Class SpazerBeam : MDOBeam
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",11,"Hold4");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",6,"Hold3");
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",1,"Hold2");
-        TNT1 A 0 A_PlaySoundEx("pbeam/charge","soundslot5");
+        TNT1 A 0 A_StartSound("pbeam/charge",5);
       Hold2:
         TNT1 A 0;
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        SBEM KK 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging1",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("SpazerBeamChargingSpawner1",0,0,0,0,0,0)
+        SBEM KK 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging1",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("SpazerBeamChargingSpawner1",0,0,0,0,0,0)
         TNT1 A 0 A_Refire;
       HoldFire:
         TNT1 A 0;
 		TNT1 A 0 A_JumpIfInventory("PowerBeamHalfCharged",1,"HalfShotHoldFinish");
-        TNT1 A 0 A_PlaySoundEx("silence","soundslot5");
+        TNT1 A 0 A_StartSound("silence",5);
         TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25);
 		TNT1 A 0 A_TakeInventory("PowerBeamHalfCharged",1);
         TNT1 A 0 A_ClearRefire;
-        TNT1 A 0 A_PlayWeaponSound("sbeam/fire");
+        TNT1 A 0 A_StartSound("sbeam/fire", CHAN_WEAPON);
         TNT1 A 0 A_Recoil(0.05);
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"UnholdCoop");
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt1",-1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt2",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt3",1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt1",-1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt2",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt3",1,0,12,-2,0,0);
 		TNT1 A 0 A_JumpIf(GetCVar("met_nomodels") == 1, "UnholdFinish");
         Goto UnholdFinish;
 		
 	  UnholdCoop:
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt1Coop",-1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt2Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt3Coop",1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt1Coop",-1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt2Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt3Coop",1,0,12,-2,0,0);
 	  UnholdFinish:
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_Light2;
@@ -220,7 +220,7 @@ Class SpazerBeam : MDOBeam
         TNT1 A 0;
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        SBEM LL 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging2",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("SpazerBeamChargingSpawner2",0,0,0,0,0,0);
+        SBEM LL 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging2",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("SpazerBeamChargingSpawner2",0,0,0,0,0,0);
         TNT1 A 0 A_Refire;
         Goto HoldFire;
 
@@ -229,7 +229,7 @@ Class SpazerBeam : MDOBeam
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
 		TNT1 A 0 A_GiveInventory("PowerBeamHalfCharged",1);
-        SBEM MM 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging3",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("SpazerBeamChargingSpawner3",0,0,0,0,0,0);
+        SBEM MM 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging3",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("SpazerBeamChargingSpawner3",0,0,0,0,0,0);
         TNT1 A 0 A_Refire;
         Goto HoldFire;
 
@@ -237,7 +237,7 @@ Class SpazerBeam : MDOBeam
         TNT1 A 0;
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        SBEM NN 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging4",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("SpazerBeamChargingSpawner4",0,0,0,0,0,0);
+        SBEM NN 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging4",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("SpazerBeamChargingSpawner4",0,0,0,0,0,0);
         TNT1 A 0 A_Refire;
         Goto HoldFire;
 
@@ -245,7 +245,7 @@ Class SpazerBeam : MDOBeam
         TNT1 A 0;
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        SBEM OO 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging5",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("SpazerBeamChargingSpawner5",0,0,0,0,0,0);
+        SBEM OO 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging5",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("SpazerBeamChargingSpawner5",0,0,0,0,0,0);
         TNT1 A 0 A_Refire;
         Goto HoldFire;
 		
@@ -253,26 +253,26 @@ Class SpazerBeam : MDOBeam
         TNT1 A 0;
         TNT1 A 0 A_JumpIfInventory("PowerBeamChargeLevel",25,"HoldFinal");
         TNT1 A 0 A_GiveInventory("PowerBeamChargeLevel",1);
-        SBEM PP 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging6",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("SpazerBeamChargingSpawner6",0,0,0,0,0,0);
+        SBEM PP 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging6",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("SpazerBeamChargingSpawner6",0,0,0,0,0,0);
         TNT1 A 0 A_Refire;
         Goto HoldFire;
 		
 	  HoldFinal:
         TNT1 A 0;
         TNT1 A 0 A_GiveInventory("PowerBeamCharged",1);
-        TNT1 A 0 A_PlaySoundEx("pbeam/idle","soundslot7");
+        TNT1 A 0 A_StartSound("pbeam/idle",7);
       HoldFinal2:
         TNT1 A 0;
         TNT1 A 0 A_JumpIfInventory("SpeedBoosterActive",1,"D_RUNNIN");
         TNT1 A 0 A_JumpIfInventory("PowerBeamIdle",26,"HoldFinal3");
         TNT1 A 0 A_GiveInventory("PowerBeamIdle",1);
-        SBEM QQ 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging7",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireCustomMissile("SpazerBeamChargingSpawner7",0,0,0,0,0,0);
+        SBEM QQ 1 BRIGHT A_SpawnItemEx("SpazerBeamCharging7",-15,64,(sin(pitch)*-63)+26,0,0,0,-270,32);//A_FireProjectile("SpazerBeamChargingSpawner7",0,0,0,0,0,0);
         TNT1 A 0 A_JumpIfInventory("WSSynthFireRight",1,"ChargeCombo");
 		TNT1 A 0 TheSucc();
         TNT1 A 0 A_Refire;
       HoldFinish2:
-        TNT1 A 0 A_PlaySoundEx("silence","soundslot7");//A_StopSoundEx("soundslot7");
-        TNT1 A 0 A_PlayWeaponSound("sbeam/chfire");
+        TNT1 A 0 A_StartSound("silence",7);//A_StopSoundEx("soundslot7");
+        TNT1 A 0 A_StartSound("sbeam/chfire", CHAN_WEAPON);
         TNT1 A 0 A_TakeInventory("PowerBeamCharged",1);
         TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25);
         TNT1 A 0 A_TakeInventory("PowerBeamIdle",34);
@@ -282,20 +282,20 @@ Class SpazerBeam : MDOBeam
         TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT);
         TNT1 A 0 Radius_Quake(4,8,0,1,0);
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ChargedCoop");
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt1Charged",-1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt2Charged",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt3Charged",1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged1",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged2",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged3",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged4",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged5",-1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged6",1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt1Charged",-1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt2Charged",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt3Charged",1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged1",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged2",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged3",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged4",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged5",-1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged6",1,0,12,-2,0,0);
         Goto ChargedFinish;
 		
 	  HalfShotHoldFinish:
-        TNT1 A 0 A_StopSoundEx("soundslot5");
-        TNT1 A 0 A_PlayWeaponSound("sbeam/fire");
+        TNT1 A 0 A_StopSound(5);
+        TNT1 A 0 A_StartSound("sbeam/fire", CHAN_WEAPON);
         TNT1 A 0 A_TakeInventory("PowerBeamCharged",1);
         TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25);
         TNT1 A 0 A_TakeInventory("PowerBeamIdle",34);
@@ -304,28 +304,28 @@ Class SpazerBeam : MDOBeam
         TNT1 A 0 A_Recoil(2);
         TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT);
         TNT1 A 0 Radius_Quake(1,8,0,1,0);
-		//TNT1 A 0 A_FireCustomMissile("SpazerBolt1HalfCharged",-1,0,12,-2,0,0);
-        //TNT1 A 0 A_FireCustomMissile("SpazerBolt2HalfCharged",0,0,12,-2,0,0);
-        //TNT1 A 0 A_FireCustomMissile("SpazerBolt3HalfCharged",1,0,12,-2,0,0);
-		TNT1 A 0 A_FireCustomMissile("SpazerBolt1HalfCharged",-4,0,12,-2,0,0); //Right;
-		TNT1 A 0 A_FireCustomMissile("SpazerBolt1HalfCharged",-8,0,12,-2,0,0); //Far Right;
-		TNT1 A 0 A_FireCustomMissile("SpazerBolt3HalfCharged",0,0,12,0,0,0);
-		TNT1 A 0 A_FireCustomMissile("SpazerBolt2HalfCharged",4,0,12,-2,0,0); //Left;
-		TNT1 A 0 A_FireCustomMissile("SpazerBolt2HalfCharged",8,0,12,-2,0,0); //Far Left;
-        //TNT1 A 0 A_FireCustomMissile("SpazerBolt3HalfCharged",0,0,12,-15,0,0) //Center Top;
-        //TNT1 A 0 A_FireCustomMissile("SpazerBolt4HalfCharged",0,0,12,15,0,0) //Center Bottom;
+		//TNT1 A 0 A_FireProjectile("SpazerBolt1HalfCharged",-1,0,12,-2,0,0);
+        //TNT1 A 0 A_FireProjectile("SpazerBolt2HalfCharged",0,0,12,-2,0,0);
+        //TNT1 A 0 A_FireProjectile("SpazerBolt3HalfCharged",1,0,12,-2,0,0);
+		TNT1 A 0 A_FireProjectile("SpazerBolt1HalfCharged",-4,0,12,-2,0,0); //Right;
+		TNT1 A 0 A_FireProjectile("SpazerBolt1HalfCharged",-8,0,12,-2,0,0); //Far Right;
+		TNT1 A 0 A_FireProjectile("SpazerBolt3HalfCharged",0,0,12,0,0,0);
+		TNT1 A 0 A_FireProjectile("SpazerBolt2HalfCharged",4,0,12,-2,0,0); //Left;
+		TNT1 A 0 A_FireProjectile("SpazerBolt2HalfCharged",8,0,12,-2,0,0); //Far Left;
+        //TNT1 A 0 A_FireProjectile("SpazerBolt3HalfCharged",0,0,12,-15,0,0) //Center Top;
+        //TNT1 A 0 A_FireProjectile("SpazerBolt4HalfCharged",0,0,12,15,0,0) //Center Bottom;
         Goto ChargedFinish;
 
 	  ChargedCoop:
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt1CoopCharged",-1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt2CoopCharged",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBolt3CoopCharged",1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged1Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged2Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged3Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged4Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged5Coop",-1,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerBoltCharged6Coop",1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt1CoopCharged",-1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt2CoopCharged",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBolt3CoopCharged",1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged1Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged2Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged3Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged4Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged5Coop",-1,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerBoltCharged6Coop",1,0,12,-2,0,0);
 	  ChargedFinish:
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_Light2;
@@ -344,14 +344,14 @@ Class SpazerBeam : MDOBeam
 	  HoldFinal3:
         TNT1 A 0;
         TNT1 A 0 A_TakeInventory("PowerBeamIdle",99);
-        TNT1 A 0 A_PlaySoundEx("pbeam/idle","soundslot7");
+        TNT1 A 0 A_StartSound("pbeam/idle",7);
 		TNT1 A 0 TheSucc();
         Goto HoldFinal2;
 
       Missile:
         TNT1 A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 ACS_ExecuteWithResult(594, 29, 0, 1);
-        TNT1 A 0 A_PlayWeaponSound("missile/fire");
+        TNT1 A 0 A_StartSound("missile/fire", CHAN_WEAPON);
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT);
         TNT1 A 0 A_Recoil(2);
@@ -360,11 +360,11 @@ Class SpazerBeam : MDOBeam
         Goto Missile_DM;
 
       Missile_DM:
-        TNT1 A 0 A_FireCustomMissile("PowerMissile",0,1,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("PowerMissile",0,1,12,-2,0,0);
         Goto MissileAnim;
 
       Missile_Coop:
-        TNT1 A 0 A_FireCustomMissile("PowerMissile",0,1,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("PowerMissile",0,1,12,-2,0,0);
         Goto MissileAnim;
 
 	  MissileAnim:
@@ -397,7 +397,7 @@ Class SpazerBeam : MDOBeam
       SuperMissile:
         TNT1 A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 ACS_ExecuteWithResult(594, 29, 1, 1);
-        TNT1 A 0 A_PlayWeaponSound("supermissile/fire");
+        TNT1 A 0 A_StartSound("supermissile/fire", CHAN_WEAPON);
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_ZoomFactor(0.925,ZOOM_INSTANT);
         TNT1 A 0 A_Recoil(5);
@@ -406,11 +406,11 @@ Class SpazerBeam : MDOBeam
         Goto SuperDM;
 
       SuperDM:
-        TNT1 A 0 A_FireCustomMissile("SuperMissile",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SuperMissile",0,0,12,-2,0,0);
         Goto SuperAnim;
 
       SuperCoop:
-        TNT1 A 0 A_FireCustomMissile("SuperMissile",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SuperMissile",0,0,12,-2,0,0);
         Goto SuperAnim;
 
 	  SuperAnim:
@@ -434,8 +434,8 @@ Class SpazerBeam : MDOBeam
         TNT1 A 0 A_JumpIfInventory("MissileAmmo",10,1);
         Goto HoldFinal;
         TNT1 A 0;
-        SBEM R 20 BRIGHT A_PlaySoundEx("combo/ready","soundslot7");
-        TNT1 A 0 A_PlayWeaponSound("combo/spazer");
+        SBEM R 20 BRIGHT A_StartSound("combo/ready",7);
+        TNT1 A 0 A_StartSound("combo/spazer", CHAN_WEAPON);
         TNT1 A 0 A_TakeInventory("PowerBeamCharged",1);
         TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25);
         TNT1 A 0 A_TakeInventory("PowerBeamIdle",34);
@@ -444,27 +444,27 @@ Class SpazerBeam : MDOBeam
         TNT1 A 0 A_ZoomFactor(0.9,ZOOM_INSTANT);
         TNT1 A 0 Radius_Quake(2,8,0,1,0);
         TNT1 A 0 A_JumpIfInventory("CoopModeOn",1,"ComboCoop");
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile1",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile2",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile3",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile4",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile5",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile6",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile7",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile8",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile9",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile1",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile2",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile3",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile4",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile5",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile6",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile7",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile8",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile9",0,0,12,-2,0,0);
         Goto ComboFinish;
 		
 	  ComboCoop:
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile1Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile2Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile3Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile4Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile5Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile6Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile7Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile8Coop",0,0,12,-2,0,0);
-        TNT1 A 0 A_FireCustomMissile("SpazerComboMissile9Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile1Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile2Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile3Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile4Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile5Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile6Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile7Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile8Coop",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SpazerComboMissile9Coop",0,0,12,-2,0,0);
       ComboFinish:
         TNT1 A 0 A_TakeInventory("MissileAmmo",10);
         TNT1 A 0 A_SetAngle(angle+(random(-200,200)/100.00));
@@ -574,12 +574,12 @@ Class SpazerBolt1 : Actor
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_ChangeVelocity(0,-12,0,CVF_RELATIVE);
-        SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         TNT1 A 0 A_ChangeVelocity(0,12,0,CVF_RELATIVE);
 
       Spawn1:
         TNT1 A 0;
-        SPZR ABCD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR ABCD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         Loop;
 
       Death:
@@ -613,7 +613,7 @@ Class SpazerBolt2 : SpazerBolt1
     {
       Spawn:
         TNT1 A 0;
-        SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         Goto Spawn1;
     }
 }
@@ -640,7 +640,7 @@ Class SpazerBolt3 : SpazerBolt1
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_ChangeVelocity(0,12,0,CVF_RELATIVE);
-        SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         TNT1 A 0 A_ChangeVelocity(0,-12,0,CVF_RELATIVE);
         Goto Spawn1;
     }
@@ -1014,7 +1014,7 @@ Class SpazerBoltCharged1 : SpazerBolt1Charged
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_ChangeVelocity(0,-7,10,CVF_RELATIVE);
-        SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         TNT1 A 0 A_ChangeVelocity(0,7,-10,CVF_RELATIVE);
         Goto Spawn1;
     }
@@ -1044,7 +1044,7 @@ Class SpazerBoltCharged2 : SpazerBolt1Charged
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_ChangeVelocity(0,7,10,CVF_RELATIVE);
-        SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         TNT1 A 0 A_ChangeVelocity(0,-7,-10,CVF_RELATIVE);
         Goto Spawn1;
     }
@@ -1074,7 +1074,7 @@ Class SpazerBoltCharged3 : SpazerBolt1Charged
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_ChangeVelocity(0,-7,-10,CVF_RELATIVE);
-        SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         TNT1 A 0 A_ChangeVelocity(0,7,10,CVF_RELATIVE);
         Goto Spawn1;
     }
@@ -1104,7 +1104,7 @@ Class SpazerBoltCharged4 : SpazerBolt1Charged
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_ChangeVelocity(0,7,-10,CVF_RELATIVE);
-        SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         TNT1 A 0 A_ChangeVelocity(0,-7,10,CVF_RELATIVE);
         Goto Spawn1;
     }
@@ -1134,7 +1134,7 @@ Class SpazerBoltCharged5 : SpazerBolt1Charged
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_ChangeVelocity(0,-32,0,CVF_RELATIVE);
-        SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         TNT1 A 0 A_ChangeVelocity(0,32,0,CVF_RELATIVE);
         Goto Spawn1;
     }
@@ -1164,7 +1164,7 @@ Class SpazerBoltCharged6 : SpazerBolt1Charged
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_ChangeVelocity(0,32,0,CVF_RELATIVE);
-        SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         TNT1 A 0 A_ChangeVelocity(0,-32,0,CVF_RELATIVE);
         Goto Spawn1;
     }
@@ -1198,16 +1198,16 @@ Class SpazerBoltHalfCharged : SpazerBolt1
       Spawn:
         TNT1 A 0;
         TNT1 A 0 A_ChangeVelocity(0,2,0,CVF_RELATIVE);
-        SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         //TNT1 A 0 A_ChangeVelocity(0,-2,0,CVF_RELATIVE);
 		//TNT1 A 0 A_ChangeVelocity(0,-12,0,CVF_RELATIVE);
-        //SPZR DD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        //SPZR DD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         //TNT1 A 0 A_ChangeVelocity(0,12,0,CVF_RELATIVE);
         Goto Spawn1;
 		
 	  Spawn1:
         TNT1 A 0;
-        SPZR ABCD 1 BRIGHT A_CustomMissile("SpazerTrail",0,0,0);
+        SPZR ABCD 1 BRIGHT A_SpawnProjectile("SpazerTrail",0,0,0);
         Loop;
 
       Death:

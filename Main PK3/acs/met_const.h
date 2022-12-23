@@ -310,12 +310,12 @@ int DakkaBeamFireTimes[CHARGELEVELS] =
 #define LASER_NOEFFECTS_FADELENGTH 128
 #define LASER_BASEALPHA 0.5
 
-#define COLORCOUNT 2
+#define COLORCOUNT 3
 
 // [R4L] These arrays control how many lasers the chroma storm uses.
 int LaserStarts[COLORCOUNT] =
 {
-    //"DBeamLaserPuff_Red",
+    "DBeamLaserPuff_Red",
     "DBeamLaserPuff_Green",
     "DBeamLaserPuff_Blue",
 };
@@ -324,13 +324,13 @@ int LaserMids[COLORCOUNT] =
 {
     "DBeamLaserParticle_Red",
     "DBeamLaserParticle_Green",
-    //"DBeamLaserParticle_Blue", //comment this one
+    "DBeamLaserParticle_Blue", //comment this one
 };
 
 int LaserEnds[COLORCOUNT] =
 {
-    "DBeamLaserDeath_Red", //comment this one
-    //"DBeamLaserDeath_Green",
+    "DBeamLaserDeath_Red", 
+    "DBeamLaserDeath_Green", //comment this one
     "DBeamLaserDeath_Blue",
 };
 

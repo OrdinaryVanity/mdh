@@ -39,7 +39,7 @@ Class MissileAmmo : Ammo replaces Shell
 		goto NoSpawn;
 		
 	  Spawn2:
-	    TNT1 A 1 A_ChangeFlag("SPECIAL", 1);
+	    TNT1 A 1 { bSPECIAL = 1; }//A_ChangeFlag("SPECIAL", 1);
 		MPKU A 10 BRIGHT;
         MPKU B 4 BRIGHT;
 		loop;
@@ -50,7 +50,7 @@ Class MissileAmmo : Ammo replaces Shell
 	  
 	  NoSpawn:
 	    TNT1 A 1 A_JumpIfInventory("MissileTankAcquired",1,"Spawn2", AAPTR_PLAYER1);
-		TNT1 A 1 A_ChangeFlag("SPECIAL", 0);
+		TNT1 A 1 { bSPECIAL = 0; }//A_ChangeFlag("SPECIAL", 0);
 		TNT1 A 1;
 		loop;
     }
@@ -77,14 +77,14 @@ Class MissileAmmoPack : MissileAmmo
 		goto NoSpawn;
 		
 	  Spawn2:
-	    TNT1 A 1 A_ChangeFlag("SPECIAL", 1);
+	    TNT1 A 1 { bSPECIAL = 1; } //A_ChangeFlag("SPECIAL", 1);
 		MPPU A 10 BRIGHT;
         MPPU B 4 BRIGHT;
 		loop;
 	  
 	  NoSpawn:
 	    TNT1 A 1 A_JumpIfInventory("MissileTankAcquired",1,"Spawn2", AAPTR_PLAYER1);
-		TNT1 A 1 A_ChangeFlag("SPECIAL", 0);
+		TNT1 A 1 { bSPECIAL = 0; } //A_ChangeFlag("SPECIAL", 0);
 		TNT1 A 1;
 		loop;
     }
@@ -108,7 +108,7 @@ Class MissileAmmo_Dropped : MissileAmmo
 		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,37) != 1, "NoSpawn");
       Spawn2:
         TNT1 A 0 A_JumpIfInventory("Health100",70,"RemoveCheck");
-		TNT1 A 1 A_ChangeFlag("SPECIAL", 1);
+		TNT1 A 1 { bSPECIAL = 1; } //A_ChangeFlag("SPECIAL", 1);
         MPKU A 10 BRIGHT A_GiveInventory("Health100",1);
         MPKU B 4 BRIGHT;
         Loop;
@@ -119,16 +119,16 @@ Class MissileAmmo_Dropped : MissileAmmo
 		
       GiveGravity:
 		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,37) != 1, "NoSpawn");
-	    TNT1 A 1 A_ChangeFlag("SPECIAL", 1);
+	    TNT1 A 1 { bSPECIAL = 0; } //A_ChangeFlag("SPECIAL", 1);
         MPKU A 1;
-        MPKU A 1 A_ChangeFlag("NOGRAVITY",0);
-        MPKU A 1 A_ChangeFlag("LOWGRAVITY",1);
+        MPKU A 1 { bNOGRAVITY = 0; } //A_ChangeFlag("NOGRAVITY",0);
+        MPKU A 1 { Gravity = 0.125; } //A_ChangeFlag("LOWGRAVITY",1);
         Goto Spawn2;
 		
 	  RemoveCheck:
         TNT1 A 0;
         TNT1 A 0 A_TakeInventory("Health100",100);
-		TNT1 A 1 A_ChangeFlag("SPECIAL", 1);
+		TNT1 A 1 { bSPECIAL = 1; } //A_ChangeFlag("SPECIAL", 1);
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,16,0,0) == 1,"Spawn2");
         MPKU A 10 BRIGHT;
         MPKU B 4 BRIGHT;
@@ -140,7 +140,7 @@ Class MissileAmmo_Dropped : MissileAmmo
 		Goto PickupFail;
 		
 	  Pickup2:
-		TNT1 A 0 A_ChangeFlag("SPECIAL", 1);
+		TNT1 A 0 { bSPECIAL = 1; } //A_ChangeFlag("SPECIAL", 1);
         TNT1 A 0 A_GiveInventory("MissileAmmo",1);
         TNT1 A 1;
         Stop;
@@ -152,7 +152,7 @@ Class MissileAmmo_Dropped : MissileAmmo
 	  NoSpawn:
 	    TNT1 A 0;
 		TNT1 A 0 A_JumpIfInventory("MissileTankAcquired",1,"Spawn", AAPTR_PLAYER1);
-		TNT1 A 1 A_ChangeFlag("SPECIAL", 0);
+		TNT1 A 1 { bSPECIAL = 0; } //A_ChangeFlag("SPECIAL", 0);
 		TNT1 A 1;
 		Loop;
     }
@@ -175,23 +175,23 @@ Class MissileAmmoPack_Dropped : MissileAmmoPack
 		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,37) != 1, "NoSpawn");
       Spawn2:
         TNT1 A 0 A_JumpIfInventory("Health100",70,"RemoveCheck");
-		TNT1 A 1 A_ChangeFlag("SPECIAL", 1);
+		TNT1 A 1 { bSPECIAL = 1; } //A_ChangeFlag("SPECIAL", 1);
         MPPU A 10 BRIGHT A_GiveInventory("Health100",1);
         MPPU B 4 BRIGHT;
         Loop;
 		
       GiveGravity:
 		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,37) != 1, "NoSpawn");
-	    TNT1 A 1 A_ChangeFlag("SPECIAL", 1);
+	    TNT1 A 1 { bSPECIAL = 1; }// A_ChangeFlag("SPECIAL", 1);
         MPPU A 1;
-        MPPU A 1 A_ChangeFlag("NOGRAVITY",0);
-        MPPU A 1 A_ChangeFlag("LOWGRAVITY",1);
+        MPPU A 1 { bNOGRAVITY = 0; } //A_ChangeFlag("NOGRAVITY",0);
+        MPPU A 1 { Gravity = 0.125; } //A_ChangeFlag("LOWGRAVITY",1);
         Goto Spawn2;
 		
 	  RemoveCheck:
         TNT1 A 0;
         TNT1 A 0 A_TakeInventory("Health100",100);
-		TNT1 A 1 A_ChangeFlag("SPECIAL", 1);
+		TNT1 A 1 { bSPECIAL = 1; } //A_ChangeFlag("SPECIAL", 1);
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,16,0,0) == 1,"Spawn2");
         MPPU A 10 BRIGHT;
         MPPU B 4 BRIGHT;
@@ -203,7 +203,7 @@ Class MissileAmmoPack_Dropped : MissileAmmoPack
 		Goto PickupFail;
 		
 	  Pickup2:
-		TNT1 A 0 A_ChangeFlag("SPECIAL", 1);
+		TNT1 A 0 { bSPECIAL = 1; } //A_ChangeFlag("SPECIAL", 1);
         TNT1 A 0 A_GiveInventory("MissileAmmo",5);
         TNT1 A 1;
         Stop;
@@ -215,7 +215,7 @@ Class MissileAmmoPack_Dropped : MissileAmmoPack
 	  NoSpawn:
 	    TNT1 A 0;
 		TNT1 A 0 A_JumpIfInventory("MissileTankAcquired",1,"Spawn", AAPTR_PLAYER1);
-		TNT1 A 1 A_ChangeFlag("SPECIAL", 0);
+		TNT1 A 1 { bSPECIAL = 0; } //A_ChangeFlag("SPECIAL", 0);
 		TNT1 A 1;
 		Loop;
     }
@@ -302,8 +302,8 @@ Class SuperMissileAmmo_Dropped : SuperMissileAmmo
 		
       GiveGravity:
         SPKU A 1;
-        SPKU A 1 A_ChangeFlag("NOGRAVITY",0);
-        SPKU A 1 A_ChangeFlag("LOWGRAVITY",1);
+        SPKU A 1 { bNOGRAVITY = 0; } //A_ChangeFlag("NOGRAVITY",0);
+        SPKU A 1 { Gravity = 0.125; } //A_ChangeFlag("LOWGRAVITY",1);
         Goto Spawn1;
 
       RemoveCheck:
@@ -398,8 +398,8 @@ Class PowerBombAmmo_Dropped : PowerBombAmmo
         Loop;
       GiveGravity:
         PBOM D 1;
-        PBOM D 1 A_ChangeFlag("NOGRAVITY",0);
-        PBOM D 1 A_ChangeFlag("LOWGRAVITY",1);
+        PBOM D 1 { bNOGRAVITY = 0; } //A_ChangeFlag("NOGRAVITY",0);
+        PBOM D 1 { Gravity = 0.125; } //A_ChangeFlag("LOWGRAVITY",1);
         Goto Spawn1;
 
       RemoveCheck:
@@ -516,8 +516,8 @@ Class Energy10_Dropped : Energy10
         Loop;
       GiveGravity:
         NRGA A 1;
-        NRGA A 1 A_ChangeFlag("NOGRAVITY",0);
-        NRGA A 1 A_ChangeFlag("LOWGRAVITY",1);
+        NRGA A 1 { bNOGRAVITY = 0; } //A_ChangeFlag("NOGRAVITY",0);
+        NRGA A 1 { Gravity = 0.125; } //A_ChangeFlag("LOWGRAVITY",1);
         Goto Spawn1;
 
       RemoveCheck:
@@ -645,8 +645,8 @@ Class Energy25_Dropped : Energy25
         Loop;
       GiveGravity:
         NRGB A 1;
-        NRGB A 1 A_ChangeFlag("NOGRAVITY",0);
-        NRGB A 1 A_ChangeFlag("LOWGRAVITY",1);
+        NRGB A 1 { bNOGRAVITY = 0; } //A_ChangeFlag("NOGRAVITY",0);
+        NRGB A 1 { Gravity = 0.125; } //A_ChangeFlag("LOWGRAVITY",1);
         Goto Spawn1;
 
       RemoveCheck:
@@ -1163,7 +1163,7 @@ Class Soul_Energy100: Energy100
     States
     {
       Spawn:
-        TNT1 AA 0 A_ChangeFlag("DROPPED", 0);
+        TNT1 AA 0 { bDROPPED = 0; } //A_ChangeFlag("DROPPED", 0);
         Goto Super::Spawn;
     }
 }
@@ -1173,7 +1173,7 @@ Class Soul_EnergyTank: EnergyTankPickup
     States
     {
       Spawn:
-        TNT1 AA 0 A_ChangeFlag("DROPPED", 0);
+        TNT1 AA 0 { bDROPPED = 0; } //A_ChangeFlag("DROPPED", 0);
         Goto Super::Spawn;
     }
 }
@@ -1349,7 +1349,7 @@ Class RawEnergy : CustomInventory
       Spawn:
         TNT1 A 0;
 		TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,51,0,0) == 1, "Tier1Time");
-        TNT1 A 0 A_PlaySound("rawenergy/idle");
+        TNT1 A 0 A_StartSound("rawenergy/idle");
         EFLD WWWWWWWWWW 2 BRIGHT;
         EFLD WWWWW 2 BRIGHT; 
         EFLD ABCDEFGHIJKLMNOPQRSTUV 2 BRIGHT;

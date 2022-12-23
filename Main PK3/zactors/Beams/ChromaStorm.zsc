@@ -101,7 +101,7 @@ Class ChromaBeam : MDOBeam
 
       Deselect:
         TNT1 A 0;
-        TNT1 A 0 A_PlaySoundEx("beam/deselect","soundslot5");
+        TNT1 A 0 A_StartSound("beam/deselect",5);
       Deselect2:
         PBEM A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 A_JumpIfInventory("DakkaBeamColor", 5, "PurpleDown");
@@ -388,7 +388,7 @@ Class ChromaBeam : MDOBeam
       FireNormal:
         // try to guarantee no sound overlap
         TNT1 A 0 A_AlertMonsters;
-        TNT1 A 0 A_PlaySound("metroid/dakkabeamfire", ACS_ExecuteWithResult(475, 1));
+        TNT1 A 0 A_StartSound("metroid/dakkabeamfire", ACS_ExecuteWithResult(475, 1));
         TNT1 A 0 A_JumpIfInventory("DakkaBeamColor", 7, "ResetShot");
         TNT1 A 0 A_JumpIfInventory("DakkaBeamColor", 5, "PurpleShot");
         TNT1 A 0 A_JumpIfInventory("DakkaBeamColor", 4, "BlueShot");
@@ -429,7 +429,7 @@ Class ChromaBeam : MDOBeam
       FireCombo2:
         LBEM A 0 A_TakeInventory("DakkaBeamComboShotsLeft", 1);
         TNT1 A 0 A_AlertMonsters;
-        LBEM O 0 A_PlaySound("metroid/dakkalaser_hold",  5, 1.0, 1);
+        LBEM O 0 A_StartSound("metroid/dakkalaser_hold", 5, CHANF_LOOPING, 1.0);
         LBEM A 0 A_SpawnItemEx("DakkaBeamLaser", 0, 10, 32 + (ACS_ExecuteWithResult(475, 8) / 65536.0),32 * cos(pitch),0, 32 * -sin(pitch));                                             
         LBEM A 0 A_JumpIfInventory("RuneSpreadDummy", 1, "FireComboSpread");
         Goto FireCombo3;
@@ -543,17 +543,17 @@ Class ChromaBeam : MDOBeam
 		TNT1 A 0 A_JumpIfInventory("IsShinesparking",1,"ShineBright2D");
         LBEM O 0 A_JumpIfInventory("SpeedBoosterActive", 1, "D_RUNNIN");
         LBEM O 0 A_Refire;
-        LBEM O 0 A_PlaySound("silence", 5);
+        LBEM O 0 A_StartSound("silence", 5);
         LBEM O 0 A_StopSound(5);
-        LBEM O 0 A_PlaySound("metroid/dakkalaser_down", 7);
+        LBEM O 0 A_StartSound("metroid/dakkalaser_down", 7);
         LBEM ONML 1 A_WeaponReady(WRF_NOPRIMARY | WRF_NOBOB);
-        LBEM O 0 A_PlaySound("silence", 5);
+        LBEM O 0 A_StartSound("silence", 5);
         LBEM O 0 A_StopSound(5);
         LBEM ARST 1 A_WeaponReady(WRF_NOPRIMARY | WRF_NOBOB);
-        LBEM O 0 A_PlaySound("silence", 5);
+        LBEM O 0 A_StartSound("silence", 5);
         LBEM O 0 A_StopSound(5);
         LBEM U 1 A_WeaponReady(WRF_NOPRIMARY | WRF_NOBOB);
-        LBEM O 0 A_PlaySound("silence", 5);
+        LBEM O 0 A_StartSound("silence", 5);
         LBEM O 0 A_StopSound(5);
         XBEM A 5;
         Goto Ready;
@@ -564,7 +564,7 @@ Class ChromaBeam : MDOBeam
     // == (script 475 checks charge level against tics given, goes back to top if tics given matches or exceeds it)
 
       RedShot:
-        TNT1 AAAA 0 A_FireCustomMissile("DBeamShot_Red", random(-25,25)/5.0, 0, 12, 0, 0, random(-25,25)/5.0);
+        TNT1 AAAA 0 A_FireProjectile("DBeamShot_Red", random(-25,25)/5.0, 0, 12, 0, 0, random(-25,25)/5.0);
         TNT1 A 0 A_GiveInventory("DakkaBeamColor", 1);
         MBEM H 0 A_JumpIf(ACS_ExecuteWithResult(475, 0, 2) >= 1, "RedFast");
         MBEM B 0 A_WeaponReady(WRF_NOFIRE);
@@ -632,7 +632,7 @@ Class ChromaBeam : MDOBeam
         Goto Ready;
 
       YellowShot:
-        TNT1 AAAA 0 A_FireCustomMissile("DBeamShot_Yellow", random(-25,25)/5.0, 0, 12, 0, 0, random(-25,25)/5.0);
+        TNT1 AAAA 0 A_FireProjectile("DBeamShot_Yellow", random(-25,25)/5.0, 0, 12, 0, 0, random(-25,25)/5.0);
         TNT1 A 0 A_GiveInventory("DakkaBeamColor", 1);
         PBEM H 0 A_JumpIf(ACS_ExecuteWithResult(475, 0, 2) >= 1, "YellowFast");
         PBEM B 0 A_WeaponReady(WRF_NOFIRE);
@@ -702,7 +702,7 @@ Class ChromaBeam : MDOBeam
         Goto Ready;
 
       GreenShot:
-        TNT1 AAAA 0 A_FireCustomMissile("DBeamShot_Green", random(-25,25)/5.0, 0, 12, 0, 0, random(-25,25)/5.0);
+        TNT1 AAAA 0 A_FireProjectile("DBeamShot_Green", random(-25,25)/5.0, 0, 12, 0, 0, random(-25,25)/5.0);
         TNT1 A 0 A_GiveInventory("DakkaBeamColor", 1);
         SBEM H 0 A_JumpIf(ACS_ExecuteWithResult(475, 0, 2) >= 1, "GreenFast");
         SBEM B 0 A_WeaponReady(WRF_NOFIRE);
@@ -772,7 +772,7 @@ Class ChromaBeam : MDOBeam
 
 
       BlueShot:
-        TNT1 AAAA 0 A_FireCustomMissile("DBeamShot_Blue", random(-25,25)/5.0, 0, 12, 0, 0, random(-25,25)/5.0);
+        TNT1 AAAA 0 A_FireProjectile("DBeamShot_Blue", random(-25,25)/5.0, 0, 12, 0, 0, random(-25,25)/5.0);
         TNT1 A 0 A_GiveInventory("DakkaBeamColor", 1);
         IBEM H 0 A_JumpIf(ACS_ExecuteWithResult(475, 0, 2) >= 1, "BlueFast");
         IBEM B 0 A_WeaponReady(WRF_NOFIRE);
@@ -841,7 +841,7 @@ Class ChromaBeam : MDOBeam
         Goto Ready;
 
       PurpleShot:
-        TNT1 AAAA 0 A_FireCustomMissile("DBeamShot_Purple", random(-25,25)/5.0, 0, 12, 0, 0, random(-25,25)/5.0);
+        TNT1 AAAA 0 A_FireProjectile("DBeamShot_Purple", random(-25,25)/5.0, 0, 12, 0, 0, random(-25,25)/5.0);
         TNT1 A 0 A_GiveInventory("DakkaBeamColor", 1);
         WBEM H 0 A_JumpIf(ACS_ExecuteWithResult(475, 0, 2) >= 1, "PurpleFast");
         WBEM B 0 A_WeaponReady(WRF_NOFIRE);
@@ -915,35 +915,35 @@ Class ChromaBeam : MDOBeam
 
     // 18 tics
       ReadyCombo_Red:
-        MBEM A 0 A_PlaySound("supermissile/ready", CHAN_WEAPON);
+        MBEM A 0 A_StartSound("supermissile/ready", CHAN_WEAPON);
         MBEM A 0 A_GiveInventory("DakkaBeamInChargeCombo");
         MBEM A 0 A_TakeInventory("DakkaBeamComboLevel");
         MBEM RSTU 1         A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
         Goto ComboBegin;
 
       ReadyCombo_Yellow:
-        PBEM A 0 A_PlaySound("supermissile/ready", CHAN_WEAPON);
+        PBEM A 0 A_StartSound("supermissile/ready", CHAN_WEAPON);
         PBEM A 0 A_GiveInventory("DakkaBeamInChargeCombo");
         PBEM A 0 A_TakeInventory("DakkaBeamComboLevel");
         PBEM RSTU 1         A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
         Goto ComboBegin;
 
       ReadyCombo_Green:
-        SBEM A 0 A_PlaySound("supermissile/ready", CHAN_WEAPON);
+        SBEM A 0 A_StartSound("supermissile/ready", CHAN_WEAPON);
         SBEM A 0 A_GiveInventory("DakkaBeamInChargeCombo");
         SBEM A 0 A_TakeInventory("DakkaBeamComboLevel");
         SBEM RSTU 1         A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
         Goto ComboBegin;
 
       ReadyCombo_Blue:
-        IBEM A 0 A_PlaySound("supermissile/ready", CHAN_WEAPON);
+        IBEM A 0 A_StartSound("supermissile/ready", CHAN_WEAPON);
         IBEM A 0 A_GiveInventory("DakkaBeamInChargeCombo");
         IBEM A 0 A_TakeInventory("DakkaBeamComboLevel");
         IBEM RSTU 1         A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
         Goto ComboBegin;
 
       ReadyCombo_Purple:
-        WBEM A 0 A_PlaySound("supermissile/ready", CHAN_WEAPON);
+        WBEM A 0 A_StartSound("supermissile/ready", CHAN_WEAPON);
         WBEM A 0 A_GiveInventory("DakkaBeamInChargeCombo");
         WBEM A 0 A_TakeInventory("DakkaBeamComboLevel");
         WBEM RSTU 1         A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
@@ -954,7 +954,7 @@ Class ChromaBeam : MDOBeam
         LBEM UTSR 1         A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
         LBEM A 3            A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
         LBEM MNO 1 BRIGHT   A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH);
-        LBEM O 0 A_PlaySound("metroid/dakkalaser_start", CHAN_WEAPON);
+        LBEM O 0 A_StartSound("metroid/dakkalaser_start", CHAN_WEAPON);
         Goto Hold;
 
     // == ENTER CHARGE COMBO
@@ -968,7 +968,7 @@ Class ChromaBeam : MDOBeam
       Missile:
         TNT1 A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 ACS_ExecuteWithResult(594, 29, 0, 1);
-        TNT1 A 0 A_PlayWeaponSound("missile/fire");
+        TNT1 A 0 A_StartSound("missile/fire", CHAN_WEAPON);
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_ZoomFactor(0.95,ZOOM_INSTANT);
         TNT1 A 0 A_Recoil(2);
@@ -977,11 +977,11 @@ Class ChromaBeam : MDOBeam
         Goto Missile_DM;
 
       Missile_DM:
-        TNT1 A 0 A_FireCustomMissile("PowerMissile",0,1,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("PowerMissile",0,1,12,-2,0,0);
         Goto MissileAnim;
 
       Missile_Coop:
-        TNT1 A 0 A_FireCustomMissile("PowerMissile",0,1,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("PowerMissile",0,1,12,-2,0,0);
         Goto MissileAnim;
 
       MissileAnim:
@@ -1128,7 +1128,7 @@ Class ChromaBeam : MDOBeam
       SuperMissile:
         TNT1 A 0 ACS_ExecuteWithResult(476, 0);
         TNT1 A 0 ACS_ExecuteWithResult(594, 29, 1, 1);
-        TNT1 A 0 A_PlayWeaponSound("supermissile/fire");
+        TNT1 A 0 A_StartSound("supermissile/fire", CHAN_WEAPON);
         TNT1 A 0 A_AlertMonsters;
         TNT1 A 0 A_ZoomFactor(0.925,ZOOM_INSTANT);
         TNT1 A 0 A_Recoil(5);
@@ -1137,11 +1137,11 @@ Class ChromaBeam : MDOBeam
         Goto SuperDM;
 
       SuperDM:
-        TNT1 A 0 A_FireCustomMissile("SuperMissile",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SuperMissile",0,0,12,-2,0,0);
         Goto SuperAnim;
 
       SuperCoop:
-        TNT1 A 0 A_FireCustomMissile("SuperMissile",0,0,12,-2,0,0);
+        TNT1 A 0 A_FireProjectile("SuperMissile",0,0,12,-2,0,0);
         Goto SuperAnim;
 
       SuperAnim:
@@ -1340,23 +1340,23 @@ Class ChromaBeam : MDOBeam
 		
       RUNDOWN_Combo:
         LBEM O 0 A_TakeInventory("DakkaBeamInChargeCombo");
-        LBEM O 0 A_PlaySound("silence", 5);
+        LBEM O 0 A_StartSound("silence", 5);
         LBEM O 0 A_StopSound(5);
-        LBEM O 0 A_PlaySound("metroid/dakkalaser_down", 7);
+        LBEM O 0 A_StartSound("metroid/dakkalaser_down", 7);
         LBEM O 1 offset(0, 40);
         LBEM N 1 offset(0, 50);
         LBEM M 1 offset(0, 60);
         LBEM L 1 offset(0, 70);
-        LBEM O 0 A_PlaySound("silence", 5);
+        LBEM O 0 A_StartSound("silence", 5);
         LBEM O 0 A_StopSound(5);
         LBEM A 1 offset(0, 80);
         LBEM R 1 offset(0, 90);
         LBEM S 1 offset(0, 100);
         LBEM T 1 offset(0, 110);
-        LBEM O 0 A_PlaySound("silence", 5);
+        LBEM O 0 A_StartSound("silence", 5);
         LBEM O 0 A_StopSound(5);
         LBEM U 1 offset(0, 120);
-        LBEM O 0 A_PlaySound("silence", 5);
+        LBEM O 0 A_StartSound("silence", 5);
         LBEM O 0 A_StopSound(5);
         XBEM A 1 offset(0, 130);
         XBEM A 1 offset(0, 140);
@@ -1463,23 +1463,23 @@ Class ChromaBeam : MDOBeam
 		
       RUNDOWN_ComboShine:
         LBEM Q 0 A_TakeInventory("DakkaBeamInChargeCombo");
-        LBEM Q 0 A_PlaySound("silence", 5);
+        LBEM Q 0 A_StartSound("silence", 5);
         LBEM Q 0 A_StopSound(5);
-        LBEM Q 0 A_PlaySound("metroid/dakkalaser_down", 7);
+        LBEM Q 0 A_StartSound("metroid/dakkalaser_down", 7);
         LBEM Q 1 offset(0, 40);
         LBEM P 1 offset(0, 50);
         LBEM O 1 offset(0, 60);
         LBEM N 1 offset(0, 70);
-        LBEM Q 0 A_PlaySound("silence", 5);
+        LBEM Q 0 A_StartSound("silence", 5);
         LBEM Q 0 A_StopSound(5);
         LBEM A 1 offset(0, 80);
         LBEM K 1 offset(0, 90);
         LBEM L 1 offset(0, 100);
         LBEM M 1 offset(0, 110);
-        LBEM Q 0 A_PlaySound("silence", 5);
+        LBEM Q 0 A_StartSound("silence", 5);
         LBEM Q 0 A_StopSound(5);
         LBEM K 1 offset(0, 120);
-        LBEM Q 0 A_PlaySound("silence", 5);
+        LBEM Q 0 A_StartSound("silence", 5);
         LBEM Q 0 A_StopSound(5);
         XBEM A 1 offset(0, 130);
         XBEM A 1 offset(0, 140);
@@ -1595,7 +1595,7 @@ Class DakkaBeamShot : Actor
     {
       Spawn:
         XLSS A 0 BRIGHT;
-        XLSS A 0 A_ChangeFlag("PAINLESS", random(0, 7) > 0);
+        XLSS A 0 { bPAINLESS = random(0,7) > 0; } //A_ChangeFlag("PAINLESS", random(0, 7) > 0);
         XLSS A 0 ACS_ExecuteAlways(474, 0, 0, 0, 3);
         XLSS A 0 ACS_ExecuteAlways(474, 0, 1, 0, 1);
         Goto Spawn2;
@@ -1949,8 +1949,8 @@ Class DBeamLaserDamager : Actor
       Spawn:
       Death:
         TNT1 A 0;
-        TNT1 A 0 A_ChangeFlag("PAINLESS", 1 - (random(0, 32) / 32));
-        TNT1 A 0 A_Explode(7, 48, 0); //4 is default damage value
+        TNT1 A 0 { bPAINLESS = 1 - (random(0, 32) / 32); } //A_ChangeFlag("PAINLESS", 1 - (random(0, 32) / 32));
+        TNT1 A 0 A_Explode(20, 64, 0); //4 is default damage value, 46 is default radius
         Stop;
     }
 }
