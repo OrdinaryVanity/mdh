@@ -1,5 +1,7 @@
-Class MDOBeam : Weapon
+Class MDOBeam : Weapon abstract
 {
+	const PSP_KICK = -100;
+	
 	// Thanks to Lewisk3 for the help with this. Fuck vectors.
 	action void TheSucc()
 	{
@@ -65,6 +67,33 @@ Class MDOBeam : Weapon
             psp.Destroy();
         }
     }
+
+    override void DoEffect()
+    {
+        super.DoEffect();
+        // Do nothing if it has no owner, or it's not a player,
+        // or it's frozen:
+        if (!owner || !owner.player || owner.isFrozen())
+            return;
+        
+        // Check the owner has a weapon selected and it's
+        // this weapon:
+        let weap = owner.player.readyweapon;
+        if (weap && weap == self)
+        {
+            // Check that the player is pressing +user4:
+            if (owner.player.cmd.buttons & BT_USER4)
+            {
+                // Check if the quick kick layer is active:
+                let kickpsp = owner.player.FindPSprite(PSP_KICK);
+                // If it is NOT, then create it:
+                if (!kickpsp)
+                {
+                    owner.player.SetPSprite(PSP_KICK, ResolveState("QuickKick"));
+                }
+            }
+        }
+    }
 	
 	Default
 	{
@@ -85,6 +114,34 @@ Class MDOBeam : Weapon
 		+Weapon.NO_AUTO_SWITCH;
 		+Inventory.UNDROPPABLE;
 	}
+	
+	States 
+    {
+		QuickKick:
+			SSAW KL 1
+			{
+				let plr = SamusPlayer(player.mo);
+				if(!plr)
+					return;
+					
+				if(plr)
+					plr.Thrust(4.0,plr.angle);
+				
+				else
+					return;
+			}
+			SSAW M 2 
+			{
+				//A_RailAttack(64, 0, FALSE, 0, 0, RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 180, 0, 128.0, 0);
+				//A_RailAttack(64, 0, FALSE, 0, 0, RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 135, 0, 128.0, 0);
+				//A_RailAttack(64, 0, FALSE, 0, 0, RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 90, 0, 128.0, 0);
+				//A_RailAttack(64, 0, FALSE, 0, 0, RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 45, 0, 128.0, 0);
+				A_RailAttack(64, 0, FALSE, 0, 0, RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+			}
+			SSAW NO 1;
+			TNT1 A 35;
+			Stop;
+    }
 }
 
 Class GrossHack : ArtiBlastRadius 

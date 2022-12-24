@@ -33,5 +33,8 @@ defaultbind f
 addmenukey "Shinespark" shine
 defaultbind x shine
 
+addmenukey "War Blade" +user4
+defaultbind Q +user4
+
 //addmenukey "Change Log" changelog
 //defaultbind u changelog
