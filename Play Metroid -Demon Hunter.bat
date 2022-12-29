@@ -1,0 +1,1 @@
+START "" "path to gzdoom\gzdoom.exe" -file "%cd%\Metroid - Demon Hunter Main.pk3" "%cd%\Metroid - Demon Hunter Levels.pk3" "%cd%\Metroid - Demon Hunter Scan Data.pk3"
