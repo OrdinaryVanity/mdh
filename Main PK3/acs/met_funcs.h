@@ -162,14 +162,21 @@ function void MultiJump(int countJump, int force)
 
     playerJumps[pln] += countJump; 
     ActivatorSound("metroid/spacejump", 127);
-	if (GetActorProperty(0, APROP_WATERLEVEL) > 1);
+	if (GetActorProperty(0, APROP_WATERLEVEL) > 1)
 	{
 		if (CheckInventory("GravitySuitAcquired"))
 		{
-			SetActorVelocity(0, GetActorVelX(0), GetActorVelY(0), 18.0, 0, 1); //jumpHeight
+			SetActorVelocity(0, GetActorVelX(0), GetActorVelY(0), GetActorVelZ(0)+14.0, 0, 1); //jumpHeight
+		}
+		else
+		{
+			SetActorVelocity(0, GetActorVelX(0), GetActorVelY(0), 9.0, 0, 1); //jumpHeight
 		}
 	}
-    SetActorVelocity(0, GetActorVelX(0), GetActorVelY(0), 9.0, 0, 1); //jumpHeight
+	else
+	{
+		SetActorVelocity(0, GetActorVelX(0), GetActorVelY(0), 9.0, 0, 1); //jumpHeight
+	}
 }
 
 function void Lunge(int force)

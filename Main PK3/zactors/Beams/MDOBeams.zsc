@@ -1,6 +1,6 @@
 Class MDOBeam : Weapon abstract
 {
-	const PSP_KICK = -100;
+	const PSP_WB = -100;
 	
 	// Thanks to Lewisk3 for the help with this. Fuck vectors.
 	action void TheSucc()
@@ -85,11 +85,11 @@ Class MDOBeam : Weapon abstract
             if (owner.player.cmd.buttons & BT_USER4)
             {
                 // Check if the quick kick layer is active:
-                let kickpsp = owner.player.FindPSprite(PSP_KICK);
+                let wbpsp = owner.player.FindPSprite(PSP_WB);
                 // If it is NOT, then create it:
-                if (!kickpsp)
+                if (!wbpsp)
                 {
-                    owner.player.SetPSprite(PSP_KICK, ResolveState("QuickKick"));
+                    owner.player.SetPSprite(PSP_WB, ResolveState("WarBlade"));
                 }
             }
         }
@@ -117,7 +117,7 @@ Class MDOBeam : Weapon abstract
 	
 	States 
     {
-		QuickKick:
+		WarBlade:
 			SSAW KL 1
 			{
 				let plr = SamusPlayer(player.mo);
@@ -132,11 +132,19 @@ Class MDOBeam : Weapon abstract
 			}
 			SSAW M 2 
 			{
-				//A_RailAttack(64, 0, FALSE, 0, 0, RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 180, 0, 128.0, 0);
-				//A_RailAttack(64, 0, FALSE, 0, 0, RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 135, 0, 128.0, 0);
-				//A_RailAttack(64, 0, FALSE, 0, 0, RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 90, 0, 128.0, 0);
-				//A_RailAttack(64, 0, FALSE, 0, 0, RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 45, 0, 128.0, 0);
-				A_RailAttack(64, 0, FALSE, 0, 0, RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, -48, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, -40, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, -32, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, -24, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, -16, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, -8, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, 0, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, 8, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, 16, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, 24, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, 32, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, 40, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
+				A_RailAttack(16, 48, FALSE, "", "", RGF_SILENT | RGF_EXPLICITANGLE | RGF_CENTERZ, 0, "BulletPuff", 0, 0, 128.0, 0);
 			}
 			SSAW NO 1;
 			TNT1 A 35;

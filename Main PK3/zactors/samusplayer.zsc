@@ -133,12 +133,14 @@ Class SamusPlayer : PlayerPawn
 	  
       else if ((!GravitySuitAcquired && waterlevel>0) & !player.onground & (player.jumptics <= -18 || player.jumptics == 0))
       {
-		 Vel.Z-=Gravity/2*Speed;
+		Vel.Z-=Gravity/2*Speed;
+		 //Vel.Z-=Gravity/2*Speed;
       }
 	  
 	  else if ((GravitySuitAcquired && waterlevel>0) & !player.onground & (player.jumptics <= -24 || player.jumptics == 0))
       {
 		 Vel.Z-=Speed;
+		 //Vel.Z-=Gravity/2*Speed;
       } 
 	  
       if (waterlevel<=2 && oldwaterlevel==3)
@@ -188,6 +190,8 @@ Class SamusPlayer : PlayerPawn
          {
 			   // [R4L] Default back to normal without water friction.
 			   // Need to get original friction! This works for now.
+			   //movefactor *= level.aircontrol;
+               //bobfactor*= level.aircontrol;
 			   level.aircontrol *= 1;
 		 	   movefactor *= 1;
                bobfactor *= 1;

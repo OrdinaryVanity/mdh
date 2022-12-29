@@ -1106,11 +1106,33 @@ script METROID_BOOSTBALL (void) NET
     }
     else
     {
-        mag += (boost<<16);
-        SetActorVelocity(0,
+		if(GetActorProperty(0,APROP_Waterlevel) > 1 && !CheckInventory("GravitySuitAcquired"))
+		{
+			mag += (boost<<16);
+			SetActorVelocity(0,
                 FixedMul(FixedMul(mag, cos(angle)), cos(pitch)),
                 FixedMul(FixedMul(mag, sin(angle)), cos(pitch)),
                 FixedMul(mag, -sin(pitch)), 0, 0);
+		}
+		
+		else if(GetActorProperty(0,APROP_Waterlevel) > 1 && CheckInventory("GravitySuitAcquired"))
+		{
+			int boostadd;
+			boostadd = boost + 128;
+			mag += (boostadd<<16);
+			SetActorVelocity(0,
+					FixedMul(FixedMul(mag, cos(angle)), cos(pitch)),
+					FixedMul(FixedMul(mag, sin(angle)), cos(pitch)),
+					FixedMul(mag, -sin(pitch)), 0, 0);
+		}
+		else
+		{
+			mag += (boost<<16);
+			SetActorVelocity(0,
+                FixedMul(FixedMul(mag, cos(angle)), cos(pitch)),
+                FixedMul(FixedMul(mag, sin(angle)), cos(pitch)),
+                FixedMul(mag, -sin(pitch)), 0, 0);
+		}
     }
     SetActorState(0,"BoostBall");
 }

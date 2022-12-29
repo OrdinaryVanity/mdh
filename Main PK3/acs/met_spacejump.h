@@ -139,7 +139,7 @@ script METROID_WALLBOUNCE (int type, int direction, int mask)
         wallBounce(type, direction);
     }
 
-    //Print(s:"wallbounce (func): ", d:canBounce, s:" - angle is ", f:angle, s:", direction is ", d:direction, s:" (", f:x, s:", ", f:y, s:")");
+    //PrintBold(s:"wallbounce (func): ", d:canBounce, s:" - angle is ", f:angle, s:", direction is ", d:direction, s:" (", f:x, s:", ", f:y, s:")");
     SetResultValue(canBounce);
 }
 
