@@ -2072,6 +2072,7 @@ script METROID_SHINESPARK_LAUNCH (void) NET
     int rx, ry, rz, rmag;
 	int health = GetActorProperty(0, APROP_HEALTH);
 	int shiny = GetCVar("met_shinevel");
+	int boost = GetCVar("met_boostvel");
 	int pNum = PlayerNumber();
 	int CheckerTID = 1500+pNum;
 
@@ -2092,7 +2093,7 @@ script METROID_SHINESPARK_LAUNCH (void) NET
     rmag = magnitudeThree_f(rx, ry, rz);
 
 	ACS_Terminate(600, 0);
-	SetActorPosition(0,GetActorX(0),GetActorY(0),GetActorZ(0)+2,0);
+	SetActorPosition(0,GetActorX(0),GetActorY(0),GetActorZ(0)+4.0,0);
     ActivatorSound("boostball/launch",255);
 
     if (rmag < mag)  // if we're making a sharp turn
@@ -2102,43 +2103,68 @@ script METROID_SHINESPARK_LAUNCH (void) NET
     else
     {
 		SetActorFlag(0,"THRUACTORS",true); //Make Samus go through actors
-		while (CheckActorState(0,"ShineSee") || CheckActorState(0,"ShineContinueOn") || CheckActorState(0,"ShineContinueOn2")) //Check if Samus is in any of these states
+		if(GetCVar("met_othershine") != 1)
 		{
-			if((GetActorProperty(0, APROP_HEALTH) <= 31) || (Spawn("SpaceChecker", GetActorX(0), GetActorY(0), GetActorZ(0), CheckerTID) == FALSE) || ((GetActorZ (0) - GetActorFloorZ (0))==0.0)) //Check if Samus has 30 energy left, hits a wall, or a floor.
+			while (CheckActorState(0,"ShineSee") || CheckActorState(0,"ShineContinueOn") || CheckActorState(0,"ShineContinueOn2")) //Check if Samus is in any of these states
 			{
-				SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
-				SetActorFlag(0,"THRUACTORS",false); //Take THRUACTORS flag away
-				SetActorVelocity(0,0,0,0,0,0); //Set Samus' velocity back to nothing
-				TakeInventory("ShinesparkCharge",0x7FFFFFFF); //Take Shinespark away
-				TakeInventory("ShinesparkFlashing",0x7FFFFFFF); //Take flashing effect away
-				TakeInventory("ShinesparkChargeToken",0x7FFFFFFF);
-				TakeInventory("IsShinesparking",0x7FFFFFFF);
-				GiveInventory("MorphBallAcquired", 1);
-				terminate;
-			}
-			else
-			{
-				TakeInventory("MorphBallAcquired", 1);
-				SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
-				SetActorState(0,"ShineSee"); //Go to Shinespark state
-				if (GetCVar("met_noshinesparkdrain") != 1){
-					SetActorProperty(0,APROP_HEALTH,health--); //Drain energy
-					SetActorProperty(0,APROP_HEALTH,health--); //One wasn't enough
-					SetActorProperty(0,APROP_HEALTH,health--); //so I added six
-					SetActorProperty(0,APROP_HEALTH,health--);
-					SetActorProperty(0,APROP_HEALTH,health--);
-					SetActorProperty(0,APROP_HEALTH,health--);
-					mag += (shiny<<16);
+				if((GetActorProperty(0, APROP_HEALTH) <= 31) || (Spawn("SpaceChecker", GetActorX(0), GetActorY(0), GetActorZ(0), CheckerTID) == FALSE) || ((GetActorZ (0) - GetActorFloorZ (0))==0.0)) //Check if Samus has 30 energy left, hits a wall, or a floor.
+				{
+					SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+					SetActorFlag(0,"THRUACTORS",false); //Take THRUACTORS flag away
+					SetActorVelocity(0,0,0,0,0,0); //Set Samus' velocity back to nothing
+					TakeInventory("ShinesparkCharge",0x7FFFFFFF); //Take Shinespark away
+					TakeInventory("ShinesparkFlashing",0x7FFFFFFF); //Take flashing effect away
+					TakeInventory("ShinesparkChargeToken",0x7FFFFFFF);
+					TakeInventory("IsShinesparking",0x7FFFFFFF);
+					GiveInventory("MorphBallAcquired", 1);
+					terminate;
+				}
+				else
+				{
+					TakeInventory("MorphBallAcquired", 1);
+					SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+					SetActorState(0,"ShineSee"); //Go to Shinespark state
+					if(GetCVar("met_noshinesparkdrain") != 1)
+					{
+						SetActorProperty(0,APROP_HEALTH,health--); //Drain energy
+						SetActorProperty(0,APROP_HEALTH,health--); //One wasn't enough
+						SetActorProperty(0,APROP_HEALTH,health--); //so I added six
+						SetActorProperty(0,APROP_HEALTH,health--);
+						SetActorProperty(0,APROP_HEALTH,health--);
+						SetActorProperty(0,APROP_HEALTH,health--);
+						mag += (shiny<<16);
 					}
-				else {
-					mag += (shiny<<16);
+					
+					else 
+					{
+						mag += (shiny<<16);
 					}
-				SetActorVelocity(0,
-                FixedMul(FixedMul(mag, cos(angle)), cos(absolute)),
-                FixedMul(FixedMul(mag, sin(angle)), cos(absolute)),
-                FixedMul(mag, -sin(absolute)), 0, 0);
+					
+					SetActorVelocity(0,
+					FixedMul(FixedMul(mag, cos(angle)), cos(absolute)),
+					FixedMul(FixedMul(mag, sin(angle)), cos(absolute)),
+					FixedMul(mag, -sin(absolute)), 0, 0);
+					//}
+				}
+				Delay(1);
 			}
-			Delay(1);
+		}
+		else
+		{
+			//TakeInventory("MorphBallAcquired", 1);
+			//SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+			int boostadd;
+			boostadd = shiny + 64;
+			mag += (boostadd<<16);
+			SetActorVelocity(0,
+			FixedMul(FixedMul(mag, cos(angle)), cos(pitch)),
+			FixedMul(FixedMul(mag, sin(angle)), cos(pitch)),
+			FixedMul(mag, -sin(pitch)), 0, 0);
+			TakeInventory("ShinesparkCharge",0x7FFFFFFF); //Take Shinespark away
+			TakeInventory("ShinesparkFlashing",0x7FFFFFFF); //Take flashing effect away
+			TakeInventory("ShinesparkChargeToken",0x7FFFFFFF);
+			TakeInventory("IsShinesparking",0x7FFFFFFF);
+			SetActorState(0,"ShineSee"); //Go to Shinespark state
 		}
     }
   }

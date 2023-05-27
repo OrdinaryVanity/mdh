@@ -44,6 +44,9 @@
 			Option "Missile Style",     			 "met_unifiedmissiles", "SuperZeroFusionOptions"
 			StaticText      "Super is default.", 1
 			StaticText      ""
+			Option "Shinespark Style",     "met_othershine", "SuperOtherMOptions"
+			StaticText      "Super is default.", 1
+			StaticText      ""
             StaticText      "Removal Options", 1
             Option "No Particle Effects",            "met_cl_noeffects", "OnOff"
             Option "No Warning Siren",               "met_cl_nosiren", "OnOff"
@@ -99,4 +102,10 @@
     {
             0, "Super"
             1, "Fusion/Dread"
+    }
+	
+	OptionValue SuperOtherMOptions // This one too sucka
+    {
+            0, "Super"
+            1, "Other M"
     }

@@ -377,7 +377,7 @@ ACTOR SuperMissileActivatorActor 23458
   Radius 2
   Height 6
   DamageFactor "Normal", 0
-  DamageFactor "Missile", 0
+  DamageFactor "Missile", 1
   DamageFactor "SuperMissile", 1
   DamageFactor "PowerBomb", 0
   +Shootable

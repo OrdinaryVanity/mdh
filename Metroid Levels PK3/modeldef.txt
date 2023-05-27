@@ -579,3 +579,12 @@ Model Eel
 	FrameIndex EEL1 P 0 15
 	FrameIndex EEL1 Q 0 16
 }
+
+Model Mountain1
+{
+	Path "Models/Rocks"
+	Model 0 "Mountain1.md3"
+	Scale 100.0 100.0 100.0
+	AngleOffset 90
+	FrameIndex MTN1 A 0 0
+}
