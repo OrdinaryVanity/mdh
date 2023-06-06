@@ -13,7 +13,7 @@ version "4.10.0"
 //Beams and Beam Combos
 #include "zactors/Beams/MDOBeams.zsc"
 #include "zactors/Beams/Power.zsc"
-#include "zactors/Beams/PowerMissile.zsc"
+//#include "zactors/Beams/PowerMissile.zsc"
 #include "zactors/Beams/Spazer.zsc"
 #include "zactors/Beams/WideShot.zsc"
 #include "zactors/Beams/Plasma.zsc"

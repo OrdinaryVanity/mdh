@@ -111,8 +111,7 @@ class GHookHandler : EventHandler
 	void GH_Toggle(Actor player, int index)
 	{
 		if (player.CountInv("GrappleBeamAcquired") > 0)
-		{
-		
+		{	
 		if (!swinging[index])
 		{
 			FLineTraceData data;
@@ -120,6 +119,7 @@ class GHookHandler : EventHandler
 			
 				if ((data.HitActor is "GrapplePoint2") || (data.HitActor is "GrapplePoint1")) //|| (player.GetCVar("met_grapple") && data.HitType == TRACE_HitActor)
 				{
+					player.GiveInventory("IsGrappling", 1);
 					anchor[index] = GH_Anchor(player.Spawn('GH_Anchor', data.HitLocation));
 					anchor[index].player = player;
 					anchor[index].GHR1 = player.Spawn('GH_Rope', anchor[index].pos - (-3, 0, 0));
@@ -137,6 +137,7 @@ class GHookHandler : EventHandler
 			swinging[index] = false;
 			//player.A_PlaySound("gbeam/gbeamoff",0);
 			player.A_StartSound("gbeam/gbeamoff",0,CHANF_LOOPING,0.8,ATTN_NORM);
+			player.TakeInventory("IsGrappling", 1);
 		}
 		}
 	}

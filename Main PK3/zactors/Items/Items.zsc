@@ -767,7 +767,7 @@ Class EnergyTankPickup : CustomInventory replaces Megasphere
 		+DONTGIB;
 		+FORCEXYBILLBOARD;
 		+FLOATBOB;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Tag "Energy Tank";
 	}
@@ -813,7 +813,7 @@ Class MissileTankPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+DONTGIB;
 		+NOGRAVITY;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Tag "Missile Tank";
 	}
@@ -858,7 +858,7 @@ Class SuperMissileTankPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+DONTGIB;
 		+NOGRAVITY;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Tag "Super Missile Tank";
 	}
@@ -1252,7 +1252,7 @@ Class SpeedBoosterPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+NOGRAVITY;
 		+DONTGIB;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Tag "Speed Booster";
 	}
@@ -1293,7 +1293,7 @@ Class PowerBombTankPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+DONTGIB;
 		+NOGRAVITY;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Tag "Power Bomb Tank";
 	}
@@ -1337,7 +1337,7 @@ Class RawEnergy : CustomInventory
 		Scale 0.65;
 		+Inventory.AUTOACTIVATE;
 		+NOGRAVITY;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Inventory.PickupMessage "RAW ENERGY DEPOSIT: ACQUIRED";
 		Inventory.PickupSound "rawenergy/get";
@@ -1422,7 +1422,7 @@ Class SpaceJumpPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+NOGRAVITY;
 		+DONTGIB;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Tag "Space Jump";
 	}
@@ -1515,7 +1515,7 @@ Class VariaSuitPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+NOGRAVITY;
 		+DONTGIB;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Scale 0.50;
 		DamageFactor "Slime", 0;
@@ -1584,7 +1584,7 @@ Class GrappleBeamPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+NOGRAVITY;
 		+DONTGIB;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Tag "Grapple Beam";
 	}
@@ -1627,7 +1627,7 @@ Class ChargeBeamPickup : CustomInventory
 		+INVENTORY.FANCYPICKUPSOUND;
 		+NOGRAVITY;
 		+Inventory.AUTOACTIVATE;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Scale 0.55;
 		Tag "Charge Beam";
@@ -1671,7 +1671,7 @@ Class BombPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+DONTGIB;
 		+NOGRAVITY;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Tag "Bombs";
 	}
@@ -1711,7 +1711,7 @@ Class BoostBallPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+DONTGIB;
 		+NOGRAVITY;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		+FORCEXYBILLBOARD;
 		RenderStyle "Translucent";
@@ -1759,7 +1759,7 @@ Class HiJumpPickup : CustomInventory
 		+Inventory.AUTOACTIVATE;
 		+DONTGIB;
 		+NOGRAVITY;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 		Tag "Hi-Jump Boots";
 	}
@@ -1904,7 +1904,7 @@ Class RedEnergyTankPickup : CustomInventory
 		+DONTGIB;
 		+FORCEXYBILLBOARD;
 		+FLOATBOB;
-		+SHOOTABLE;
+		//+SHOOTABLE;
 		+DONTTHRUST;
 	}
 	

@@ -2,8 +2,10 @@ Class MonsterDrops : EventHandler
 {
     override void WorldThingDied(WorldEvent e) 
     {
-		//let plr = players[e.Player].mo;
 		let source = e.Thing.Target;
+		
+		if(!e.Thing.target || !e.Thing)
+			return;
 		
 		if((e.Thing && e.Thing.bISMONSTER) && !e.Thing.bBOSS)
 		{

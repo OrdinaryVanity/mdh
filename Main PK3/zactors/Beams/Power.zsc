@@ -2,6 +2,7 @@ Class PowerBeam : MDOBeam
 {	
 	bool missilesOn;
 	int missileCooldown;
+	array <Actor> seekerTargets; //for storm missiles
 	
 	enum PBLayers // OH SHIT SON WE GOT PSPRITES UP IN THIS B
 	{
@@ -756,6 +757,7 @@ Class PowerBeam : MDOBeam
 			A_RemoveLight("ChargeLight7");
 		}
         PBCU J 10 BRIGHT A_StartSound("combo/ready",7);
+		TNT1 A 0 A_TakeInventory("MissileAmmo",10);
         TNT1 A 0 A_StartSound("combo/power", CHAN_WEAPON);
         TNT1 A 0 A_TakeInventory("PowerBeamCharged",1);
         TNT1 A 0 A_TakeInventory("PowerBeamChargeLevel",25);
@@ -775,9 +777,36 @@ Class PowerBeam : MDOBeam
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
+		}
+		PBFI A 3;
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
 			A_StartSound("combo/power", CHAN_WEAPON);
 		}
+		PBFI A 3;
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_StartSound("combo/power", CHAN_WEAPON);
+		}
+		PBFI A 3;
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_StartSound("combo/power", CHAN_WEAPON);
+		}
+		PBFI A 3;
+        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
+		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		PBFI A 0 {
+			A_WeaponOffset(0, -2, WOF_ADD);
+			A_StartSound("combo/power", CHAN_WEAPON);
+		}
+        /*TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
 		PBFI A 0 {
 			A_WeaponOffset(0, -2, WOF_ADD);
@@ -803,33 +832,9 @@ Class PowerBeam : MDOBeam
 		}
         TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
 		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
-		PBFI A 0 {
-			A_WeaponOffset(0, -2, WOF_ADD);
-			A_StartSound("combo/power", CHAN_WEAPON);
-		}
-        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
-		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
-		PBFI A 0 {
-			A_WeaponOffset(0, -2, WOF_ADD);
-			A_StartSound("combo/power", CHAN_WEAPON);
-		}
-        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
-		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
-		PBFI A 0 {
-			A_WeaponOffset(0, -2, WOF_ADD);
-			A_StartSound("combo/power", CHAN_WEAPON);
-		}
-        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
-		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
-		PBFI A 0 {
-			A_WeaponOffset(0, -2, WOF_ADD);
-			A_StartSound("combo/power", CHAN_WEAPON);
-		}
-        TNT1 A 0 A_FireProjectile("PowerComboMissileSeeker",0,0,8,0,0,0);
-		PBFI BC 2 A_WeaponOffset(0, 1, WOF_ADD);
+		*/
 	  ComboFinish:
 		TNT1 A 0 A_WeaponOffset(0, 32, WOF_INTERPOLATE);
-        TNT1 A 0 A_TakeInventory("MissileAmmo",10);
         TNT1 A 0 A_SetAngle(angle+(random(-200,200)/100.00));
         TNT1 A 0 A_SetPitch(pitch-(random(300,500)/100.00));
         TNT1 A 0 A_AlertMonsters;
@@ -1517,5 +1522,296 @@ Class PowerBeamCharging7 : PowerBeamCharging1
 	{
 		Scale 0.15;
 		+FORCEXYBILLBOARD; 
+	}
+}
+
+Class TargetMarker : Inventory { //[R4L] I owe this to JGP, this might as well be his mod at this point.
+	int tcounter;				//A LOT of adjustments were made to this code.
+	uint ownertrans;
+	
+	Default
+	{
+		Inventory.MaxAmount 1;
+	}
+	
+	override void AttachToOwner(actor other) 
+	{
+		super.AttachToOwner(other);
+		if (!owner)
+			return;
+		ownertrans = owner.translation;
+		//owner.A_SetTranslation("Ice");
+		let layer = Spawn("TargetLayer",owner.pos);
+		if (layer) {
+			layer.master = owner;
+			layer.sprite = owner.sprite;
+			layer.frame = owner.frame;
+			layer.angle = owner.angle;
+			layer.scale.x = owner.scale.x*1.10;
+			layer.scale.y = owner.scale.y*1.10;
+			layer.bSPRITEFLIP = owner.bSPRITEFLIP;
+			layer.bYFLIP = owner.bYFLIP;
+			layer.A_SetTranslation("Translucent");
+			layer.alpha = 1.0;
+		}
+	}
+	override void DoEffect() {
+		super.DoEffect();
+		if (!owner)
+			return;
+		owner.alpha = 1.0; //Make non-frozen sprite invisible so it slowly fades in.
+		//layer.A_SetTics(tcounter);
+		tcounter--;
+		if (tcounter <= 0) {
+			DepleteOrDestroy();
+			return;
+		}
+		if (owner.health <= 0) {
+			for (int i = 7; i >= 0; i--)
+				owner.A_SoundVolume(i,0);
+			int rad = owner.radius;
+			owner.gravity = 0.4;
+			owner.vel *= 0.15;
+			owner.A_NoBlocking();
+			owner.A_SetScale(Clamp(owner.radius*0.04,0.1,1));
+			owner.SetOrigin(owner.pos + (0,0,owner.default.height*0.5),false);
+			owner.bSPRITEFLIP = random[sfx](0,1);
+			//owner.sprite = GetSpriteIndex("####");
+			//owner.frame = 0;
+			owner.A_SetTranslation("Translucent");
+			//owner.A_SetTics(1000);
+			owner.deathsound = "";
+			//owner.bDONTTHRUST = true;
+			DepleteorDestroy();
+			return;
+		}
+	}
+	override void DetachFromOwner() {
+		if (!owner)
+			return;
+		owner.bNOPAIN = owner.default.bNOPAIN;
+		if (owner.health > 0)
+			owner.translation = ownertrans;
+		super.DetachFromOwner();
+	}
+}
+
+Class TargetLayer : Actor 
+{
+	Default 
+	{
+		+NOINTERACTION;
+		RenderStyle "Add";
+		Translation "0:255=@100[150,0,0]";
+		Alpha 1.0;
+	}
+	override void Tick() {
+		if (master && master.FindInventory("TargetMarker")) {
+			SetOrigin(master.pos,true);
+			//master.alpha = master.alpha+0.015;
+			//alpha = alpha-0.015;
+		}
+		else
+			Destroy();
+	}
+	states {
+	Spawn:
+		#### # -1 BRIGHT;
+		Loop;
+	}
+}
+
+Class PowerComboMissile : FastProjectile
+{
+	Default
+	{
+		Radius 12;
+		Height 8;
+		Speed 40;
+		DamageFunction(250);
+		Projectile;
+		+FORCERADIUSDMG;
+		+FORCEXYBILLBOARD;
+		Scale 1.25;
+		DeathSound "missile/hit";
+		Obituary "%k wrecked %o with a Power Missile.";
+		DamageType "PowerCombo";
+		Decal "Scorch";
+	}
+	
+    States
+    {
+		Spawn:
+			CPWM A 1 Bright A_SpawnItemEx("PowerTrail",0,0,1,0,0,0,0,160);
+			Loop;
+		Death:
+			TNT1 A 0;
+			TNT1 A 0 A_Scream;
+			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("MissileTrail",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-180,180),160,128);
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionSmall",0,0,0,0,0,0,0,160);
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionLarge",0,0,0,0,0,0,0,160);
+			TNT1 A 0 A_SpawnItemEx("PowerBoltChargedExplosion",0,0,0,0,0,0,0,160,0);
+			TNT1 AAAAAAAAAA 0 A_GiveInventory("GrossHack",1);
+			TNT1 A 1 Bright A_Explode(120,128,0);
+			TNT1 A 0;
+			Stop;
+    }
+}
+
+Class PowerComboMissileSeeker : Actor 
+{
+    action void MDOFindTargets(int tracerDist = 200)
+    {
+        //borrowed from JGP's ElectroDriver
+        double closestDist = tracerDist;
+        
+        if(!target)
+            return;
+        
+        //Cast PowerBeam to mdhwep
+        let mdhwep = PowerBeam(target.FindInventory("PowerBeam"));
+        if(!mdhwep)
+            return;
+            
+        //iterate 32 times to give the player some time to acquire targets
+        for(int i = 32; i > 0; i--)
+        {
+            BlockThingsIterator itr = BlockThingsIterator.Create(self,tracerDist);
+            while (itr.next()) 
+            {
+                let next = itr.thing;
+                
+                //Ignore the player. Originally missiles could target the player
+                if (!next || next == self || next.player)
+                    continue;
+                
+                bool isValid = (next.bSHOOTABLE && ((!next.bIsMonster && !next.player) || health > 0 ));
+                
+                if (!isValid)
+                    continue;
+                    
+                double dist = Distance3D(next);
+                
+                //check distance between tracer and things
+                if (dist > tracerDist)
+                    continue;
+                    
+                if (dist < closestDist)
+                    closestDist = dist;
+                
+                //do not target enemies underwater
+                if (!CheckSight(next,SF_IGNOREWATERBOUNDARY))
+                    continue;
+                
+                // check if this actor isn't yet in the array:
+                if(mdhwep.seekerTargets.Find(next) == mdhwep.seekerTargets.Size())
+                {       
+                    //Give the TargetMarker control item (mark the enemy red)
+                    next.GiveInventory("TargetMarker",1);
+                    // add to the array:
+                    mdhwep.seekerTargets.Push(next);
+                    // set it as tracer:
+                    tracer = next;
+                    break;
+                }
+            }
+        }
+        A_Tracer2(180.0);
+    }
+			
+	Default
+	{
+		Radius 6;
+		Height 4;
+		Speed 20;
+		DamageFunction(175);
+		Projectile;
+		+FORCERADIUSDMG;
+		+FORCEXYBILLBOARD;
+		+SEEKERMISSILE;
+		+SCREENSEEKER;
+		+NODAMAGETHRUST;
+		+THRUSPECIES
+		Scale 0.50;
+		DeathSound "missile/hit";
+		Obituary "%k wrecked %o with a Power Missile.";
+		DamageType "PowerCombo";
+		Decal "Scorch";
+	}
+	
+    States
+	{
+		Spawn:
+			CPWM A 1 Bright NoDelay {
+				A_SpawnItemEx("PowerTrailSmall",-1.0,0,1,0,0,0,0,160);
+				MDOFindTargets();
+			}
+			Loop;
+		XDeath:
+			TNT1 A 0 A_Scream;
+			//TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("MissileTrailSmall",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-180,180),160,128);
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionSmall",0,0,0,0,0,0,0,160);
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionLarge",0,0,0,0,0,0,0,160);
+			//TNT1 A 0 A_SpawnItemEx("PowerBoltChargedExplosion",0,0,0,0,0,0,0,160,0);
+			TNT1 A 0 A_SpawnItemEx("PowerDeathExplode",random(-10,10)/100.00,random(-10,10)/100.00,random(-10,10)/100.00,random(-20,20)/100.00,random(-20,20)/100.00,random(-20,20)/100.00,random(-18,18),160,0);
+			TNT1 A 0 A_SpawnItemEx("PowerDeathExplode",random(-10,10)/100.00,random(-10,10)/100.00,random(-10,10)/100.00,random(-20,20)/100.00,random(-20,20)/100.00,random(-20,20)/100.00,random(-18,18),160,0);
+			TNT1 A 0 A_SpawnItemEx("PowerDeathExplode",random(-10,10)/100.00,random(-10,10)/100.00,random(-10,10)/100.00,random(-20,20)/100.00,random(-20,20)/100.00,random(-20,20)/100.00,random(-18,18),160,0);
+			//TNT1 AAAAAAAAAA 0 A_GiveInventory("GrossHack",1);
+			TNT1 A 1 Bright A_Explode(75,128,0);
+			TNT1 A 0 {
+				if(!tracer)
+					return;
+				else
+					tracer.TakeInventory("TargetMarker",1);
+			}
+			Stop;
+		Death:
+			TNT1 A 0 A_Scream;
+			//TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("MissileTrailSmall",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-180,180),160,128);
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionSmall",0,0,0,0,0,0,0,160);
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionLarge",0,0,0,0,0,0,0,160);
+			//TNT1 A 0 A_SpawnItemEx("PowerBoltChargedExplosion",0,0,0,0,0,0,0,160,0);
+			TNT1 AAAAAAAAAA 0 A_GiveInventory("GrossHack",1);
+			TNT1 A 1 Bright A_Explode(75,128,0);
+			TNT1 A 0 {
+				if(!tracer)
+					return;
+				else
+					tracer.TakeInventory("TargetMarker",1);
+			}
+			Stop;
+		Crash:
+			TNT1 A 0 A_Scream;
+			TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("MissileTrailSmall",random(-100,100)/100.00,random(-100,100)/100.00,random(-100,100)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-180,180),160,128);
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionSmall",0,0,0,0,0,0,0,160);
+			TNT1 AA 0 A_SpawnItemEx("MissileExplosionLarge",0,0,0,0,0,0,0,160);
+			//TNT1 A 0 A_SpawnItemEx("PowerBoltChargedExplosion",0,0,0,0,0,0,0,160,0);
+			TNT1 AAAAAAAAAA 0 A_GiveInventory("GrossHack",1);
+			TNT1 A 1 Bright A_Explode(75,128,0);
+			TNT1 A 0 {
+				if(!tracer)
+					return;
+				else
+					tracer.TakeInventory("TargetMarker",1);
+			}
+			Stop;
+	}
+}
+
+Class PowerComboMissileCoop : PowerComboMissile 
+{
+	Default
+	{
+		+THRUSPECIES; 
+		Species "Player"; 
+	}
+}
+
+Class PowerComboMissileSeekerCoop : PowerComboMissileSeeker 
+{ 
+	Default
+	{
+		+THRUSPECIES; 
+		Species "Player"; 
 	}
 }

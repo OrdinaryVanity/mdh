@@ -155,6 +155,7 @@ actor ScanVisorAcquired : Boolean {}
 actor CannotCombo : Boolean {}
 actor CanCombo : Boolean {}
 actor CanHyper : Boolean {}
+actor IsGrappling : Boolean {}
 
 actor KStoneYellowAcquired : Boolean {}
 actor KStoneRedAcquired : Boolean {}

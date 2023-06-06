@@ -328,7 +328,7 @@ script METROID_SPACEJUMP_ENTER2 enter
                 }
                 else if (!DidSpecials[pln] && !grabbing[pln])
                 {
-                    MultiJump(1, 0);
+					MultiJump(1, 0);
                 }
             }
         }
