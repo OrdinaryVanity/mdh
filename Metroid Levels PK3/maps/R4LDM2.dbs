@@ -1,0 +1,108 @@
+type = "Doom Builder Map Settings Configuration";
+gameconfig = "VKDoom_DoomUDMF.cfg";
+strictpatches = 0;
+
+maps
+{
+	
+	R4LDM2
+	{
+		defaultwalltexture = "METMETL7";
+		overridemiddletexture = false;
+		defaultceiltexture = "CEIL5_1";
+		overrideceiltexture = false;
+		custombrightness = 196;
+		scriptcompiler = "zdoom_acs.cfg";
+		
+		resources
+		{
+			
+			resource0
+			{
+				type = 1;
+				location = "E:\\Documents\\GitHub\\mdo\\Main PK3";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+				requiredarchives = "";
+			}
+			
+			resource1
+			{
+				type = 1;
+				location = "E:\\Documents\\GitHub\\mdo\\Metroid Levels PK3";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+				requiredarchives = "";
+			}
+			
+			resource2
+			{
+				type = 1;
+				location = "E:\\Documents\\GitHub\\mdo\\Scans PK3";
+				option1 = 0;
+				option2 = 0;
+				notfortesting = 0;
+				requiredarchives = "";
+			}
+		}
+		viewpositiony = 1196.8f;
+		viewpositionx = -127.1877f;
+		
+		testprecommand
+		{
+			autocloseonsuccess = true;
+			exitcodeiserror = true;
+			stderriserror = true;
+		}
+		customceilheight = 128;
+		customfloorheight = 0;
+		
+		grid
+		{
+			backoffsetx = 0;
+			backsource = 0;
+			gridoriginy = 0;
+			backscaley = 100;
+			gridrotate = 0;
+			backscalex = 100;
+			gridoriginx = 0;
+			gridsize = 8;
+			background = "";
+			backoffsety = 0;
+		}
+		viewscale = 0.3980432f;
+		
+		reloadresourceprecommand
+		{
+			autocloseonsuccess = true;
+			exitcodeiserror = true;
+			stderriserror = true;
+		}
+		defaulttoptexture = "METMETL7";
+		overridebottomtexture = false;
+		defaultbottomtexture = "METMETL7";
+		defaultfloortexture = "LITE5";
+		overrideceilheight = false;
+		overridebrightness = false;
+		
+		testpostcommand
+		{
+			autocloseonsuccess = true;
+			exitcodeiserror = true;
+			stderriserror = true;
+		}
+		overridefloorheight = false;
+		overridetoptexture = false;
+		uselongtexturenames = false;
+		overridefloortexture = false;
+		
+		reloadresourcepostcommand
+		{
+			autocloseonsuccess = true;
+			exitcodeiserror = true;
+			stderriserror = true;
+		}
+	}
+}

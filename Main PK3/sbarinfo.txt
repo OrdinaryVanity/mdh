@@ -10,7 +10,7 @@ InInventory InGame, 1 //[R4L] Counter for drawing the entire HUD. Take this away
 		//[R4L] Draw appropriate visors when selected.
 		IsSelected not "ScanVisorWeapon" //[R4L] Draw Combat Visor.
 		{
-			DrawImage "NEWSMVS2", 0, 0;
+			DrawImage "NEWSMVS7", 0, 0;
 			DrawImage "NEWSMVS1", 0, 0;
 			DrawImage "CBATVSB0", 628, 317;
 			

@@ -663,9 +663,9 @@ Class PlasmaBoltCoop : PlasmaBolt
 { 
 	Default
 	{
-		Damage (8);
+		Damage (12);
 		Speed 45;
-		Scale 0.01;
+		Scale 0.2;
 	}
 }
 
@@ -673,8 +673,8 @@ Class PlasmaTrail : Actor
 {
 	Default
 	{
-		Alpha 0.95;
-		Scale 0.05;
+		Alpha 0.55;
+		Scale 0.2;
 		+NOINTERACTION;
 		+CLIENTSIDEONLY;
 		+FORCEXYBILLBOARD;
@@ -687,7 +687,7 @@ Class PlasmaTrail : Actor
         TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(594,0,0,0) == 1,"Nope");
         TNT1 AAA 0 A_SpawnItemEx("PlasmaSpark",0,0,0,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,400)/100.00,random(-180,180),160,0);
         LSMT ABCDEFGHIJKL 1 BRIGHT A_SpawnItemEx("PlasmaTrailFlicker",0,0,0,random(-200,200)/100.00,random(-200,200)/100.00,random(-200,200)/100.00,random(-180,180),160,0);
-        Stop;
+		Stop;
 
       Nope:
         TNT1 A 1;
@@ -700,7 +700,7 @@ Class PlasmaTrailFlicker : PlasmaTrail
 	Default
 	{
 		+FORCEXYBILLBOARD;
-		Scale 0.075;
+		Scale 0.04;
 	}
 
     States
@@ -723,7 +723,7 @@ Class PlasmaSmoke : Actor
 	{
 		Speed 1;
 		Scale 0.08;
-		Alpha 0.8;
+		Alpha 0.4;
 		RenderStyle "Add";
 		+NOGRAVITY;
 		+NOBLOCKMAP;
